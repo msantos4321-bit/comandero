@@ -223,6 +223,11 @@ td input,td select{min-height:38px;padding:6px 8px}
 .inst-ic{width:44px;height:44px;border-radius:12px;background:var(--bar);color:var(--brand);display:grid;place-items:center;flex:none}
 .inst-ic svg{width:26px;height:26px}
 
+/* Reportes */
+.rep-hero{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.rep-big{font-family:var(--display);font-size:52px;font-weight:800;line-height:1;margin:4px 0}
+.rep-acts{display:grid;gap:8px;min-width:240px}
+.rep-aviso{display:flex;gap:14px;align-items:center;flex-wrap:wrap;border:2px solid var(--brand);margin-bottom:12px}
 /* Nube */
 .login-blk{max-width:520px;margin:40px auto;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:grid;gap:12px}
 .login-blk p{margin:0}
@@ -612,6 +617,74 @@ async function conectarRest(r,k){r=(r||'').trim().toLowerCase();k=(k||'').trim()
   try{const j=await rpc('cm_join',{p_r:r,p_k:k});try{localStorage.setItem('comandero-nube',JSON.stringify({r:j.id,k}))}catch(e){}toast('Conectado a '+j.nombre);setTimeout(()=>location.reload(),600)}
   catch(e){toast(e.message||'No se pudo conectar. Revisa el internet.')}}
 
+/* ---------- Reportes (PDF) y respaldo ---------- */
+const MESES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+function rango(p,desde,hasta){const d=new Date(),y=d.getFullYear(),m=d.getMonth(),dd=d.getDate();const D=(a,b,c)=>new Date(a,b,c);let a,b,nom;
+  if(p==='hoy'){a=D(y,m,dd);b=D(y,m,dd+1);nom='Hoy, '+dd+' de '+MESES[m]}
+  else if(p==='semana'){const w=(d.getDay()+6)%7;a=D(y,m,dd-w);b=D(y,m,dd-w+7);nom='Semana del '+a.getDate()+' de '+MESES[a.getMonth()]}
+  else if(p==='quincena'){if(dd<=15){a=D(y,m,1);b=D(y,m,16);nom='1ª quincena de '+MESES[m]}else{a=D(y,m,16);b=D(y,m+1,1);nom='2ª quincena de '+MESES[m]}}
+  else if(p==='mesPasado'){a=D(y,m-1,1);b=D(y,m,1);nom=MESES[a.getMonth()]+' '+a.getFullYear()}
+  else if(p==='otro'){a=desde?new Date(desde+'T00:00'):D(y,m,1);b=hasta?new Date(new Date(hasta+'T00:00').getTime()+864e5):D(y,m,dd+1);nom='Del '+a.getDate()+' de '+MESES[a.getMonth()]+' al '+new Date(b-864e5).getDate()+' de '+MESES[new Date(b-864e5).getMonth()]}
+  else{a=D(y,m,1);b=D(y,m+1,1);nom=MESES[m]+' '+y}
+  nom=nom.charAt(0).toUpperCase()+nom.slice(1);return {a:a.getTime(),b:b.getTime(),nom}}
+function calcReporte(a,b){
+  const pag=S.ordenes.filter(o=>o.estado==='pagada'&&o.pagadaT>=a&&o.pagadaT<b);
+  const sum=f=>pag.reduce((s,o)=>s+(+f(o)||0),0);
+  const r={cuentas:pag.length,venta:sum(o=>o.pago.total),ef:sum(o=>o.pago.efectivo),tj:sum(o=>o.pago.tarjeta),ap:sum(o=>o.pago.app),prop:sum(o=>o.pago.propina)};
+  r.ticket=r.cuentas?r.venta/r.cuentas:0;
+  const can={};pag.forEach(o=>{const n=canal(o.canal).nombre;can[n]=can[n]||{n:0,v:0};can[n].n++;can[n].v+=o.pago.total});r.canales=Object.entries(can).sort((x,y)=>y[1].v-x[1].v);
+  const it={};pag.forEach(o=>o.items.filter(i=>!i.cancel&&i.cat!=='Envío').forEach(i=>{it[i.nombre]=it[i.nombre]||{q:0,v:0};it[i.nombre].q+=i.qty;it[i.nombre].v+=i.precio*i.qty}));r.top=Object.entries(it).sort((x,y)=>y[1].q-x[1].q).slice(0,10);
+  const dias=[];const d0=new Date(a);for(let i=0;;i++){const dt=new Date(d0.getFullYear(),d0.getMonth(),d0.getDate()+i);if(dt.getTime()>=b||i>400)break;const k=dkey(dt);dias.push({k,d:dt,v:pag.filter(o=>dkey(new Date(o.pagadaT))===k).reduce((s,o)=>s+o.pago.total,0)})}r.dias=dias.length<=62?dias:[];
+  const hs={};pag.forEach(o=>{const h=new Date(o.pagadaT).getHours();hs[h]=(hs[h]||0)+o.pago.total});const hf=Object.entries(hs).sort((x,y)=>y[1]-x[1])[0];r.horaFuerte=hf?hf[0]+':00':'—';
+  const mejor=dias.slice().sort((x,y)=>y.v-x.v)[0];r.mejorDia=mejor&&mejor.v?mejor:null;
+  const can2=(S.movs||[]).filter(m=>m.tipo==='Cancelación'&&m.t>=a&&m.t<b);r.cancel={n:can2.length,v:can2.reduce((s,m)=>s+(+m.monto||0),0),lista:can2.slice(-8)};
+  const cor=(S.cortes||[]).filter(c=>c.t>=a&&c.t<b);r.cortes={n:cor.length,dif:cor.reduce((s,c)=>s+(+c.dif||0),0),mal:cor.filter(c=>c.dif!==0).length};
+  return r}
+function reporteActual(){const R=rango(ui.repP||'mes',ui.repDesde,ui.repHasta),el=Math.min(Date.now(),R.b)-R.a,pa=R.a-(R.b-R.a),ant=calcReporte(pa,pa+el),r=calcReporte(R.a,R.b);r.parcial=Date.now()<R.b;r.nom=R.nom;r.antVenta=ant.venta;r.cambio=ant.venta?Math.round((r.venta-ant.venta)/ant.venta*100):null;return r}
+function aReportes(){
+  const r=reporteActual(),P=ui.repP||'mes',pc=v=>r.venta?Math.round(v/r.venta*100)+'%':'—';
+  const opts=[['hoy','Hoy'],['semana','Esta semana'],['quincena','Quincena'],['mes','Este mes'],['mesPasado','Mes pasado'],['otro','Otras fechas']];
+  let h=`<div class="row" style="margin-bottom:12px"><h2 class="h2">Reportes</h2><span class="sp"></span><div class="opts">${opts.map(([k,v])=>`<button class="opt ${P===k?'on':''}" data-a="repP" data-p="${k}">${v}</button>`).join('')}</div></div>`;
+  if(P==='otro')h+=`<div class="row" style="margin-bottom:12px"><label style="flex:1"><span class="lbl">Desde</span><input type="date" id="repDesde" value="${esc(ui.repDesde||'')}"></label><label style="flex:1"><span class="lbl">Hasta</span><input type="date" id="repHasta" value="${esc(ui.repHasta||'')}"></label><button class="btn" data-a="repVer" style="align-self:end">Ver</button></div>`;
+  h+=`<div class="card rep-hero"><div><p class="lbl">${esc(r.nom)}</p><div class="rep-big num">${money(r.venta)}</div><p class="muted" style="margin:0">${r.cuentas} cuentas · ticket promedio ${money(r.ticket)}${r.cambio!==null?` · <b style="color:${r.cambio>=0?'var(--ok)':'var(--bad)'}">${r.cambio>=0?'+':''}${r.cambio}%</b> contra ${r.parcial?'los mismos días del periodo anterior':'el periodo anterior'}`:''}</p></div>
+   <div class="rep-acts"><button class="btn pri" data-a="repPDF" data-m="compartir">Mandar PDF por WhatsApp</button><button class="btn" data-a="repPDF" data-m="bajar">Descargar PDF</button><button class="btn ghost" data-a="repTexto">Copiar resumen en texto</button></div></div>
+  <div class="kpis" style="margin-top:12px"><div class="card kpi"><p class="lbl">Efectivo</p><div class="v num">${money(r.ef)}</div><small class="muted">${pc(r.ef)} · con propinas</small></div><div class="card kpi"><p class="lbl">Tarjeta</p><div class="v num">${money(r.tj)}</div><small class="muted">${pc(r.tj)} · con propinas</small></div><div class="card kpi"><p class="lbl">Pagado en apps</p><div class="v num">${money(r.ap)}</div><small class="muted">Uber Eats y DiDi</small></div><div class="card kpi"><p class="lbl">Propinas</p><div class="v num">${money(r.prop)}</div><small class="muted">hora fuerte ${esc(r.horaFuerte)}</small></div></div>
+  <div class="grid2" style="margin-top:12px"><div class="card"><p class="lbl">Más vendidos</p>${r.top.length?`<div class="tbl"><table><tr><th>Platillo</th><th style="text-align:right">Piezas</th><th style="text-align:right">Venta</th></tr>${r.top.map(([n,x])=>`<tr><td>${esc(n)}</td><td class="num" style="text-align:right">${x.q}</td><td class="num" style="text-align:right">${money(x.v)}</td></tr>`).join('')}</table></div>`:'<p class="muted">Sin ventas en este periodo.</p>'}</div>
+  <div class="card" style="display:grid;gap:10px;align-content:start"><p class="lbl">Por tipo de pedido</p>${r.canales.map(([n,x])=>`<div class="row"><span>${esc(n)}</span><span class="sp"></span><span class="muted">${x.n} cuentas</span><b class="num" style="min-width:90px;text-align:right">${money(x.v)}</b></div>`).join('')||'<p class="muted">—</p>'}
+   <p class="lbl" style="margin-top:8px">Control</p><div class="row"><span>Cancelaciones</span><span class="sp"></span><b class="num">${r.cancel.n} · ${money(r.cancel.v)}</b></div><div class="row"><span>Cortes de caja</span><span class="sp"></span><b class="num">${r.cortes.n}${r.cortes.mal?` · ${r.cortes.mal} no cuadraron`:''}</b></div></div></div>
+  <div class="card" style="margin-top:12px;display:grid;gap:10px"><p class="lbl">Respaldo</p><p class="muted" style="margin:0">Descarga una copia completa de los datos del restaurante: menú, mesas, equipo, cuentas y ventas. Guárdala en tu correo o en tu Drive.${CN?' Además, cada semana se guarda una copia automática en la nube.':''}</p><div class="row"><button class="btn" data-a="respaldo">Descargar respaldo completo</button></div></div>`;
+  return h}
+let jsPDFp=null;
+function cargarPDF(){if(window.jspdf)return Promise.resolve(window.jspdf);if(jsPDFp)return jsPDFp;jsPDFp=new Promise((ok,no)=>{const s=document.createElement('script');s.src=window.JSPDF_URL||'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';s.onload=()=>ok(window.jspdf);s.onerror=()=>{jsPDFp=null;no(new Error('Sin internet para preparar el PDF'))};document.head.appendChild(s)});return jsPDFp}
+const hex2rgb=h=>{h=(h||'#E8622C').replace('#','');if(h.length===3)h=h.split('').map(c=>c+c).join('');const n=parseInt(h,16);return [(n>>16)&255,(n>>8)&255,n&255]};
+async function hacerPDF(){
+  const {jsPDF}=await cargarPDF(),r=reporteActual(),c=S.config,doc=new jsPDF({unit:'mm',format:'letter'}),W=216,M=16,br=hex2rgb(c.color);let y=0;
+  const tx=(t,x,yy,o)=>doc.text(String(t),x,yy,o||{});const mon=v=>money(v);
+  doc.setFillColor(21,18,16);doc.rect(0,0,W,34,'F');doc.setFillColor(...br);doc.rect(0,34,W,1.6,'F');
+  let lx=M;const lg=foto(c.logo);if(lg&&/^data:image\/(png|jpe?g)/.test(lg)){try{doc.addImage(lg,lg.includes('png')?'PNG':'JPEG',M,7,30,20,undefined,'FAST');lx=M+34}catch(e){}}
+  doc.setTextColor(244,239,232);doc.setFont('helvetica','bold');doc.setFontSize(18);tx(c.nombre,lx,16);doc.setFont('helvetica','normal');doc.setFontSize(10.5);tx('Resumen de ventas · '+r.nom,lx,23);doc.setFontSize(8.5);doc.setTextColor(180,170,160);tx('Hecho el '+new Date().toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'}),lx,28.5);
+  y=46;doc.setTextColor(26,23,21);doc.setFontSize(9);doc.setTextColor(107,99,92);tx('VENTA DEL PERIODO',M,y);y+=11;doc.setFont('helvetica','bold');doc.setFontSize(28);doc.setTextColor(26,23,21);tx(mon(r.venta),M,y);
+  doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(107,99,92);tx(r.cuentas+' cuentas · ticket promedio '+mon(r.ticket)+(r.cambio!==null?' · '+(r.cambio>=0?'+':'')+r.cambio+'% contra '+(r.parcial?'los mismos días del periodo anterior':'el periodo anterior')+' ('+mon(r.antVenta)+')':''),M,y+7);
+  y+=16;const box=(x,t,v,s)=>{doc.setDrawColor(221,215,208);doc.setFillColor(247,245,242);doc.roundedRect(x,y,43,22,2,2,'FD');doc.setFontSize(7.5);doc.setTextColor(107,99,92);tx(t.toUpperCase(),x+3,y+6);doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(26,23,21);tx(v,x+3,y+14);doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(107,99,92);tx(s,x+3,y+19)};
+  box(M,'Efectivo',mon(r.ef),'con propinas');box(M+46,'Tarjeta',mon(r.tj),'con propinas');box(M+92,'Pagado en apps',mon(r.ap),'Uber Eats y DiDi');box(M+138,'Propinas',mon(r.prop),'hora fuerte '+r.horaFuerte);y+=32;
+  if(r.dias.length>1){doc.setFontSize(9);doc.setTextColor(107,99,92);tx('VENTA POR DÍA',M,y);if(r.mejorDia){doc.setFontSize(8.5);tx('Mejor día: '+r.mejorDia.d.toLocaleDateString('es-MX',{weekday:'long',day:'numeric'})+' · '+mon(r.mejorDia.v),W-M,y,{align:'right'})}y+=4;
+    const ch=34,cw=W-2*M,n=r.dias.length,bw=cw/n,mx=Math.max(1,...r.dias.map(d=>d.v));doc.setDrawColor(221,215,208);doc.line(M,y+ch,W-M,y+ch);
+    r.dias.forEach((d,i)=>{const hh=d.v/mx*ch;if(hh>0){doc.setFillColor(...br);doc.rect(M+i*bw+bw*.15,y+ch-hh,bw*.7,hh,'F')}if(n<=16||d.d.getDate()%5===1||i===0){doc.setFontSize(6.5);doc.setTextColor(107,99,92);tx(n<=8?['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'][d.d.getDay()]+' '+d.d.getDate():String(d.d.getDate()),M+i*bw+bw/2,y+ch+4,{align:'center'})}});y+=ch+12}
+  const col2=W/2+4;let yL=y,yR=y;doc.setFontSize(9);doc.setTextColor(107,99,92);tx('MÁS VENDIDOS',M,yL);yL+=6;doc.setFontSize(9.5);
+  if(!r.top.length){doc.setTextColor(107,99,92);tx('Sin ventas en este periodo.',M,yL);yL+=6}
+  r.top.forEach(([n,x],i)=>{doc.setTextColor(26,23,21);tx((i+1)+'. '+(n.length>30?n.slice(0,29)+'…':n),M,yL);doc.setTextColor(107,99,92);tx(x.q+' pz',M+66,yL,{align:'right'});doc.setTextColor(26,23,21);tx(mon(x.v),col2-8,yL,{align:'right'});yL+=5.6});
+  doc.setFontSize(9);doc.setTextColor(107,99,92);tx('POR TIPO DE PEDIDO',col2,yR);yR+=6;doc.setFontSize(9.5);
+  r.canales.forEach(([n,x])=>{doc.setTextColor(26,23,21);tx(n,col2,yR);doc.setTextColor(107,99,92);tx(x.n+' cuentas',col2+50,yR,{align:'right'});doc.setTextColor(26,23,21);tx(mon(x.v),W-M,yR,{align:'right'});yR+=5.6});
+  yR+=5;doc.setFontSize(9);doc.setTextColor(107,99,92);tx('CONTROL',col2,yR);yR+=6;doc.setFontSize(9.5);doc.setTextColor(26,23,21);
+  tx('Cancelaciones',col2,yR);tx(r.cancel.n+' · '+mon(r.cancel.v),W-M,yR,{align:'right'});yR+=5.6;tx('Cortes de caja',col2,yR);tx(r.cortes.n+(r.cortes.n?(r.cortes.mal?' · '+r.cortes.mal+' no cuadraron':' · todos cuadraron'):''),W-M,yR,{align:'right'});yR+=5.6;
+  if(r.cortes.dif){tx('Diferencia acumulada',col2,yR);tx(mon(r.cortes.dif),W-M,yR,{align:'right'});yR+=5.6}
+  y=Math.max(yL,yR)+6;if(r.cancel.lista.length&&y<240){doc.setFontSize(9);doc.setTextColor(107,99,92);tx('ÚLTIMAS CANCELACIONES',M,y);y+=6;doc.setFontSize(8.5);r.cancel.lista.forEach(m=>{if(y>262)return;doc.setTextColor(26,23,21);const l=new Date(m.t).toLocaleDateString('es-MX',{day:'numeric',month:'short'})+' · '+m.det+' · '+(m.quien||'')+' · '+(m.motivo||'');tx(l.length>110?l.slice(0,109)+'…':l,M,y);tx(mon(m.monto),W-M,y,{align:'right'});y+=5})}
+  doc.setDrawColor(221,215,208);doc.line(M,268,W-M,268);doc.setFontSize(7.5);doc.setTextColor(150,140,130);tx('Hecho con Comandero · Las ventas son de cuentas cobradas; efectivo y tarjeta incluyen propinas.',M,273);
+  const nombre=('Resumen '+c.nombre+' '+r.nom).replace(/[^\wáéíóúñÁÉÍÓÚÑ ]+/g,'').replace(/\s+/g,'-')+'.pdf';return {blob:doc.output('blob'),nombre,r}}
+function textoReporte(){const r=reporteActual(),c=S.config;let s=`*${c.nombre}* · Resumen ${r.nom}\n\nVenta: *${money(r.venta)}*${r.cambio!==null?` (${r.cambio>=0?'+':''}${r.cambio}% vs periodo anterior)`:''}\nCuentas: ${r.cuentas} · Ticket promedio: ${money(r.ticket)}\nEfectivo: ${money(r.ef)} · Tarjeta: ${money(r.tj)} · Apps: ${money(r.ap)}\nPropinas: ${money(r.prop)} · Hora fuerte: ${r.horaFuerte}\n`;
+  if(r.top.length)s+=`\nMás vendidos:\n${r.top.slice(0,5).map(([n,x],i)=>`${i+1}. ${n} (${x.q})`).join('\n')}\n`;s+=`\nCancelaciones: ${r.cancel.n} (${money(r.cancel.v)}) · Cortes: ${r.cortes.n}${r.cortes.mal?`, ${r.cortes.mal} no cuadraron`:''}`;return s}
+function bajarArchivo(blob,nombre){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=nombre;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(u);a.remove()},1500)}
+
 /* ---------- Instalar como app ---------- */
 let instEvt=null;
 const esApp=()=>{try{return matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}catch(e){return false}};
@@ -734,11 +807,12 @@ function vCaja(){
 
 /* Gerente */
 function vAdmin(){
-  const tabs={resumen:'Resumen de hoy',horarios:'Horarios y asistencia',menu:'Menú y precios',promos:'Promociones',mesas:'Mesas',canales:'Pedidos y plataformas',equipo:'Equipo y PIN',rest:'Restaurante'};
+  const tabs={resumen:'Resumen de hoy',reportes:'Reportes',horarios:'Horarios y asistencia',menu:'Menú y precios',promos:'Promociones',mesas:'Mesas',canales:'Pedidos y plataformas',equipo:'Equipo y PIN',rest:'Restaurante'};
   if(!featOn('asistencia'))delete tabs.horarios;if(!featOn('promociones'))delete tabs.promos;if(!tabs[ui.adm])ui.adm='resumen';
   let h=`<nav class="atabs">${Object.entries(tabs).map(([k,v])=>`<button class="atab ${ui.adm===k?'on':''}" data-a="adm" data-t="${k}">${v}</button>`).join('')}</nav>`;
-  return h+({resumen:aResumen,horarios:aHorarios,menu:aMenu,promos:aPromos,mesas:aMesas,canales:aCanales,equipo:aEquipo,rest:aRest}[ui.adm])();
+  return h+({resumen:aResumen,reportes:aReportes,horarios:aHorarios,menu:aMenu,promos:aPromos,mesas:aMesas,canales:aCanales,equipo:aEquipo,rest:aRest}[ui.adm])();
 }
+function avisoMes(){const d=new Date();if(d.getDate()>7)return '';let v='';try{v=localStorage.getItem(KEY+'-avisoMes')||''}catch(e){}if(v===dkey(d).slice(0,7))return '';const pm=MESES[(d.getMonth()+11)%12];return `<div class="card rep-aviso"><div style="flex:1;min-width:0"><b>Ya está listo tu resumen de ${pm}</b><p class="muted" style="margin:2px 0 0">Ventas, lo más vendido y el control de caja del mes, en un PDF para mandar por WhatsApp.</p></div><button class="btn pri" data-a="verResumenMes">Ver resumen</button></div>`}
 function aResumen(){
   const pag=S.ordenes.filter(o=>o.estado==='pagada'&&hoy(o.pagadaT));
   const v=pag.reduce((a,o)=>a+o.pago.total,0),ef=pag.reduce((a,o)=>a+o.pago.efectivo,0),tj=pag.reduce((a,o)=>a+o.pago.tarjeta,0),pr=pag.reduce((a,o)=>a+o.pago.propina,0),apv=pag.reduce((a,o)=>a+(o.pago.app||0),0);
@@ -753,7 +827,7 @@ function aResumen(){
   const graf=(arr,mx,fmt)=>`<div class="vbars ${arr.length>8?'many':''}">${arr.map(x=>`<div class="vb ${x.hoy?'on':''}" title="${esc(x.l)}: ${money(x.v)}"><span class="vv2 num">${fmt(x.v)}</span><span class="col"><i style="height:${Math.max(2,x.v/mx*100)}%"></i></span><span class="vl">${esc(x.l)}</span></div>`).join('')}</div>`;
   const kmon=v=>v>=1000?'$'+(v/1000).toFixed(1)+'k':'$'+Math.round(v);
   const charts=`<div class="grid2" style="margin-top:12px"><div class="card"><div class="row"><p class="lbl">Últimos 7 días</p><span class="sp"></span><b class="num">${money(semTot)}</b></div>${graf(dias,semMx,kmon)}</div><div class="card"><div class="row"><p class="lbl">Venta promedio por hora</p><span class="sp"></span><small class="muted">Hora fuerte: ${pico.l}:00</small></div>${graf(hs,hMx,kmon)}</div></div>`;
-  return `<div class="kpis"><div class="card kpi"><p class="lbl">Ventas cobradas</p><div class="v num">${money(v)}</div><small class="muted">${pag.length} cuentas · ticket promedio ${money(pag.length?v/pag.length:0)}</small></div>
+  return avisoMes()+`<div class="kpis"><div class="card kpi"><p class="lbl">Ventas cobradas</p><div class="v num">${money(v)}</div><small class="muted">${pag.length} cuentas · ticket promedio ${money(pag.length?v/pag.length:0)}</small></div>
   <div class="card kpi"><p class="lbl">Efectivo</p><div class="v num">${money(ef)}</div><small class="muted">incluye propinas</small></div>
   <div class="card kpi"><p class="lbl">Tarjeta</p><div class="v num">${money(tj)}</div><small class="muted">${apv?'+ '+money(apv)+' pagado en apps':'incluye propinas'}</small></div>
   <div class="card kpi"><p class="lbl">Por cobrar ahora</p><div class="v num">${money(pend)}</div><small class="muted">${abiertas.length} cuentas abiertas · propinas ${money(pr)}</small></div></div>${featOn('graficas')?charts:''}
@@ -962,6 +1036,14 @@ const A={
   conectar:()=>{ui.modal={tipo:'conectar'};render()},
   conectarOk:()=>{conectarRest(document.getElementById('cr').value,document.getElementById('ck').value)},
   reintentar:()=>{nubeTraer()},
+  repP:d=>{ui.repP=d.p;render()},
+  repVer:()=>{ui.repDesde=document.getElementById('repDesde').value;ui.repHasta=document.getElementById('repHasta').value;render()},
+  repTexto:()=>copiar(textoReporte(),'Resumen copiado. Pégalo en WhatsApp','Resumen'),
+  repPDF:async d=>{toast('Preparando el PDF…');try{const {blob,nombre,r}=await hacerPDF();const f=new File([blob],nombre,{type:'application/pdf'});
+    if(d.m==='compartir'&&navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:'Resumen '+r.nom,text:S.config.nombre+' · Resumen '+r.nom})}catch(e){if(e.name!=='AbortError')bajarArchivo(blob,nombre)}}
+    else{bajarArchivo(blob,nombre);if(d.m==='compartir')toast('Se descargó el PDF. Adjúntalo en WhatsApp desde Descargas.')}}catch(e){toast(e.message||'No se pudo hacer el PDF')}},
+  respaldo:()=>{const data={app:'Comandero',version:1,restaurante:CN?CN.r:'demo',fecha:new Date().toISOString(),datos:S,fotos:FOTOS};bajarArchivo(new Blob([JSON.stringify(data)],{type:'application/json'}),'Respaldo-'+(S.config.nombre||'restaurante').replace(/[^\wáéíóúñÁÉÍÓÚÑ]+/g,'-')+'-'+dkey(new Date())+'.json');toast('Respaldo descargado')},
+  verResumenMes:()=>{ui.adm='reportes';ui.repP='mesPasado';try{localStorage.setItem(KEY+'-avisoMes',dkey(new Date()).slice(0,7))}catch(e){}render()},
   verCuenta:()=>{const t=document.querySelector('.ticket');if(t)t.scrollIntoView({behavior:'smooth',block:'start'})},
   billete:d=>{ui.modal.recib=String(d.v);renderModal()},
   imprimir:d=>{const o=S.ordenes.find(x=>x.id===d.o),t=tot(o),c=S.config;let el=document.getElementById('printArea');if(!el){el=document.createElement('div');el.id='printArea';document.body.appendChild(el)}
