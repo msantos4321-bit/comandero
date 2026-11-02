@@ -548,6 +548,7 @@ function rpc(fn,args){return fetch(NUBE.url+'/rest/v1/rpc/'+fn,{method:'POST',he
 function nubeMarcar(){
   DOCS.forEach(k=>{const h=hashOf(docVal(k));if(nube.hash['d:'+k]!==h)nube.dirty.add('d:'+k)});
   S.ordenes.forEach(o=>{const h=hashOf(o);if(nube.hash['o:'+o.id]!==h)nube.dirty.add('o:'+o.id)});
+  const vivas=new Set(S.ordenes.map(o=>'o:'+o.id));Object.keys(nube.hash).forEach(k=>{if(k.startsWith('o:')&&nube.hash[k]!=='x'&&!vivas.has(k))nube.dirty.add(k)});
   clearTimeout(nube.pushT);nube.pushT=setTimeout(nubeEnviar,250)}
 async function nubeEnviar(){
   if(!CN||nube.cargando||nube.enviando||!nube.dirty.size)return;
