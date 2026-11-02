@@ -281,6 +281,7 @@ input[type=checkbox]{accent-color:var(--brand)}
 .vb i{display:block;width:100%;max-width:38px;border-radius:6px 6px 2px 2px;background:color-mix(in srgb,var(--brand) 45%,var(--chip))}
 .vb.on i{background:var(--brand)}
 .vb .vv2{font-size:10.5px;color:var(--muted);white-space:nowrap}
+@media(max-width:700px){.vbars.many .vv2{display:none}}
 .vb .vl{font-size:12px;font-weight:700;color:var(--muted)}
 .vb.on .vl{color:var(--ink)}
 /* ===== Capa visual 2 ===== */
@@ -749,7 +750,7 @@ function aResumen(){
   const semMx=Math.max(1,...dias.map(x=>x.v)),semTot=dias.reduce((a,x)=>a+x.v,0);
   const horas={};S.ordenes.filter(o=>o.estado==='pagada'&&dkey(new Date(o.pagadaT))!==dkey(new Date())&&(Date.now()-o.pagadaT)<7*864e5).forEach(o=>{const h=new Date(o.pagadaT).getHours();horas[h]=(horas[h]||0)+o.pago.total});
   const hs=[];for(let h=12;h<=23;h++)hs.push({l:h+'',v:(horas[h]||0)/6});const hMx=Math.max(1,...hs.map(x=>x.v));const pico=hs.reduce((a,x)=>x.v>a.v?x:a,hs[0]);
-  const graf=(arr,mx,fmt)=>`<div class="vbars">${arr.map(x=>`<div class="vb ${x.hoy?'on':''}" title="${esc(x.l)}: ${money(x.v)}"><span class="vv2 num">${fmt(x.v)}</span><span class="col"><i style="height:${Math.max(2,x.v/mx*100)}%"></i></span><span class="vl">${esc(x.l)}</span></div>`).join('')}</div>`;
+  const graf=(arr,mx,fmt)=>`<div class="vbars ${arr.length>8?'many':''}">${arr.map(x=>`<div class="vb ${x.hoy?'on':''}" title="${esc(x.l)}: ${money(x.v)}"><span class="vv2 num">${fmt(x.v)}</span><span class="col"><i style="height:${Math.max(2,x.v/mx*100)}%"></i></span><span class="vl">${esc(x.l)}</span></div>`).join('')}</div>`;
   const kmon=v=>v>=1000?'$'+(v/1000).toFixed(1)+'k':'$'+Math.round(v);
   const charts=`<div class="grid2" style="margin-top:12px"><div class="card"><div class="row"><p class="lbl">Últimos 7 días</p><span class="sp"></span><b class="num">${money(semTot)}</b></div>${graf(dias,semMx,kmon)}</div><div class="card"><div class="row"><p class="lbl">Venta promedio por hora</p><span class="sp"></span><small class="muted">Hora fuerte: ${pico.l}:00</small></div>${graf(hs,hMx,kmon)}</div></div>`;
   return `<div class="kpis"><div class="card kpi"><p class="lbl">Ventas cobradas</p><div class="v num">${money(v)}</div><small class="muted">${pag.length} cuentas · ticket promedio ${money(pag.length?v/pag.length:0)}</small></div>
