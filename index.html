@@ -217,6 +217,11 @@ td input,td select{min-height:38px;padding:6px 8px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 
 
+.inst{display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:var(--surface);border:2px solid var(--brand);border-radius:16px;padding:12px 14px}
+.inst p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.inst b{font-size:16px}
+.inst-ic{width:44px;height:44px;border-radius:12px;background:var(--bar);color:var(--brand);display:grid;place-items:center;flex:none}
+.inst-ic svg{width:26px;height:26px}
 /* Demostración */
 .pitch{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
 .pitch h3{font-size:28px;margin-top:4px}
@@ -476,6 +481,19 @@ const ICONS={
  cocina:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 2.5-1 4 1 6.5S16 12 12 15c-4-3-1-5.5-1-7.5S10 5 12 3Z"/><path d="M5 15h14l-1.5 6h-11z"/></svg>',
  caja:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11" rx="2"/><path d="M7 9V5h10v4M7 14h2M11 14h2M15 14h2M7 17h10"/></svg>',
  admin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>'};
+
+/* ---------- Instalar como app ---------- */
+let instEvt=null;
+const esApp=()=>{try{return matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}catch(e){return false}};
+const esIOS=()=>/iphone|ipad|ipod/i.test(navigator.userAgent);
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();instEvt=e;if(!ui.rol)render()});
+window.addEventListener('appinstalled',()=>{instEvt=null;toast('Listo: Comandero quedó instalado');render()});
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
+function instalarHtml(){
+  if(esApp())return '';
+  if(ui.instAyuda)return `<div class="inst"><div class="inst-ic">${ICONS.mesero}</div><div style="flex:1;min-width:0"><b>Instalar Comandero</b>${esIOS()?'<p>En Safari toca el botón <b>Compartir</b> (cuadro con flecha hacia arriba) y luego <b>«Agregar a inicio»</b>.</p>':'<p>Toca los <b>tres puntitos</b> de Chrome, arriba a la derecha, y elige <b>«Instalar app»</b> o <b>«Agregar a la pantalla principal»</b>.</p>'}</div><button class="btn sm" data-a="instCerrar">Entendido</button></div>`;
+  return `<div class="inst"><div class="inst-ic">${ICONS.mesero}</div><div style="flex:1;min-width:0"><b>Úsala como app</b><p>Con su ícono en la pantalla, abre en pantalla completa y funciona sin internet.</p></div><button class="btn pri" data-a="instalar">Instalar app</button></div>`;
+}
 let relojT=null;
 function vInicio(){
   const c=S.config,ab=S.ordenes.filter(o=>o.estado==='abierta');
@@ -486,7 +504,7 @@ function vInicio(){
   const d=new Date(),hr=d.getHours(),sal=hr<12?'Buenos días':hr<19?'Buenas tardes':'Buenas noches';
   const fecha=d.toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long'});
   clearInterval(relojT);relojT=setInterval(()=>{const r=document.getElementById('reloj');if(!r){clearInterval(relojT);return}r.textContent=new Date().toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'})},15000);
-  let h=`<section class="lobby"><div class="lob-top"><div><p class="saludo">${sal}</p><h2>${esc(c.nombre)}</h2><p class="fecha">${esc(fecha.charAt(0).toUpperCase()+fecha.slice(1))}</p></div><div class="reloj" id="reloj">${d.toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'})}</div></div>
+  let h=`<section class="lobby">${instalarHtml()}<div class="lob-top"><div><p class="saludo">${sal}</p><h2>${esc(c.nombre)}</h2><p class="fecha">${esc(fecha.charAt(0).toUpperCase()+fecha.slice(1))}</p></div><div class="reloj" id="reloj">${d.toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'})}</div></div>
   <div class="vivo"><div class="vv"><span class="n">${ocup}<small style="font-size:18px;color:var(--muted)">/${S.mesas.length}</small></span><span class="t">Mesas ocupadas</span></div><div class="vv"><span class="n">${ab.length}</span><span class="t">Cuentas abiertas</span></div><div class="vv ${enCoc?'hot':''}"><span class="n">${enCoc}</span><span class="t">Platillos en cocina</span></div><div class="vv hot"><span class="n">${money(venta)}</span><span class="t">Venta de hoy</span></div></div>
   <div class="roles">`;
   Object.entries(ROLES).forEach(([k,r])=>h+=`<button class="role" data-a="rol" data-r="${k}"><span class="ic">${ICONS[k]||''}</span><b>${r.t}</b><span>${r.d}</span><i>Entrar con mi PIN</i></button>`);
@@ -760,6 +778,8 @@ const A={
   asist:()=>pinPrompt({titulo:'Checar entrada o salida',sub:'Escribe tu PIN',para:{k:'asist'}}),
   miHorario:()=>pinPrompt({titulo:'Ver mi horario',sub:'Escribe tu PIN',para:{k:'mih'}}),
   salir:()=>{ui=Object.assign(ui,{rol:null,user:null,orden:null,cat:null,q:'',modal:null,np:null,cajaSel:null,hEdit:false});render();scrollTo(0,0)},
+  instalar:async()=>{if(instEvt){instEvt.prompt();try{await instEvt.userChoice}catch(e){}instEvt=null;render()}else{ui.instAyuda=true;render()}},
+  instCerrar:()=>{ui.instAyuda=false;render()},
   demoReset:()=>{try{localStorage.removeItem(KEY)}catch(e){}S=seed();migrar();save();ui.rol=null;ui.orden=null;render();toast('Demostración reiniciada')},
   tipOk:d=>{ui.tips[d.k]=1;try{localStorage.setItem(KEY+'-tips',JSON.stringify(ui.tips))}catch(e){}render()},
   ayuda:()=>{ui.modal={tipo:'ayuda',q:''};renderModal()},
