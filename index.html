@@ -368,6 +368,10 @@ td select{min-width:128px}
 .servir{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center}
 .servir .its{font-size:14px;line-height:1.3}
 .corte-desde{font-size:13px;margin:0}
+button.who{color:var(--bar-ink);cursor:pointer}
+button.who i{font-style:normal;color:var(--brand);font-size:12px}
+.cs-s{display:none}@media(max-width:420px){.cs-l{display:none}.cs-s{display:inline}}
+.atiende{font-size:13px;color:var(--muted);margin:2px 0 0}
 </style>
 </head>
 <body>
@@ -382,7 +386,7 @@ let FOTOS={};
 const NUBE={url:'https://wnwecaapchcfhcljsvli.supabase.co',key:'sb_publishable_vnkSLd5EzN53_LBv76YxUA_QRo2u8ok'};
 let CN=null;try{CN=JSON.parse(localStorage.getItem('comandero-nube')||'null')}catch(e){}
 (function(){try{const q=new URLSearchParams(location.search),r=q.get('r'),k=q.get('k');if(r&&k){CN={r:r.trim().toLowerCase(),k:k.trim().toUpperCase()};try{localStorage.setItem('comandero-nube',JSON.stringify(CN))}catch(e){}history.replaceState(null,'',location.pathname)}}catch(e){}})();
-const KEY=CN?'comandero-r-'+CN.r:'comandero-demo-v3';
+const KEY=CN?'comandero-r-'+CN.r:'comandero-demo-v4';
 const DIAS=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 const PUESTOS=['Gerente','Encargada','Mesero','Cocina','Caja'];
 const PERM={'Gerente':['mesero','cocina','caja','admin','autoriza'],'Encargada':['mesero','cocina','caja','autoriza'],'Mesero':['mesero'],'Cocina':['cocina'],'Caja':['caja','mesero']};
@@ -454,7 +458,7 @@ function seed(nd){
       {id:uid(),nombre:'Churros de cortesía',tipo:'cortesia',valor:0,cat:'',item:'Churros con cajeta',dias:[0],activa:true},
       {id:uid(),nombre:'10% toda la cuenta',tipo:'pct',valor:10,cat:'',item:'',dias:[],activa:false}
     ],
-    empleados:[{id:uid(),nombre:'Sofía',puesto:'Gerente',pin:'1234'},{id:uid(),nombre:'Laura',puesto:'Mesero',pin:'1111'},{id:uid(),nombre:'Toño',puesto:'Cocina',pin:'2222'},{id:uid(),nombre:'Karla',puesto:'Caja',pin:'3333'}],
+    empleados:[{id:uid(),nombre:'Sofía',puesto:'Gerente',pin:'1234'},{id:uid(),nombre:'Laura',puesto:'Mesero',pin:'1111'},{id:uid(),nombre:'Miguel',puesto:'Mesero',pin:'5555'},{id:uid(),nombre:'Toño',puesto:'Cocina',pin:'2222'},{id:uid(),nombre:'Karla',puesto:'Caja',pin:'3333'}],
     ordenes:[],movs:[],asist:[],cortes:[],marcas:{},tolerancia:10,seq:100,demoDia:dkey(new Date())
   };
   const now=Date.now(),min=60000, mm=id=>S.menu.find(x=>x.id===id);
@@ -485,6 +489,8 @@ function seed(nd){
   S.ordenes.push(ord('domicilio',null,'Ana López, 664 123 4567, Calle 5 #120',[li('c_cost','Salsa: BBQ',1,11)]));
   // precios de Uber/DiDi con su ajuste
   S.ordenes.filter(o=>o.estado==='abierta'&&['uber','didi'].includes(o.canal)).forEach(o=>o.items.forEach(i=>i.precio=Math.round(i.precio*1.3)));
+  {const E=n=>{const e=S.empleados.find(x=>x.nombre===n);return {id:e.id,nombre:e.nombre}},La=E('Laura'),Mi=E('Miguel'),Ka=E('Karla');let k=0;
+    S.ordenes.forEach(o=>{o.mesero=['uber','didi'].includes(o.canal)?Ka:o.estado==='abierta'?((k++)%2?Mi:La):(rnd()<.55?La:Mi);o.items.forEach(i=>i.por=o.mesero.nombre)})}
   S.movs.push({id:uid(),t:now-60*min,tipo:'Cancelación',quien:'Sofía',det:'1× Refresco · Mesa 1',motivo:'Cliente cambió de opinión',monto:40});
   S.movs.push({id:uid(),t:now-3*864e5,tipo:'Cancelación',quien:'Sofía',det:'1× Arrachera · Mesa 4',motivo:'Se tardó mucho, el cliente ya no quiso',monto:320});
   return S;
@@ -547,11 +553,11 @@ function render(){
   const c=S.config;document.documentElement.style.setProperty('--brand',c.color);document.documentElement.style.setProperty('--brand-ink',inkFor(c.color));
   const lg=foto(c.logo);
   let h=`<header class="top"><div class="in ${ui.rol?'dentro':''}"><div class="logo">${lg?`<img src="${lg}" alt="Logo de ${esc(c.nombre)}">`:esc(c.iniciales)}</div><div class="brandname"><h1>${esc(c.nombre)}</h1><small>${esc(c.lema)}</small></div>`;
-  if(ui.rol)h+=`<span class="who">${esc(ROLES[ui.rol].t)} · ${esc(ui.user.nombre)}</span>`;
+  if(ui.rol)h+=`<button class="who" data-a="cambiar" title="Cambiar de usuario en este aparato">${esc(ROLES[ui.rol].t)} · ${esc(ui.user.nombre)}${ui.cubre?' (cubriendo)':''} <i>⇄</i></button>`;
   else h+=(CN&&!nube.features.demo)?'':`<span class="demo">Demostración${CN?' en vivo':''}</span>`;
   if(CN)h+=`<span id="nubeDot" class="nube ${nube.estado}" title="Conexión"></span>`;
   h+=`<button class="hlp" data-a="ayuda" aria-label="Ayuda">?</button>`;
-  if(ui.rol)h+=`<button class="btn sm bar" data-a="salir">Salir</button>`;
+  if(ui.rol)h+=`<button class="btn sm bar" data-a="salir"><span class="cs-l">Cerrar sesión</span><span class="cs-s">Salir</span></button>`;
   h+=`</div></header><main class="wrap">`;
   h+= (CN&&nube.bloqueo)?`<div class="login-blk"><p class="lbl">${nube.bloqueo==='pausado'?'Servicio pausado':'Código cambiado'}</p><h2 class="h2">${nube.bloqueo==='pausado'?'El servicio de este restaurante está pausado':'Hay que conectar este aparato otra vez'}</h2><p class="muted">${nube.bloqueo==='pausado'?'No se borró nada: menú, cuentas y ventas siguen guardados. Comunícate con tu proveedor para reactivarlo.':'El código de acceso del restaurante cambió. Pide la liga nueva al gerente o a tu proveedor, o escribe el código nuevo.'}</p><div class="row">${nube.bloqueo==='codigo'?'<button class="btn pri" data-a="conectar">Escribir código nuevo</button>':''}<button class="btn" data-a="reintentar">Revisar otra vez</button></div></div>`: (CN&&nube.cargando)?`<div class="empty" style="margin-top:40px"><b>Conectando con ${esc(CN.r)}…</b><br>Bajando el menú, las mesas y las cuentas abiertas.</div>`: !ui.rol?vInicio(): ui.rol==='mesero'?vMesero(): ui.rol==='cocina'?vCocina(): ui.rol==='caja'?vCaja():vAdmin();
   h+=`</main>`;
@@ -665,6 +671,7 @@ function calcReporte(a,b){
   const sum=f=>pag.reduce((s,o)=>s+(+f(o)||0),0);
   const r={cuentas:pag.length,venta:sum(o=>o.pago.total),ef:sum(o=>o.pago.efectivo),tj:sum(o=>o.pago.tarjeta),ap:sum(o=>o.pago.app),prop:sum(o=>o.pago.propina)};
   r.ticket=r.cuentas?r.venta/r.cuentas:0;
+  const ms={};pag.forEach(o=>{const n=o.mesero?o.mesero.nombre:'Sin registrar';ms[n]=ms[n]||{n:0,v:0,p:0};ms[n].n++;ms[n].v+=o.pago.total;ms[n].p+=(+o.pago.propina||0)});r.meseros=pag.some(o=>o.mesero)?Object.entries(ms).sort((x,y)=>y[1].v-x[1].v):[];
   const can={};pag.forEach(o=>{const n=canal(o.canal).nombre;can[n]=can[n]||{n:0,v:0};can[n].n++;can[n].v+=o.pago.total});r.canales=Object.entries(can).sort((x,y)=>y[1].v-x[1].v);
   const it={};pag.forEach(o=>o.items.filter(i=>!i.cancel&&i.cat!=='Envío').forEach(i=>{it[i.nombre]=it[i.nombre]||{q:0,v:0};it[i.nombre].q+=i.qty;it[i.nombre].v+=i.precio*i.qty}));r.top=Object.entries(it).sort((x,y)=>y[1].q-x[1].q).slice(0,10);
   const dias=[];const d0=new Date(a);for(let i=0;;i++){const dt=new Date(d0.getFullYear(),d0.getMonth(),d0.getDate()+i);if(dt.getTime()>=b||i>400)break;const k=dkey(dt);dias.push({k,d:dt,v:pag.filter(o=>dkey(new Date(o.pagadaT))===k).reduce((s,o)=>s+o.pago.total,0)})}r.dias=dias.length<=62?dias:[];
@@ -684,6 +691,7 @@ function aReportes(){
   <div class="kpis" style="margin-top:12px"><div class="card kpi"><p class="lbl">Efectivo</p><div class="v num">${money(r.ef)}</div><small class="muted">${pc(r.ef)} · con propinas</small></div><div class="card kpi"><p class="lbl">Tarjeta</p><div class="v num">${money(r.tj)}</div><small class="muted">${pc(r.tj)} · con propinas</small></div><div class="card kpi"><p class="lbl">Pagado en apps</p><div class="v num">${money(r.ap)}</div><small class="muted">Uber Eats y DiDi</small></div><div class="card kpi"><p class="lbl">Propinas</p><div class="v num">${money(r.prop)}</div><small class="muted">hora fuerte ${esc(r.horaFuerte)}</small></div></div>
   <div class="grid2" style="margin-top:12px"><div class="card"><p class="lbl">Más vendidos</p>${r.top.length?`<div class="tbl"><table><tr><th>Platillo</th><th style="text-align:right">Piezas</th><th style="text-align:right">Venta</th></tr>${r.top.map(([n,x])=>`<tr><td>${esc(n)}</td><td class="num" style="text-align:right">${x.q}</td><td class="num" style="text-align:right">${money(x.v)}</td></tr>`).join('')}</table></div>`:'<p class="muted">Sin ventas en este periodo.</p>'}</div>
   <div class="card" style="display:grid;gap:10px;align-content:start"><p class="lbl">Por tipo de pedido</p>${r.canales.map(([n,x])=>`<div class="row"><span>${esc(n)}</span><span class="sp"></span><span class="muted">${x.n} cuentas</span><b class="num" style="min-width:90px;text-align:right">${money(x.v)}</b></div>`).join('')||'<p class="muted">—</p>'}
+   ${r.meseros.length?`<p class="lbl" style="margin-top:8px">Por mesero</p>${r.meseros.map(([n,x])=>`<div class="row"><span>${esc(n)}</span><span class="sp"></span><span class="muted">${x.n} cuentas · propinas ${money(x.p)}</span><b class="num" style="min-width:90px;text-align:right">${money(x.v)}</b></div>`).join('')}`:''}
    <p class="lbl" style="margin-top:8px">Control</p><div class="row"><span>Cancelaciones</span><span class="sp"></span><b class="num">${r.cancel.n} · ${money(r.cancel.v)}</b></div><div class="row"><span>Cortes de caja</span><span class="sp"></span><b class="num">${r.cortes.n}${r.cortes.mal?` · ${r.cortes.mal} no cuadraron`:''}</b></div></div></div>
   <div class="card" style="margin-top:12px;display:grid;gap:10px"><p class="lbl">Respaldo</p><p class="muted" style="margin:0">Descarga una copia completa de los datos del restaurante: menú, mesas, equipo, cuentas y ventas. Guárdala en tu correo o en tu Drive.${CN?' Además, cada semana se guarda una copia automática en la nube.':''}</p><div class="row"><button class="btn" data-a="respaldo">Descargar respaldo completo</button></div></div>`;
   return h}
@@ -708,6 +716,8 @@ async function hacerPDF(){
   r.top.forEach(([n,x],i)=>{doc.setTextColor(26,23,21);tx((i+1)+'. '+(n.length>30?n.slice(0,29)+'…':n),M,yL);doc.setTextColor(107,99,92);tx(x.q+' pz',M+66,yL,{align:'right'});doc.setTextColor(26,23,21);tx(mon(x.v),col2-8,yL,{align:'right'});yL+=5.6});
   doc.setFontSize(9);doc.setTextColor(107,99,92);tx('POR TIPO DE PEDIDO',col2,yR);yR+=6;doc.setFontSize(9.5);
   r.canales.forEach(([n,x])=>{doc.setTextColor(26,23,21);tx(n,col2,yR);doc.setTextColor(107,99,92);tx(x.n+' cuentas',col2+50,yR,{align:'right'});doc.setTextColor(26,23,21);tx(mon(x.v),W-M,yR,{align:'right'});yR+=5.6});
+  if(r.meseros.length){yR+=5;doc.setFontSize(9);doc.setTextColor(107,99,92);tx('POR MESERO',col2,yR);yR+=6;doc.setFontSize(9.5);
+    r.meseros.slice(0,6).forEach(([n,x])=>{doc.setTextColor(26,23,21);tx(n.length>18?n.slice(0,17)+'…':n,col2,yR);doc.setTextColor(107,99,92);tx('prop. '+mon(x.p),col2+50,yR,{align:'right'});doc.setTextColor(26,23,21);tx(mon(x.v),W-M,yR,{align:'right'});yR+=5.6})}
   yR+=5;doc.setFontSize(9);doc.setTextColor(107,99,92);tx('CONTROL',col2,yR);yR+=6;doc.setFontSize(9.5);doc.setTextColor(26,23,21);
   tx('Cancelaciones',col2,yR);tx(r.cancel.n+' · '+mon(r.cancel.v),W-M,yR,{align:'right'});yR+=5.6;tx('Cortes de caja',col2,yR);tx(r.cortes.n+(r.cortes.n?(r.cortes.mal?' · '+r.cortes.mal+' no cuadraron':' · todos cuadraron'):''),W-M,yR,{align:'right'});yR+=5.6;
   if(r.cortes.dif){tx('Diferencia acumulada',col2,yR);tx(mon(r.cortes.dif),W-M,yR,{align:'right'});yR+=5.6}
@@ -715,7 +725,7 @@ async function hacerPDF(){
   doc.setDrawColor(221,215,208);doc.line(M,268,W-M,268);doc.setFontSize(7.5);doc.setTextColor(150,140,130);tx('Hecho con Comandero · Las ventas son de cuentas cobradas; efectivo y tarjeta incluyen propinas.',M,273);
   const nombre=('Resumen '+c.nombre+' '+r.nom).replace(/[^\wáéíóúñÁÉÍÓÚÑ ]+/g,'').replace(/\s+/g,'-')+'.pdf';return {blob:doc.output('blob'),nombre,r}}
 function textoReporte(){const r=reporteActual(),c=S.config;let s=`*${c.nombre}* · Resumen ${r.nom}\n\nVenta: *${money(r.venta)}*${r.cambio!==null?` (${r.cambio>=0?'+':''}${r.cambio}% vs periodo anterior)`:''}\nCuentas: ${r.cuentas} · Ticket promedio: ${money(r.ticket)}\nEfectivo: ${money(r.ef)} · Tarjeta: ${money(r.tj)} · Apps: ${money(r.ap)}\nPropinas: ${money(r.prop)} · Hora fuerte: ${r.horaFuerte}\n`;
-  if(r.top.length)s+=`\nMás vendidos:\n${r.top.slice(0,5).map(([n,x],i)=>`${i+1}. ${n} (${x.q})`).join('\n')}\n`;s+=`\nCancelaciones: ${r.cancel.n} (${money(r.cancel.v)}) · Cortes: ${r.cortes.n}${r.cortes.mal?`, ${r.cortes.mal} no cuadraron`:''}`;return s}
+  if(r.top.length)s+=`\nMás vendidos:\n${r.top.slice(0,5).map(([n,x],i)=>`${i+1}. ${n} (${x.q})`).join('\n')}\n`;if(r.meseros.length)s+=`\nPor mesero:\n${r.meseros.map(([n,x])=>`${n}: ${money(x.v)} (${x.n} cuentas, propinas ${money(x.p)})`).join('\n')}\n`;s+=`\nCancelaciones: ${r.cancel.n} (${money(r.cancel.v)}) · Cortes: ${r.cortes.n}${r.cortes.mal?`, ${r.cortes.mal} no cuadraron`:''}`;return s}
 function bajarArchivo(blob,nombre){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=nombre;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(u);a.remove()},1500)}
 
 /* ---------- Instalar como app ---------- */
@@ -745,7 +755,7 @@ function vInicio(){
   <div class="roles">`;
   Object.entries(ROLES).forEach(([k,r])=>h+=`<button class="role" data-a="rol" data-r="${k}"><span class="ic">${ICONS[k]||''}</span><b>${r.t}</b><span>${r.d}</span><i>Entrar con mi PIN</i></button>`);
   h+=`</div><div class="row">${featOn('asistencia')?`<button class="btn pri" style="flex:2;min-width:220px" data-a="asist">Checar entrada o salida</button><button class="btn" style="flex:1;min-width:160px" data-a="miHorario">Ver mi horario</button>`:''}</div>
-  ${(CN&&!nube.features.demo)?'':`<div class="pinbox"><b style="color:var(--ink)">Demostración</b> PIN: Gerente <code>1234</code> Mesero <code>1111</code> Cocina <code>2222</code> Caja <code>3333</code><span class="sp"></span><button class="btn sm ghost" data-a="demoReset">Reiniciar demostración</button><button class="btn sm" data-a="conectar">Conectar mi restaurante</button></div>`}
+  ${(CN&&!nube.features.demo)?'':`<div class="pinbox"><b style="color:var(--ink)">Demostración</b> PIN: Gerente <code>1234</code> Meseros <code>1111</code> <code>5555</code> Cocina <code>2222</code> Caja <code>3333</code><span class="sp"></span><button class="btn sm ghost" data-a="demoReset">Reiniciar demostración</button><button class="btn sm" data-a="conectar">Conectar mi restaurante</button></div>`}
   ${(CN&&!nube.features.demo)?'':`<div class="pitch"><div><p class="lbl" style="color:var(--brand)">Para tu restaurante</p><h3>Con tu menú, tus mesas y tu logo</h3><p>Funciona en las tablets y celulares que ya tienes. Los meseros mandan la orden a cocina, la caja cobra y el gerente ve las ventas desde su celular.</p></div><div style="display:grid;gap:12px"><ul><li>Todos los aparatos y usuarios que quieras</li><li>Instalación y personalización gratis</li><li>Primer mes gratis, sin contrato</li><li>$399 al mes por local</li></ul><a class="btn ok" href="https://wa.me/526862595403?text=Hola%2C%20vi%20la%20demostraci%C3%B3n%20del%20Comandero%20y%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener" style="text-decoration:none">Pedir información por WhatsApp</a><small class="muted" style="text-align:center">WhatsApp 686 259 5403</small></div></div>`}</section>`;
   return h;
 }
@@ -761,12 +771,12 @@ function vMesero(){
     h+=`<div class="banner"><b>Listo para servir</b>`;por.forEach(({o,its})=>h+=`<div class="servir"><span class="tag t-ok" style="margin:0">${esc(o.canal==='mesa'?mesaNombre(o.mesa):canal(o.canal).nombre)}</span><span class="its">${its.map(i=>`${i.qty}× ${esc(i.nombre)}`).join(', ')}</span><button class="btn sm ok" data-a="servido" data-o="${o.id}">Ya lo serví</button></div>`);h+=`</div>`}
   h+=`<div class="sec"><div class="row"><h2 class="h2">Mesas</h2><span class="sp"></span><div class="legend"><span><i class="dot" style="background:var(--line)"></i>Libre</span><span><i class="dot" style="background:var(--brand)"></i>Ocupada</span><span><i class="dot" style="background:var(--warn)"></i>Pidió la cuenta</span><span><i class="dot" style="background:var(--ok)"></i>Comida lista</span></div></div><div class="mesas">`;
   S.mesas.forEach(m=>{const o=abiertas.find(x=>x.canal==='mesa'&&x.mesa===m.id);const lst=o&&o.items.some(i=>i.estado==='listo'&&!i.servido&&!i.cancel);const cls=(o?(o.cuenta?'cuenta':'ocup'):'')+(lst?' listo':'');
-    const mins=o?Math.max(0,Math.round((Date.now()-o.creada)/60000)):0;const est=!o?'Libre':lst?'Comida lista':o.cuenta?'Pidió la cuenta':'Ocupada';h+=`<button class="mesa ${cls}" data-a="abrirMesa" data-m="${m.id}"><span class="st">${est}</span><b>${esc(m.nombre)}</b>${o?`<span class="mt">${money(tot(o).total)}</span><small class="num">${o.items.filter(i=>!i.cancel).reduce((a,i)=>a+i.qty,0)} platillos · ${mins} min</small>`:`<small>Toca para abrir</small>`}</button>`});
+    const mins=o?Math.max(0,Math.round((Date.now()-o.creada)/60000)):0;const est=!o?'Libre':lst?'Comida lista':o.cuenta?'Pidió la cuenta':'Ocupada';h+=`<button class="mesa ${cls}" data-a="abrirMesa" data-m="${m.id}"><span class="st">${est}</span><b>${esc(m.nombre)}</b>${o?`<span class="mt">${money(tot(o).total)}</span><small class="num">${o.mesero?esc(o.mesero.nombre)+' · ':''}${o.items.filter(i=>!i.cancel).reduce((a,i)=>a+i.qty,0)} platillos · ${mins} min</small>`:`<small>Toca para abrir</small>`}</button>`});
   h+=`</div></div><div class="sec"><h2 class="h2">Otros pedidos</h2><div class="row">`;
   S.canales.filter(c=>c.activo&&c.id!=='mesa'&&featOn(c.id)).forEach(c=>h+=`<button class="btn pri" data-a="nuevoCanal" data-c="${c.id}">+ ${esc(c.nombre)}</button>`);
   h+=`</div>`;
   const otros=abiertas.filter(o=>o.canal!=='mesa');
-  if(otros.length){h+=`<div class="olist">`;otros.forEach(o=>h+=`<button class="oc" data-a="abrir" data-o="${o.id}"><span><b>#${o.num} ${esc(oNombre(o))}</b><br><small class="muted">${o.items.filter(i=>!i.cancel).length} platillos</small></span><span class="num" style="font-weight:800">${money(tot(o).total)}</span></button>`);h+=`</div>`}
+  if(otros.length){h+=`<div class="olist">`;otros.forEach(o=>h+=`<button class="oc" data-a="abrir" data-o="${o.id}"><span><b>#${o.num} ${esc(oNombre(o))}</b><br><small class="muted">${o.mesero?esc(o.mesero.nombre)+' · ':''}${o.items.filter(i=>!i.cancel).length} platillos</small></span><span class="num" style="font-weight:800">${money(tot(o).total)}</span></button>`);h+=`</div>`}
   return h+`</div>`;
 }
 const LUPA='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
@@ -794,13 +804,13 @@ function promoBtn(p,o){const on=p.tipo==='pct'&&(o.promos||[]).includes(p.id);co
   return `<button class="promo ${on?'on':''}" data-a="promo" data-o="${o.id}" data-p="${p.id}">${esc(p.nombre)}<small>${esc(sub)}${on?' · aplicada (toca para quitar)':''}</small></button>`}
 function ticket(o,modo){
   const t=tot(o),nuevos=o.items.filter(i=>!i.enviado&&!i.cancel).reduce((a,i)=>a+i.qty,0);
-  let h=`<aside class="card ticket"><div class="row"><h3>Cuenta</h3><span class="sp"></span><span class="tag t-new" style="margin:0">${esc(canal(o.canal).nombre)}</span></div>`;
+  let h=`<aside class="card ticket"><div class="row"><h3>Cuenta</h3><span class="sp"></span><span class="tag t-new" style="margin:0">${esc(canal(o.canal).nombre)}</span></div>${o.mesero?`<p class="atiende">Atiende: <b>${esc(o.mesero.nombre)}</b></p>`:''}`;
   if(!o.items.length)h+=`<p class="muted">Toca un platillo para agregarlo aquí.</p>`;
   o.items.forEach(i=>{if(i.borrado)return;let st=i.cat==='Envío'?'':i.cancel?'<span class="tag t-bad">Cancelado</span>':!i.enviado?'<span class="tag t-new">Sin enviar</span>':i.servido?'<span class="tag t-ok">Servido</span>':i.estado==='listo'?'<span class="tag t-ok">Listo</span>':'<span class="tag t-cook">En cocina</span>';
     const left=(!i.enviado&&!i.cancel&&modo==='mesero')?`<div class="qty"><button data-a="qty" data-o="${o.id}" data-i="${i.id}" data-d="-1" aria-label="Quitar uno">−</button><span class="num" style="min-width:18px;text-align:center;font-weight:800">${i.qty}</span><button data-a="qty" data-o="${o.id}" data-i="${i.id}" data-d="1" aria-label="Agregar uno">+</button></div>`:`<span class="num" style="font-weight:800">${i.qty}×</span>`;
     let right=`<span class="num">${money(i.precio*i.qty)}</span>`;
     if(i.enviado&&!i.cancel)right+=`<br><button class="btn sm ghost" style="margin-top:4px;min-height:30px" data-a="cancelar" data-o="${o.id}" data-i="${i.id}">Cancelar</button>`;
-    h+=`<div class="line ${i.cancel?'x':''}">${left}<div class="nm"><b>${esc(i.nombre)}</b> ${i.promo?`<span class="tag t-promo">${esc(i.promo)}</span>`:''}<div class="ops">${esc(i.ops)}${i.nota?' · <b>'+esc(i.nota)+'</b>':''}</div>${st}</div><div style="text-align:right">${right}</div></div>`});
+    h+=`<div class="line ${i.cancel?'x':''}">${left}<div class="nm"><b>${esc(i.nombre)}</b> ${i.promo?`<span class="tag t-promo">${esc(i.promo)}</span>`:''}<div class="ops">${esc(i.ops)}${i.nota?' · <b>'+esc(i.nota)+'</b>':''}${i.por&&o.mesero&&i.por!==o.mesero.nombre?' · agregó '+esc(i.por):''}</div>${st}</div><div style="text-align:right">${right}</div></div>`});
   h+=`<div class="tot num"><div><span>Subtotal</span><span>${money(t.sub)}</span></div>${t.desc?`<div style="color:var(--brand-deep);font-weight:700"><span>Promociones</span><span>−${money(t.desc)}</span></div>`:''}<div class="big"><span>Total</span><span>${money(t.total)}</span></div></div><div class="sec" style="margin-top:12px">`;
   if(o.canal==='domicilio'&&!o.items.some(i=>i.cat==='Envío'))h+=`<button class="btn full" data-a="envio" data-o="${o.id}">+ Costo de envío (${money(S.config.envio)})</button>`;
   if(modo==='mesero'){h+=`<button class="btn pri full" data-a="enviar" data-o="${o.id}" ${nuevos?'':'disabled'}>Enviar a cocina${nuevos?' ('+nuevos+')':''}</button>`;
@@ -819,7 +829,7 @@ function vCocina(){
   if(!ords.length)return h+`<div class="empty">No hay comandas pendientes. Las nuevas aparecen aquí solas.</div>`;
   h+=`<div class="kds">`;
   ords.forEach(({o,its,t})=>{const mins=Math.floor((Date.now()-t)/60000);const cls=mins>=20?'l':mins>=10?'w':'';
-    h+=`<div class="kt ${cls}"><div class="hd"><span><b>${esc(o.canal==='mesa'?mesaNombre(o.mesa):canal(o.canal).nombre)}</b><br><small class="muted">#${o.num} · ${hora(t)}${o.cliente?' · '+esc(o.cliente.split(',')[0]):''}</small></span><span class="tm num">${mins} min</span></div><ul>`;
+    h+=`<div class="kt ${cls}"><div class="hd"><span><b>${esc(o.canal==='mesa'?mesaNombre(o.mesa):canal(o.canal).nombre)}</b><br><small class="muted">#${o.num} · ${hora(t)}${o.mesero?' · '+esc(o.mesero.nombre):''}${o.cliente?' · '+esc(o.cliente.split(',')[0]):''}</small></span><span class="tm num">${mins} min</span></div><ul>`;
     its.forEach(i=>h+=`<li><button class="chk" data-a="listo" data-o="${o.id}" data-i="${i.id}" aria-label="Marcar ${esc(i.nombre)} como listo"></button><div><b>${i.qty}× ${esc(i.nombre)}</b>${i.ops?`<div class="ops">${esc(i.ops)}</div>`:''}${i.nota?`<div class="nt">${esc(i.nota)}</div>`:''}</div></li>`);
     h+=`</ul><div class="ft"><button class="btn ok full" data-a="todoListo" data-o="${o.id}">Todo listo</button></div></div>`});
   return h+`</div>`;
@@ -832,7 +842,7 @@ function vCaja(){
   if(!ui.cajaSel&&ab.length&&window.innerWidth>=900)ui.cajaSel=(ab.find(o=>o.cuenta)||ab[0]).id;
   let h=tip('caja')+`<div class="row" style="margin-bottom:12px"><h2 class="h2">Caja</h2><span class="sp"></span>${featOn('asistencia')?'<button class="btn" data-a="asist" data-r="caja">Checar entrada o salida</button>':''}<button class="btn" data-a="irMesero">+ Nueva orden</button><button class="btn" data-a="corte">Corte de caja</button></div><div class="split"><div class="olist">`;
   if(!ab.length)h+=`<div class="empty">No hay cuentas abiertas.</div>`;
-  ab.slice().sort((a,b)=>(b.cuenta?1:0)-(a.cuenta?1:0)).forEach(o=>h+=`<button class="oc ${o.id===ui.cajaSel?'on':''}" data-a="cajaSel" data-o="${o.id}"><span><b>${esc(oNombre(o))}</b> ${o.cuenta?'<span class="tag t-cook">Pidió la cuenta</span>':''}<br><small class="muted">#${o.num} · ${o.items.filter(i=>!i.cancel).length} platillos</small></span><span class="num" style="font-weight:800">${money(tot(o).total)}</span></button>`);
+  ab.slice().sort((a,b)=>(b.cuenta?1:0)-(a.cuenta?1:0)).forEach(o=>h+=`<button class="oc ${o.id===ui.cajaSel?'on':''}" data-a="cajaSel" data-o="${o.id}"><span><b>${esc(oNombre(o))}</b> ${o.cuenta?'<span class="tag t-cook">Pidió la cuenta</span>':''}<br><small class="muted">#${o.num}${o.mesero?' · '+esc(o.mesero.nombre):''} · ${o.items.filter(i=>!i.cancel).length} platillos</small></span><span class="num" style="font-weight:800">${money(tot(o).total)}</span></button>`);
   h+=`</div>`;
   const o=ab.find(x=>x.id===ui.cajaSel);
   if(o){const pr=S.promos.filter(promoHoy);h+=`<div style="display:grid;gap:12px;min-width:0">${window.innerWidth<900?'<button class="btn sm ghost" data-a="cajaSel" data-o="">← Todas las cuentas</button>':''}${pr.length?`<div class="promos">${pr.map(p=>promoBtn(p,o)).join('')}</div>`:''}${ticket(o,'caja')}</div>`}
@@ -892,7 +902,7 @@ function aResumen(){
   <div class="card kpi"><p class="lbl">Tarjeta</p><div class="v num">${money(tj)}</div><small class="muted">${apv?'+ '+money(apv)+' pagado en apps':'incluye propinas'}</small></div>
   <div class="card kpi"><p class="lbl">Por cobrar ahora</p><div class="v num">${money(pend)}</div><small class="muted">${abiertas.length} cuentas abiertas · propinas ${money(pr)}</small></div></div>${featOn('graficas')?charts:''}
   <div class="grid2" style="margin-top:12px"><div class="card"><p class="lbl">Más vendidos hoy</p><div class="bars" style="margin-top:10px">${top.map(([n,c])=>`<div class="bar"><div><span>${esc(n)}</span><div class="tr"><div class="fl" style="width:${c/mx*100}%"></div></div></div><b class="num" style="text-align:right">${c}</b></div>`).join('')||'<p class="muted">Sin ventas todavía.</p>'}</div></div>
-  <div class="card"><p class="lbl">Cancelaciones y promociones usadas</p>${movs.length?`<div class="tbl"><table><tr><th>Hora</th><th>Qué</th><th>Quién</th><th>Motivo</th></tr>${movs.slice().reverse().map(m=>`<tr><td class="num">${hora(m.t)}</td><td>${esc(m.tipo)}: ${esc(m.det)} <span class="num">(${money(m.monto)})</span></td><td>${esc(m.quien)}</td><td>${esc(m.motivo)}</td></tr>`).join('')}</table></div>`:'<p class="muted">Ninguna hoy.</p>'}<p class="muted" style="font-size:13px;margin-bottom:0">Cada cancelación pide PIN del gerente o encargada y queda aquí.</p></div></div>
+  <div class="card"><p class="lbl">Cancelaciones, promociones y permisos</p>${movs.length?`<div class="tbl"><table><tr><th>Hora</th><th>Qué</th><th>Quién</th><th>Motivo</th></tr>${movs.slice().reverse().map(m=>`<tr><td class="num">${hora(m.t)}</td><td>${esc(m.tipo)}: ${esc(m.det)} <span class="num">(${money(m.monto)})</span></td><td>${esc(m.quien)}</td><td>${esc(m.motivo)}</td></tr>`).join('')}</table></div>`:'<p class="muted">Ninguna hoy.</p>'}<p class="muted" style="font-size:13px;margin-bottom:0">Cada cancelación pide PIN del gerente o encargada y queda aquí.</p></div></div>
   <div class="grid2" style="margin-top:12px"><div class="card"><p class="lbl">Personal de hoy</p>${asistHoy()}</div><div class="card"><p class="lbl">Cortes de caja de hoy</p>${S.cortes.filter(c=>hoy(c.t)).map(c=>`<p class="num">${hora(c.t)} · ${esc(c.quien)} · debía haber ${money(c.esperado)} · contó ${money(c.contado)} · <b style="color:${c.dif===0?'var(--ok)':'var(--bad)'}">${c.dif===0?'cuadra':(c.dif>0?'sobra ':'falta ')+money(Math.abs(c.dif))}</b></p>`).join('')||'<p class="muted">Aún no hay cortes hoy.</p>'}</div></div>`;
 }
 function asistHoy(){const d=new Date();const rows=S.empleados.map(e=>{const s=estadoDia(e.id,d),c=checadas(e.id,d),ent=c.find(a=>a.tipo==='entrada'),sal=c.filter(a=>a.tipo==='salida').pop();if(s.st==='descanso'&&!ent)return '';
@@ -948,10 +958,12 @@ function aCanales(){
   S.canales.forEach(c=>h+=`<tr><td><input type="checkbox" id="ca-${c.id}" data-f="canales:${c.id}:activo" ${c.activo?'checked':''} ${c.fijo?'disabled':''} aria-label="Activo"></td><td><b>${esc(c.nombre)}</b></td><td><input id="cj-${c.id}" type="number" data-f="canales:${c.id}:ajuste" value="${c.ajuste}" style="width:90px"></td><td class="num">${money(Math.round(300*(1+c.ajuste/100)))}</td></tr>`);
   return h+`</table></div><div class="row" style="margin-top:12px"><label class="row" style="gap:8px"><span class="lbl">Costo de envío a domicilio</span><input type="number" id="cenv" data-f="config::envio" value="${S.config.envio}" style="width:100px"></label></div>`;
 }
+function aparatoCard(){const on=pinCadaOrden();return `<div class="card" style="display:grid;gap:10px;margin-top:12px"><p class="lbl">Aparatos compartidos</p><p class="muted" style="margin:0">Varias personas pueden usar el mismo aparato: tocan su nombre arriba (⇄) y escriben su PIN; lo que agregan queda a su nombre. Al irse tocan «Cerrar sesión». Para cubrir otro puesto, el gerente o la encargada dan permiso con su PIN, sin tocar la asistencia.</p>
+  <label class="row" style="gap:10px"><input type="checkbox" data-pincada="1" ${on?'checked':''}><span><b>Pedir PIN después de cada orden en este aparato</b><br><small class="muted">Apagado: cada quien cambia de usuario cuando lo necesita. Prendido: al enviar a cocina, el siguiente mesero escribe su PIN. Solo cambia este aparato.</small></span></label></div>`}
 function aEquipo(){
   let h=`<div class="note">Cada persona entra con su PIN de 4 números. El puesto decide qué puede ver: <b>Mesero</b> solo toma órdenes, <b>Cocina</b> solo ve comandas, <b>Caja</b> cobra y toma órdenes, <b>Encargada</b> puede todo menos esta pantalla y autoriza cancelaciones.</div><div class="row" style="margin-top:12px"><button class="btn pri" data-a="addEmp">+ Persona</button></div><div class="tbl card" style="margin-top:12px;padding:6px"><table><tr><th>Nombre</th><th>Puesto</th><th>PIN</th><th></th></tr>`;
   S.empleados.forEach(e=>h+=`<tr><td><input id="en-${e.id}" data-f="empleados:${e.id}:nombre" value="${esc(e.nombre)}"></td><td><select id="ep-${e.id}" data-f="empleados:${e.id}:puesto">${PUESTOS.map(p=>`<option ${p===e.puesto?'selected':''}>${p}</option>`).join('')}</select></td><td><input id="ei-${e.id}" data-f="empleados:${e.id}:pin" value="${esc(e.pin)}" inputmode="numeric" maxlength="4" style="width:90px"></td><td>${e.puesto==='Gerente'&&S.empleados.filter(x=>x.puesto==='Gerente').length===1?'':`<button class="btn sm ${ui.confDel===e.id?'pri':'ghost'}" data-a="delEmp" data-e="${e.id}">${ui.confDel===e.id?'¿Seguro?':'Quitar'}</button>`}</td></tr>`);
-  return h+`</table></div>`;
+  return h+`</table></div>`+aparatoCard();
 }
 function aRest(){
   const c=S.config;
@@ -994,6 +1006,8 @@ const FAQ=[
   ['¿Cómo veo mi horario?','En la pantalla de inicio toca "Ver mi horario" y escribe tu PIN.'],
   ['Un pedido a domicilio','Entra como Mesero, toca "+ Domicilio", escribe nombre, teléfono y dirección, agrega los platillos y el costo de envío.'],
   ['Se acabó un platillo','El gerente entra a "Menú y precios" y le quita la palomita de "Activo". Deja de aparecer para el mesero.'],
+  ['Compartimos un aparato entre varios','Toca tu nombre arriba (⇄) y escribe tu PIN: lo que agregues queda a tu nombre. Al irte, toca «Cerrar sesión».'],
+  ['Voy a cubrir otro puesto','Toca ese puesto y escribe tu PIN. Si tu puesto no tiene permiso, el gerente o la encargada escriben su PIN para autorizarte. Tu entrada y salida no cambian.'],
   ['Olvidé mi PIN','Pídele al gerente que lo revise en "Equipo y PIN".'],
   ['No me deja entrar a una pantalla','Tu puesto no tiene permiso para esa pantalla. El gerente lo puede cambiar en "Equipo y PIN".']
 ];
@@ -1005,7 +1019,7 @@ function renderModal(){
   if(!m){el.innerHTML='';return}
   let b='';
   if(m.tipo==='conectar'){b=`<h3>Conectar mi restaurante</h3><p class="muted" style="margin:0">Escribe los datos que te dio tu proveedor. Este aparato quedará conectado y verá en tiempo real lo mismo que las demás tablets y celulares del restaurante.</p><label><span class="lbl">Restaurante</span><input id="cr" value="${CN?esc(CN.r):''}" placeholder="Ej. ribs28" autocomplete="off" autocapitalize="none"></label><label><span class="lbl">Código de acceso</span><input id="ck" placeholder="XX-XXXX-XXXX" autocomplete="off" style="text-transform:uppercase"></label><div class="row"><button class="btn ghost" data-a="cerrar">Cancelar</button><span class="sp"></span><button class="btn pri" data-a="conectarOk">Conectar</button></div>`}
-  else if(m.tipo==='pin'){b=`<h3>${esc(m.titulo)}</h3>${m.sub?`<p class="muted" style="margin:0">${esc(m.sub)}</p>`:''}${m.motivo?`<label><span class="lbl">Motivo (obligatorio)</span><input id="motivo" placeholder="Ej. el cliente cambió de opinión" value="${esc(m.motivoTxt||'')}"></label>`:''}<div class="pins">${[0,1,2,3].map(i=>`<i class="${i<m.v.length?'f':''}"></i>`).join('')}</div>${m.err?`<p style="color:var(--bad);text-align:center;margin:0;font-weight:700">${esc(m.err)}</p>`:''}<div class="pad">${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>k===''?'<span></span>':`<button data-a="pinK" data-k="${k}" aria-label="${k==='⌫'?'Borrar':k}">${k}</button>`).join('')}</div><button class="btn ghost" data-a="cerrar">Cancelar</button>`}
+  else if(m.tipo==='pin'){b=`<h3>${esc(m.titulo)}</h3>${m.sub?`<p class="muted" style="margin:0">${esc(m.sub)}</p>`:''}${m.motivo?`<label><span class="lbl">Motivo (obligatorio)</span><input id="motivo" placeholder="Ej. el cliente cambió de opinión" value="${esc(m.motivoTxt||'')}"></label>`:''}<div class="pins">${[0,1,2,3].map(i=>`<i class="${i<m.v.length?'f':''}"></i>`).join('')}</div>${m.err?`<p style="color:var(--bad);text-align:center;margin:0;font-weight:700">${esc(m.err)}</p>`:''}<div class="pad">${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>k===''?'<span></span>':`<button data-a="pinK" data-k="${k}" aria-label="${k==='⌫'?'Borrar':k}">${k}</button>`).join('')}</div>${m.lock?'<button class="btn ghost" data-a="salir">Cerrar sesión</button>':m.para&&m.para.autoriza?'<button class="btn ghost" data-a="cerrar">No autorizar</button>':'<button class="btn ghost" data-a="cerrar">Cancelar</button>'}`}
   if(m.tipo==='item'){const it=S.menu.find(x=>x.id===m.mid),o=S.ordenes.find(x=>x.id===ui.orden),f=foto(it.foto),gs=grupos(it.opciones);
     const extra=gs.reduce((a,g,gi)=>a+((g.v.find(v=>v.t===m.sel[gi])||{}).x||0),0)+(+m.cambioP||0);
     b=`${f?`<img class="ph" src="${f}" alt="">`:''}<div><h3>${esc(it.nombre)}</h3>${it.desc?`<p class="muted" style="margin:4px 0 0">${esc(it.desc)}</p>`:''}</div>`;
@@ -1050,7 +1064,7 @@ function corteDatos(){const ult=Math.max(0,...(S.cortes||[]).map(c=>c.t)),ini=in
 
 /* ---------- Acciones ---------- */
 const esDemo=()=>!CN||!!nube.features.demo;
-function pinDemo(rol){if(!esDemo())return '';const pu={mesero:'Mesero',cocina:'Cocina',caja:'Caja',admin:'Gerente'}[rol];const e=S.empleados.find(x=>x.puesto===pu);return e?' · Demostración: usa '+e.pin+' ('+e.nombre+')':''}
+function pinDemo(rol){if(!esDemo())return '';const pu={mesero:'Mesero',mesero2:'Mesero',cocina:'Cocina',caja:'Caja',admin:'Gerente'}[rol];const e=S.empleados.filter(x=>x.puesto===pu)[rol==='mesero2'?1:0]||S.empleados.find(x=>x.puesto===pu);return e?' · Demostración: usa '+e.pin+' ('+e.nombre+')':''}
 const BILLETES=[20,50,100,200,500,1000];
 function cambioTxt(m,T){const r=+m.recib||0;if(r&&r<T)return `<b style="color:var(--bad)">Faltan ${money(T-r)}</b>`;return `Cambio: <b>${money(Math.max(0,(r||T)-T))}</b>`}
 function pinPrompt(cfg){ui.modal=Object.assign({tipo:'pin',v:'',err:''},cfg);renderModal()}
@@ -1060,7 +1074,8 @@ const A={
   rol:d=>pinPrompt({titulo:'Entrar como '+ROLES[d.r].t,sub:'Escribe tu PIN de 4 números'+pinDemo(d.r),para:{k:'rol',rol:d.r}}),
   asist:d=>pinPrompt({titulo:'Checar entrada o salida',sub:'Escribe tu PIN'+pinDemo((d&&d.r)||'mesero'),para:{k:'asist'}}),
   miHorario:()=>pinPrompt({titulo:'Ver mi horario',sub:'Escribe tu PIN'+pinDemo('mesero'),para:{k:'mih'}}),
-  salir:()=>{ui=Object.assign(ui,{suc:null,deCaja:false,confDel:null,rol:null,user:null,orden:null,cat:null,q:'',modal:null,np:null,cajaSel:null,hEdit:false});render();scrollTo(0,0)},
+  cambiar:()=>{pinPrompt({titulo:'Cambiar de usuario',sub:'Quien va a usar el aparato escribe su PIN. Sigues en '+ROLES[ui.rol].t+'.'+pinDemo(ui.rol==='mesero'?'mesero2':ui.rol),para:{k:'cambiar'}})},
+  salir:()=>{if(ui.user&&ui.rol)toast('Sesión de '+ui.user.nombre+' cerrada en este aparato');ui=Object.assign(ui,{cubre:null,suc:null,deCaja:false,confDel:null,rol:null,user:null,orden:null,cat:null,q:'',modal:null,np:null,cajaSel:null,hEdit:false});render();scrollTo(0,0)},
   instalar:async()=>{if(instEvt){instEvt.prompt();try{await instEvt.userChoice}catch(e){}instEvt=null;render()}else{ui.instAyuda=true;render()}},
   instCerrar:()=>{ui.instAyuda=false;render()},
   demoReset:async()=>{if(CN){if(!nube.features.demo)return;try{await rpc('cm_demo_reset',{p_r:CN.r,p_k:CN.k});S=seed();migrar();nube.hash={};nube.dirty.clear();save();ui.rol=null;ui.orden=null;render();toast('Demostración reiniciada en todos tus aparatos')}catch(e){toast(e.message)}return}try{localStorage.removeItem(KEY)}catch(e){}S=seed();migrar();save();ui.rol=null;ui.orden=null;render();toast('Demostración reiniciada')},
@@ -1069,7 +1084,7 @@ const A={
   hablar:d=>hablar(d.t),
   pinK:d=>{const m=ui.modal;const mot=document.getElementById('motivo');if(mot)m.motivoTxt=mot.value;if(d.k==='⌫')m.v=m.v.slice(0,-1);else if(m.v.length<4)m.v+=d.k;m.err='';if(m.v.length===4)pinOk(m);renderModal()},
   cerrar:()=>{ui.modal=null;try{speechSynthesis.cancel()}catch(e){}renderModal()},
-  ovClose:(d,b,e)=>{if(e.target===b)A.cerrar()},
+  ovClose:(d,b,e)=>{if(e.target===b&&!(ui.modal&&ui.modal.lock))A.cerrar()},
   abrirMesa:d=>{let o=S.ordenes.find(x=>x.estado==='abierta'&&x.canal==='mesa'&&x.mesa===d.m);if(!o)o=nuevaOrden('mesa',d.m);ui.orden=o.id;ui.q='';render();scrollTo(0,0)},
   nuevoCanal:d=>{const o=nuevaOrden(d.c,null);ui.orden=o.id;ui.q='';render();scrollTo(0,0)},
   abrir:d=>{ui.orden=d.o;ui.q='';render();scrollTo(0,0)},
@@ -1087,7 +1102,8 @@ const A={
     addLinea(it,ops.join(' · '),m.nota,m.qty,extra);ui.modal=null;render()},
   qty:d=>{const o=S.ordenes.find(x=>x.id===d.o),i=o.items.find(x=>x.id===d.i);i.qty+=+d.d;i.u=Date.now();if(i.qty<1){i.qty=0;i.cancel=true;i.borrado=true}save();render()},
   envio:d=>{const o=S.ordenes.find(x=>x.id===d.o);o.items.push({id:uid(),mid:'',nombre:'Envío a domicilio',cat:'Envío',precio:S.config.envio,qty:1,ops:'',nota:'',enviado:true,t:Date.now(),estado:'listo',servido:true,cancel:false,promo:''});save();render()},
-  enviar:d=>{const o=S.ordenes.find(x=>x.id===d.o);let n=0;o.items.forEach(i=>{if(!i.enviado&&!i.cancel){i.enviado=true;i.t=Date.now();n+=i.qty}});save();toast(n+' platillos enviados a cocina');ui.orden=null;ui.q='';render();scrollTo(0,0)},
+  enviar:d=>{const o=S.ordenes.find(x=>x.id===d.o);let n=0;o.items.forEach(i=>{if(!i.enviado&&!i.cancel){i.enviado=true;i.t=Date.now();n+=i.qty}});save();toast(n+' platillos enviados a cocina');ui.orden=null;ui.q='';render();scrollTo(0,0);
+    if(pinCadaOrden()&&ui.rol==='mesero')pinPrompt({titulo:'Orden enviada. ¿Quién sigue?',sub:'Escribe tu PIN para tomar la siguiente orden.'+pinDemo('mesero'),para:{k:'cambiar'},lock:true})},
   cuenta:d=>{const o=S.ordenes.find(x=>x.id===d.o);o.cuenta=!o.cuenta;save();toast(o.cuenta?'Listo: caja ya ve que pidieron la cuenta':'Aviso quitado');render()},
   servido:d=>{const o=S.ordenes.find(x=>x.id===d.o);o.items.forEach(i=>{if((!d.i||i.id===d.i)&&i.estado==='listo'&&!i.cancel){i.servido=true;i.u=Date.now()}});save();render()},
   promo:d=>{const o=S.ordenes.find(x=>x.id===d.o),p=S.promos.find(x=>x.id===d.p);o.promos=o.promos||[];
@@ -1157,15 +1173,24 @@ const A={
   reset:()=>{if(CN){toast('En un restaurante conectado no se reinician los datos');return}if(ui.confirmReset){S=seed();migrar();save();ui.confirmReset=false;toast('Datos de ejemplo restaurados');ui.adm='resumen';render()}else{ui.confirmReset=true;render()}}
 };
 function copiar(t,ok,titulo){const fb=()=>{ui.modal={tipo:'texto',txt:t,titulo};renderModal()};try{navigator.clipboard.writeText(t).then(()=>toast(ok),fb)}catch(_){fb()}}
-function nuevaOrden(c,mesa){const o={id:uid(),num:++S.seq,canal:c,mesa,cliente:'',items:[],promos:[],estado:'abierta',creada:Date.now(),cuenta:false,pago:null};S.ordenes.push(o);save();if(CN)rpc('cm_next_num',{p_r:CN.r,p_k:CN.k}).then(n=>{o.num=n;S.seq=Math.max(S.seq,n);save();nubeRender()}).catch(()=>{});return o}
-function linea(it,ops,nota,qty,promo){return {id:uid(),mid:it.id||'',nombre:it.nombre,cat:it.cat,precio:it.precio,qty,ops:ops||'',nota:nota||'',enviado:false,t:null,estado:'nuevo',servido:false,cancel:false,promo:promo||''}}
+function nuevaOrden(c,mesa){const o={id:uid(),num:++S.seq,canal:c,mesa,cliente:'',items:[],promos:[],estado:'abierta',creada:Date.now(),cuenta:false,pago:null,mesero:ui.user?{id:ui.user.id,nombre:ui.user.nombre}:null};S.ordenes.push(o);save();if(CN)rpc('cm_next_num',{p_r:CN.r,p_k:CN.k}).then(n=>{o.num=n;S.seq=Math.max(S.seq,n);save();nubeRender()}).catch(()=>{});return o}
+function linea(it,ops,nota,qty,promo){return {id:uid(),mid:it.id||'',nombre:it.nombre,cat:it.cat,precio:it.precio,qty,ops:ops||'',nota:nota||'',enviado:false,t:null,estado:'nuevo',servido:false,cancel:false,promo:promo||'',por:ui.user?ui.user.nombre:''}}
 function addLinea(it,ops,nota,qty,extra){const o=S.ordenes.find(x=>x.id===ui.orden);const l=linea(it,ops,nota,qty);l.precio=precioCanal(it.precio+(extra||0),o.canal);
-  const same=o.items.find(i=>!i.enviado&&!i.cancel&&i.mid===it.id&&i.ops===l.ops&&i.nota===l.nota&&i.precio===l.precio);if(same){same.qty+=qty;same.u=Date.now()}else{l.u=Date.now();o.items.push(l)};save();toast(qty+'× '+it.nombre+' agregado')}
+  const same=o.items.find(i=>!i.enviado&&!i.cancel&&i.mid===it.id&&i.ops===l.ops&&i.nota===l.nota&&i.precio===l.precio&&(i.por||'')===(l.por||''));if(same){same.qty+=qty;same.u=Date.now()}else{l.u=Date.now();o.items.push(l)};save();toast(qty+'× '+it.nombre+' agregado')}
+function entrarComo(emp,rol,cubre,arriba){ui.rol=rol;ui.user=emp;ui.cubre=cubre||null;ui.modal=null;ultimasComandas=-1;ui.suc=null;if(rol==='cocina'){try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();audioCtx.resume()}catch(e){}}render();if(arriba)scrollTo(0,0)}
+const pinCadaOrden=()=>{try{return localStorage.getItem(KEY+'-pinCada')==='1'}catch(e){return false}};
 function pinOk(m){
   const emp=S.empleados.find(e=>e.pin===m.v);
   if(!emp){m.err='PIN incorrecto. Intenta otra vez.';m.v='';return}
   const p=m.para;
-  if(p.k==='rol'){if(!PERM[emp.puesto].includes(p.rol)){m.err=emp.nombre+' ('+emp.puesto+') no tiene acceso a '+ROLES[p.rol].t;m.v='';return}ui.rol=p.rol;ui.user=emp;ui.modal=null;ultimasComandas=-1;if(p.rol==='cocina'){try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();audioCtx.resume()}catch(e){}}render();scrollTo(0,0);return}
+  if(p.k==='rol'||p.k==='cambiar'){const rol=p.k==='rol'?p.rol:ui.rol;
+    if(p.autoriza){if(!PERM[emp.puesto].includes('autoriza')){m.err='Solo el gerente o la encargada pueden dar permiso';m.v='';return}
+      const q=S.empleados.find(e=>e.id===p.autoriza);if(!q){ui.modal=null;return}
+      S.movs.push({id:uid(),t:Date.now(),tipo:'Cubrir puesto',quien:emp.nombre,det:q.nombre+' ('+q.puesto+') cubre '+ROLES[rol].t,motivo:'Autorizado con PIN',monto:0});save();
+      entrarComo(q,rol,emp.nombre,p.k==='rol');toast(q.nombre+' cubre '+ROLES[rol].t+' · autorizó '+emp.nombre);return}
+    if(!PERM[emp.puesto].includes(rol)){m.para=Object.assign({},p,{autoriza:emp.id});m.titulo=emp.nombre+' va a cubrir '+ROLES[rol].t;m.sub='Su puesto es '+emp.puesto+'. Para darle permiso, el gerente o la encargada escriben su PIN. Su asistencia no cambia.'+pinDemo('admin');m.v='';m.err='';m.lock=false;return}
+    if(p.k==='cambiar'&&ui.user&&emp.id===ui.user.id){ui.modal=null;render();return}
+    entrarComo(emp,rol,null,p.k==='rol');if(p.k==='cambiar')toast('Ahora usa el aparato '+emp.nombre);return}
   if(p.k==='mih'){ui.modal={tipo:'mih',emp:emp.id};return}
   if(p.k==='asist'){const r=S.asist.filter(a=>a.emp===emp.id&&hoy(a.t));const tipo=r.length&&r[r.length-1].tipo==='entrada'?'salida':'entrada';S.asist.push({emp:emp.id,tipo,t:Date.now()});save();ui.modal=null;
     let extra='';if(tipo==='entrada'){const s=estadoDia(emp.id,new Date());extra=s.st==='retardo'?' · quedó como retardo':s.st==='descanso'?' · hoy era su descanso':''}
@@ -1183,6 +1208,7 @@ document.addEventListener('change',e=>{const t=e.target;
     if(col==='empleados'&&field==='pin'){if(!/^\d{4}$/.test(v)){toast('El PIN debe tener 4 números');render();return}if(S.empleados.some(x=>x.pin===v&&x.id!==id)){toast('Ese PIN ya lo usa otra persona');render();return}}
     obj[field]=v;save();toast('Guardado');render();return}
   if(t.dataset.h){const [e,dow,f]=t.dataset.h.split(':');const x=S.horarios[e][+dow];if(x&&t.value){x[f]=t.value;save();toast('Horario guardado')}return}
+  if(t.dataset.pincada){try{localStorage.setItem(KEY+'-pinCada',t.checked?'1':'0')}catch(e){}toast(t.checked?'Listo: este aparato pedirá PIN después de cada orden':'Listo: este aparato ya no pide PIN después de cada orden');return}
   if(t.dataset.tol){S.tolerancia=Math.max(0,+t.value||0);save();render();return}
   if(t.dataset.np){ui.np[t.dataset.np]=t.type==='number'?+t.value:t.value;return}
   if(t.dataset.oc){const o=S.ordenes.find(x=>x.id===t.dataset.oc);o.cliente=t.value;save();return}
@@ -1197,7 +1223,7 @@ document.addEventListener('input',e=>{const t=e.target;
   if(t.id==='cambioP'){keepItem();const pos=t.selectionStart;renderModal();const n=document.getElementById('cambioP');if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(_){}}}
   if(t.id==='recib'||t.id==='mixef'){keepPay();const m=ui.modal,o=S.ordenes.find(x=>x.id===m.oid);if(o){const T=tot(o).total+m.prop;const c=document.getElementById('cambioV');if(c&&t.id==='recib'){m.bill={};c.innerHTML=cambioTxt(m,T)}const tv=document.getElementById('termV');if(tv&&t.id==='mixef')tv.textContent=money(Math.max(0,T-(+m.mixef||0)))}}
 });
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ui.modal)A.cerrar();if(ui.modal&&ui.modal.tipo==='pin'&&/^[0-9]$/.test(e.key)&&document.activeElement.id!=='motivo')A.pinK({k:e.key});if(ui.modal&&ui.modal.tipo==='pin'&&e.key==='Backspace'&&document.activeElement.id!=='motivo')A.pinK({k:'⌫'})});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ui.modal&&!ui.modal.lock)A.cerrar();if(ui.modal&&ui.modal.tipo==='pin'&&/^[0-9]$/.test(e.key)&&document.activeElement.id!=='motivo')A.pinK({k:e.key});if(ui.modal&&ui.modal.tipo==='pin'&&e.key==='Backspace'&&document.activeElement.id!=='motivo')A.pinK({k:'⌫'})});
 setInterval(()=>{if(ui.rol==='cocina'&&!ui.modal)render()},15000);
 load();render();nubeIniciar();
 </script>
