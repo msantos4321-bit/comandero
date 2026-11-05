@@ -607,7 +607,7 @@ function mezclarOrden(rem,loc){const r=Object.assign({},rem,loc);if((rem.estado|
 let traerEnCurso=false;
 async function nubeTraer(){
   if(!CN||traerEnCurso)return;traerEnCurso=true;let cambio=false;
-  try{const r=await rpc('cm_get',{p_r:CN.r,p_k:CN.k,p_since:nube.rev});const fa=JSON.stringify(nube.features);nube.features=r.features||{};if(nube.bloqueo){nube.bloqueo=null;cambio=true}if(fa!==JSON.stringify(nube.features))cambio=true;
+  try{const r=await rpc('cm_get',{p_r:CN.r,p_k:CN.k,p_since:nube.rev});const fa=JSON.stringify(nube.features)+nube.sucursales;nube.features=r.features||{};nube.sucursales=+r.sucursales||1;if(nube.bloqueo){nube.bloqueo=null;cambio=true}if(fa!==JSON.stringify(nube.features)+nube.sucursales)cambio=true;
     if(nube.cargando){
       if(!r.items.some(i=>!i.deleted)){ // restaurante nuevo: se llena con sus datos iniciales o en blanco
         let ini=null;try{const f=await fetch('r/'+CN.r+'.json',{cache:'no-store'});if(f.ok)ini=await f.json()}catch(e){}
@@ -639,7 +639,9 @@ function wsConectar(){if(!CN||!('WebSocket' in window))return;try{
   ws.onclose=()=>{wsVivo=false;clearInterval(wsHb);setTimeout(wsConectar,5000)};ws.onerror=()=>{try{ws.close()}catch(e){}};
   nube.topic=topic}catch(e){}}
 function wsAvisar(){const ws=nube.ws;if(ws&&ws.readyState===1)try{ws.send(JSON.stringify({topic:nube.topic,event:'broadcast',payload:{type:'broadcast',event:'cambio',payload:{}},ref:String(wsRef++)}))}catch(e){}}
-function nubeIniciar(){if(!CN)return;wsConectar();nubeTraer();
+function aparatoId(){let d='';try{d=localStorage.getItem('comandero-aparato')||''}catch(e){}if(!/^[A-Za-z0-9_-]{6,40}$/.test(d)){d='ap-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10);try{localStorage.setItem('comandero-aparato',d)}catch(e){}}return d}
+function nubePing(){if(!CN||nube.bloqueo||document.visibilityState!=='visible')return;const w=Math.min(screen.width,screen.height);rpc('cm_ping',{p_r:CN.r,p_k:CN.k,p_dev:aparatoId(),p_info:{tipo:w>=600?'tablet':'celular',app:esApp(),puesto:ui.rol||''}}).catch(()=>{})}
+function nubeIniciar(){if(!CN)return;wsConectar();nubeTraer();setTimeout(nubePing,3000);setInterval(nubePing,5*60000);
   setInterval(()=>{if(document.visibilityState==='visible')nubeTraer()},wsVivo?15000:4000);
   setInterval(()=>{if(nube.pend&&!ui.modal&&!escribiendo()){nube.pend=false;render()}},1000);
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')nubeTraer()});
@@ -744,7 +746,7 @@ function vInicio(){
   Object.entries(ROLES).forEach(([k,r])=>h+=`<button class="role" data-a="rol" data-r="${k}"><span class="ic">${ICONS[k]||''}</span><b>${r.t}</b><span>${r.d}</span><i>Entrar con mi PIN</i></button>`);
   h+=`</div><div class="row">${featOn('asistencia')?`<button class="btn pri" style="flex:2;min-width:220px" data-a="asist">Checar entrada o salida</button><button class="btn" style="flex:1;min-width:160px" data-a="miHorario">Ver mi horario</button>`:''}</div>
   ${(CN&&!nube.features.demo)?'':`<div class="pinbox"><b style="color:var(--ink)">Demostración</b> PIN: Gerente <code>1234</code> Mesero <code>1111</code> Cocina <code>2222</code> Caja <code>3333</code><span class="sp"></span><button class="btn sm ghost" data-a="demoReset">Reiniciar demostración</button><button class="btn sm" data-a="conectar">Conectar mi restaurante</button></div>`}
-  ${(CN&&!nube.features.demo)?'':`<div class="pitch"><div><p class="lbl" style="color:var(--brand)">Para tu restaurante</p><h3>Con tu menú, tus mesas y tu logo</h3><p>Funciona en las tablets y celulares que ya tienes. Los meseros mandan la orden a cocina, la caja cobra y el gerente ve las ventas desde su celular.</p></div><div style="display:grid;gap:12px"><ul><li>Sin equipo especial</li><li>Se instala en un día</li><li>Capacitación incluida</li></ul><a class="btn ok" href="https://wa.me/526862595403?text=Hola%2C%20vi%20la%20demostraci%C3%B3n%20del%20Comandero%20y%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener" style="text-decoration:none">Pedir información por WhatsApp</a><small class="muted" style="text-align:center">WhatsApp 686 259 5403</small></div></div>`}</section>`;
+  ${(CN&&!nube.features.demo)?'':`<div class="pitch"><div><p class="lbl" style="color:var(--brand)">Para tu restaurante</p><h3>Con tu menú, tus mesas y tu logo</h3><p>Funciona en las tablets y celulares que ya tienes. Los meseros mandan la orden a cocina, la caja cobra y el gerente ve las ventas desde su celular.</p></div><div style="display:grid;gap:12px"><ul><li>Todos los aparatos y usuarios que quieras</li><li>Instalación y personalización gratis</li><li>Primer mes gratis, sin contrato</li><li>$399 al mes por local</li></ul><a class="btn ok" href="https://wa.me/526862595403?text=Hola%2C%20vi%20la%20demostraci%C3%B3n%20del%20Comandero%20y%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener" style="text-decoration:none">Pedir información por WhatsApp</a><small class="muted" style="text-align:center">WhatsApp 686 259 5403</small></div></div>`}</section>`;
   return h;
 }
 
@@ -840,11 +842,36 @@ function vCaja(){
 
 /* Gerente */
 function vAdmin(){
-  const tabs={resumen:'Resumen de hoy',reportes:'Reportes',horarios:'Horarios y asistencia',menu:'Menú y precios',promos:'Promociones',mesas:'Mesas',canales:'Pedidos y plataformas',equipo:'Equipo y PIN',rest:'Restaurante'};
+  const tabs={resumen:'Resumen de hoy',reportes:'Reportes',sucursales:'Mis sucursales',horarios:'Horarios y asistencia',menu:'Menú y precios',promos:'Promociones',mesas:'Mesas',canales:'Pedidos y plataformas',equipo:'Equipo y PIN',rest:'Restaurante'};
+  if(!(!CN||nube.features.demo||nube.sucursales>1))delete tabs.sucursales;
   if(!featOn('asistencia'))delete tabs.horarios;if(!featOn('promociones'))delete tabs.promos;if(!tabs[ui.adm])ui.adm='resumen';
   let h=`<nav class="atabs">${Object.entries(tabs).map(([k,v])=>`<button class="atab ${ui.adm===k?'on':''}" data-a="adm" data-t="${k}">${v}</button>`).join('')}</nav>`;
-  return h+({resumen:aResumen,reportes:aReportes,horarios:aHorarios,menu:aMenu,promos:aPromos,mesas:aMesas,canales:aCanales,equipo:aEquipo,rest:aRest}[ui.adm])();
+  return h+({resumen:aResumen,reportes:aReportes,sucursales:aSucursales,horarios:aHorarios,menu:aMenu,promos:aPromos,mesas:aMesas,canales:aCanales,equipo:aEquipo,rest:aRest}[ui.adm])();
 }
+/* ---------- Mis sucursales (cliente con varios locales) ---------- */
+function sucDemo(){const now=new Date(),tz0=new Date(now.getFullYear(),now.getMonth(),now.getDate()).getTime(),m0=new Date(now.getFullYear(),now.getMonth(),1).getTime(),a0=new Date(now.getFullYear(),now.getMonth()-1,1).getTime(),ax=a0+(Date.now()-m0),s0=tz0-6*864e5;
+  const pag=S.ordenes.filter(o=>o.estado==='pagada'),sum=(a,b)=>pag.filter(o=>o.pagadaT>=a&&o.pagadaT<b).reduce((x,o)=>x+o.pago.total,0),cnt=(a,b)=>pag.filter(o=>o.pagadaT>=a&&o.pagadaT<b).length;
+  const it={};pag.filter(o=>o.pagadaT>=m0).forEach(o=>o.items.filter(i=>!i.cancel&&i.cat!=='Envío').forEach(i=>it[i.nombre]=(it[i.nombre]||0)+i.qty));const top=Object.entries(it).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([n,q])=>({n,q}));
+  const yo={id:'yo',nombre:S.config.nombre,yo:true,hoy:sum(tz0,Infinity),cuentas_hoy:cnt(tz0,Infinity),semana:sum(s0,Infinity),mes:sum(m0,Infinity),cuentas_mes:cnt(m0,Infinity),mes_ant_igual:sum(a0,ax),abiertas:S.ordenes.filter(o=>o.estado==='abierta').length,top,ultimo:new Date().toISOString(),aparatos_hoy:4};
+  const otro=(nom,f,g,tp,ab,ap,min)=>({id:nom,nombre:nom,yo:false,hoy:Math.round(yo.hoy*f),cuentas_hoy:Math.round(yo.cuentas_hoy*f),semana:Math.round(yo.semana*f),mes:Math.round(yo.mes*f),cuentas_mes:Math.round(yo.cuentas_mes*f),mes_ant_igual:Math.round(yo.mes_ant_igual*f*g),abiertas:ab,top:tp,ultimo:new Date(Date.now()-min*60000).toISOString(),aparatos_hoy:ap});
+  return {cliente:'Grupo '+S.config.nombre,ejemplo:true,locales:[yo,otro(S.config.nombre+' Playas',.78,.88,[{n:'Aguachile verde',q:41},{n:'Taco de camarón',q:37},{n:'Michelada',q:33}],3,3,2),otro(S.config.nombre+' Otay',1.12,.9,[{n:'Taco de asada',q:88},{n:'Arrachera',q:46},{n:'Cerveza',q:44}],6,5,1)]}}
+async function sucCargar(){if(!CN||nube.features.demo){ui.suc={data:sucDemo()};render();return}ui.suc={cargando:true};render();
+  try{ui.suc={data:await rpc('cm_grupo',{p_r:CN.r,p_k:CN.k,p_pin:ui.user.pin})}}catch(e){ui.suc={err:e.message||'Sin conexión'}}if(ui.rol==='admin'&&ui.adm==='sucursales')render()}
+const haceTxt=t=>{if(!t)return 'Sin uso';const m=Math.round((Date.now()-new Date(t))/60000);return m<3?'En uso ahora':m<60?'Hace '+m+' min':m<1440?'Hace '+Math.round(m/60)+' h':'Hace '+Math.round(m/1440)+' días'};
+function aSucursales(){
+  if(!ui.suc){setTimeout(sucCargar,0);return '<div class="empty">Cargando tus sucursales…</div>'}
+  if(ui.suc.cargando)return '<div class="empty">Cargando tus sucursales…</div>';
+  if(ui.suc.err)return `<div class="empty">${esc(ui.suc.err)}<br><br><button class="btn" data-a="sucRecargar">Intentar otra vez</button></div>`;
+  const d=ui.suc.data,L=d.locales||[],T=k=>L.reduce((a,l)=>a+(+l[k]||0),0),pct=(a,b)=>b?Math.round((a-b)/b*100):null,mx=Math.max(1,...L.map(l=>+l.mes||0));
+  const chg=(a,b)=>{const p=pct(a,b);return p===null?'':`<b style="color:${p>=0?'var(--ok)':'var(--bad)'}">${p>=0?'+':''}${p}%</b>`};
+  let h=`<div class="row" style="margin-bottom:12px"><div><h2 class="h2">Mis sucursales</h2><p class="muted" style="margin:2px 0 0">${esc(d.cliente)} · ${L.length} locales${d.ejemplo?' · <b>datos de ejemplo</b>':''}</p></div><span class="sp"></span><button class="btn sm ghost" data-a="sucRecargar">Actualizar</button></div>`;
+  if(d.ejemplo)h+=`<div class="note" style="margin-bottom:12px">Así se ve cuando un dueño tiene varios locales: cada local usa su propio Comandero y aquí se comparan todos juntos. Cada local extra cuesta menos.</div>`;
+  h+=`<div class="kpis"><div class="card kpi"><p class="lbl">Hoy, todos los locales</p><div class="v num">${money(T('hoy'))}</div><small class="muted">${T('cuentas_hoy')} cuentas cobradas</small></div><div class="card kpi"><p class="lbl">Últimos 7 días</p><div class="v num">${money(T('semana'))}</div></div><div class="card kpi"><p class="lbl">Este mes</p><div class="v num">${money(T('mes'))}</div>${T('mes_ant_igual')?`<small class="muted">${chg(T('mes'),T('mes_ant_igual'))} contra los mismos días del mes pasado</small>`:''}</div><div class="card kpi"><p class="lbl">Cuentas abiertas ahora</p><div class="v num">${T('abiertas')}</div></div></div>
+  <div class="card" style="margin-top:12px"><p class="lbl">Venta del mes por local</p><div class="bars" style="margin-top:10px">${L.slice().sort((a,b)=>b.mes-a.mes).map(l=>`<div class="bar" style="grid-template-columns:minmax(0,1fr) 110px"><div><span>${esc(l.nombre)}${l.yo?' <span class="tag t-new" style="margin:0">Este local</span>':''}</span><div class="tr"><div class="fl" style="width:${(+l.mes||0)/mx*100}%"></div></div></div><b class="num" style="text-align:right">${money(l.mes)}</b></div>`).join('')}</div></div>
+  <div class="grid2" style="margin-top:12px">${L.map(l=>`<div class="card" style="display:grid;gap:8px"><div class="row"><b style="font-size:18px">${esc(l.nombre)}</b>${l.yo?'<span class="tag t-new" style="margin:0">Este local</span>':''}<span class="sp"></span><small class="muted">${esc(haceTxt(l.ultimo))}</small></div>
+    <div class="tot num"><div><span>Hoy</span><span>${money(l.hoy)} · ${l.cuentas_hoy} cuentas</span></div><div><span>Últimos 7 días</span><span>${money(l.semana)}</span></div><div><span>Este mes</span><span>${money(l.mes)} ${chg(+l.mes,+l.mes_ant_igual)}</span></div><div><span>Ticket promedio del mes</span><span>${money(l.cuentas_mes?l.mes/l.cuentas_mes:0)}</span></div><div><span>Cuentas abiertas ahora</span><span>${l.abiertas}</span></div><div><span>Aparatos conectados hoy</span><span>${l.aparatos_hoy}</span></div></div>
+    ${(l.top||[]).length?`<p class="muted" style="margin:0;font-size:13px">Más vendido del mes: ${l.top.map(x=>esc(x.n)+' ('+(+x.q)+')').join(', ')}</p>`:''}</div>`).join('')}</div>`;
+  return h}
 function avisoMes(){const d=new Date();if(d.getDate()>7)return '';let v='';try{v=localStorage.getItem(KEY+'-avisoMes')||''}catch(e){}if(v===dkey(d).slice(0,7))return '';const pm=MESES[(d.getMonth()+11)%12];return `<div class="card rep-aviso"><div style="flex:1 1 260px;min-width:0"><b>Ya está listo tu resumen de ${pm}</b><p class="muted" style="margin:2px 0 0">Ventas, lo más vendido y el control de caja del mes, en un PDF para mandar por WhatsApp.</p></div><div class="row"><button class="btn ghost" data-a="avisoMesNo">Ahora no</button><button class="btn pri" data-a="verResumenMes">Ver resumen</button></div></div>`}
 function aResumen(){
   const pag=S.ordenes.filter(o=>o.estado==='pagada'&&hoy(o.pagadaT));
@@ -945,6 +972,7 @@ const AYUDA_PASOS={
   inicio:['Toca tu puesto: Mesero, Cocina, Caja o Gerente.','Escribe tu PIN de 4 números.','Al llegar y al irte, toca "Checar entrada o salida" y pon tu PIN.'],
   mesero:TIPS.mesero, orden:TIPS.orden, cocina:TIPS.cocina, caja:TIPS.caja,
   'admin-resumen':['Aquí ves lo vendido hoy, efectivo, tarjeta y lo que falta por cobrar.','Revisa las cancelaciones: cada una dice quién la autorizó y por qué.','Abajo ves quién vino a trabajar y los cortes de caja.'],
+  'admin-sucursales':['Aquí ves las ventas de todos los locales del mismo dueño.','Compara hoy, la semana y el mes de cada local.','Toca "Actualizar" para ver los números al momento.'],
   'admin-horarios':['Toca "Editar horarios" para poner turnos y días de descanso.','Fuera de edición, toca un día para marcar asistió, retardo, faltó o permiso.','"Copiar para WhatsApp" copia el horario para mandarlo al grupo.'],
   'admin-menu':['Cambia el precio en la casilla y se guarda solo.','Desmarca "Activo" cuando se acabe un platillo.','Toca "Subir" para ponerle foto a un platillo.'],
   'admin-promos':['Ponle nombre al botón y elige el tipo de promoción.','Marca los días en que aplica.','Toca "Crear botón": le aparece al mesero y al cajero esos días.'],
@@ -1032,7 +1060,7 @@ const A={
   rol:d=>pinPrompt({titulo:'Entrar como '+ROLES[d.r].t,sub:'Escribe tu PIN de 4 números'+pinDemo(d.r),para:{k:'rol',rol:d.r}}),
   asist:d=>pinPrompt({titulo:'Checar entrada o salida',sub:'Escribe tu PIN'+pinDemo((d&&d.r)||'mesero'),para:{k:'asist'}}),
   miHorario:()=>pinPrompt({titulo:'Ver mi horario',sub:'Escribe tu PIN'+pinDemo('mesero'),para:{k:'mih'}}),
-  salir:()=>{ui=Object.assign(ui,{deCaja:false,confDel:null,rol:null,user:null,orden:null,cat:null,q:'',modal:null,np:null,cajaSel:null,hEdit:false});render();scrollTo(0,0)},
+  salir:()=>{ui=Object.assign(ui,{suc:null,deCaja:false,confDel:null,rol:null,user:null,orden:null,cat:null,q:'',modal:null,np:null,cajaSel:null,hEdit:false});render();scrollTo(0,0)},
   instalar:async()=>{if(instEvt){instEvt.prompt();try{await instEvt.userChoice}catch(e){}instEvt=null;render()}else{ui.instAyuda=true;render()}},
   instCerrar:()=>{ui.instAyuda=false;render()},
   demoReset:async()=>{if(CN){if(!nube.features.demo)return;try{await rpc('cm_demo_reset',{p_r:CN.r,p_k:CN.k});S=seed();migrar();nube.hash={};nube.dirty.clear();save();ui.rol=null;ui.orden=null;render();toast('Demostración reiniciada en todos tus aparatos')}catch(e){toast(e.message)}return}try{localStorage.removeItem(KEY)}catch(e){}S=seed();migrar();save();ui.rol=null;ui.orden=null;render();toast('Demostración reiniciada')},
@@ -1103,7 +1131,8 @@ const A={
   corteOtra:()=>{ui.modal.listo=false;renderModal();setTimeout(()=>{const c=document.getElementById('contado');if(c)c.focus()},50)},
   corteOk:()=>{const C=corteDatos(),esp=C.esp;
     S.cortes.push({t:Date.now(),desde:C.desde,quien:ui.user.nombre,esperado:esp,contado:ui.modal.contado,dif:Math.round((ui.modal.contado-esp)*100)/100,tarjeta:C.tj,cuentas:C.pag.length});ui.modal=null;save();toast('Corte guardado. El gerente lo ve en su resumen');render()},
-  adm:d=>{ui.adm=d.t;ui.confirmReset=false;ui.confDel=null;render()},
+  sucRecargar:()=>{ui.suc=null;sucCargar()},
+  adm:d=>{if(d.t==='sucursales')ui.suc=null;ui.adm=d.t;ui.confirmReset=false;ui.confDel=null;render()},
   addItem:()=>{S.menu.unshift({id:uid(),nombre:'Nuevo platillo',cat:S.categorias[0],precio:0,desc:'',opciones:'',foto:'',activo:true});ui.mq='';save();render()},
   delItem:d=>{if(ui.confDel!==d.m){ui.confDel=d.m;render();return}ui.confDel=null;S.menu=S.menu.filter(x=>x.id!==d.m);save();toast('Platillo quitado');render()},
   addCat:()=>{const v=(document.getElementById('newcat').value||'').trim();if(v&&!S.categorias.includes(v)){S.categorias.push(v);save();toast('Categoría agregada');render()}},

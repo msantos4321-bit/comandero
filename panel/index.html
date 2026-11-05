@@ -95,6 +95,12 @@ label{display:grid;gap:4px}
 .note{font-size:13.5px;color:var(--muted);background:var(--chip);border-radius:10px;padding:10px 12px}
 .note.warn{background:var(--warn-soft);color:var(--ink)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.cli{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:6px}
+.cli h3{font-size:24px}
+.grupo{display:grid;gap:10px;border-left:4px solid var(--brand);padding-left:12px}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{padding:9px 14px;border-radius:99px;background:var(--chip);font-weight:700;min-height:42px}
+.opt.on{background:var(--brand);color:var(--brand-ink)}
 </style>
 </head><body>
 <header><div class="in"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h16M6 17a6 6 0 0 1 12 0M12 8V6M10 6h4"/><path d="M3 20h18"/></svg></span><div><h1>Comandero</h1><small>Panel del dueño</small></div><span class="sp"></span><button class="btn bar sm" id="btnSalir" hidden>Salir</button></div></header>
@@ -105,6 +111,12 @@ const NUBE={url:'https://wnwecaapchcfhcljsvli.supabase.co',key:'sb_publishable_v
 const APP='https://msantos4321-bit.github.io/comandero/';
 const FEAT=[['llevar','Para llevar','Órdenes para recoger'],['domicilio','Domicilio','Con dirección y costo de envío'],['uber','Uber Eats','Pedidos de la plataforma'],['didi','DiDi Food','Pedidos de la plataforma'],
   ['promociones','Promociones','Descuentos, paquetes y cortesías'],['asistencia','Horarios y asistencia','Checada con PIN, retardos y faltas'],['impresion','Imprimir ticket','Botón en Caja'],['graficas','Gráficas de ventas','Semana y hora fuerte en el resumen']];
+const PRECIO={base:399,extra:299,mesesAnual:10};
+const anual=p=>(p||{}).cobro==='anual';
+const mensualEq=r=>{const p=r.plan||{},m=+p.mensualidad||0;return anual(p)?m*PRECIO.mesesAnual/12:m};
+const montoPago=p=>(+p.mensualidad||0)*(anual(p)?PRECIO.mesesAnual:1);
+const slug=t=>String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40);
+function grupos(){const G=[];R.forEach(r=>{const k=r.grupo||('c-'+r.id);let g=G.find(x=>x.id===k);if(!g)G.push(g={id:k,nombre:'',locales:[]});g.locales.push(r);if(!g.nombre&&(r.plan||{}).cliente)g.nombre=r.plan.cliente});G.forEach(g=>{if(!g.nombre)g.nombre=g.locales[0].nombre});return G}
 let K='';try{K=localStorage.getItem('comandero-dueno')||''}catch(e){}
 let R=[],ed=null,cargando=false;
 const $=s=>document.querySelector(s);
@@ -130,33 +142,44 @@ function render(){
   if(!K){app.innerHTML=`<form class="login" id="fLogin"><p class="lbl">Solo para el dueño</p><h2>Entrar al panel</h2><p class="muted" style="margin:0">Escribe tu llave de dueño. Te llegó por correo; este aparato la recordará.</p><label><span class="lbl">Llave de dueño</span><input id="llave" autocomplete="off" autocapitalize="characters" placeholder="DUENO-XXXXX-XXXXX-XXXXX-XXXXX"></label><button class="btn pri" type="submit">Entrar</button></form>`;
     $('#fLogin').onsubmit=e=>{e.preventDefault();K=$('#llave').value.trim().toUpperCase();try{localStorage.setItem('comandero-dueno',K)}catch(_){}cargar()};return}
   if(cargando&&!R.length){app.innerHTML=`<div class="empty">Cargando restaurantes…</div>`;return}
-  const act=R.filter(r=>r.estado==='activo'),ing=act.reduce((a,r)=>a+(+(r.plan||{}).mensualidad||0),0),venc=R.filter(r=>pago(r)[1]==='bad'&&r.estado==='activo'),vm=R.reduce((a,r)=>a+(+r.venta_mes||0),0);
-  let h=`<section class="kpis"><div class="kpi"><span class="v num">${act.length}</span><span class="muted">Restaurantes activos</span></div><div class="kpi"><span class="v num">${money(ing)}</span><span class="muted">Ingreso mensual</span></div><div class="kpi ${venc.length?'alert':''}"><span class="v num">${venc.length}</span><span class="muted">Con pago vencido</span></div><div class="kpi"><span class="v num">${money(vm)}</span><span class="muted">Ventas de tus clientes este mes</span></div></section>
+  const act=R.filter(r=>r.estado==='activo'),ing=act.reduce((a,r)=>a+mensualEq(r),0),venc=R.filter(r=>pago(r)[1]==='bad'&&r.estado==='activo'),vm=R.reduce((a,r)=>a+(+r.venta_mes||0),0),G=grupos(),nCli=G.filter(g=>g.locales.some(r=>r.estado==='activo')).length,apH=R.reduce((a,r)=>a+(+r.aparatos_hoy||0),0);
+  let h=`<section class="kpis"><div class="kpi"><span class="v num">${act.length}</span><span class="muted">Locales activos · ${nCli} cliente${nCli===1?'':'s'}</span></div><div class="kpi"><span class="v num">${money(ing)}</span><span class="muted">Ingreso mensual</span></div><div class="kpi ${venc.length?'alert':''}"><span class="v num">${venc.length}</span><span class="muted">Con pago vencido</span></div><div class="kpi"><span class="v num">${apH}</span><span class="muted">Aparatos conectados hoy</span></div></section>
+  <p class="muted" style="margin:0;font-size:13.5px">Precio de lista: ${money(PRECIO.base)} al mes por local · cada local extra del mismo cliente ${money(PRECIO.extra)} · pago anual = ${PRECIO.mesesAnual} mensualidades por 12 meses · aparatos y usuarios ilimitados. Tus clientes vendieron ${money(vm)} este mes.</p>
   <div class="row"><h2 style="font-size:30px">Restaurantes</h2><span class="sp"></span><button class="btn ghost sm" data-a="recargar">Actualizar</button><button class="btn pri" data-a="nuevo">+ Nuevo restaurante</button></div><section class="list">`;
   if(!R.length)h+=`<div class="empty">Todavía no hay restaurantes. Toca «Nuevo restaurante» para dar de alta el primero.</div>`;
-  R.forEach(r=>{const [pt,pc]=pago(r),p=r.plan||{};
-    h+=`<article class="rest ${r.estado}"><div><h3>${esc(r.nombre)}</h3><div class="id">${esc(r.id)}${p.contacto?' · '+esc(p.contacto):''}${p.telefono?' · '+esc(p.telefono):''}</div><div class="chips"><span class="chip ${pc}">${esc(pt)}</span><span class="chip">${esc(hace(r.ultimo))}</span>${FEAT.filter(([k])=>(r.features||{})[k]===false).length?`<span class="chip">${FEAT.filter(([k])=>(r.features||{})[k]===false).length} funciones apagadas</span>`:''}</div></div>
-    <div class="facts"><div><b class="num">${p.mensualidad?money(p.mensualidad):'—'}</b><span>Mensualidad</span></div><div><b>${fFecha(p.pagado_hasta)}</b><span>Pagado hasta</span></div><div><b class="num">${money(r.venta_mes)}</b><span>Ventas del mes</span></div><div><b class="num">${r.cuentas_mes||0}</b><span>Cuentas cobradas</span></div></div>
-    <div class="acts"><button class="btn sm" data-a="editar" data-id="${esc(r.id)}">Administrar</button><a class="btn sm ghost" href="${esc(waURL(r))}" target="_blank" rel="noopener">Liga por WhatsApp</a></div></article>`});
+  const tarjeta=r=>{const [pt,pc]=pago(r),p=r.plan||{};
+    return `<article class="rest ${r.estado}"><div><h3>${esc(r.nombre)}</h3><div class="id">${esc(r.id)}${p.contacto?' · '+esc(p.contacto):''}${p.telefono?' · '+esc(p.telefono):''}</div><div class="chips"><span class="chip ${pc}">${esc(pt)}</span><span class="chip">${esc(hace(r.ultimo))}</span><span class="chip">${+r.aparatos_hoy||0} aparato${+r.aparatos_hoy===1?'':'s'} hoy</span>${anual(p)?'<span class="chip ok">Pago anual</span>':''}${FEAT.filter(([k])=>(r.features||{})[k]===false).length?`<span class="chip">${FEAT.filter(([k])=>(r.features||{})[k]===false).length} funciones apagadas</span>`:''}</div></div>
+    <div class="facts"><div><b class="num">${p.mensualidad?money(montoPago(p)):'—'}</b><span>${anual(p)?'Al año':'Al mes'}</span></div><div><b>${fFecha(p.pagado_hasta)}</b><span>Pagado hasta</span></div><div><b class="num">${money(r.venta_mes)}</b><span>Ventas del mes</span></div><div><b class="num">${r.cuentas_mes||0}</b><span>Cuentas cobradas</span></div></div>
+    <div class="acts"><button class="btn sm" data-a="editar" data-id="${esc(r.id)}">Administrar</button><a class="btn sm ghost" href="${esc(waURL(r))}" target="_blank" rel="noopener">Liga por WhatsApp</a></div></article>`};
+  G.forEach(g=>{if(g.locales.length<2){h+=tarjeta(g.locales[0]);return}const tot=g.locales.filter(r=>r.estado==='activo').reduce((a,r)=>a+mensualEq(r),0);
+    h+=`<div class="grupo"><div class="cli"><p class="lbl">Cliente</p><h3>${esc(g.nombre)}</h3><span class="muted">${g.locales.length} locales · ${money(tot)} al mes</span><span class="sp"></span><button class="btn sm ghost" data-a="nuevoEn" data-g="${esc(g.id)}">+ Otro local de este cliente</button></div>${g.locales.map(tarjeta).join('')}</div>`});
   app.innerHTML=h+`</section><p class="note">La liga de cada restaurante lleva su código: quien la tenga entra a ese restaurante. Si un empleado se va o la liga se comparte de más, usa «Código nuevo».</p>`;
 }
+function selCliente(sel,idSel){const G=grupos();return `<label><span class="lbl">Cliente (dueño)</span><select id="${idSel}"><option value="">Cliente nuevo</option>${G.map(g=>`<option value="${esc(g.id)}" ${g.id===sel?'selected':''}>${esc(g.nombre)} · ${g.locales.length} local${g.locales.length===1?'':'es'}</option>`).join('')}</select></label>`}
+function selCobro(v,idSel){return `<label><span class="lbl">Cobro</span><select id="${idSel}"><option value="mensual" ${v!=='anual'?'selected':''}>Mensual</option><option value="anual" ${v==='anual'?'selected':''}>Anual (${PRECIO.mesesAnual} meses por 12)</option></select></label>`}
 function sheet(){
   const el=$('#sheet');if(!ed){el.innerHTML='';document.body.style.overflow='';return}document.body.style.overflow='hidden';
   let h='';
   if(ed.tipo==='nuevo'){h=`<div class="row"><p class="lbl">Alta</p><span class="sp"></span><button class="btn ghost sm" data-a="cerrar">Cerrar</button></div><h2>Nuevo restaurante</h2>
     ${ed.code?`<div class="box"><p class="lbl">Listo · código de acceso</p><div class="code">${esc(ed.code)}</div><div class="link">${esc(liga(ed.r))}</div><div class="row"><a class="btn ok" style="flex:1" href="${esc(waURL(ed.r))}" target="_blank" rel="noopener">Mandar por WhatsApp</a><button class="btn" style="flex:1" data-a="copiarLiga">Copiar liga</button></div><p class="muted" style="margin:0;font-size:13.5px">El restaurante abre la liga en cada tablet y celular. ${ed.r.features.plantilla==='ejemplo'?'Arranca con el menú de ejemplo para que lo cambien.':'Arranca en blanco: el gerente captura su menú en «Menú y precios».'}</p></div>`:
     `<form class="box" id="fNuevo"><label><span class="lbl">Nombre del restaurante</span><input id="nNom" required placeholder="Ej. Tacos El Güero" autocomplete="off"></label>
-    <label><span class="lbl">Identificador (va en la liga)</span><input id="nId" required pattern="[a-z0-9][a-z0-9-]{2,29}" placeholder="tacos-el-guero" autocomplete="off" autocapitalize="none"></label>
+    <label><span class="lbl">Identificador (va en la liga)</span><input id="nId" required pattern="[a-z0-9][a-z0-9\\-]{2,29}" placeholder="tacos-el-guero" autocomplete="off" autocapitalize="none"></label>
+    ${selCliente(ed.grupo||'','nGru')}<label id="nCliBox" ${ed.grupo?'hidden':''}><span class="lbl">Nombre del cliente</span><input id="nCli" placeholder="Ej. Juan Pérez o Grupo El Güero" autocomplete="off"></label>
     <div class="grid2"><label><span class="lbl">Contacto</span><input id="nCon" placeholder="Nombre del dueño"></label><label><span class="lbl">WhatsApp (10 dígitos)</span><input id="nTel" inputmode="tel" placeholder="664 123 4567"></label></div>
-    <div class="grid2"><label><span class="lbl">Mensualidad</span><input id="nMen" type="number" inputmode="numeric" placeholder="Ej. 499"></label><label><span class="lbl">Pagado hasta</span><input id="nHasta" type="date"></label></div>
+    <div class="grid2">${selCobro('mensual','nCob')}<label><span class="lbl">Mensualidad</span><input id="nMen" type="number" inputmode="numeric" value="${ed.grupo?PRECIO.extra:PRECIO.base}"></label></div>
+    <p class="muted" id="nPrecio" style="margin:0;font-size:13px">${ed.grupo?'Local extra de un cliente: '+money(PRECIO.extra)+' al mes.':'Primer local: '+money(PRECIO.base)+' al mes.'} Instalación, personalización y el primer mes gratis.</p>
+    <label><span class="lbl">Pagado hasta (el mes gratis)</span><input id="nHasta" type="date" value="${(()=>{const d=new Date();d.setMonth(d.getMonth()+1);return d.toISOString().slice(0,10)})()}"></label>
     <label><span class="lbl">Cómo arranca</span><select id="nPla"><option value="blanco">En blanco (ellos capturan su menú)</option><option value="ejemplo">Con el menú de ejemplo (para que lo editen)</option></select></label>
     <button class="btn pri" type="submit" ${ed.enviando?'disabled':''}>${ed.enviando?'Creando…':'Dar de alta y generar código'}</button></form>`}`}
-  else{const r=R.find(x=>x.id===ed.id);if(!r){ed=null;return sheet()}const p=Object.assign({},r.plan||{}),f=Object.assign({},r.features||{});ed.p=ed.p||p;ed.f=ed.f||f;ed.estado=ed.estado||r.estado;ed.nombre=ed.nombre??r.nombre;
+  else{const r=R.find(x=>x.id===ed.id);if(!r){ed=null;return sheet()}const p=Object.assign({},r.plan||{}),f=Object.assign({},r.features||{});ed.p=ed.p||p;ed.f=ed.f||f;ed.estado=ed.estado||r.estado;ed.nombre=ed.nombre??r.nombre;if(ed.grupo===undefined)ed.grupo=r.grupo||'c-'+r.id;
     const [pt,pc]=pago(Object.assign({},r,{plan:ed.p,estado:ed.estado}));
     h=`<div class="row"><span class="chip ${pc}">${esc(pt)}</span><span class="sp"></span><button class="btn ghost sm" data-a="cerrar">Cerrar</button></div><h2>${esc(r.nombre)}</h2>
-    <div class="box"><p class="lbl">Cobro</p><div class="grid2"><label><span class="lbl">Mensualidad</span><input id="eMen" type="number" inputmode="numeric" value="${esc(ed.p.mensualidad||'')}"></label><label><span class="lbl">Pagado hasta</span><input id="eHasta" type="date" value="${esc(ed.p.pagado_hasta||'')}"></label></div>
-      <button class="btn ok" data-a="pagoMes">Registrar pago de un mes${ed.p.mensualidad?' ('+money(ed.p.mensualidad)+')':''}</button>
+    <div class="box"><p class="lbl">Cobro</p>${selCliente(ed.grupo,'eGru')}<label id="eCliBox" ${grupos().some(g=>g.id===ed.grupo)?'hidden':''}><span class="lbl">Nombre del cliente nuevo</span><input id="eCli" value="${esc(ed.cliNuevo||'')}" placeholder="Ej. Juan Pérez"></label>
+      <div class="grid2">${selCobro(ed.p.cobro,'eCob')}<label><span class="lbl">Mensualidad</span><input id="eMen" type="number" inputmode="numeric" value="${esc(ed.p.mensualidad||'')}"></label></div><label><span class="lbl">Pagado hasta</span><input id="eHasta" type="date" value="${esc(ed.p.pagado_hasta||'')}"></label>
+      <button class="btn ok" data-a="pagoMes">${anual(ed.p)?'Registrar pago de un año':'Registrar pago de un mes'}${ed.p.mensualidad?' ('+money(montoPago(ed.p))+')':''}</button>
+      <p class="muted" style="margin:0;font-size:13px">Precio de lista: ${money(PRECIO.base)} el primer local, ${money(PRECIO.extra)} cada local extra del mismo cliente. Anual: ${PRECIO.mesesAnual} mensualidades por 12 meses.</p>
       ${(ed.p.pagos||[]).length?`<div class="pagos">${ed.p.pagos.slice(-6).reverse().map(x=>`<div class="row"><span class="num">${fFecha(x.fecha)}</span><span class="sp"></span><b class="num">${money(x.monto)}</b><span class="muted">hasta ${fFecha(x.hasta)}</span></div>`).join('')}</div>`:''}</div>
+    <div class="box"><p class="lbl">Aparatos conectados</p><div class="row"><b class="num" style="font:800 30px var(--display)">${+r.aparatos_hoy||0}</b><span class="muted">hoy</span><span class="sp"></span><b class="num" style="font:800 30px var(--display)">${+r.aparatos||0}</b><span class="muted">en los últimos 30 días</span></div><p class="muted" style="margin:0;font-size:13px">Sin límite de aparatos: es solo para que sepas cuánto lo usan.</p></div>
     <div class="box"><p class="lbl">Funciones del restaurante</p>${FEAT.map(([k,t,d])=>`<div class="sw"><span><b>${t}</b><small>${d}</small></span><button class="tog ${ed.f[k]!==false?'on':''}" role="switch" aria-checked="${ed.f[k]!==false}" aria-label="${t}" data-a="feat" data-k="${k}"></button></div>`).join('')}</div>
     <div class="box"><p class="lbl">Datos</p><label><span class="lbl">Nombre</span><input id="eNom" value="${esc(ed.nombre)}"></label><div class="grid2"><label><span class="lbl">Contacto</span><input id="eCon" value="${esc(ed.p.contacto||'')}"></label><label><span class="lbl">WhatsApp</span><input id="eTel" inputmode="tel" value="${esc(ed.p.telefono||'')}"></label></div><label><span class="lbl">Notas</span><textarea id="eNot" rows="2">${esc(ed.p.notas||'')}</textarea></label></div>
     <div class="box"><p class="lbl">Acceso</p><div class="code">${esc(r.code||'—')}</div><div class="link">${esc(liga(r))}</div><div class="row"><a class="btn" style="flex:1" href="${esc(waURL(r))}" target="_blank" rel="noopener">Mandar por WhatsApp</a><button class="btn" style="flex:1" data-a="copiarLiga">Copiar liga</button></div>
@@ -165,27 +188,34 @@ function sheet(){
     <div class="box"><p class="lbl">Servicio</p><p class="muted" style="margin:0;font-size:13.5px">${ed.estado==='activo'?'Si lo pausas, sus aparatos muestran un aviso y dejan de funcionar hasta que lo actives. No se borra nada.':'Está pausado. Al activarlo, sus aparatos vuelven a funcionar con todos sus datos.'}</p><button class="btn ${ed.estado==='activo'?'bad':'ok'}" data-a="estado">${ed.estado==='activo'?'Pausar servicio':'Activar servicio'}</button></div>
     <button class="btn pri" data-a="guardar" ${ed.guardando?'disabled':''}>${ed.guardando?'Guardando…':'Guardar cambios'}</button>`}
   el.innerHTML=`<div class="ov" data-a="ovClose"><aside class="sheet" role="dialog" aria-modal="true">${h}</aside></div>`;
-  const fn=$('#fNuevo');if(fn){const nom=$('#nNom'),id=$('#nId');nom.oninput=()=>{if(!id.dataset.touch)id.value=nom.value.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,30)};id.oninput=()=>id.dataset.touch=1;
-    fn.onsubmit=async e=>{e.preventDefault();ed.enviando=true;const plan={contacto:$('#nCon').value.trim(),telefono:$('#nTel').value.trim(),mensualidad:+$('#nMen').value||0,pagado_hasta:$('#nHasta').value||'',pagos:[]},nombre=nom.value.trim(),rid=id.value.trim(),pla=$('#nPla').value;sheet();
-      try{const code=await rpc('cm_admin_create',{p_s:K,p_id:rid,p_nombre:nombre,p_plantilla:pla,p_plan:plan});ed.code=code;ed.r={id:rid,nombre,code,plan,features:{plantilla:pla}};ed.enviando=false;sheet();cargar()}catch(err){ed.enviando=false;sheet();toast(err.message)}}}
+  const eg=$('#eGru');if(eg)eg.onchange=()=>{leerForm();sheet()};const ec=$('#eCob');if(ec)ec.onchange=()=>{leerForm();sheet()};
+  const fn=$('#fNuevo');if(fn){const nom=$('#nNom'),id=$('#nId'),gru=$('#nGru'),men=$('#nMen');nom.oninput=()=>{if(!id.dataset.touch)id.value=nom.value.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,30)};id.oninput=()=>id.dataset.touch=1;men.oninput=()=>men.dataset.touch=1;
+    gru.onchange=()=>{const g=grupos().find(x=>x.id===gru.value);$('#nCliBox').hidden=!!g;if(!men.dataset.touch)men.value=g?PRECIO.extra:PRECIO.base;$('#nPrecio').firstChild.textContent=g?'Local extra de un cliente: '+money(PRECIO.extra)+' al mes.':'Primer local: '+money(PRECIO.base)+' al mes.';if(g){const p=g.locales[0].plan||{};if(!$('#nCon').value)$('#nCon').value=p.contacto||'';if(!$('#nTel').value)$('#nTel').value=p.telefono||''}};
+    if(ed.grupo)gru.onchange();
+    fn.onsubmit=async e=>{e.preventDefault();const g=grupos().find(x=>x.id===gru.value),cliente=g?g.nombre:($('#nCli').value.trim()||$('#nCon').value.trim()||nom.value.trim());
+      const plan={cliente,contacto:$('#nCon').value.trim(),telefono:$('#nTel').value.trim(),cobro:$('#nCob').value,mensualidad:+men.value||0,pagado_hasta:$('#nHasta').value||'',pagos:[]},nombre=nom.value.trim(),rid=id.value.trim(),pla=$('#nPla').value;
+      const gid=g?g.id:'c-'+(slug(cliente)||rid).slice(0,40)+'-'+Math.random().toString(36).slice(2,6);ed.enviando=true;sheet();
+      try{const code=await rpc('cm_admin_create',{p_s:K,p_id:rid,p_nombre:nombre,p_plantilla:pla,p_plan:plan});await rpc('cm_admin_set_grupo',{p_s:K,p_id:rid,p_grupo:gid});ed.code=code;ed.r={id:rid,nombre,code,plan,features:{plantilla:pla}};ed.enviando=false;sheet();cargar()}catch(err){ed.enviando=false;sheet();toast(err.message)}}}
 }
 function leerForm(){if(!ed||ed.tipo!=='editar')return;const v=id=>{const e=$('#'+id);return e?e.value:undefined};
-  const m=v('eMen');if(m!==undefined)ed.p.mensualidad=+m||0;const hs=v('eHasta');if(hs!==undefined)ed.p.pagado_hasta=hs;const n=v('eNom');if(n!==undefined)ed.nombre=n;
+  const m=v('eMen');if(m!==undefined)ed.p.mensualidad=+m||0;const cb=v('eCob');if(cb!==undefined)ed.p.cobro=cb;const gr=v('eGru');if(gr!==undefined)ed.grupo=gr;const cn=v('eCli');if(cn!==undefined)ed.cliNuevo=cn;const hs=v('eHasta');if(hs!==undefined)ed.p.pagado_hasta=hs;const n=v('eNom');if(n!==undefined)ed.nombre=n;
   ['eCon:contacto','eTel:telefono','eNot:notas'].forEach(x=>{const[a,b]=x.split(':');const val=v(a);if(val!==undefined)ed.p[b]=val.trim()})}
 const ACC={
-  recargar:()=>cargar(),nuevo:()=>{ed={tipo:'nuevo'};sheet()},cerrar:()=>{ed=null;sheet()},ovClose:(d,e)=>{if(e.target.classList.contains('ov')){ed=null;sheet()}},
+  recargar:()=>cargar(),nuevo:()=>{ed={tipo:'nuevo'};sheet()},nuevoEn:d=>{ed={tipo:'nuevo',grupo:d.g};sheet()},cerrar:()=>{ed=null;sheet()},ovClose:(d,e)=>{if(e.target.classList.contains('ov')){ed=null;sheet()}},
   editar:d=>{ed={tipo:'editar',id:d.id};sheet()},
   feat:d=>{leerForm();ed.f[d.k]=ed.f[d.k]===false;sheet()},
   estado:()=>{leerForm();ed.estado=ed.estado==='activo'?'pausado':'activo';sheet()},
-  pagoMes:()=>{leerForm();const base=ed.p.pagado_hasta&&ed.p.pagado_hasta>hoyISO()?new Date(ed.p.pagado_hasta+'T12:00'):new Date(hoyISO()+'T12:00');base.setMonth(base.getMonth()+1);
-    const h=base.toISOString().slice(0,10);ed.p.pagado_hasta=h;ed.p.pagos=(ed.p.pagos||[]).concat({fecha:hoyISO(),monto:+ed.p.mensualidad||0,hasta:h});sheet();toast('Pago anotado: pagado hasta '+fFecha(h)+'. Toca «Guardar cambios».')},
+  pagoMes:()=>{leerForm();const base=ed.p.pagado_hasta&&ed.p.pagado_hasta>hoyISO()?new Date(ed.p.pagado_hasta+'T12:00'):new Date(hoyISO()+'T12:00');base.setMonth(base.getMonth()+(anual(ed.p)?12:1));
+    const h=base.toISOString().slice(0,10);ed.p.pagado_hasta=h;ed.p.pagos=(ed.p.pagos||[]).concat({fecha:hoyISO(),monto:montoPago(ed.p),hasta:h,tipo:anual(ed.p)?'anual':'mensual'});sheet();toast('Pago anotado: pagado hasta '+fFecha(h)+'. Toca «Guardar cambios».')},
   copiarLiga:()=>{const r=ed.tipo==='nuevo'?ed.r:R.find(x=>x.id===ed.id);copiar(msgWA(r),'Mensaje con la liga copiado')},
   codigo:async()=>{if(!ed.confCod){ed.confCod=true;leerForm();sheet();return}try{const c=await rpc('cm_admin_new_code',{p_s:K,p_id:ed.id});const r=R.find(x=>x.id===ed.id);r.code=c;ed.confCod=false;sheet();toast('Código nuevo listo. Manda la liga nueva al restaurante.')}catch(e){toast(e.message)}},
   verResp:async()=>{leerForm();try{ed.respaldos=await rpc('cm_admin_backups',{p_s:K,p_id:ed.id});sheet()}catch(e){toast(e.message)}},
   bajarResp:async d=>{try{const data=await rpc('cm_admin_backup_get',{p_s:K,p_backup:+d.b});const u=URL.createObjectURL(new Blob([JSON.stringify(data)],{type:'application/json'})),a=document.createElement('a');a.href=u;a.download='Respaldo-'+ed.id+'-'+String(data.fecha||'').slice(0,10)+'.json';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(u);a.remove()},1500);toast('Respaldo descargado')}catch(e){toast(e.message)}},
-  guardar:async()=>{leerForm();ed.guardando=true;sheet();try{await rpc('cm_admin_save',{p_s:K,p_id:ed.id,p_nombre:ed.nombre,p_estado:ed.estado,p_features:ed.f,p_plan:ed.p});toast('Guardado');ed=null;sheet();cargar()}catch(e){ed.guardando=false;sheet();toast(e.message)}}
+  guardar:async()=>{leerForm();const g=grupos().find(x=>x.id===ed.grupo);let gid=ed.grupo;
+    if(!g){const n=(ed.cliNuevo||'').trim();if(!n){toast('Escribe el nombre del cliente nuevo');return}ed.p.cliente=n;gid='c-'+(slug(n)||ed.id).slice(0,40)+'-'+Math.random().toString(36).slice(2,6)}else ed.p.cliente=g.nombre;
+    ed.guardando=true;sheet();try{await rpc('cm_admin_save',{p_s:K,p_id:ed.id,p_nombre:ed.nombre,p_estado:ed.estado,p_features:ed.f,p_plan:ed.p});const r=R.find(x=>x.id===ed.id);if(gid!==(r.grupo||''))await rpc('cm_admin_set_grupo',{p_s:K,p_id:ed.id,p_grupo:gid});toast('Guardado');ed=null;sheet();cargar()}catch(e){ed.guardando=false;sheet();toast(e.message)}}
 };
-document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const f=ACC[b.dataset.a];if(f){if(b.tagName!=='A')e.preventDefault();f(b.dataset,e)}});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const f=ACC[b.dataset.a];if(f){if(b.tagName!=='A'&&b.dataset.a!=='ovClose')e.preventDefault();f(b.dataset,e)}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ed){ed=null;sheet()}});
 $('#btnSalir').onclick=()=>{K='';R=[];try{localStorage.removeItem('comandero-dueno')}catch(e){}render()};
 cargar();
