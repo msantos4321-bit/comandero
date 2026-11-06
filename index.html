@@ -450,7 +450,7 @@ function seed(nd){
     config:{nombre:P?P.nombre:'El Mezquite',lema:P?(P.lema||''):'Asadero · Tacos · Mariscos',color:P&&P.color||'#E8622C',iniciales:P?(P.iniciales||P.nombre.split(/\s+/).filter(w=>w.length>2).map(w=>w[0]).join('').slice(0,2).toUpperCase()):'EM',logo:'',fondo:500,envio:40,
       salsas:'BBQ, Chipotle, Habanero, Tamarindo',telefono:'664 000 0000'},
     canales:[{id:'mesa',nombre:'En mesa',ajuste:0,activo:true,fijo:true},{id:'llevar',nombre:'Para llevar',ajuste:0,activo:true},{id:'domicilio',nombre:'Domicilio',ajuste:0,activo:true},{id:'uber',nombre:'Uber Eats',ajuste:30,activo:true},{id:'didi',nombre:'DiDi Food',ajuste:30,activo:true}],
-    mesas:Array.from({length:10},(_,i)=>({id:uid(),nombre:'Mesa '+(i+1)})),
+    mesas:Array.from({length:P&&P.mesas?Math.max(6,+P.mesas):10},(_,i)=>({id:uid(),nombre:'Mesa '+(i+1)})),
     categorias:P?[...new Set(menu.map(x=>x.cat))]:['Tacos','Carnes','Mariscos','Hamburguesas','Entradas','Kids','Postres','Bebidas'],
     menu,
     promos:[
@@ -476,7 +476,7 @@ function seed(nd){
   const ids=S.menu.map(x=>x.id),pick=()=>ids[Math.floor(rnd()*ids.length)];
   const CLI=['Sr. Ramírez','Lupita','Don Chuy','Mariana','Pedido 4417','Pedido 2290','Toño G.','Paty'];
   const pay=(t0,its)=>{const x=rnd(),cn=x<.7?'mesa':x<.82?'llevar':x<.9?'uber':x<.96?'didi':'domicilio',ap=cn==='uber'||cn==='didi';
-    const o=ord(cn,cn==='mesa'?S.mesas[Math.floor(rnd()*10)].id:null,cn==='mesa'?'':CLI[Math.floor(rnd()*CLI.length)],its.map(id=>{const l=li(id,'',1+(rnd()<.25?1:0),null);if(ap)l.precio=Math.round(l.precio*1.3);l.enviado=true;l.t=t0-30*min;l.estado='listo';l.servido=true;return l}));
+    const o=ord(cn,cn==='mesa'?S.mesas[Math.floor(rnd()*S.mesas.length)].id:null,cn==='mesa'?'':CLI[Math.floor(rnd()*CLI.length)],its.map(id=>{const l=li(id,'',1+(rnd()<.25?1:0),null);if(ap)l.precio=Math.round(l.precio*1.3);l.enviado=true;l.t=t0-30*min;l.estado='listo';l.servido=true;return l}));
     if(cn==='domicilio')o.items.push({id:uid(),mid:'',nombre:'Envío a domicilio',cat:'Envío',precio:S.config.envio,qty:1,ops:'',nota:'',enviado:true,t:t0,estado:'listo',servido:true,cancel:false,promo:''});
     o.creada=t0-50*min;const t=tot(o,S).total,p=cn==='mesa'&&rnd()<.8?Math.round(t*0.1):0,met=ap?'app':rnd()<.55?'tarjeta':'efectivo';o.estado='pagada';o.pagadaT=t0;o.pago={metodo:met,efectivo:met==='efectivo'?t+p:0,tarjeta:met==='tarjeta'?t+p:0,app:ap?t:0,propina:p,total:t};S.ordenes.push(o)};
   for(let d=nd;d>=1;d--){const base=new Date();base.setDate(base.getDate()-d);base.setHours(13,0,0,0);const dow=base.getDay();const n=(dow===5||dow===6?30:dow===0?26:dow===1?12:17)+Math.floor(rnd()*6)+(d<=10?4:0);
@@ -490,7 +490,7 @@ function seed(nd){
   // Cuentas abiertas ahora mismo
   S.ordenes.push(ord('mesa',S.mesas[2].id,'',[li('t_asada','Tortilla: Maíz',4,7),li('c_arra','Término: Tres cuartos',1,7),li('b_ref','',2,7,'listo')]));
   S.ordenes.push(ord('mesa',S.mesas[4].id,'',[li('m_agua','Picor: Normal',1,14),li('b_mich','',2,14,'listo')],{cuenta:true}));
-  S.ordenes.push(ord('mesa',S.mesas[6].id,'',[li('h_mezq','Término: Medio',2,4),li('e_guac','',1,4),li('b_cerv','Marca: Clara',2,4,'listo')]));
+  S.ordenes.push(ord('mesa',S.mesas[Math.min(6,S.mesas.length-1)].id,'',[li('h_mezq','Término: Medio',2,4),li('e_guac','',1,4),li('b_cerv','Marca: Clara',2,4,'listo')]));
   S.ordenes.push(ord('llevar',null,'Sr. Ramírez',[li('c_parr','',1,2)]));
   S.ordenes.push(ord('uber',null,'Pedido UE-4821 · Carlos',[li('h_mezq','Término: Tres cuartos',1,5),li('e_papas','',1,5)]));
   S.ordenes.push(ord('didi',null,'Pedido DD-1093 · Paola',[li('t_pesc','',3,9,'listo'),li('b_agua','Sabor: Jamaica',1,9,'listo')]));

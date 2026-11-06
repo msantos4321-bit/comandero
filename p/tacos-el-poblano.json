@@ -1,0 +1,130 @@
+{
+ "ver": 1,
+ "nombre": "Tacos El Poblano",
+ "lema": "Birria, asada y adobada · Playas de Tijuana",
+ "color": "#B91C1C",
+ "preciosReales": false,
+ "mesas": 6,
+ "menu": [
+  [
+   "Tacos",
+   "Taco de birria",
+   40,
+   "Birria de res con su cebolla y cilantro",
+   "Tortilla: Maíz, Harina"
+  ],
+  [
+   "Tacos",
+   "Taco de asada",
+   40,
+   "Con guacamole, cebolla y cilantro",
+   "Tortilla: Maíz, Harina"
+  ],
+  [
+   "Tacos",
+   "Taco de adobada",
+   40,
+   "Adobada al trompo",
+   "Tortilla: Maíz, Harina"
+  ],
+  [
+   "Tacos",
+   "Taco de tripa",
+   45,
+   "",
+   "Tripa: Suave, Dorada"
+  ],
+  [
+   "Tacos",
+   "Taco mixto",
+   42,
+   "Asada con adobada",
+   "Tortilla: Maíz, Harina"
+  ],
+  [
+   "Birria",
+   "Quesabirria",
+   70,
+   "Tortilla dorada con queso y birria",
+   ""
+  ],
+  [
+   "Birria",
+   "Consomé chico",
+   35,
+   "Para acompañar la birria",
+   ""
+  ],
+  [
+   "Birria",
+   "Consomé grande",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Quesadillas",
+   "Quesadilla mixta",
+   150,
+   "Asada y adobada, tortilla de harina",
+   "Carne: Asada, Adobada, Birria, Mixta"
+  ],
+  [
+   "Quesadillas",
+   "Quesadilla de maíz chica",
+   95,
+   "",
+   "Carne: Asada, Adobada, Birria"
+  ],
+  [
+   "Quesadillas",
+   "Mulita",
+   125,
+   "",
+   "Carne: Asada, Adobada, Birria, Mixta"
+  ],
+  [
+   "Más",
+   "Burrito",
+   120,
+   "",
+   "Tortilla: Maíz, Harina | Carne: Asada, Adobada, Birria"
+  ],
+  [
+   "Más",
+   "Torta",
+   110,
+   "",
+   "Carne: Asada, Adobada, Birria"
+  ],
+  [
+   "Más",
+   "Costra de queso",
+   190,
+   "Con la carne que elija",
+   "Carne: Asada, Adobada, Birria, Mixta"
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   40,
+   "",
+   "Sabor: Horchata, Jamaica, Limón"
+  ],
+  [
+   "Bebidas",
+   "Agua natural",
+   28,
+   "",
+   ""
+  ]
+ ],
+ "iniciales": "EP"
+}
