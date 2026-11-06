@@ -373,6 +373,7 @@ button.who i{font-style:normal;color:var(--brand);font-size:12px}
 .cs-s{display:none}@media(max-width:420px){.cs-l{display:none}.cs-s{display:inline}}
 .atiende{font-size:13px;color:var(--muted);margin:2px 0 0}
 [data-lp]{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+@media(max-width:420px){.top .in.dentro .logo{display:none}.top .in.dentro button.who{max-width:52vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -565,7 +566,7 @@ function render(){
   {const v=vista();if(v!==vistaAnt&&vistaAnt&&Date.now()-(toast.t||0)>400)toastQuitar();vistaAnt=v}
   const c=S.config;document.documentElement.style.setProperty('--brand',c.color);document.documentElement.style.setProperty('--brand-ink',inkFor(c.color));
   const lg=foto(c.logo);
-  let h=`<header class="top"><div class="in ${ui.rol?'dentro':''}"><div class="logo">${lg?`<img src="${lg}" alt="Logo de ${esc(c.nombre)}">`:esc(c.iniciales)}</div><div class="brandname"><h1>${esc(c.nombre)}</h1><small>${esc(c.lema)}</small></div>`;
+  let h=`<header class="top"><div class="in ${ui.rol?'dentro':''}">${hayAtras()?'<button class="btn sm bar" data-a="atras" aria-label="Regresar" style="font-size:20px;padding:0 12px">‹</button>':''}<div class="logo">${lg?`<img src="${lg}" alt="Logo de ${esc(c.nombre)}">`:esc(c.iniciales)}</div><div class="brandname"><h1>${esc(c.nombre)}</h1><small>${esc(c.lema)}</small></div>`;
   if(ui.rol)h+=`<button class="who" data-a="cambiar" title="Cambiar de usuario en este aparato">${esc(ROLES[ui.rol].t)} · ${esc(ui.user.nombre)}${ui.cubre?' (cubriendo)':''} <i>⇄</i></button>`;
   else h+=`<button class="btn sm bar" data-a="restaurantes" title="Cambiar de restaurante en este aparato">${CN&&!nube.features.demo?'Cambiar':'Demostración'} ▾</button>`;
   if(CN)h+=`<span id="nubeDot" class="nube ${nube.estado}" title="Conexión"></span>`;
@@ -574,7 +575,7 @@ function render(){
   h+=`</div></header><main class="wrap">`;
   h+= (CN&&nube.bloqueo)?`<div class="login-blk"><p class="lbl">${nube.bloqueo==='pausado'?'Servicio pausado':'Código cambiado'}</p><h2 class="h2">${nube.bloqueo==='pausado'?'El servicio de este restaurante está pausado':'Hay que conectar este aparato otra vez'}</h2><p class="muted">${nube.bloqueo==='pausado'?'No se borró nada: menú, cuentas y ventas siguen guardados. Comunícate con tu proveedor para reactivarlo.':'El código de acceso del restaurante cambió. Pide la liga nueva al gerente o a tu proveedor, o escribe el código nuevo.'}</p><div class="row">${nube.bloqueo==='codigo'?'<button class="btn pri" data-a="conectar">Escribir código nuevo</button>':''}<button class="btn" data-a="reintentar">Revisar otra vez</button></div></div>`: (CN&&nube.cargando)?`<div class="empty" style="margin-top:40px"><b>Conectando con ${esc(CN.r)}…</b><br>Bajando el menú, las mesas y las cuentas abiertas.</div>`: !ui.rol?vInicio(): ui.rol==='mesero'?vMesero(): ui.rol==='cocina'?vCocina(): ui.rol==='caja'?vCaja():vAdmin();
   h+=`</main>`;
-  document.getElementById('app').innerHTML=h;
+  document.getElementById('app').innerHTML=h;trampaAtras();
   renderModal();
 }
 const TIPS={
@@ -824,7 +825,7 @@ function ticket(o,modo){
   o.items.forEach(i=>{if(i.borrado)return;let st=i.cat==='Envío'?'':i.cancel?'<span class="tag t-bad">Cancelado</span>':!i.enviado?'<span class="tag t-new">Sin enviar</span>':i.servido?'<span class="tag t-ok">Servido</span>':i.estado==='listo'?'<span class="tag t-ok">Listo</span>':'<span class="tag t-cook">En cocina</span>';
     const left=(!i.enviado&&!i.cancel&&modo==='mesero')?`<div class="qty"><button data-a="qty" data-o="${o.id}" data-i="${i.id}" data-d="-1" aria-label="Quitar uno">−</button><span class="num" style="min-width:18px;text-align:center;font-weight:800">${i.qty}</span><button data-a="qty" data-o="${o.id}" data-i="${i.id}" data-d="1" aria-label="Agregar uno">+</button></div>`:`<span class="num" style="font-weight:800">${i.qty}×</span>`;
     let right=`<span class="num">${money(i.precio*i.qty)}</span>`;
-    if(i.enviado&&!i.cancel)right+=`<br><button class="btn sm ghost" style="margin-top:4px;min-height:30px" data-a="cancelar" data-o="${o.id}" data-i="${i.id}">Cancelar</button>`;
+    if(i.enviado&&!i.cancel)right+=`<br><button class="btn sm ghost" style="margin-top:4px;min-height:34px;color:var(--bad)" data-a="cancelar" data-o="${o.id}" data-i="${i.id}">✕ Quitar</button>`;
     h+=`<div class="line ${i.cancel?'x':''}">${left}<div class="nm"><b>${esc(i.nombre)}</b> ${i.promo?`<span class="tag t-promo">${esc(i.promo)}</span>`:''}<div class="ops">${esc(i.ops)}${i.nota?' · <b>'+esc(i.nota)+'</b>':''}${i.por&&o.mesero&&i.por!==o.mesero.nombre?' · agregó '+esc(i.por):''}</div>${st}</div><div style="text-align:right">${right}</div></div>`});
   h+=`<div class="tot num"><div><span>Subtotal</span><span>${money(t.sub)}</span></div>${t.desc?`<div style="color:var(--brand-deep);font-weight:700"><span>Promociones</span><span>−${money(t.desc)}</span></div>`:''}<div class="big"><span>Total</span><span>${money(t.total)}</span></div></div><div class="sec" style="margin-top:12px">`;
   if(o.canal==='domicilio'&&!o.items.some(i=>i.cat==='Envío'))h+=`<button class="btn full" data-a="envio" data-o="${o.id}">+ Costo de envío (${money(S.config.envio)})</button>`;
@@ -847,6 +848,7 @@ function vCocina(){
   ords.forEach(({o,its,t})=>{const mins=Math.floor((Date.now()-t)/60000);const cls=mins>=20?'l':mins>=10?'w':'';
     h+=`<div class="kt ${cls}"><div class="hd"><span><b>${esc(o.canal==='mesa'?mesaNombre(o.mesa):canal(o.canal).nombre)}</b><br><small class="muted">#${o.num} · ${hora(t)}${o.mesero?' · '+esc(o.mesero.nombre):''}${o.cliente?' · '+esc(o.cliente.split(',')[0]):''}</small></span><span class="tm num">${mins} min</span></div><ul>`;
     its.forEach(i=>h+=`<li><button class="chk" data-a="listo" data-o="${o.id}" data-i="${i.id}" aria-label="Marcar ${esc(i.nombre)} como listo"></button><div><b>${i.qty}× ${esc(i.nombre)}</b>${i.ops?`<div class="ops">${esc(i.ops)}</div>`:''}${i.nota?`<div class="nt">${esc(i.nota)}</div>`:''}</div></li>`);
+    o.items.filter(i=>i.cancel&&i.enviado&&i.canceladoT&&Date.now()-i.canceladoT<180000).forEach(i=>h+=`<li style="opacity:.75"><span class="tag" style="margin:0;background:var(--bad);color:#fff">Cancelado</span><div><s><b>${i.qty}× ${esc(i.nombre)}</b></s></div></li>`);
     h+=`</ul><div class="ft"><button class="btn ok full" data-a="todoListo" data-o="${o.id}">Todo listo</button></div></div>`});
   return h+`</div>`;
 }
@@ -1031,11 +1033,18 @@ const FAQ=[
 function hablar(t){try{const s=window.speechSynthesis;if(!s){toast('Este aparato no puede leer en voz alta');return}s.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='es-MX';u.rate=.95;const v=s.getVoices().find(v=>/^es/i.test(v.lang));if(v)u.voice=v;s.speak(u)}catch(e){toast('Este aparato no puede leer en voz alta')}}
 
 /* ---------- Modales ---------- */
-function renderModal(){
+function renderModal(){setTimeout(trampaAtras,0);
   const el=document.getElementById('modal'),m=ui.modal;
   if(!m){el.innerHTML='';return}
   let b='';
-  if(m.tipo==='cuentaOps'){const o=S.ordenes.find(x=>x.id===m.o);if(!o||o.estado!=='abierta'){ui.modal=null;el.innerHTML='';return}
+  if(m.tipo==='quitar'){const o=S.ordenes.find(x=>x.id===m.o),i=o&&o.items.find(x=>x.id===m.i);if(!i||i.cancel){ui.modal=null;el.innerHTML='';return}const libre=sinPinQuitar(i);
+    b=`<h3>Quitar de la cuenta</h3><p style="margin:0"><b>${i.qty}× ${esc(i.nombre)}</b>${i.ops?`<br><small class="muted">${esc(i.ops)}</small>`:''}</p>
+    ${i.qty>1?`<div class="row" style="justify-content:center;gap:14px"><span>¿Cuántos quitar?</span><button class="btn" data-a="qCant" data-d="-1" aria-label="Menos">−</button><b class="num" style="font-size:24px;min-width:30px;text-align:center">${m.cant}</b><button class="btn" data-a="qCant" data-d="1" aria-label="Más">+</button><span class="muted">de ${i.qty}</span></div>`:''}
+    <div><p class="lbl" style="margin:0 0 6px">¿Por qué?</p><div class="opts">${['Me equivoqué','El cliente ya no lo quiso','Era otro platillo','Se tardó mucho'].map(t=>`<button class="opt ${m.motivoTxt===t?'on':''}" data-a="qMotivo" data-v="${t}">${t}</button>`).join('')}</div><input id="qmot" placeholder="Otro motivo (opcional)" style="margin-top:8px"></div>
+    ${m.err?`<p style="color:var(--bad);margin:0;font-weight:700">${esc(m.err)}</p>`:''}
+    <p class="muted" style="margin:0;font-size:13px">${libre?'Se quita al instante y cocina lo ve marcado como cancelado. Lo demás de la cuenta sigue igual.':'Pide el PIN del gerente o la encargada porque ya pasaron más de 3 minutos o cocina ya lo tiene listo.'}</p>
+    <div class="row"><button class="btn ghost" data-a="cerrar">No quitar</button><span class="sp"></span><button class="btn pri" style="background:var(--bad);border-color:var(--bad)" data-a="qOk">Quitar ${m.cant}</button></div>`}
+  else if(m.tipo==='cuentaOps'){const o=S.ordenes.find(x=>x.id===m.o);if(!o||o.estado!=='abierta'){ui.modal=null;el.innerHTML='';return}
     b=`<h3>${esc(oNombre(o))}</h3><p class="muted" style="margin:0">#${o.num}${o.mesero?' · '+esc(o.mesero.nombre):''} · ${money(tot(o).total)}</p><button class="btn pri full" data-a="${ui.rol==='caja'?'cajaSel':'abrir'}" data-o="${o.id}">Abrir la cuenta</button><button class="btn ghost full" style="color:var(--bad)" data-a="cancelarCuenta" data-o="${o.id}">Cancelar toda la cuenta</button><button class="btn ghost full" data-a="cerrar">Cerrar</button>`}
   else if(m.tipo==='restaurantes'){const L=listaRest(),act=it=>it.t==='r'?(CN&&CN.r===it.r):(PD===it.p);const fila=(t,sub,a,i,on)=>`<button class="card row" style="width:100%;text-align:left;gap:10px;${on?'border:2px solid var(--brand)':''}" data-a="${a}" data-i="${i}"><span style="flex:1"><b>${esc(t)}</b><br><small class="muted">${esc(sub)}</small></span>${on?'<span class="tag t-ok" style="margin:0">Aquí estás</span>':'<span class="muted">Abrir ›</span>'}</button>`;
     b=`<h3>¿Qué quieres ver en este aparato?</h3><div style="display:grid;gap:8px">${fila('Demostración general','El Mezquite, con ventas de ejemplo','irRest','demo',!CN&&!PD)}${L.map((it,i)=>fila(it.n||it.r||it.p,it.t==='r'?'Restaurante conectado · lo que hagas se guarda en el suyo':'Demostración preparada','irRest',i,act(it))).join('')}</div>
@@ -1090,6 +1099,15 @@ const esDemo=()=>!CN||!!nube.features.demo;
 function pinDemo(rol){if(!esDemo())return '';const pu={mesero:'Mesero',mesero2:'Mesero',cocina:'Cocina',caja:'Caja',admin:'Gerente'}[rol];const e=S.empleados.filter(x=>x.puesto===pu)[rol==='mesero2'?1:0]||S.empleados.find(x=>x.puesto===pu);return e?' · Demostración: usa '+e.pin+' ('+e.nombre+')':''}
 const BILLETES=[20,50,100,200,500,1000];
 function cambioTxt(m,T){const r=+m.recib||0;if(r&&r<T)return `<b style="color:var(--bad)">Faltan ${money(T-r)}</b>`;return `Cambio: <b>${money(Math.max(0,(r||T)-T))}</b>`}
+function hayAtras(){return !!(ui.orden||(ui.rol==='caja'&&ui.cajaSel&&window.innerWidth<900)||(ui.rol==='admin'&&ui.adm&&ui.adm!=='resumen'))}
+function atras(){if(ui.modal){if(!ui.modal.lock)A.cerrar();return true}
+  if(ui.orden){A.volver();return true}
+  if(ui.rol==='caja'&&ui.cajaSel){ui.cajaSel=null;render();return true}
+  if(ui.rol==='admin'&&ui.adm&&ui.adm!=='resumen'){A.adm({t:'resumen'});return true}
+  if(ui.rol){toast('Para salir toca «Cerrar sesión» arriba');return true}
+  return false}
+function trampaAtras(){try{if((ui.rol||ui.modal)&&!(history.state&&history.state.cm))history.pushState({cm:1},'')}catch(e){}}
+window.addEventListener('popstate',()=>{if(atras())trampaAtras()});
 function pinPrompt(cfg){ui.modal=Object.assign({tipo:'pin',v:'',err:''},cfg);renderModal()}
 function keepItem(){const m=ui.modal;['nota','cambioT','cambioP'].forEach(k=>{const e=document.getElementById(k);if(e)m[k]=e.value})}
 function keepPay(){const m=ui.modal;const r=document.getElementById('recib'),x=document.getElementById('mixef');if(r)m.recib=r.value;if(x)m.mixef=x.value}
@@ -1134,7 +1152,13 @@ const A={
     else if(p.tipo==='precio'){o.items.push(linea({nombre:p.nombre,cat:'Promoción',precio:p.valor},p.item,'',1,'Paquete'));toast('Paquete agregado a la cuenta')}
     else{o.items.push(linea({nombre:p.item,cat:'Promoción',precio:0},'','',1,'Cortesía'));toast('Cortesía agregada')}
     S.movs.push({id:uid(),t:Date.now(),tipo:'Promoción',quien:ui.user.nombre,det:p.nombre+' · '+oNombre(o),motivo:'Botón de promoción',monto:p.tipo==='precio'?p.valor:0});save();render()},
-  cancelar:d=>{const o=S.ordenes.find(x=>x.id===d.o),i=o.items.find(x=>x.id===d.i);pinPrompt({titulo:'Cancelar '+i.nombre,sub:'Necesita el PIN del gerente o la encargada.',motivo:true,para:{k:'cancel',o:o.id,i:i.id}})},
+  cancelar:d=>{const o=S.ordenes.find(x=>x.id===d.o),i=o&&o.items.find(x=>x.id===d.i);if(!i)return;ui.modal={tipo:'quitar',o:o.id,i:i.id,cant:1,motivoTxt:''};renderModal()},
+  qCant:d=>{const m=ui.modal,i=S.ordenes.find(x=>x.id===m.o).items.find(x=>x.id===m.i);m.cant=Math.max(1,Math.min(i.qty,m.cant+(+d.d)));renderModal()},
+  qMotivo:d=>{ui.modal.motivoTxt=d.v;ui.modal.err='';renderModal()},
+  qOk:()=>{const m=ui.modal,o=S.ordenes.find(x=>x.id===m.o),i=o.items.find(x=>x.id===m.i);const mt=document.getElementById('qmot');if(mt&&mt.value.trim())m.motivoTxt=mt.value.trim();
+    if(!m.motivoTxt){m.err='Elige el motivo';renderModal();return}
+    if(sinPinQuitar(i))return quitarPlatillo(o,i,m.cant,m.motivoTxt,ui.user?ui.user.nombre:'');
+    pinPrompt({titulo:'Quitar '+m.cant+'× '+i.nombre,sub:'Ya pasaron más de 3 minutos o cocina ya lo tiene listo: necesita el PIN del gerente o la encargada.'+pinDemo('admin'),para:{k:'cancel',o:o.id,i:i.id,cant:m.cant,mot:m.motivoTxt}})},
   listo:d=>{const o=S.ordenes.find(x=>x.id===d.o);const i=o.items.find(x=>x.id===d.i);i.estado='listo';i.listoT=Date.now();save();toast(i.nombre+' listo');render()},
   todoListo:d=>{const o=S.ordenes.find(x=>x.id===d.o);o.items.forEach(i=>{if(i.enviado&&i.estado==='nuevo'&&!i.cancel){i.estado='listo';i.listoT=Date.now()}});save();toast('Avisado al mesero');render()},
   cajaSel:d=>{ui.cajaSel=d.o||null;render();if(d.o&&window.innerWidth<900)setTimeout(()=>{const t=document.querySelector('.ticket');if(t)t.scrollIntoView({block:'start'})},0)},
@@ -1148,6 +1172,7 @@ const A={
     o.estado='pagada';o.pagadaT=Date.now();o.pago={metodo:m.met,efectivo:ef,tarjeta:tj,app:m.met==='app'?T:0,propina:m.prop,total:t};ui.modal=null;ui.cajaSel=null;save();toast('Cobrado '+money(T)+(m.met==='efectivo'&&m.recib?' · cambio '+money(m.recib-T):''));render()},
   desconectar:()=>{if(!ui.confirmDesc){ui.confirmDesc=true;render();return}try{localStorage.removeItem('comandero-nube')}catch(e){}location.reload()},
   conectar:()=>{ui.modal={tipo:'conectar'};render()},
+  atras:()=>{atras()},
   cuentaOps:d=>{ui.modal={tipo:'cuentaOps',o:d.o};renderModal()},
   motivoRapido:d=>{ui.modal.motivoTxt=d.v;ui.modal.err='';renderModal()},
   cancelarCuenta:d=>{const o=S.ordenes.find(x=>x.id===d.o);if(!o)return;
@@ -1209,6 +1234,12 @@ function addLinea(it,ops,nota,qty,extra){const o=S.ordenes.find(x=>x.id===ui.ord
   const same=o.items.find(i=>!i.enviado&&!i.cancel&&i.mid===it.id&&i.ops===l.ops&&i.nota===l.nota&&i.precio===l.precio&&(i.por||'')===(l.por||''));if(same){same.qty+=qty;same.u=Date.now()}else{l.u=Date.now();o.items.push(l)};save();toast(qty+'× '+it.nombre+' agregado')}
 function entrarComo(emp,rol,cubre,arriba){ui.rol=rol;ui.user=emp;ui.cubre=cubre||null;ui.modal=null;ultimasComandas=-1;ui.suc=null;if(rol==='cocina'){try{audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();audioCtx.resume()}catch(e){}}render();if(arriba)scrollTo(0,0)}
 const pinCadaOrden=()=>{try{return localStorage.getItem(KEY+'-pinCada')==='1'}catch(e){return false}};
+const sinPinQuitar=i=>i.estado!=='listo'&&i.t&&Date.now()-i.t<3*60000;
+function quitarPlatillo(o,i,cant,mot,quien){cant=Math.max(1,Math.min(i.qty,+cant||1));const now=Date.now();let x=i;
+  if(cant<i.qty){i.qty-=cant;i.u=now;x=Object.assign({},i,{id:uid(),qty:cant,u:now});o.items.splice(o.items.indexOf(i)+1,0,x)}
+  x.cancel=true;x.canceladoT=now;x.u=now;
+  S.movs.push({id:uid(),t:now,tipo:'Cancelación',quien:quien||'',det:cant+'× '+i.nombre+' · '+oNombre(o),motivo:mot||'',monto:i.precio*cant});
+  ui.modal=null;save();toast(cant+'× '+i.nombre+' quitado. Cocina lo ve cancelado.');render()}
 function pinOk(m){
   const emp=S.empleados.find(e=>e.pin===m.v);
   if(!emp){m.err='PIN incorrecto. Intenta otra vez.';m.v='';return}
@@ -1232,8 +1263,8 @@ function pinOk(m){
     S.movs.push({id:uid(),t:Date.now(),tipo:'Cancelación',quien:emp.nombre,det:'Cuenta completa · '+oNombre(o)+' #'+o.num,motivo:mot,monto});
     if(ui.orden===o.id)ui.orden=null;if(ui.cajaSel===o.id)ui.cajaSel=null;ui.modal=null;save();toast('Cuenta cancelada y registrada');render();return}
   if(p.k==='cancel'){if(!PERM[emp.puesto].includes('autoriza')){m.err='Solo el gerente o la encargada pueden cancelar';m.v='';return}
-    const mot=(m.motivoTxt||'').trim();if(!mot){m.err='Escribe el motivo arriba';m.v='';return}
-    const o=S.ordenes.find(x=>x.id===p.o),i=o.items.find(x=>x.id===p.i);i.cancel=true;S.movs.push({id:uid(),t:Date.now(),tipo:'Cancelación',quien:emp.nombre,det:i.qty+'× '+i.nombre+' · '+oNombre(o),motivo:mot,monto:i.precio*i.qty});save();ui.modal=null;toast('Cancelado y registrado');render()}
+    const mot=(p.mot||m.motivoTxt||'').trim();if(!mot){m.err='Escribe el motivo arriba';m.v='';return}
+    const o=S.ordenes.find(x=>x.id===p.o),i=o&&o.items.find(x=>x.id===p.i);if(!i||i.cancel){ui.modal=null;render();return}quitarPlatillo(o,i,p.cant||i.qty,mot,emp.nombre)}
 }
 function cargarImg(file,max,cb){const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const k=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*k);c.height=Math.round(img.height*k);c.getContext('2d').drawImage(img,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',.75))};img.src=r.result};r.readAsDataURL(file)}
 
