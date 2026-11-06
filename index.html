@@ -506,6 +506,10 @@ function seed(nd){
 
 let S, ui={rol:null,user:null,orden:null,cat:null,q:'',adm:'resumen',modal:null,np:null,cajaSel:null,sem:0,hEdit:false,tips:{}};
 function load(){try{const r=localStorage.getItem(KEY);S=r?JSON.parse(r):(CN?vacio():seed())}catch(e){S=CN?vacio():seed()}if(!CN&&S.demoDia!==dkey(new Date()))S=seed();if(!CN){try{if(!localStorage.getItem(KEY)||JSON.parse(localStorage.getItem(KEY)).demoDia!==S.demoDia)localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}if(CN){try{const f=localStorage.getItem(KEY+'-fotos');if(f)FOTOS=JSON.parse(f)}catch(e){}try{nube.rev=+(localStorage.getItem(KEY+'-rev')||0)}catch(e){}if(!localStorage.getItem(KEY))nube.cargando=true}migrar();try{ui.tips=JSON.parse(localStorage.getItem(KEY+'-tips')||'{}')}catch(e){}}
+function listaRest(){try{return JSON.parse(localStorage.getItem('comandero-lista')||'[]')}catch(e){return []}}
+function listaGuardar(it){try{const L=listaRest().filter(x=>!(x.t===it.t&&(x.r||x.p)===(it.r||it.p)));L.unshift(it);localStorage.setItem('comandero-lista',JSON.stringify(L.slice(0,20)))}catch(e){}}
+function irA(it){try{if(it&&it.t==='r')localStorage.setItem('comandero-nube',JSON.stringify({r:it.r,k:it.k}));else localStorage.removeItem('comandero-nube')}catch(e){}
+  location.href=location.pathname+(it&&it.t==='p'?'?p='+encodeURIComponent(it.p):'')}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}if(CN)nubeMarcar()}
 window.addEventListener('storage',e=>{if(e.key===KEY&&e.newValue){try{S=JSON.parse(e.newValue);if(!ui.modal||ui.modal.tipo==='ayuda')render()}catch(_){}}});
 
@@ -562,7 +566,7 @@ function render(){
   const lg=foto(c.logo);
   let h=`<header class="top"><div class="in ${ui.rol?'dentro':''}"><div class="logo">${lg?`<img src="${lg}" alt="Logo de ${esc(c.nombre)}">`:esc(c.iniciales)}</div><div class="brandname"><h1>${esc(c.nombre)}</h1><small>${esc(c.lema)}</small></div>`;
   if(ui.rol)h+=`<button class="who" data-a="cambiar" title="Cambiar de usuario en este aparato">${esc(ROLES[ui.rol].t)} · ${esc(ui.user.nombre)}${ui.cubre?' (cubriendo)':''} <i>⇄</i></button>`;
-  else h+=(CN&&!nube.features.demo)?'':`<span class="demo">Demostración${CN?' en vivo':''}</span>`;
+  else h+=`<button class="btn sm bar" data-a="restaurantes" title="Cambiar de restaurante en este aparato">${CN&&!nube.features.demo?'Cambiar':'Demostración'} ▾</button>`;
   if(CN)h+=`<span id="nubeDot" class="nube ${nube.estado}" title="Conexión"></span>`;
   h+=`<button class="hlp" data-a="ayuda" aria-label="Ayuda">?</button>`;
   if(ui.rol)h+=`<button class="btn sm bar" data-a="salir"><span class="cs-l">Cerrar sesión</span><span class="cs-s">Salir</span></button>`;
@@ -621,7 +625,7 @@ function mezclarOrden(rem,loc){const r=Object.assign({},rem,loc);if((rem.estado|
 let traerEnCurso=false;
 async function nubeTraer(){
   if(!CN||traerEnCurso)return;traerEnCurso=true;let cambio=false;
-  try{const r=await rpc('cm_get',{p_r:CN.r,p_k:CN.k,p_since:nube.rev});const fa=JSON.stringify(nube.features)+nube.sucursales;nube.features=r.features||{};nube.sucursales=+r.sucursales||1;if(nube.bloqueo){nube.bloqueo=null;cambio=true}if(fa!==JSON.stringify(nube.features)+nube.sucursales)cambio=true;
+  try{const r=await rpc('cm_get',{p_r:CN.r,p_k:CN.k,p_since:nube.rev});if(r.nombre&&!nube.nomGuardado){nube.nomGuardado=true;listaGuardar({t:'r',r:CN.r,k:CN.k,n:r.nombre})}const fa=JSON.stringify(nube.features)+nube.sucursales;nube.features=r.features||{};nube.sucursales=+r.sucursales||1;if(nube.bloqueo){nube.bloqueo=null;cambio=true}if(fa!==JSON.stringify(nube.features)+nube.sucursales)cambio=true;
     if(nube.cargando){
       if(!r.items.some(i=>!i.deleted)){ // restaurante nuevo: se llena con sus datos iniciales o en blanco
         let ini=null;try{const f=await fetch('r/'+CN.r+'.json',{cache:'no-store'});if(f.ok)ini=await f.json()}catch(e){}
@@ -661,8 +665,8 @@ function nubeIniciar(){if(!CN)return;wsConectar();nubeTraer();setTimeout(nubePin
   setInterval(()=>{if(nube.pend&&!ui.modal&&!escribiendo()){nube.pend=false;render()}},1000);
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')nubeTraer()});
   window.addEventListener('online',()=>{nubeEnviar();nubeTraer()})}
-async function conectarRest(r,k){r=(r||'').trim().toLowerCase();k=(k||'').trim().toUpperCase();if(!r||!k){toast('Escribe el restaurante y el código');return}
-  try{const j=await rpc('cm_join',{p_r:r,p_k:k});try{localStorage.setItem('comandero-nube',JSON.stringify({r:j.id,k}))}catch(e){}toast('Conectado a '+j.nombre);setTimeout(()=>location.reload(),600)}
+async function conectarRest(r,k){r=(r||'').trim().toLowerCase();k=(k||'').trim().toUpperCase();if(!k){toast('Escribe el código de tu restaurante');return}
+  try{const j=r?await rpc('cm_join',{p_r:r,p_k:k}):await rpc('cm_join_code',{p_k:k});try{localStorage.setItem('comandero-nube',JSON.stringify({r:j.id,k}))}catch(e){}toast('Conectado a '+j.nombre);setTimeout(()=>location.reload(),600)}
   catch(e){toast(e.message||'No se pudo conectar. Revisa el internet.')}}
 
 /* ---------- Reportes (PDF) y respaldo ---------- */
@@ -1028,7 +1032,11 @@ function renderModal(){
   const el=document.getElementById('modal'),m=ui.modal;
   if(!m){el.innerHTML='';return}
   let b='';
-  if(m.tipo==='conectar'){b=`<h3>Conectar mi restaurante</h3><p class="muted" style="margin:0">Escribe los datos que te dio tu proveedor. Este aparato quedará conectado y verá en tiempo real lo mismo que las demás tablets y celulares del restaurante.</p><label><span class="lbl">Restaurante</span><input id="cr" value="${CN?esc(CN.r):''}" placeholder="Ej. ribs28" autocomplete="off" autocapitalize="none"></label><label><span class="lbl">Código de acceso</span><input id="ck" placeholder="XX-XXXX-XXXX" autocomplete="off" style="text-transform:uppercase"></label><div class="row"><button class="btn ghost" data-a="cerrar">Cancelar</button><span class="sp"></span><button class="btn pri" data-a="conectarOk">Conectar</button></div>`}
+  if(m.tipo==='restaurantes'){const L=listaRest(),act=it=>it.t==='r'?(CN&&CN.r===it.r):(PD===it.p);const fila=(t,sub,a,i,on)=>`<button class="card row" style="width:100%;text-align:left;gap:10px;${on?'border:2px solid var(--brand)':''}" data-a="${a}" data-i="${i}"><span style="flex:1"><b>${esc(t)}</b><br><small class="muted">${esc(sub)}</small></span>${on?'<span class="tag t-ok" style="margin:0">Aquí estás</span>':'<span class="muted">Abrir ›</span>'}</button>`;
+    b=`<h3>¿Qué quieres ver en este aparato?</h3><div style="display:grid;gap:8px">${fila('Demostración general','El Mezquite, con ventas de ejemplo','irRest','demo',!CN&&!PD)}${L.map((it,i)=>fila(it.n||it.r||it.p,it.t==='r'?'Restaurante conectado · lo que hagas se guarda en el suyo':'Demostración preparada','irRest',i,act(it))).join('')}</div>
+    <div class="row"><button class="btn ghost" data-a="cerrar">Cerrar</button><span class="sp"></span><button class="btn" data-a="conectar">Conectar con un código</button></div>
+    ${CN&&!nube.features.demo?'<p class="muted" style="margin:0;font-size:13px">Para salir de este restaurante sin tocar nada suyo, toca «Demostración general».</p>':''}`}
+  else if(m.tipo==='conectar'){b=`<h3>Conectar mi restaurante</h3><p class="muted" style="margin:0">Escribe el código que te dio tu proveedor. Este aparato quedará conectado y verá en tiempo real lo mismo que las demás tablets y celulares del restaurante.</p><input id="cr" type="hidden" value=""><label><span class="lbl">Código de tu restaurante</span><input id="ck" placeholder="XX-XXXX-XXXX" autocomplete="off" style="text-transform:uppercase"></label><div class="row"><button class="btn ghost" data-a="cerrar">Cancelar</button><span class="sp"></span><button class="btn pri" data-a="conectarOk">Conectar</button></div>`}
   else if(m.tipo==='pin'){b=`<h3>${esc(m.titulo)}</h3>${m.sub?`<p class="muted" style="margin:0">${esc(m.sub)}</p>`:''}${m.motivo?`<label><span class="lbl">Motivo (obligatorio)</span><input id="motivo" placeholder="Ej. el cliente cambió de opinión" value="${esc(m.motivoTxt||'')}"></label>`:''}<div class="pins">${[0,1,2,3].map(i=>`<i class="${i<m.v.length?'f':''}"></i>`).join('')}</div>${m.err?`<p style="color:var(--bad);text-align:center;margin:0;font-weight:700">${esc(m.err)}</p>`:''}<div class="pad">${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>k===''?'<span></span>':`<button data-a="pinK" data-k="${k}" aria-label="${k==='⌫'?'Borrar':k}">${k}</button>`).join('')}</div>${m.lock?'<button class="btn ghost" data-a="salir">Cerrar sesión</button>':m.para&&m.para.autoriza?'<button class="btn ghost" data-a="cerrar">No autorizar</button>':'<button class="btn ghost" data-a="cerrar">Cancelar</button>'}`}
   if(m.tipo==='item'){const it=S.menu.find(x=>x.id===m.mid),o=S.ordenes.find(x=>x.id===ui.orden),f=foto(it.foto),gs=grupos(it.opciones);
     const extra=gs.reduce((a,g,gi)=>a+((g.v.find(v=>v.t===m.sel[gi])||{}).x||0),0)+(+m.cambioP||0);
@@ -1135,6 +1143,8 @@ const A={
     o.estado='pagada';o.pagadaT=Date.now();o.pago={metodo:m.met,efectivo:ef,tarjeta:tj,app:m.met==='app'?T:0,propina:m.prop,total:t};ui.modal=null;ui.cajaSel=null;save();toast('Cobrado '+money(T)+(m.met==='efectivo'&&m.recib?' · cambio '+money(m.recib-T):''));render()},
   desconectar:()=>{if(!ui.confirmDesc){ui.confirmDesc=true;render();return}try{localStorage.removeItem('comandero-nube')}catch(e){}location.reload()},
   conectar:()=>{ui.modal={tipo:'conectar'};render()},
+  restaurantes:()=>{ui.modal={tipo:'restaurantes'};render()},
+  irRest:d=>{if(d.i==='demo')return irA(null);const it=listaRest()[+d.i];if(it)irA(it)},
   conectarOk:()=>{conectarRest(document.getElementById('cr').value,document.getElementById('ck').value)},
   reintentar:()=>{nubeTraer()},
   repP:d=>{ui.repP=d.p;render()},
@@ -1235,7 +1245,7 @@ document.addEventListener('input',e=>{const t=e.target;
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ui.modal&&!ui.modal.lock)A.cerrar();if(ui.modal&&ui.modal.tipo==='pin'&&/^[0-9]$/.test(e.key)&&document.activeElement.id!=='motivo')A.pinK({k:e.key});if(ui.modal&&ui.modal.tipo==='pin'&&e.key==='Backspace'&&document.activeElement.id!=='motivo')A.pinK({k:'⌫'})});
 setInterval(()=>{if(ui.rol==='cocina'&&!ui.modal)render()},15000);
-(async()=>{if(PD){try{const r=await fetch('p/'+PD+'.json',{cache:'no-cache'});if(!r.ok)throw 0;PDATA=await r.json()}catch(e){PD=null}}load();if(PD&&PDATA&&S.pdVer!==PDATA.ver){S=seed();save()}render();nubeIniciar()})();
+(async()=>{if(CN)listaGuardar({t:'r',r:CN.r,k:CN.k,n:''});if(PD){try{const r=await fetch('p/'+PD+'.json',{cache:'no-cache'});if(!r.ok)throw 0;PDATA=await r.json()}catch(e){PD=null}}load();if(PD&&PDATA&&S.pdVer!==PDATA.ver){S=seed();save()}if(PD&&PDATA)listaGuardar({t:'p',p:PD,n:PDATA.nombre});render();nubeIniciar()})();
 </script>
 
 </body></html>
