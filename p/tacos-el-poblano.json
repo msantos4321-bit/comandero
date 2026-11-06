@@ -1,130 +1,198 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Tacos El Poblano",
- "lema": "Birria, asada y adobada · Playas de Tijuana",
+ "lema": "Tijuana, Baja California · Solo efectivo",
  "color": "#B91C1C",
- "preciosReales": false,
+ "preciosReales": true,
  "mesas": 6,
+ "iniciales": "EP",
  "menu": [
   [
    "Tacos",
-   "Taco de birria",
-   40,
-   "Birria de res con su cebolla y cilantro",
-   "Tortilla: Maíz, Harina"
-  ],
-  [
-   "Tacos",
-   "Taco de asada",
-   40,
-   "Con guacamole, cebolla y cilantro",
-   "Tortilla: Maíz, Harina"
-  ],
-  [
-   "Tacos",
-   "Taco de adobada",
-   40,
-   "Adobada al trompo",
-   "Tortilla: Maíz, Harina"
-  ],
-  [
-   "Tacos",
-   "Taco de tripa",
+   "Taco",
    45,
-   "",
-   "Tripa: Suave, Dorada"
+   "Tortilla de maíz",
+   ""
   ],
   [
    "Tacos",
-   "Taco mixto",
-   42,
-   "Asada con adobada",
-   "Tortilla: Maíz, Harina"
-  ],
-  [
-   "Birria",
-   "Quesabirria",
-   70,
-   "Tortilla dorada con queso y birria",
-   ""
-  ],
-  [
-   "Birria",
-   "Consomé chico",
-   35,
-   "Para acompañar la birria",
-   ""
-  ],
-  [
-   "Birria",
-   "Consomé grande",
+   "Taco de harina",
    60,
    "",
    ""
   ],
   [
-   "Quesadillas",
-   "Quesadilla mixta",
-   150,
-   "Asada y adobada, tortilla de harina",
-   "Carne: Asada, Adobada, Birria, Mixta"
-  ],
-  [
-   "Quesadillas",
-   "Quesadilla de maíz chica",
-   95,
+   "Tacos",
+   "Taco de lengua",
+   80,
    "",
-   "Carne: Asada, Adobada, Birria"
+   ""
   ],
   [
-   "Quesadillas",
-   "Mulita",
-   125,
+   "Tacos",
+   "Quesataco",
+   80,
+   "Con carne y queso",
+   ""
+  ],
+  [
+   "Tacos",
+   "Quesataco solo queso",
+   55,
    "",
-   "Carne: Asada, Adobada, Birria, Mixta"
+   ""
   ],
   [
-   "Más",
-   "Burrito",
-   120,
+   "Mulas y quesadillas",
+   "Mula",
+   205,
    "",
-   "Tortilla: Maíz, Harina | Carne: Asada, Adobada, Birria"
+   ""
   ],
   [
-   "Más",
+   "Mulas y quesadillas",
+   "Mula de lengua",
+   250,
+   "",
+   ""
+  ],
+  [
+   "Mulas y quesadillas",
+   "Quesadilla",
+   130,
+   "Con carne",
+   ""
+  ],
+  [
+   "Mulas y quesadillas",
+   "Quesadilla solo queso",
+   80,
+   "",
+   ""
+  ],
+  [
+   "Mulas y quesadillas",
+   "Quesadilla de lengua",
+   180,
+   "",
+   ""
+  ],
+  [
+   "Tortas",
    "Torta",
-   110,
+   130,
    "",
-   "Carne: Asada, Adobada, Birria"
+   ""
   ],
   [
-   "Más",
-   "Costra de queso",
-   190,
-   "Con la carne que elija",
-   "Carne: Asada, Adobada, Birria, Mixta"
+   "Tortas",
+   "Torta con queso",
+   145,
+   "",
+   ""
   ],
   [
-   "Bebidas",
-   "Refresco",
-   40,
+   "Tortas",
+   "Torta de lengua",
+   180,
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Orden de carne",
+   700,
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Media orden de carne",
+   360,
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Orden de birria",
+   310,
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Media orden de birria",
+   165,
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Vaso chico",
+   70,
+   "",
+   ""
+  ],
+  [
+   "Costras",
+   "Costra chica con carne",
+   100,
+   "",
+   ""
+  ],
+  [
+   "Costras",
+   "Costra grande con carne",
+   160,
+   "",
+   ""
+  ],
+  [
+   "Tortillas",
+   "Tortilla chica",
+   10,
+   "",
+   ""
+  ],
+  [
+   "Tortillas",
+   "Tortilla grande",
+   20,
    "",
    ""
   ],
   [
    "Bebidas",
-   "Agua fresca",
-   40,
+   "Soda",
+   45,
    "",
-   "Sabor: Horchata, Jamaica, Limón"
+   ""
   ],
   [
    "Bebidas",
-   "Agua natural",
-   28,
+   "Agua",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua grande",
+   65,
    "",
    ""
   ]
  ],
- "iniciales": "EP"
+ "promos": [
+  [
+   "Martes de tacos",
+   "pct",
+   10,
+   "Tacos",
+   "",
+   [
+    2
+   ]
+  ]
+ ]
 }

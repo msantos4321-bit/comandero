@@ -465,7 +465,8 @@ function seed(nd){
     empleados:[{id:uid(),nombre:'Sofía',puesto:'Gerente',pin:'1234'},{id:uid(),nombre:'Laura',puesto:'Mesero',pin:'1111'},{id:uid(),nombre:'Miguel',puesto:'Mesero',pin:'5555'},{id:uid(),nombre:'Toño',puesto:'Cocina',pin:'2222'},{id:uid(),nombre:'Karla',puesto:'Caja',pin:'3333'}],
     ordenes:[],movs:[],asist:[],cortes:[],marcas:{},tolerancia:10,seq:100,demoDia:dkey(new Date()),pdVer:P?P.ver:undefined
   };
-  if(P){const cats=S.categorias,beb=cats.find(c=>/bebida/i.test(c)),pos=cats.find(c=>/postre/i.test(c)),fu=menu.filter(x=>!/bebida|postre|extra/i.test(x.cat));
+  if(P&&P.promos)S.promos=P.promos.map(x=>({id:uid(),nombre:x[0],tipo:x[1],valor:+x[2]||0,cat:x[3]||'',item:x[4]||'',dias:x[5]||[],activa:true}));
+  else if(P){const cats=S.categorias,beb=cats.find(c=>/bebida/i.test(c)),pos=cats.find(c=>/postre/i.test(c)),fu=menu.filter(x=>!/bebida|postre|extra/i.test(x.cat));
     S.promos=[...(beb?[{id:uid(),nombre:'Hora feliz',tipo:'pct',valor:20,cat:beb,item:'',dias:[],activa:true}]:[]),
       {id:uid(),nombre:'Martes de '+cats[0].toLowerCase(),tipo:'pct',valor:15,cat:cats[0],item:'',dias:[2],activa:true},
       {id:uid(),nombre:'Paquete familiar',tipo:'precio',valor:Math.round(((fu[0]||menu[0]).precio*2+(fu[1]||menu[0]).precio*2)*.85/10)*10-1,cat:'',item:'2 '+(fu[0]||menu[0]).nombre+' + 2 '+(fu[1]||menu[0]).nombre,dias:[4,5,6,0],activa:true},
@@ -756,7 +757,7 @@ function instalarHtml(){
   return `<div class="inst"><div class="inst-ic">${ICONS.mesero}</div><div style="flex:1;min-width:0"><b>Úsala como app</b><p>Con su ícono en la pantalla, abre en pantalla completa y funciona sin internet.</p></div><button class="btn pri" data-a="instalar">Instalar app</button></div>`;
 }
 let relojT=null;
-function avisoPD(){return PD&&PDATA?`<div class="card" style="border:2px solid var(--brand);margin-bottom:14px"><p class="lbl" style="color:var(--brand)">Demostración preparada para ${esc(PDATA.nombre)}</p><p style="margin:4px 0 0">Así se vería Comandero en su restaurante, con algunos de sus platillos${PDATA.preciosReales?'':' (los precios son de ejemplo)'}. Juéguele con confianza: nada de lo que haga aquí se guarda en ningún lado. Con su menú completo, sus mesas y su logo se lo dejamos instalado gratis.</p></div>`:''}
+function avisoPD(){return PD&&PDATA?`<div class="card" style="border:2px solid var(--brand);margin-bottom:14px"><p class="lbl" style="color:var(--brand)">Demostración preparada para ${esc(PDATA.nombre)}</p><p style="margin:4px 0 0">${PDATA.aviso?esc(PDATA.aviso):`Así se vería Comandero en su restaurante, con algunos de sus platillos${PDATA.preciosReales?'':' (los precios son de ejemplo)'}. Juéguele con confianza: nada de lo que haga aquí se guarda en ningún lado. Con su menú completo, sus mesas y su logo se lo dejamos instalado gratis.`}</p></div>`:''}
 function vInicio(){
   const c=S.config,ab=S.ordenes.filter(o=>o.estado==='abierta');
   const ocup=new Set(ab.filter(o=>o.canal==='mesa').map(o=>o.mesa)).size;

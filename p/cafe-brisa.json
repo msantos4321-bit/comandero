@@ -1,0 +1,275 @@
+{
+ "ver": 1,
+ "nombre": "Café Brisa",
+ "lema": "Café, frappés y desayunos · Playas de Tijuana",
+ "color": "#7C4A2D",
+ "preciosReales": false,
+ "mesas": 5,
+ "iniciales": "CB",
+ "aviso": "Así se vería Comandero en una cafetería de Playas: tamaños, tipo de leche y sabores se eligen con un toque, y la barra ve cada bebida al momento. Los precios son de ejemplo, sacados de cafés de la zona. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café caliente",
+   "Espresso",
+   40,
+   "Shot doble",
+   ""
+  ],
+  [
+   "Café caliente",
+   "Americano",
+   45,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Café caliente",
+   "Café de la olla",
+   45,
+   "Con canela y piloncillo",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Café caliente",
+   "Cappuccino",
+   65,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Latte",
+   70,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10), Lavanda (+10)"
+  ],
+  [
+   "Café caliente",
+   "Mocha",
+   78,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Chai latte",
+   80,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Matcha latte",
+   85,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Chocolate caliente",
+   60,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Bebidas frías",
+   "Americano frío",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Bebidas frías",
+   "Latte frío",
+   80,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10), Lavanda (+10)"
+  ],
+  [
+   "Bebidas frías",
+   "Dirty horchata",
+   90,
+   "Horchata con espresso",
+   ""
+  ],
+  [
+   "Bebidas frías",
+   "Matcha frío",
+   95,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Bebidas frías",
+   "Frappé",
+   95,
+   "16 oz con crema batida",
+   "Sabor: Caramelo, Mocha, Cajeta, Vainilla, Oreo (+10), Matcha (+10)"
+  ],
+  [
+   "Bebidas frías",
+   "Smoothie",
+   85,
+   "16 oz",
+   "Fruta: Fresa, Mango, Plátano, Frutos rojos"
+  ],
+  [
+   "Bebidas frías",
+   "Limonada",
+   45,
+   "",
+   "Tipo: Natural, Mineral (+5)"
+  ],
+  [
+   "Bebidas frías",
+   "Té o tisana",
+   50,
+   "",
+   "Servido: Caliente, Frío"
+  ],
+  [
+   "Desayunos",
+   "Chilaquiles",
+   145,
+   "Con frijoles y crema",
+   "Salsa: Verde, Roja | Con: Huevo, Pollo (+25)"
+  ],
+  [
+   "Desayunos",
+   "Molletes",
+   110,
+   "Con pico de gallo",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Bagel de queso crema",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Bagel de pavo",
+   90,
+   "Pavo, queso, aguacate y espinaca",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Croissant de jamón y queso",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Sándwich de pollo al pesto",
+   135,
+   "En pan artesanal",
+   ""
+  ],
+  [
+   "Crepas y postres",
+   "Crepa de Nutella",
+   90,
+   "",
+   "Con: Sola, Fresa, Plátano"
+  ],
+  [
+   "Crepas y postres",
+   "Crepa de cajeta",
+   85,
+   "",
+   "Con: Sola, Nuez (+10)"
+  ],
+  [
+   "Crepas y postres",
+   "Pastel de zanahoria",
+   70,
+   "Rebanada",
+   ""
+  ],
+  [
+   "Crepas y postres",
+   "Cheesecake",
+   80,
+   "Rebanada",
+   ""
+  ],
+  [
+   "Crepas y postres",
+   "Brownie",
+   50,
+   "",
+   ""
+  ],
+  [
+   "Crepas y postres",
+   "Galleta con chispas",
+   25,
+   "",
+   ""
+  ],
+  [
+   "Extras",
+   "Shot extra de espresso",
+   15,
+   "",
+   ""
+  ],
+  [
+   "Extras",
+   "Botella de agua",
+   20,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Viernes de bebidas frías",
+   "pct",
+   20,
+   "Bebidas frías",
+   "",
+   [
+    5
+   ]
+  ],
+  [
+   "Combo desayuno",
+   "precio",
+   159,
+   "",
+   "Chilaquiles + Americano",
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  ],
+  [
+   "Martes de café caliente",
+   "pct",
+   15,
+   "Café caliente",
+   "",
+   [
+    2
+   ]
+  ],
+  [
+   "Galleta de cortesía",
+   "cortesia",
+   0,
+   "",
+   "Galleta con chispas",
+   [
+    0
+   ]
+  ]
+ ]
+}
