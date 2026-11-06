@@ -372,6 +372,7 @@ button.who{color:var(--bar-ink);cursor:pointer}
 button.who i{font-style:normal;color:var(--brand);font-size:12px}
 .cs-s{display:none}@media(max-width:420px){.cs-l{display:none}.cs-s{display:inline}}
 .atiende{font-size:13px;color:var(--muted);margin:2px 0 0}
+[data-lp]{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 </style>
 </head>
 <body>
@@ -785,12 +786,12 @@ function vMesero(){
     h+=`<div class="banner"><b>Listo para servir</b>`;por.forEach(({o,its})=>h+=`<div class="servir"><span class="tag t-ok" style="margin:0">${esc(o.canal==='mesa'?mesaNombre(o.mesa):canal(o.canal).nombre)}</span><span class="its">${its.map(i=>`${i.qty}× ${esc(i.nombre)}`).join(', ')}</span><button class="btn sm ok" data-a="servido" data-o="${o.id}">Ya lo serví</button></div>`);h+=`</div>`}
   h+=`<div class="sec"><div class="row"><h2 class="h2">Mesas</h2><span class="sp"></span><div class="legend"><span><i class="dot" style="background:var(--line)"></i>Libre</span><span><i class="dot" style="background:var(--brand)"></i>Ocupada</span><span><i class="dot" style="background:var(--warn)"></i>Pidió la cuenta</span><span><i class="dot" style="background:var(--ok)"></i>Comida lista</span></div></div><div class="mesas">`;
   S.mesas.forEach(m=>{const o=abiertas.find(x=>x.canal==='mesa'&&x.mesa===m.id);const lst=o&&o.items.some(i=>i.estado==='listo'&&!i.servido&&!i.cancel);const cls=(o?(o.cuenta?'cuenta':'ocup'):'')+(lst?' listo':'');
-    const mins=o?Math.max(0,Math.round((Date.now()-o.creada)/60000)):0;const est=!o?'Libre':lst?'Comida lista':o.cuenta?'Pidió la cuenta':'Ocupada';h+=`<button class="mesa ${cls}" data-a="abrirMesa" data-m="${m.id}"><span class="st">${est}</span><b>${esc(m.nombre)}</b>${o?`<span class="mt">${money(tot(o).total)}</span><small class="num">${o.mesero?esc(o.mesero.nombre)+' · ':''}${o.items.filter(i=>!i.cancel).reduce((a,i)=>a+i.qty,0)} platillos · ${mins} min</small>`:`<small>Toca para abrir</small>`}</button>`});
+    const mins=o?Math.max(0,Math.round((Date.now()-o.creada)/60000)):0;const est=!o?'Libre':lst?'Comida lista':o.cuenta?'Pidió la cuenta':'Ocupada';h+=`<button class="mesa ${cls}" data-a="abrirMesa" data-m="${m.id}" ${o?`data-lp="${o.id}"`:''}><span class="st">${est}</span><b>${esc(m.nombre)}</b>${o?`<span class="mt">${money(tot(o).total)}</span><small class="num">${o.mesero?esc(o.mesero.nombre)+' · ':''}${o.items.filter(i=>!i.cancel).reduce((a,i)=>a+i.qty,0)} platillos · ${mins} min</small>`:`<small>Toca para abrir</small>`}</button>`});
   h+=`</div></div><div class="sec"><h2 class="h2">Otros pedidos</h2><div class="row">`;
   S.canales.filter(c=>c.activo&&c.id!=='mesa'&&featOn(c.id)).forEach(c=>h+=`<button class="btn pri" data-a="nuevoCanal" data-c="${c.id}">+ ${esc(c.nombre)}</button>`);
   h+=`</div>`;
   const otros=abiertas.filter(o=>o.canal!=='mesa');
-  if(otros.length){h+=`<div class="olist">`;otros.forEach(o=>h+=`<button class="oc" data-a="abrir" data-o="${o.id}"><span><b>#${o.num} ${esc(oNombre(o))}</b><br><small class="muted">${o.mesero?esc(o.mesero.nombre)+' · ':''}${o.items.filter(i=>!i.cancel).length} platillos</small></span><span class="num" style="font-weight:800">${money(tot(o).total)}</span></button>`);h+=`</div>`}
+  if(otros.length){h+=`<div class="olist">`;otros.forEach(o=>h+=`<button class="oc" data-a="abrir" data-o="${o.id}" data-lp="${o.id}"><span><b>#${o.num} ${esc(oNombre(o))}</b><br><small class="muted">${o.mesero?esc(o.mesero.nombre)+' · ':''}${o.items.filter(i=>!i.cancel).length} platillos</small></span><span class="num" style="font-weight:800">${money(tot(o).total)}</span></button>`);h+=`</div>`}
   return h+`</div>`;
 }
 const LUPA='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
@@ -830,6 +831,7 @@ function ticket(o,modo){
   if(modo==='mesero'){h+=`<button class="btn pri full" data-a="enviar" data-o="${o.id}" ${nuevos?'':'disabled'}>Enviar a cocina${nuevos?' ('+nuevos+')':''}</button>`;
     if(o.canal==='mesa')h+=`<button class="btn full" data-a="cuenta" data-o="${o.id}">${o.cuenta?'Quitar aviso de cuenta':'El cliente pidió la cuenta'}</button>`}
   else h+=`<button class="btn pri full" data-a="cobrar" data-o="${o.id}" ${o.items.some(i=>!i.cancel)?'':'disabled'}>Cobrar ${money(t.total)}</button><div class="row">${featOn('impresion')?`<button class="btn" style="flex:1" data-a="imprimir" data-o="${o.id}">Imprimir ticket</button>`:''}<button class="btn" style="flex:1" data-a="copiarTicket" data-o="${o.id}">Copiar para WhatsApp</button></div>`;
+  if(o.items.length)h+=`<button class="btn ghost full" style="color:var(--bad);min-height:40px" data-a="cancelarCuenta" data-o="${o.id}">Cancelar toda la cuenta</button>`;
   return h+`</div></aside>`;
 }
 
@@ -856,7 +858,7 @@ function vCaja(){
   if(!ui.cajaSel&&ab.length&&window.innerWidth>=900)ui.cajaSel=(ab.find(o=>o.cuenta)||ab[0]).id;
   let h=tip('caja')+`<div class="row" style="margin-bottom:12px"><h2 class="h2">Caja</h2><span class="sp"></span>${featOn('asistencia')?'<button class="btn" data-a="asist" data-r="caja">Checar entrada o salida</button>':''}<button class="btn" data-a="irMesero">+ Nueva orden</button><button class="btn" data-a="corte">Corte de caja</button></div><div class="split"><div class="olist">`;
   if(!ab.length)h+=`<div class="empty">No hay cuentas abiertas.</div>`;
-  ab.slice().sort((a,b)=>(b.cuenta?1:0)-(a.cuenta?1:0)).forEach(o=>h+=`<button class="oc ${o.id===ui.cajaSel?'on':''}" data-a="cajaSel" data-o="${o.id}"><span><b>${esc(oNombre(o))}</b> ${o.cuenta?'<span class="tag t-cook">Pidió la cuenta</span>':''}<br><small class="muted">#${o.num}${o.mesero?' · '+esc(o.mesero.nombre):''} · ${o.items.filter(i=>!i.cancel).length} platillos</small></span><span class="num" style="font-weight:800">${money(tot(o).total)}</span></button>`);
+  ab.slice().sort((a,b)=>(b.cuenta?1:0)-(a.cuenta?1:0)).forEach(o=>h+=`<button class="oc ${o.id===ui.cajaSel?'on':''}" data-a="cajaSel" data-o="${o.id}" data-lp="${o.id}"><span><b>${esc(oNombre(o))}</b> ${o.cuenta?'<span class="tag t-cook">Pidió la cuenta</span>':''}<br><small class="muted">#${o.num}${o.mesero?' · '+esc(o.mesero.nombre):''} · ${o.items.filter(i=>!i.cancel).length} platillos</small></span><span class="num" style="font-weight:800">${money(tot(o).total)}</span></button>`);
   h+=`</div>`;
   const o=ab.find(x=>x.id===ui.cajaSel);
   if(o){const pr=S.promos.filter(promoHoy);h+=`<div style="display:grid;gap:12px;min-width:0">${window.innerWidth<900?'<button class="btn sm ghost" data-a="cajaSel" data-o="">← Todas las cuentas</button>':''}${pr.length?`<div class="promos">${pr.map(p=>promoBtn(p,o)).join('')}</div>`:''}${ticket(o,'caja')}</div>`}
@@ -1020,6 +1022,7 @@ const FAQ=[
   ['¿Cómo veo mi horario?','En la pantalla de inicio toca "Ver mi horario" y escribe tu PIN.'],
   ['Un pedido a domicilio','Entra como Mesero, toca "+ Domicilio", escribe nombre, teléfono y dirección, agrega los platillos y el costo de envío.'],
   ['Se acabó un platillo','El gerente entra a "Menú y precios" y le quita la palomita de "Activo". Deja de aparecer para el mesero.'],
+  ['Me equivoqué y ya lo mandé a cocina','Abre la cuenta y toca «Cancelar toda la cuenta» (abajo), o deja presionada la mesa o el pedido. El gerente o la encargada ponen su PIN y la mesa queda libre. Para quitar un solo platillo, toca «Cancelar» junto a él.'],
   ['Compartimos un aparato entre varios','Toca tu nombre arriba (⇄) y escribe tu PIN: lo que agregues queda a tu nombre. Al irte, toca «Cerrar sesión».'],
   ['Voy a cubrir otro puesto','Toca ese puesto y escribe tu PIN. Si tu puesto no tiene permiso, el gerente o la encargada escriben su PIN para autorizarte. Tu entrada y salida no cambian.'],
   ['Olvidé mi PIN','Pídele al gerente que lo revise en "Equipo y PIN".'],
@@ -1032,12 +1035,14 @@ function renderModal(){
   const el=document.getElementById('modal'),m=ui.modal;
   if(!m){el.innerHTML='';return}
   let b='';
-  if(m.tipo==='restaurantes'){const L=listaRest(),act=it=>it.t==='r'?(CN&&CN.r===it.r):(PD===it.p);const fila=(t,sub,a,i,on)=>`<button class="card row" style="width:100%;text-align:left;gap:10px;${on?'border:2px solid var(--brand)':''}" data-a="${a}" data-i="${i}"><span style="flex:1"><b>${esc(t)}</b><br><small class="muted">${esc(sub)}</small></span>${on?'<span class="tag t-ok" style="margin:0">Aquí estás</span>':'<span class="muted">Abrir ›</span>'}</button>`;
+  if(m.tipo==='cuentaOps'){const o=S.ordenes.find(x=>x.id===m.o);if(!o||o.estado!=='abierta'){ui.modal=null;el.innerHTML='';return}
+    b=`<h3>${esc(oNombre(o))}</h3><p class="muted" style="margin:0">#${o.num}${o.mesero?' · '+esc(o.mesero.nombre):''} · ${money(tot(o).total)}</p><button class="btn pri full" data-a="${ui.rol==='caja'?'cajaSel':'abrir'}" data-o="${o.id}">Abrir la cuenta</button><button class="btn ghost full" style="color:var(--bad)" data-a="cancelarCuenta" data-o="${o.id}">Cancelar toda la cuenta</button><button class="btn ghost full" data-a="cerrar">Cerrar</button>`}
+  else if(m.tipo==='restaurantes'){const L=listaRest(),act=it=>it.t==='r'?(CN&&CN.r===it.r):(PD===it.p);const fila=(t,sub,a,i,on)=>`<button class="card row" style="width:100%;text-align:left;gap:10px;${on?'border:2px solid var(--brand)':''}" data-a="${a}" data-i="${i}"><span style="flex:1"><b>${esc(t)}</b><br><small class="muted">${esc(sub)}</small></span>${on?'<span class="tag t-ok" style="margin:0">Aquí estás</span>':'<span class="muted">Abrir ›</span>'}</button>`;
     b=`<h3>¿Qué quieres ver en este aparato?</h3><div style="display:grid;gap:8px">${fila('Demostración general','El Mezquite, con ventas de ejemplo','irRest','demo',!CN&&!PD)}${L.map((it,i)=>fila(it.n||it.r||it.p,it.t==='r'?'Restaurante conectado · lo que hagas se guarda en el suyo':'Demostración preparada','irRest',i,act(it))).join('')}</div>
     <div class="row"><button class="btn ghost" data-a="cerrar">Cerrar</button><span class="sp"></span><button class="btn" data-a="conectar">Conectar con un código</button></div>
     ${CN&&!nube.features.demo?'<p class="muted" style="margin:0;font-size:13px">Para salir de este restaurante sin tocar nada suyo, toca «Demostración general».</p>':''}`}
   else if(m.tipo==='conectar'){b=`<h3>Conectar mi restaurante</h3><p class="muted" style="margin:0">Escribe el código que te dio tu proveedor. Este aparato quedará conectado y verá en tiempo real lo mismo que las demás tablets y celulares del restaurante.</p><input id="cr" type="hidden" value=""><label><span class="lbl">Código de tu restaurante</span><input id="ck" placeholder="XX-XXXX-XXXX" autocomplete="off" style="text-transform:uppercase"></label><div class="row"><button class="btn ghost" data-a="cerrar">Cancelar</button><span class="sp"></span><button class="btn pri" data-a="conectarOk">Conectar</button></div>`}
-  else if(m.tipo==='pin'){b=`<h3>${esc(m.titulo)}</h3>${m.sub?`<p class="muted" style="margin:0">${esc(m.sub)}</p>`:''}${m.motivo?`<label><span class="lbl">Motivo (obligatorio)</span><input id="motivo" placeholder="Ej. el cliente cambió de opinión" value="${esc(m.motivoTxt||'')}"></label>`:''}<div class="pins">${[0,1,2,3].map(i=>`<i class="${i<m.v.length?'f':''}"></i>`).join('')}</div>${m.err?`<p style="color:var(--bad);text-align:center;margin:0;font-weight:700">${esc(m.err)}</p>`:''}<div class="pad">${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>k===''?'<span></span>':`<button data-a="pinK" data-k="${k}" aria-label="${k==='⌫'?'Borrar':k}">${k}</button>`).join('')}</div>${m.lock?'<button class="btn ghost" data-a="salir">Cerrar sesión</button>':m.para&&m.para.autoriza?'<button class="btn ghost" data-a="cerrar">No autorizar</button>':'<button class="btn ghost" data-a="cerrar">Cancelar</button>'}`}
+  else if(m.tipo==='pin'){b=`<h3>${esc(m.titulo)}</h3>${m.sub?`<p class="muted" style="margin:0">${esc(m.sub)}</p>`:''}${m.motivo?`<label><span class="lbl">Motivo (obligatorio)</span><input id="motivo" placeholder="Ej. el cliente cambió de opinión" value="${esc(m.motivoTxt||'')}"></label><div class="opts">${['Error al capturar','Era una prueba','El cliente se fue','Cambió de opinión'].map(t=>`<button class="opt ${m.motivoTxt===t?'on':''}" data-a="motivoRapido" data-v="${t}">${t}</button>`).join('')}</div>`:''}<div class="pins">${[0,1,2,3].map(i=>`<i class="${i<m.v.length?'f':''}"></i>`).join('')}</div>${m.err?`<p style="color:var(--bad);text-align:center;margin:0;font-weight:700">${esc(m.err)}</p>`:''}<div class="pad">${[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>k===''?'<span></span>':`<button data-a="pinK" data-k="${k}" aria-label="${k==='⌫'?'Borrar':k}">${k}</button>`).join('')}</div>${m.lock?'<button class="btn ghost" data-a="salir">Cerrar sesión</button>':m.para&&m.para.autoriza?'<button class="btn ghost" data-a="cerrar">No autorizar</button>':'<button class="btn ghost" data-a="cerrar">Cancelar</button>'}`}
   if(m.tipo==='item'){const it=S.menu.find(x=>x.id===m.mid),o=S.ordenes.find(x=>x.id===ui.orden),f=foto(it.foto),gs=grupos(it.opciones);
     const extra=gs.reduce((a,g,gi)=>a+((g.v.find(v=>v.t===m.sel[gi])||{}).x||0),0)+(+m.cambioP||0);
     b=`${f?`<img class="ph" src="${f}" alt="">`:''}<div><h3>${esc(it.nombre)}</h3>${it.desc?`<p class="muted" style="margin:4px 0 0">${esc(it.desc)}</p>`:''}</div>`;
@@ -1143,6 +1148,11 @@ const A={
     o.estado='pagada';o.pagadaT=Date.now();o.pago={metodo:m.met,efectivo:ef,tarjeta:tj,app:m.met==='app'?T:0,propina:m.prop,total:t};ui.modal=null;ui.cajaSel=null;save();toast('Cobrado '+money(T)+(m.met==='efectivo'&&m.recib?' · cambio '+money(m.recib-T):''));render()},
   desconectar:()=>{if(!ui.confirmDesc){ui.confirmDesc=true;render();return}try{localStorage.removeItem('comandero-nube')}catch(e){}location.reload()},
   conectar:()=>{ui.modal={tipo:'conectar'};render()},
+  cuentaOps:d=>{ui.modal={tipo:'cuentaOps',o:d.o};renderModal()},
+  motivoRapido:d=>{ui.modal.motivoTxt=d.v;ui.modal.err='';renderModal()},
+  cancelarCuenta:d=>{const o=S.ordenes.find(x=>x.id===d.o);if(!o)return;
+    if(!o.items.some(i=>i.enviado&&!i.cancel)){S.ordenes=S.ordenes.filter(x=>x!==o);if(ui.orden===o.id)ui.orden=null;if(ui.cajaSel===o.id)ui.cajaSel=null;ui.modal=null;save();toast('Cuenta quitada: no se había mandado nada a cocina');render();return}
+    pinPrompt({titulo:'Cancelar toda la cuenta',sub:oNombre(o)+' · '+money(tot(o).total)+'. Se cancela todo lo pedido y la mesa queda libre. Necesita el PIN del gerente o la encargada.'+pinDemo('admin'),motivo:true,para:{k:'cancelCuenta',o:o.id}})},
   restaurantes:()=>{ui.modal={tipo:'restaurantes'};render()},
   irRest:d=>{if(d.i==='demo')return irA(null);const it=listaRest()[+d.i];if(it)irA(it)},
   conectarOk:()=>{conectarRest(document.getElementById('cr').value,document.getElementById('ck').value)},
@@ -1215,13 +1225,24 @@ function pinOk(m){
   if(p.k==='asist'){const r=S.asist.filter(a=>a.emp===emp.id&&hoy(a.t));const tipo=r.length&&r[r.length-1].tipo==='entrada'?'salida':'entrada';S.asist.push({emp:emp.id,tipo,t:Date.now()});save();ui.modal=null;
     let extra='';if(tipo==='entrada'){const s=estadoDia(emp.id,new Date());extra=s.st==='retardo'?' · quedó como retardo':s.st==='descanso'?' · hoy era su descanso':''}
     toast((tipo==='entrada'?'Entrada':'Salida')+' de '+emp.nombre+' a las '+hora(Date.now())+extra);render();return}
+  if(p.k==='cancelCuenta'){if(!PERM[emp.puesto].includes('autoriza')){m.err='Solo el gerente o la encargada pueden cancelar';m.v='';return}
+    const mot=(m.motivoTxt||'').trim();if(!mot){m.err='Elige o escribe el motivo arriba';m.v='';return}
+    const o=S.ordenes.find(x=>x.id===p.o);if(!o){ui.modal=null;render();return}const monto=tot(o).total;
+    o.items.forEach(i=>{if(!i.cancel){i.cancel=true;i.u=Date.now()}});o.estado='cancelada';o.canceladaT=Date.now();
+    S.movs.push({id:uid(),t:Date.now(),tipo:'Cancelación',quien:emp.nombre,det:'Cuenta completa · '+oNombre(o)+' #'+o.num,motivo:mot,monto});
+    if(ui.orden===o.id)ui.orden=null;if(ui.cajaSel===o.id)ui.cajaSel=null;ui.modal=null;save();toast('Cuenta cancelada y registrada');render();return}
   if(p.k==='cancel'){if(!PERM[emp.puesto].includes('autoriza')){m.err='Solo el gerente o la encargada pueden cancelar';m.v='';return}
     const mot=(m.motivoTxt||'').trim();if(!mot){m.err='Escribe el motivo arriba';m.v='';return}
     const o=S.ordenes.find(x=>x.id===p.o),i=o.items.find(x=>x.id===p.i);i.cancel=true;S.movs.push({id:uid(),t:Date.now(),tipo:'Cancelación',quien:emp.nombre,det:i.qty+'× '+i.nombre+' · '+oNombre(o),motivo:mot,monto:i.precio*i.qty});save();ui.modal=null;toast('Cancelado y registrado');render()}
 }
 function cargarImg(file,max,cb){const r=new FileReader();r.onload=()=>{const img=new Image();img.onload=()=>{const k=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*k);c.height=Math.round(img.height*k);c.getContext('2d').drawImage(img,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',.75))};img.src=r.result};r.readAsDataURL(file)}
 
-document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b||b.disabled)return;const f=A[b.dataset.a];if(f)f(b.dataset,b,e)});
+let lpT=null,lpHecho=false,lpX=0,lpY=0;
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('[data-lp]');lpHecho=false;clearTimeout(lpT);if(!b||ui.modal)return;lpX=e.clientX;lpY=e.clientY;lpT=setTimeout(()=>{lpHecho=true;try{navigator.vibrate&&navigator.vibrate(30)}catch(_){}A.cuentaOps({o:b.dataset.lp})},550)});
+document.addEventListener('pointermove',e=>{if(Math.abs(e.clientX-lpX)>10||Math.abs(e.clientY-lpY)>10)clearTimeout(lpT)});
+['pointerup','pointercancel'].forEach(ev=>document.addEventListener(ev,()=>clearTimeout(lpT)));
+document.addEventListener('contextmenu',e=>{if(e.target.closest('[data-lp]'))e.preventDefault()});
+document.addEventListener('click',e=>{if(lpHecho&&e.target.closest('[data-lp]')){lpHecho=false;e.preventDefault();return}const b=e.target.closest('[data-a]');if(!b||b.disabled)return;const f=A[b.dataset.a];if(f)f(b.dataset,b,e)});
 document.addEventListener('change',e=>{const t=e.target;
   if(t.dataset.f){const [col,id,field]=t.dataset.f.split(':');const obj=col==='config'?S.config:S[col].find(x=>x.id===id);if(!obj)return;
     let v=t.type==='checkbox'?t.checked:t.type==='number'?(+t.value||0):t.value;
