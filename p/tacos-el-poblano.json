@@ -1,5 +1,5 @@
 {
- "ver": 2,
+ "ver": 3,
  "nombre": "Tacos El Poblano",
  "lema": "Tijuana, Baja California · Solo efectivo",
  "color": "#B91C1C",
@@ -100,14 +100,14 @@
   ],
   [
    "Órdenes",
-   "Orden de carne",
+   "Orden de carne de birria",
    700,
    "",
    ""
   ],
   [
    "Órdenes",
-   "Media orden de carne",
+   "Media orden de carne de birria",
    360,
    "",
    ""
@@ -128,7 +128,7 @@
   ],
   [
    "Órdenes",
-   "Vaso chico",
+   "Vaso chico de birria",
    70,
    "",
    ""
