@@ -1,0 +1,100 @@
+{
+ "ver": 1,
+ "nombre": "Tito's",
+ "lema": "Mariscos · Playas de Tijuana",
+ "color": "#C2410C",
+ "preciosReales": false,
+ "menu": [
+  [
+   "Tacos",
+   "Taco de pescado",
+   45,
+   "Capeado o asado, col, crema y guacamole",
+   "Tortilla: Maíz, Harina (grande)"
+  ],
+  [
+   "Tacos",
+   "Taco de camarón",
+   60,
+   "",
+   "Estilo: Capeado, A la plancha"
+  ],
+  [
+   "Entradas",
+   "Chicharrón mixto",
+   280,
+   "Chicharrón de pescado y camarón para compartir",
+   ""
+  ],
+  [
+   "Mariscos",
+   "Ostiones (docena)",
+   270,
+   "",
+   ""
+  ],
+  [
+   "Mariscos",
+   "Coctel de camarón",
+   230,
+   "",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Especialidad de la casa",
+   690,
+   "Pescado empanizado, sarandeado, camarones, arroz y ensalada (2 a 3 personas)",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Filete empanizado",
+   230,
+   "Con arroz y ensalada",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Huevos rancheros",
+   150,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Chilaquiles",
+   160,
+   "",
+   "Salsa: Verde, Roja"
+  ],
+  [
+   "Bebidas",
+   "Mezcal con frutos rojos",
+   150,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Michelada",
+   110,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Café de olla",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   40,
+   "",
+   ""
+  ]
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "ver": 1,
+ "nombre": "Bichi Burger",
+ "lema": "Hamburguesas · Playas de Tijuana",
+ "color": "#CA8A04",
+ "preciosReales": false,
+ "menu": [
+  [
+   "Hamburguesas",
+   "Bichi Burger",
+   210,
+   "Media libra con todo",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Smash Burger",
+   170,
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "LA Burger",
+   230,
+   "",
+   ""
+  ],
+  [
+   "Papas",
+   "Papas sazonadas",
+   80,
+   "",
+   ""
+  ],
+  [
+   "Papas",
+   "Carne asada fries",
+   190,
+   "",
+   ""
+  ],
+  [
+   "Para compartir",
+   "Alitas",
+   180,
+   "",
+   "Salsa: BBQ, Búfalo"
+  ],
+  [
+   "Bebidas",
+   "Cerveza",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Michelada",
+   100,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Malteada",
+   95,
+   "",
+   "Sabor: Vainilla, Chocolate, Fresa"
+  ]
+ ]
+}

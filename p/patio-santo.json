@@ -1,0 +1,86 @@
+{
+ "ver": 1,
+ "nombre": "Patio Santo",
+ "lema": "Bar & grill · Playas de Tijuana",
+ "color": "#3F6212",
+ "preciosReales": false,
+ "menu": [
+  [
+   "Para compartir",
+   "Asada fries",
+   220,
+   "",
+   ""
+  ],
+  [
+   "Para compartir",
+   "Guacamole",
+   180,
+   "",
+   ""
+  ],
+  [
+   "Para compartir",
+   "Alitas",
+   220,
+   "",
+   "Salsa: BBQ, Búfalo, Mango habanero"
+  ],
+  [
+   "Platos fuertes",
+   "Hamburguesa de la casa",
+   260,
+   "",
+   ""
+  ],
+  [
+   "Platos fuertes",
+   "Tacos de rib eye",
+   290,
+   "",
+   ""
+  ],
+  [
+   "Postres",
+   "S'mores",
+   160,
+   "Para tostar en la mesa",
+   ""
+  ],
+  [
+   "Postres",
+   "Funnel cake",
+   150,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Cerveza artesanal",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Margarita",
+   160,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Copa de vino",
+   170,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Coctel de la casa",
+   180,
+   "",
+   ""
+  ]
+ ]
+}

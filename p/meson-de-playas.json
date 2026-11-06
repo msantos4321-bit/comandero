@@ -1,0 +1,86 @@
+{
+ "ver": 1,
+ "nombre": "El Mesón de Playas",
+ "lema": "Desayunos · Playas de Tijuana",
+ "color": "#92400E",
+ "preciosReales": false,
+ "menu": [
+  [
+   "Desayunos",
+   "Desayuno americano",
+   175,
+   "Huevos al gusto, hotcakes, tocino y papas",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Huevos rancheros",
+   160,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Chilaquiles",
+   170,
+   "",
+   "Salsa: Verde, Roja"
+  ],
+  [
+   "Desayunos",
+   "Machaca con huevo",
+   180,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Omelette",
+   175,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Hotcakes",
+   140,
+   "",
+   ""
+  ],
+  [
+   "Antojitos",
+   "Enchiladas",
+   175,
+   "",
+   "Salsa: Verde, Roja, Suizas"
+  ],
+  [
+   "Panadería",
+   "Pan dulce",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Café de olla",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Jugo de naranja",
+   65,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Chocolate caliente",
+   55,
+   "",
+   ""
+  ]
+ ]
+}

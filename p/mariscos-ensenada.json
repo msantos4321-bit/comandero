@@ -1,0 +1,107 @@
+{
+ "ver": 1,
+ "nombre": "Mariscos Ensenada",
+ "lema": "Tacos y mariscos · Playas de Tijuana",
+ "color": "#1D4ED8",
+ "preciosReales": false,
+ "menu": [
+  [
+   "Tacos",
+   "Taco de pescado capeado",
+   35,
+   "Estilo Ensenada, col, crema y pico de gallo",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de pescado asado",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de camarón",
+   45,
+   "",
+   "Estilo: Capeado, A la plancha"
+  ],
+  [
+   "Tacos",
+   "Taco de camarón enchilado con queso",
+   55,
+   "Camarón enchilado a la plancha con queso derretido",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de pulpo",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de marlin",
+   50,
+   "Marlin asado",
+   ""
+  ],
+  [
+   "Antojitos",
+   "Flautas de lenguado",
+   120,
+   "Orden de flautas doradas",
+   ""
+  ],
+  [
+   "Antojitos",
+   "Flautas de marlin",
+   120,
+   "Orden de flautas doradas",
+   ""
+  ],
+  [
+   "Mariscos",
+   "Tostada de ceviche de camarón",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Mariscos",
+   "Molcajete de mariscos",
+   320,
+   "Para compartir, con tostadas y galletas saladas",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   35,
+   "",
+   "Sabor: Jamaica, Horchata"
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Cerveza",
+   50,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Michelada",
+   90,
+   "",
+   ""
+  ]
+ ]
+}

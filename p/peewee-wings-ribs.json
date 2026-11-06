@@ -1,0 +1,79 @@
+{
+ "ver": 1,
+ "nombre": "Peewee Wings & Ribs",
+ "lema": "Alitas, costillas y BBQ · Playas",
+ "color": "#B91C1C",
+ "preciosReales": false,
+ "menu": [
+  [
+   "Alitas",
+   "Alitas (10 piezas)",
+   199,
+   "",
+   "Salsa: BBQ, Búfalo, Mango habanero, Lemon pepper"
+  ],
+  [
+   "Costillas",
+   "Costillas BBQ (media)",
+   260,
+   "",
+   ""
+  ],
+  [
+   "Costillas",
+   "Costillas BBQ (completa)",
+   450,
+   "",
+   ""
+  ],
+  [
+   "Ahumados",
+   "Brisket ahumado",
+   230,
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa clásica",
+   159,
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa con tocino",
+   179,
+   "",
+   ""
+  ],
+  [
+   "Papas",
+   "Papas con tocino",
+   120,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Té helado",
+   40,
+   "",
+   ""
+  ]
+ ]
+}

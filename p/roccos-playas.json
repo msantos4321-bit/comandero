@@ -1,0 +1,100 @@
+{
+ "ver": 1,
+ "nombre": "Rocco's",
+ "lema": "Desayunos y mariscos · Playas de Tijuana",
+ "color": "#0891B2",
+ "preciosReales": false,
+ "menu": [
+  [
+   "Desayunos",
+   "Omelette",
+   160,
+   "Con papas, frijoles y tortillas",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Chilaquiles",
+   160,
+   "",
+   "Salsa: Verde, Roja"
+  ],
+  [
+   "Tacos",
+   "Taco de camarón enchilado",
+   65,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco gobernador",
+   70,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco zarzuela",
+   75,
+   "Mariscos en salsa zarzuela",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de pulpo",
+   70,
+   "",
+   ""
+  ],
+  [
+   "Tostadas",
+   "Tostada de ceviche de camarón",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Tostadas",
+   "Tostada de ceviche de pescado",
+   65,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Platón de mariscos",
+   590,
+   "Para compartir",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Café americano",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Jugo de naranja",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Michelada",
+   110,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Cerveza",
+   60,
+   "",
+   ""
+  ]
+ ]
+}

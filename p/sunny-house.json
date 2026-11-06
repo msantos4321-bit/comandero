@@ -1,0 +1,65 @@
+{
+ "ver": 1,
+ "nombre": "Sunny House",
+ "lema": "Desayunos · Playas de Tijuana",
+ "color": "#B45309",
+ "preciosReales": false,
+ "menu": [
+  [
+   "Desayunos",
+   "Sunny Combo",
+   245,
+   "Chilaquiles, papas, frijoles, tocino, huevo y asada",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Chilaquiles con omelette",
+   210,
+   "",
+   "Salsa: Verde, Roja"
+  ],
+  [
+   "Desayunos",
+   "Omelette",
+   175,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Hotcakes con huevo y tocino",
+   175,
+   "",
+   ""
+  ],
+  [
+   "Panadería",
+   "Pan de la casa",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Café de la casa",
+   45,
+   "Con refill",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Latte",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Jugo natural",
+   70,
+   "",
+   "Sabor: Naranja, Verde, Zanahoria"
+  ]
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "ver": 1,
+ "nombre": "La Casa de Don Juan",
+ "lema": "Desayunos y comida mexicana · Playas",
+ "color": "#7C2D12",
+ "preciosReales": false,
+ "menu": [
+  [
+   "Desayunos",
+   "Chilaquiles",
+   195,
+   "",
+   "Salsa: Verde, Roja"
+  ],
+  [
+   "Desayunos",
+   "Huevos divorciados",
+   185,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Molletes",
+   165,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Omelette",
+   195,
+   "",
+   ""
+  ],
+  [
+   "Antojitos",
+   "Enchiladas suizas",
+   210,
+   "",
+   ""
+  ],
+  [
+   "Panadería",
+   "Concha",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Jugo de betabel",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Jugo verde",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Té de canela y jengibre",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Café de olla",
+   50,
+   "",
+   ""
+  ]
+ ]
+}
