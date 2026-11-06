@@ -625,6 +625,7 @@ async function nubeTraer(){
     if(nube.cargando){
       if(!r.items.some(i=>!i.deleted)){ // restaurante nuevo: se llena con sus datos iniciales o en blanco
         let ini=null;try{const f=await fetch('r/'+CN.r+'.json',{cache:'no-store'});if(f.ok)ini=await f.json()}catch(e){}
+        if(!ini&&nube.features.plantilla==='preparada'){try{const f=await fetch('p/'+CN.r+'.json',{cache:'no-store'});if(f.ok){const P=await f.json();ini=vacio();Object.assign(ini.config,{nombre:P.nombre,lema:P.lema||'',color:P.color||ini.config.color,iniciales:P.iniciales||P.nombre.split(/\s+/).filter(w=>w.length>2).map(w=>w[0]).join('').slice(0,2).toUpperCase()});ini.menu=P.menu.map(x=>({id:uid(),cat:x[0],nombre:x[1],precio:+x[2]||0,desc:x[3]||'',opciones:x[4]||'',foto:'',activo:true}));ini.categorias=[...new Set(ini.menu.map(x=>x.cat))];if(P.mesas)ini.mesas=Array.from({length:+P.mesas},(_,i)=>({id:uid(),nombre:'Mesa '+(i+1)}))}}catch(e){}}
         if(!ini&&nube.features.plantilla==='demo'){ini=seed()}
         else if(!ini&&nube.features.plantilla==='ejemplo'){ini=seed();ini.ordenes=[];ini.movs=[];ini.asist=[];ini.cortes=[];ini.marcas={};delete ini.horarios;ini.seq=100}S=ini||vacio();if(r.nombre&&(!ini||nube.features.plantilla==='ejemplo')){S.config.nombre=r.nombre;S.config.iniciales=r.nombre.split(/\s+/).map(w=>w[0]).join('').slice(0,3).toUpperCase()}if(S.fotos){FOTOS=S.fotos;delete S.fotos}S.ordenes=S.ordenes||[];migrar();nube.cargando=false;nube.hash={};save();traerEnCurso=false;render();return}
       S.ordenes=[];}
