@@ -1,0 +1,198 @@
+{
+ "ver": 3,
+ "nombre": "Tacos El Poblano",
+ "lema": "Tijuana, Baja California · Solo efectivo",
+ "color": "#B91C1C",
+ "preciosReales": true,
+ "mesas": 6,
+ "iniciales": "EP",
+ "menu": [
+  [
+   "Tacos",
+   "Taco",
+   45,
+   "Tortilla de maíz",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de harina",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de lengua",
+   80,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Quesataco",
+   80,
+   "Con carne y queso",
+   ""
+  ],
+  [
+   "Tacos",
+   "Quesataco solo queso",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Mulas y quesadillas",
+   "Mula",
+   205,
+   "",
+   ""
+  ],
+  [
+   "Mulas y quesadillas",
+   "Mula de lengua",
+   250,
+   "",
+   ""
+  ],
+  [
+   "Mulas y quesadillas",
+   "Quesadilla",
+   130,
+   "Con carne",
+   ""
+  ],
+  [
+   "Mulas y quesadillas",
+   "Quesadilla solo queso",
+   80,
+   "",
+   ""
+  ],
+  [
+   "Mulas y quesadillas",
+   "Quesadilla de lengua",
+   180,
+   "",
+   ""
+  ],
+  [
+   "Tortas",
+   "Torta",
+   130,
+   "",
+   ""
+  ],
+  [
+   "Tortas",
+   "Torta con queso",
+   145,
+   "",
+   ""
+  ],
+  [
+   "Tortas",
+   "Torta de lengua",
+   180,
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Orden de carne de birria",
+   700,
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Media orden de carne de birria",
+   360,
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Orden de birria",
+   310,
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Media orden de birria",
+   165,
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Vaso chico de birria",
+   70,
+   "",
+   ""
+  ],
+  [
+   "Costras",
+   "Costra chica con carne",
+   100,
+   "",
+   ""
+  ],
+  [
+   "Costras",
+   "Costra grande con carne",
+   160,
+   "",
+   ""
+  ],
+  [
+   "Tortillas",
+   "Tortilla chica",
+   10,
+   "",
+   ""
+  ],
+  [
+   "Tortillas",
+   "Tortilla grande",
+   20,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Soda",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua grande",
+   65,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de tacos",
+   "pct",
+   10,
+   "Tacos",
+   "",
+   [
+    2
+   ]
+  ]
+ ]
+}

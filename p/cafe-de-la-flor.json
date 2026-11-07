@@ -1,0 +1,107 @@
+{
+ "ver": 1,
+ "nombre": "Café de la Flor",
+ "lema": "Desayunos, comida y cena · Playas",
+ "color": "#9D174D",
+ "preciosReales": true,
+ "menu": [
+  [
+   "Desayunos",
+   "Huevos Primavera",
+   170,
+   "Dos huevos sobre verduras a la plancha, con toast de aguacate",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Slam Light de Nopales",
+   205,
+   "Omelette de claras con nopales, tomate, cebolla y panela",
+   ""
+  ],
+  [
+   "Desayunos",
+   "La Flor Slam",
+   245,
+   "Dos huevos con chilaquiles, frijoles, papas y postre",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Pancake Slam",
+   185,
+   "Dos hotcakes con huevos, jamón y tocino",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Ensalada de fruta",
+   140,
+   "Con granola, miel y cottage o yogurt",
+   ""
+  ],
+  [
+   "Chilaquiles",
+   "Chilaquiles rellenos",
+   195,
+   "Especialidad de la casa",
+   "Salsa: Verde, Roja, Chipotle"
+  ],
+  [
+   "Chilaquiles",
+   "Chilaquiles ahogados",
+   210,
+   "Sobre frijoles, con dos huevos y papas",
+   "Salsa: Verde, Roja, Chipotle"
+  ],
+  [
+   "Antojitos",
+   "Enchiladas de pollo",
+   185,
+   "Tres enchiladas con queso, frijoles y arroz",
+   ""
+  ],
+  [
+   "Antojitos",
+   "Flautas de pollo o de carne",
+   185,
+   "",
+   "Relleno: Pollo, Carne"
+  ],
+  [
+   "Comida y cena",
+   "Nuestra Hamburguesa",
+   255,
+   "Res, cheddar, tocino y aderezo de la casa en pan brioche",
+   ""
+  ],
+  [
+   "Para compartir",
+   "Búfalo Wings",
+   190,
+   "Con apio, zanahoria y ranch",
+   ""
+  ],
+  [
+   "Cafés",
+   "Latte",
+   85,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Jugo verde",
+   95,
+   "Naranja con espinaca",
+   ""
+  ],
+  [
+   "Postres",
+   "Flan",
+   80,
+   "",
+   ""
+  ]
+ ]
+}

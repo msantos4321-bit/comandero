@@ -1,0 +1,121 @@
+{
+ "ver": 1,
+ "nombre": "Mar & Fuego",
+ "lema": "Mariscos · Playas de Tijuana",
+ "color": "#0E7490",
+ "preciosReales": false,
+ "menu": [
+  [
+   "Mariscos frescos",
+   "Ostiones (docena)",
+   290,
+   "Ostiones frescos con limón y salsas de la casa",
+   ""
+  ],
+  [
+   "Mariscos frescos",
+   "Ceviche de pescado",
+   220,
+   "Pescado curado en limón con pico de gallo",
+   ""
+  ],
+  [
+   "Mariscos frescos",
+   "Aguachile verde",
+   260,
+   "Camarón en aguachile de chile serrano, pepino y cebolla morada",
+   ""
+  ],
+  [
+   "Entradas",
+   "Empanadas de camarón",
+   160,
+   "Tres empanadas doradas rellenas de camarón",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco gobernador",
+   75,
+   "Camarón con queso, chile y cebolla en tortilla de maíz",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de pescado",
+   55,
+   "Pescado capeado con col, crema y pico de gallo",
+   "Tortilla: Maíz, Harina"
+  ],
+  [
+   "Tacos",
+   "Taco de camarón",
+   65,
+   "Camarón capeado o a la plancha",
+   "Estilo: Capeado, A la plancha"
+  ],
+  [
+   "Tacos",
+   "Burrito de pulpo",
+   220,
+   "Pulpo a las brasas, queso y frijoles",
+   ""
+  ],
+  [
+   "Platillos",
+   "Pulpo a las brasas",
+   360,
+   "Pulpo asado al carbón con papas y ensalada",
+   ""
+  ],
+  [
+   "Platillos",
+   "Camarones roca",
+   280,
+   "Camarones capeados en salsa cremosa picosita",
+   ""
+  ],
+  [
+   "Platillos",
+   "Caldo 7 mares",
+   270,
+   "Caldo de pescado, camarón, pulpo y almeja",
+   ""
+  ],
+  [
+   "Postres",
+   "Crepas flameadas con plátano",
+   140,
+   "Crepas con plátano flameadas en la mesa",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Jamaizcal",
+   150,
+   "Mezcal con agua de jamaica",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Michelada",
+   110,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   45,
+   "",
+   "Sabor: Jamaica, Horchata, Limón"
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   40,
+   "",
+   ""
+  ]
+ ]
+}
