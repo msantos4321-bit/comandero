@@ -135,7 +135,7 @@ function msgWA(r){return `Hola${r.plan&&r.plan.contacto?' '+r.plan.contacto.spli
 function waURL(r){const t=(r.plan&&r.plan.telefono||'').replace(/\D/g,'');const n=t.length===10?'52'+t:t;return 'https://wa.me/'+(n||'')+'?text='+encodeURIComponent(msgWA(r))}
 async function copiar(t,ok){try{await navigator.clipboard.writeText(t);toast(ok)}catch(e){toast('Mantén presionado el texto para copiarlo')}}
 
-async function cargar(){if(!K)return render();cargando=true;render();try{R=await rpc('cm_admin_list',{p_s:K})||[]}catch(e){if(/llave/i.test(e.message)){K='';try{localStorage.removeItem('comandero-dueno')}catch(_){};toast(e.message)}else toast('No se pudo cargar: '+e.message)}cargando=false;render();altaDesdeLiga()}
+async function cargar(){if(!K)return render();cargando=true;render();try{R=(await rpc('cm_admin_list',{p_s:K})||[]).filter(r=>!(r.features&&r.features.prueba))}catch(e){if(/llave/i.test(e.message)){K='';try{localStorage.removeItem('comandero-dueno')}catch(_){};toast(e.message)}else toast('No se pudo cargar: '+e.message)}cargando=false;render();altaDesdeLiga()}
 let altaHecha=false;async function altaDesdeLiga(){if(altaHecha||!K)return;let a='';try{a=(new URLSearchParams(location.search).get('alta')||'').toLowerCase()}catch(e){}if(!/^[a-z0-9-]{3,30}$/.test(a))return;altaHecha=true;history.replaceState(null,'',location.pathname);
   if(R.some(x=>x.id===a)){ed={tipo:'qr',id:a};sheet();return}
   let P=null;try{const r=await fetch('../p/'+a+'.json',{cache:'no-store'});if(r.ok)P=await r.json()}catch(e){}
