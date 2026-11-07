@@ -1,0 +1,5 @@
+<!doctype html><meta charset="utf-8"><title>Enviando imagen</title><body style="font:16px system-ui;background:#151210;color:#fff">Enviando imagen…
+<script>
+const f=new URLSearchParams(location.search).get('f')||'comandero-comisionistas.jpg';
+fetch(f,{cache:'no-store'}).then(r=>r.blob()).then(b=>{const t=window.opener;if(t){t.postMessage({cmImagen:b,nombre:f},'*');document.body.textContent='Listo, ya puedes cerrar esta ventana.';setTimeout(()=>window.close(),800)}else document.body.textContent='Sin ventana de origen'}).catch(e=>document.body.textContent='Error: '+e.message);
+</script>
