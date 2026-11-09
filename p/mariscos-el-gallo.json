@@ -1,0 +1,145 @@
+{
+ "ver": 1,
+ "nombre": "Mariscos El Gallo",
+ "lema": "Parque Azteca · Playas de Tijuana",
+ "color": "#D2232A",
+ "preciosReales": true,
+ "mesas": 6,
+ "iniciales": "MG",
+ "logo": "p/mariscos-el-gallo/logo.webp",
+ "portada": "p/mariscos-el-gallo/portada.webp",
+ "frase": "Siete años de mariscos en Playas",
+ "aviso": "Así se vería Comandero en Mariscos El Gallo: con su logo, fotos de sus platillos y los precios de su menú. Juéguele con confianza: nada de lo que haga aquí se guarda. Se lo dejamos instalado gratis, con todas las tablets y celulares que quiera, y el primer mes no paga.",
+ "menu": [
+  [
+   "Tacos",
+   "Taco de pescado",
+   25,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de camarón",
+   35,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco enchilado",
+   60,
+   "Camarón enchilado de la casa",
+   "",
+   "p/mariscos-el-gallo/taco-enchilado.webp"
+  ],
+  [
+   "Tacos",
+   "Taco perrón",
+   60,
+   "",
+   "",
+   "p/mariscos-el-gallo/taco-perron.webp"
+  ],
+  [
+   "Tacos",
+   "Taco de marlín",
+   60,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco gobernador",
+   60,
+   "Camarón con queso",
+   "",
+   "p/mariscos-el-gallo/taco-gobernador.webp"
+  ],
+  [
+   "Tostadas de ceviche",
+   "Tostada de ceviche de pescado",
+   50,
+   "",
+   "",
+   "p/mariscos-el-gallo/tostada-pescado.webp"
+  ],
+  [
+   "Tostadas de ceviche",
+   "Tostada de ceviche de camarón",
+   60,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Burritos",
+   "Burrito de camarón",
+   140,
+   "",
+   "",
+   "p/mariscos-el-gallo/burrito-camaron.webp"
+  ],
+  [
+   "Burritos",
+   "Burrito de pescado",
+   120,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Burritos",
+   "Burrito de marlín",
+   140,
+   "",
+   "",
+   "p/mariscos-el-gallo/burrito-marlin.webp"
+  ],
+  [
+   "Mariscos",
+   "Aguachile",
+   300,
+   "",
+   "",
+   "p/mariscos-el-gallo/aguachile.webp"
+  ],
+  [
+   "Mariscos",
+   "Sopa de mariscos",
+   120,
+   "",
+   "Tamaño: Mediana, Grande (+20)",
+   "p/mariscos-el-gallo/sopa.webp"
+  ],
+  [
+   "Mariscos",
+   "Coctel de camarón",
+   150,
+   "",
+   "Tamaño: Mediano, Grande (+50)",
+   "p/mariscos-el-gallo/coctel.webp"
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   20,
+   "",
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Aniversario: taco y tostada",
+   "precio",
+   70,
+   "",
+   "Taco + tostada de camarón, pescado o campechana",
+   []
+  ]
+ ]
+}
