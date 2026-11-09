@@ -1,5 +1,5 @@
 {
- "ver": 2,
+ "ver": 3,
  "nombre": "Xolo Tacos La Cuesta",
  "lema": "Playas de Tijuana · Tacos de birria",
  "color": "#D3201F",
@@ -15,7 +15,7 @@
    "Taco de birria",
    32,
    "Birria de res con cebolla, cilantro y salsa",
-   "",
+   "Tortilla: Blandito, Semidorado, Dorado | Carne*: Con gordo, Con nervio (+4) | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
    "p/xolo-tacos/birria.webp"
   ],
   [
@@ -23,7 +23,7 @@
    "Taco con tuétano",
    36,
    "El consentido de la casa",
-   "",
+   "Tortilla: Blandito, Semidorado, Dorado | Carne*: Con gordo | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
    "p/xolo-tacos/tuetano.webp"
   ],
   [
@@ -31,7 +31,7 @@
    "Taco con nervio",
    36,
    "Taquito de puro nervio",
-   "",
+   "Tortilla: Blandito, Semidorado, Dorado | Carne*: Con gordo | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
    "p/xolo-tacos/nervio.webp"
   ],
   [
@@ -39,7 +39,7 @@
    "Taco con chicharrón",
    42,
    "Birria con chicharrón",
-   "",
+   "Tortilla: Blandito, Semidorado, Dorado | Carne*: Con gordo | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
    "p/xolo-tacos/chicharron.webp"
   ],
   [
@@ -47,7 +47,7 @@
    "Taco con tripa",
    42,
    "",
-   "Tripa: Suave, Dorada",
+   "Tortilla: Blandito, Semidorado, Dorado | Carne*: Con gordo | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
    ""
   ],
   [
@@ -55,7 +55,7 @@
    "Quesabirria",
    44,
    "Birria con queso derretido",
-   "Tortilla: Maíz, Harina",
+   "Tortilla: Blandito, Semidorado, Dorado | Carne*: Con gordo, Con nervio (+4) | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
    "p/xolo-tacos/quesabirria.webp"
   ],
   [
@@ -63,7 +63,7 @@
    "Xolautas",
    95,
    "Las clásicas de Xolotacos",
-   "",
+   "Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
    "p/xolo-tacos/xolautas.webp"
   ],
   [
@@ -111,7 +111,7 @@
    "Orden de birria",
    185,
    "Con tortillas, cebolla, cilantro y salsa",
-   "",
+   "Carne*: Con gordo | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
    ""
   ],
   [
@@ -119,7 +119,7 @@
    "Media orden de birria",
    95,
    "Con tortillas, cebolla, cilantro y salsa",
-   "",
+   "Carne*: Con gordo | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
    ""
   ],
   [
@@ -127,7 +127,7 @@
    "Orden con tuétano y/o nervio",
    190,
    "",
-   "Con: Tuétano, Nervio, Tuétano y nervio",
+   "Carne*: Con gordo | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
    "p/xolo-tacos/hueso.webp"
   ],
   [
