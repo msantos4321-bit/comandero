@@ -1,0 +1,204 @@
+{
+ "ver": 1,
+ "nombre": "Juguito día",
+ "lema": "Juices, smoothies & more · Playas de Tijuana",
+ "color": "#F5A01E",
+ "preciosReales": true,
+ "mesas": 4,
+ "iniciales": "JD",
+ "logo": "p/juguito-dia/logo.webp",
+ "portada": "p/juguito-dia/portada.webp",
+ "frase": "Amanece tu día con un juguito",
+ "tema": {
+  "fuente": "Fredoka",
+  "barra": "#22316A",
+  "fondo": "#F4ECDD"
+ },
+ "aviso": "Así se vería Comandero en Juguito día: con su logo, sus colores, fotos de sus jugos y sándwiches y los precios de su menú, con tamaño de 16 o 20 oz en cada bebida. La promoción es de ejemplo. Juéguele con confianza: nada de lo que haga aquí se guarda. Se lo dejamos instalado gratis, con todas las tablets y celulares que quiera, y el primer mes no paga.",
+ "menu": [
+  [
+   "Jugos",
+   "Naranja",
+   70,
+   "Recién exprimido",
+   "Tamaño: 16 oz, 20 oz (+15)",
+   "p/juguito-dia/naranja.webp"
+  ],
+  [
+   "Jugos",
+   "Zanahoria",
+   70,
+   "",
+   "Tamaño: 16 oz, 20 oz (+15)",
+   "p/juguito-dia/zanahoria.webp"
+  ],
+  [
+   "Jugos",
+   "Betabel",
+   70,
+   "",
+   "Tamaño: 16 oz, 20 oz (+15)",
+   ""
+  ],
+  [
+   "Jugos",
+   "Naranja con piña, zanahoria y jengibre",
+   70,
+   "",
+   "Tamaño: 16 oz, 20 oz (+15)",
+   ""
+  ],
+  [
+   "Jugos",
+   "Verde",
+   70,
+   "Naranja, pepino, apio, espinaca, piña, manzana verde y jengibre",
+   "Tamaño: 16 oz, 20 oz (+15)",
+   "p/juguito-dia/verde.webp"
+  ],
+  [
+   "Smoothies",
+   "Mango & Piña",
+   100,
+   "",
+   "Tamaño: 16 oz, 20 oz (+20)",
+   ""
+  ],
+  [
+   "Smoothies",
+   "Frutos del Campo",
+   100,
+   "",
+   "Tamaño: 16 oz, 20 oz (+20)",
+   ""
+  ],
+  [
+   "Smoothies",
+   "Fresa & Mango",
+   100,
+   "",
+   "Tamaño: 16 oz, 20 oz (+20)",
+   ""
+  ],
+  [
+   "Smoothies",
+   "Fresa con plátano",
+   100,
+   "Plátano, leche y vainilla",
+   "Tamaño: 16 oz, 20 oz (+20)",
+   ""
+  ],
+  [
+   "Smoothies",
+   "Cacao con plátano",
+   100,
+   "Plátano, canela y mantequilla de maní",
+   "Tamaño: 16 oz, 20 oz (+20)",
+   ""
+  ],
+  [
+   "Licuados",
+   "Licuado de fresa",
+   80,
+   "Plátano, leche y vainilla",
+   "Tamaño: 16 oz, 20 oz (+10)",
+   ""
+  ],
+  [
+   "Licuados",
+   "Licuado de cacao",
+   80,
+   "Plátano, mantequilla de maní y canela",
+   "Tamaño: 16 oz, 20 oz (+10)",
+   ""
+  ],
+  [
+   "Sándwiches",
+   "Sándwich de pollo",
+   120,
+   "Elote, zanahoria, ejote, lechugas mixtas, pepino, cebolla morada, tomate y alfalfa",
+   "",
+   "p/juguito-dia/pollo.webp"
+  ],
+  [
+   "Sándwiches",
+   "Sándwich de atún",
+   120,
+   "Elote, zanahoria, ejote, lechugas mixtas, pepino, cebolla morada, tomate y alfalfa",
+   "",
+   ""
+  ],
+  [
+   "Sándwiches",
+   "Sándwich de jamón de pavo",
+   120,
+   "Lechugas mixtas, pepino, cebolla morada, tomate, queso amarillo, aguacate y alfalfa",
+   "",
+   "p/juguito-dia/pavo.webp"
+  ],
+  [
+   "Sándwiches",
+   "Sándwich de panela",
+   120,
+   "Queso panela, tomate, pepino, cebolla morada, aguacate, alfalfa y lechugas mixtas",
+   "",
+   "p/juguito-dia/panela.webp"
+  ],
+  [
+   "Extras",
+   "Café americano 10 oz",
+   30,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Extras",
+   "Galleta",
+   25,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Extras",
+   "Scoop de proteína",
+   25,
+   "",
+   "Sabor: Vainilla, Chocolate",
+   ""
+  ],
+  [
+   "Extras",
+   "Scoop de creatina",
+   25,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Extras",
+   "Scoop de péptidos de colágeno",
+   25,
+   "",
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Combo sándwich + jugo",
+   "precio",
+   175,
+   "",
+   "Cualquier sándwich + jugo de 16 oz",
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  ]
+ ]
+}
