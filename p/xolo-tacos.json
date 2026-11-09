@@ -1,135 +1,194 @@
 {
  "ver": 1,
- "nombre": "Xolo Tacos",
- "lema": "Birria de res y tacos de tuétano · La Cuesta, Playas de Tijuana",
- "color": "#9A3412",
+ "nombre": "Xolo Tacos La Cuesta",
+ "lema": "Playas de Tijuana · Tacos de birria",
+ "color": "#D3201F",
  "preciosReales": false,
  "mesas": 8,
  "iniciales": "XT",
- "aviso": "Así se vería Comandero en Xolo Tacos: el mesero toma la orden en el celular, la plancha la ve al momento (sin cebolla, dorado, con queso) y cada envío de la misma mesa sale como plato aparte. Con varias sucursales, el dueño ve las ventas de todas en vivo desde su celular. Los precios son de ejemplo. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "logo": "p/xolo-tacos/logo.webp",
+ "portada": "p/xolo-tacos/portada.webp",
+ "frase": "Pioneros en tacos de birria con tuétano",
+ "aviso": "Así se vería Comandero en Xolo Tacos La Cuesta: con su logo, las fotos de sus tacos y el menú de su lona. Los precios son los que encontramos publicados y pueden no estar al día; se corrigen en un minuto. Juéguele con confianza: nada de lo que haga aquí se guarda. Se lo dejamos instalado gratis y el primer mes no paga.",
  "menu": [
   [
    "Tacos",
    "Taco de birria",
-   35,
+   28,
+   "Birria de res con cebolla, cilantro y salsa",
    "",
-   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa | Tortilla: Normal, Dorada"
+   "p/xolo-tacos/birria.webp"
   ],
   [
    "Tacos",
-   "Taco de tuétano",
-   60,
-   "Birria con tuétano dorado",
-   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
-  ],
-  [
-   "Tacos",
-   "Quesataco de birria",
-   50,
-   "",
-   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
-  ],
-  [
-   "Tacos",
-   "Taco de asada",
-   40,
-   "",
-   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
-  ],
-  [
-   "Tacos",
-   "Taco de tripa",
-   40,
-   "",
-   "Término: Suave, Dorada | Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
-  ],
-  [
-   "Tacos",
-   "Taco de nervio",
-   40,
-   "",
-   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
-  ],
-  [
-   "Tacos",
-   "Taco de chicharrón",
-   40,
-   "",
-   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
-  ],
-  [
-   "Especiales",
-   "Quesabirria",
-   60,
-   "Tortilla grande con queso y birria",
-   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
-  ],
-  [
-   "Especiales",
-   "Mulita de birria",
-   70,
-   "",
-   ""
-  ],
-  [
-   "Especiales",
-   "Vampiro de birria",
-   65,
-   "",
-   ""
-  ],
-  [
-   "Especiales",
-   "Orden de 3 tacos de birria con consomé",
-   115,
-   "",
-   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
-  ],
-  [
-   "Consomé",
-   "Consomé",
+   "Taco con tuétano",
    30,
+   "El consentido de la casa",
    "",
-   "Tamaño: Chico, Grande (+20)"
+   "p/xolo-tacos/tuetano.webp"
+  ],
+  [
+   "Tacos",
+   "Taco con nervio",
+   30,
+   "Taquito de puro nervio",
+   "",
+   "p/xolo-tacos/nervio.webp"
+  ],
+  [
+   "Tacos",
+   "Taco con chicharrón",
+   38,
+   "Birria con chicharrón",
+   "",
+   "p/xolo-tacos/chicharron.webp"
+  ],
+  [
+   "Tacos",
+   "Taco con tripa",
+   38,
+   "",
+   "Tripa: Suave, Dorada",
+   ""
+  ],
+  [
+   "Tacos",
+   "Quesabirria",
+   40,
+   "Birria con queso derretido",
+   "Tortilla: Maíz, Harina",
+   "p/xolo-tacos/quesabirria.webp"
+  ],
+  [
+   "Especialidades",
+   "Xolautas",
+   85,
+   "Las clásicas de Xolotacos",
+   "",
+   "p/xolo-tacos/xolautas.webp"
+  ],
+  [
+   "Especialidades",
+   "Coquetona",
+   125,
+   "",
+   "",
+   "p/xolo-tacos/coquetona.webp"
+  ],
+  [
+   "Especialidades",
+   "Xolaquiles",
+   125,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Costra de queso",
+   75,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Quesadilla sencilla",
+   28,
+   "",
+   "Tortilla: Maíz, Harina",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Plato chico",
+   45,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Orden de birria",
+   170,
+   "Con tortillas, cebolla, cilantro y salsa",
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Media orden de birria",
+   80,
+   "Con tortillas, cebolla, cilantro y salsa",
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Orden con tuétano y/o nervio",
+   185,
+   "",
+   "Con: Tuétano, Nervio, Tuétano y nervio",
+   "p/xolo-tacos/hueso.webp"
+  ],
+  [
+   "Órdenes",
+   "Hueso con tuétano",
+   40,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Pata",
+   35,
+   "",
+   "",
+   ""
   ],
   [
    "Consomé",
-   "Birria por kilo",
-   420,
-   "Para llevar, con consomé y tortillas",
-   "Cantidad: 1/2 kilo, 1 kilo (+210)"
+   "Consomé",
+   20,
+   "Bien calientito",
+   "",
+   "p/xolo-tacos/consome.webp"
   ],
   [
-   "Bebidas",
-   "Agua fresca",
+   "Consomé",
+   "Consomé con carne",
    35,
    "",
-   "Sabor: Horchata, Jamaica, Piña, Pepino con limón | Tamaño: Vaso, Litro (+25)"
+   "",
+   ""
   ],
   [
    "Bebidas",
    "Refresco",
-   35,
+   28,
    "",
-   "Sabor: Coca-Cola, Sprite, Manzana, Fanta"
+   "Sabor: Coca-Cola, Coca-Cola sin azúcar, Sprite, Fanta, Manzanita",
+   ""
   ],
   [
    "Bebidas",
-   "Café de olla",
-   30,
+   "Agua",
+   28,
+   "",
    "",
    ""
   ]
  ],
  "promos": [
   [
-   "Lunes de birria",
+   "Domingo de birria",
    "pct",
    10,
    "Tacos",
    "",
    [
-    1
+    0
    ]
   ]
  ]

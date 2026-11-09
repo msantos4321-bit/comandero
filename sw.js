@@ -1,5 +1,5 @@
 // Comandero: guarda la app en el aparato para que abra rápido y funcione sin internet.
-const C='comandero-v27';
+const C='comandero-v32';
 const ARCH=['./','index.html','manifest.json','icono.svg','icono-192.png','icono-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(ARCH)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
