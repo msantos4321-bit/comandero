@@ -1,0 +1,195 @@
+{
+ "ver": 1,
+ "nombre": "Xolo Tacos La Cuesta",
+ "lema": "Playas de Tijuana · Tacos de birria",
+ "color": "#D3201F",
+ "preciosReales": false,
+ "mesas": 8,
+ "iniciales": "XT",
+ "logo": "p/xolo-tacos/logo.webp",
+ "portada": "p/xolo-tacos/portada.webp",
+ "frase": "Pioneros en tacos de birria con tuétano",
+ "aviso": "Así se vería Comandero en Xolo Tacos La Cuesta: con su logo, las fotos de sus tacos y el menú de su lona. Los precios son los que encontramos publicados y pueden no estar al día; se corrigen en un minuto. Juéguele con confianza: nada de lo que haga aquí se guarda. Se lo dejamos instalado gratis y el primer mes no paga.",
+ "menu": [
+  [
+   "Tacos",
+   "Taco de birria",
+   28,
+   "Birria de res con cebolla, cilantro y salsa",
+   "",
+   "p/xolo-tacos/birria.webp"
+  ],
+  [
+   "Tacos",
+   "Taco con tuétano",
+   30,
+   "El consentido de la casa",
+   "",
+   "p/xolo-tacos/tuetano.webp"
+  ],
+  [
+   "Tacos",
+   "Taco con nervio",
+   30,
+   "Taquito de puro nervio",
+   "",
+   "p/xolo-tacos/nervio.webp"
+  ],
+  [
+   "Tacos",
+   "Taco con chicharrón",
+   38,
+   "Birria con chicharrón",
+   "",
+   "p/xolo-tacos/chicharron.webp"
+  ],
+  [
+   "Tacos",
+   "Taco con tripa",
+   38,
+   "",
+   "Tripa: Suave, Dorada",
+   ""
+  ],
+  [
+   "Tacos",
+   "Quesabirria",
+   40,
+   "Birria con queso derretido",
+   "Tortilla: Maíz, Harina",
+   "p/xolo-tacos/quesabirria.webp"
+  ],
+  [
+   "Especialidades",
+   "Xolautas",
+   85,
+   "Las clásicas de Xolotacos",
+   "",
+   "p/xolo-tacos/xolautas.webp"
+  ],
+  [
+   "Especialidades",
+   "Coquetona",
+   125,
+   "",
+   "",
+   "p/xolo-tacos/coquetona.webp"
+  ],
+  [
+   "Especialidades",
+   "Xolaquiles",
+   125,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Costra de queso",
+   75,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Quesadilla sencilla",
+   28,
+   "",
+   "Tortilla: Maíz, Harina",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Plato chico",
+   45,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Orden de birria",
+   170,
+   "Con tortillas, cebolla, cilantro y salsa",
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Media orden de birria",
+   80,
+   "Con tortillas, cebolla, cilantro y salsa",
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Orden con tuétano y/o nervio",
+   185,
+   "",
+   "Con: Tuétano, Nervio, Tuétano y nervio",
+   "p/xolo-tacos/hueso.webp"
+  ],
+  [
+   "Órdenes",
+   "Hueso con tuétano",
+   40,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Pata",
+   35,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Consomé",
+   "Consomé",
+   20,
+   "Bien calientito",
+   "",
+   "p/xolo-tacos/consome.webp"
+  ],
+  [
+   "Consomé",
+   "Consomé con carne",
+   35,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   28,
+   "",
+   "Sabor: Coca-Cola, Coca-Cola sin azúcar, Sprite, Fanta, Manzanita",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua",
+   28,
+   "",
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Domingo de birria",
+   "pct",
+   10,
+   "Tacos",
+   "",
+   [
+    0
+   ]
+  ]
+ ]
+}
