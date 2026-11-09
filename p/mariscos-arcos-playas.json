@@ -1,0 +1,133 @@
+{
+ "ver": 1,
+ "nombre": "Mariscos Arcos Playas",
+ "lema": "Mariscos frente al mar · Av. del Pacífico",
+ "color": "#0E7490",
+ "preciosReales": false,
+ "mesas": 20,
+ "iniciales": "MA",
+ "menu": [
+  [
+   "Entradas",
+   "Ceviche de pescado",
+   180,
+   "",
+   ""
+  ],
+  [
+   "Entradas",
+   "Aguachile de camarón",
+   240,
+   "",
+   "Salsa: Verde, Rojo, Negro"
+  ],
+  [
+   "Entradas",
+   "Tostada de ceviche",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Entradas",
+   "Coctel de camarón",
+   210,
+   "",
+   "Tamaño: Chico, Grande (+60)"
+  ],
+  [
+   "Platillos",
+   "Camarones a la diabla",
+   260,
+   "Con arroz y ensalada",
+   ""
+  ],
+  [
+   "Platillos",
+   "Camarones al mojo de ajo",
+   260,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Filete empanizado",
+   230,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Pescado zarandeado",
+   420,
+   "Para 2 personas",
+   ""
+  ],
+  [
+   "Platillos",
+   "Langosta estilo Puerto Nuevo",
+   650,
+   "Con arroz, frijoles y tortillas de harina",
+   ""
+  ],
+  [
+   "Platillos",
+   "Charola de mariscos cajún",
+   1200,
+   "Para compartir",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de pescado",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco gobernador",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Michelada",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Cerveza",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Margarita",
+   120,
+   "",
+   "Sabor: Limón, Mango, Fresa"
+  ],
+  [
+   "Bebidas",
+   "Limonada",
+   55,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Hora feliz",
+   "pct",
+   20,
+   "Bebidas",
+   "",
+   []
+  ]
+ ]
+}

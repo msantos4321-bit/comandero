@@ -1,0 +1,135 @@
+{
+ "ver": 1,
+ "nombre": "Rincón Mexicano",
+ "lema": "Comida mexicana tradicional · Paseo del Pedregal",
+ "color": "#15803D",
+ "preciosReales": false,
+ "mesas": 12,
+ "iniciales": "RM",
+ "menu": [
+  [
+   "Desayunos",
+   "Chilaquiles",
+   130,
+   "",
+   "Salsa: Roja, Verde, Suizas (+15) | Con: Huevo, Pollo, Arrachera (+50)"
+  ],
+  [
+   "Desayunos",
+   "Huevos rancheros",
+   115,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Machaca con huevo",
+   135,
+   "",
+   ""
+  ],
+  [
+   "Caldos",
+   "Caldo de pollo",
+   130,
+   "",
+   ""
+  ],
+  [
+   "Caldos",
+   "Caldo de res",
+   145,
+   "",
+   ""
+  ],
+  [
+   "Caldos",
+   "Consomé de pollo",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Pollo en mole",
+   160,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Enmoladas",
+   145,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Enchiladas de crema de cilantro",
+   145,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Tampiqueña",
+   230,
+   "Arrachera con enmoladas y guacamole",
+   ""
+  ],
+  [
+   "Platillos",
+   "Fajitas",
+   210,
+   "",
+   "Carne: Pollo, Res, Mixtas (+30)"
+  ],
+  [
+   "Antojitos",
+   "Quesadilla de chorizo",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Antojitos",
+   "Guacamole",
+   110,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Café de olla",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   40,
+   "",
+   "Sabor: Horchata, Jamaica, Limón"
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   35,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Miércoles de caldos",
+   "pct",
+   10,
+   "Caldos",
+   "",
+   [
+    3
+   ]
+  ]
+ ]
+}

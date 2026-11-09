@@ -1,0 +1,128 @@
+{
+ "ver": 1,
+ "nombre": "Casa Sonora",
+ "lema": "Cocina sonorense · Parque Azteca, Playas",
+ "color": "#7C2D12",
+ "preciosReales": false,
+ "mesas": 12,
+ "iniciales": "CS",
+ "menu": [
+  [
+   "Costillas",
+   "Costillas de sal (media)",
+   220,
+   "Con tortillas de harina",
+   ""
+  ],
+  [
+   "Costillas",
+   "Costillas de sal (completa)",
+   390,
+   "",
+   ""
+  ],
+  [
+   "Costillas",
+   "Costillas BBQ (media)",
+   230,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco sonora de asada",
+   55,
+   "Tortilla de harina",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de costilla",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de camarón",
+   65,
+   "",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Papa rellena",
+   160,
+   "Asada, camarón o mixta",
+   "Relleno: Asada, Camarón (+30), Mixta (+40)"
+  ],
+  [
+   "Especialidades",
+   "Burro percherón",
+   170,
+   "",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Bowl de asada y camarón",
+   180,
+   "",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Sopa de queso",
+   95,
+   "Estilo Sonora",
+   ""
+  ],
+  [
+   "Extras",
+   "Docena de tortillas de harina",
+   70,
+   "Para llevar",
+   ""
+  ],
+  [
+   "Extras",
+   "Frijoles charros",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua de pepino",
+   40,
+   "",
+   "Tamaño: Vaso, Jarra (+60)"
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Cerveza",
+   55,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de costillas",
+   "pct",
+   10,
+   "Costillas",
+   "",
+   [
+    2
+   ]
+  ]
+ ]
+}

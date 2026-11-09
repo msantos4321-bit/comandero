@@ -1,0 +1,139 @@
+{
+ "ver": 1,
+ "nombre": "CocinArte",
+ "lema": "Desayunos caseros y café · Costa Azul, Playas",
+ "color": "#B45309",
+ "preciosReales": false,
+ "mesas": 10,
+ "iniciales": "CA",
+ "aviso": "Así se vería Comandero en CocinArte: el mesero toma la orden en el celular, la cocina la ve al momento (con tortillas a mano, salsas y cambios) y usted ve las ventas en vivo. Los precios son de ejemplo. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café y bebidas",
+   "Café de olla",
+   40,
+   "Taza con refill",
+   ""
+  ],
+  [
+   "Café y bebidas",
+   "Café americano",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Café y bebidas",
+   "Cappuccino",
+   60,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café y bebidas",
+   "Jugo de naranja",
+   50,
+   "",
+   ""
+  ],
+  [
+   "Café y bebidas",
+   "Licuado",
+   60,
+   "",
+   "Fruta: Plátano, Fresa, Papaya"
+  ],
+  [
+   "Desayunos",
+   "Chilaquiles",
+   135,
+   "Con frijoles y tortillas a mano",
+   "Salsa: Roja, Verde, Divorciados | Con: Huevo, Pollo (+20), Arrachera (+50)"
+  ],
+  [
+   "Desayunos",
+   "Huevos al gusto",
+   115,
+   "Con frijoles y tortillas a mano",
+   "Estilo: Rancheros, A la mexicana, Con jamón, Con chorizo, Revueltos"
+  ],
+  [
+   "Desayunos",
+   "Machaca con huevo",
+   140,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Molletes",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Hot cakes",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Enchiladas suizas",
+   145,
+   "",
+   ""
+  ],
+  [
+   "Antojitos",
+   "Quesadilla de tortilla a mano",
+   65,
+   "",
+   "Guisado: Queso, Chicharrón (+15), Champiñón"
+  ],
+  [
+   "Antojitos",
+   "Gordita",
+   60,
+   "",
+   "Guisado: Chicharrón, Deshebrada, Papa con chorizo"
+  ],
+  [
+   "Antojitos",
+   "Sope",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Pan",
+   "Concha",
+   30,
+   "",
+   ""
+  ],
+  [
+   "Pan",
+   "Pan francés",
+   95,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Desayuno entre semana",
+   "pct",
+   10,
+   "Desayunos",
+   "",
+   [
+    2,
+    3,
+    4,
+    5
+   ]
+  ]
+ ]
+}

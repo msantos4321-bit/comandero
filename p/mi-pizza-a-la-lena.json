@@ -1,0 +1,128 @@
+{
+ "ver": 1,
+ "nombre": "Mi Pizza a la Leña",
+ "lema": "Pizza al horno de leña · Parque Azteca, Playas",
+ "color": "#991B1B",
+ "preciosReales": false,
+ "mesas": 10,
+ "iniciales": "MP",
+ "menu": [
+  [
+   "Pizzas",
+   "Pizza margarita",
+   180,
+   "",
+   "Tamaño: Mediana, Grande (+60)"
+  ],
+  [
+   "Pizzas",
+   "Pizza de pepperoni",
+   200,
+   "",
+   "Tamaño: Mediana, Grande (+60)"
+  ],
+  [
+   "Pizzas",
+   "Pizza hawaiana con romero",
+   210,
+   "",
+   "Tamaño: Mediana, Grande (+60)"
+  ],
+  [
+   "Pizzas",
+   "Pizza de camarón",
+   260,
+   "",
+   "Tamaño: Mediana, Grande (+70)"
+  ],
+  [
+   "Pizzas",
+   "Pizza mexicana",
+   230,
+   "",
+   "Tamaño: Mediana, Grande (+60)"
+  ],
+  [
+   "Pizzas",
+   "Pizza 4 quesos",
+   230,
+   "",
+   "Tamaño: Mediana, Grande (+60)"
+  ],
+  [
+   "Entradas",
+   "Alitas búfalo",
+   170,
+   "10 piezas",
+   "Salsa: Búfalo, BBQ, Mango habanero"
+  ],
+  [
+   "Entradas",
+   "Pan de ajo",
+   80,
+   "",
+   ""
+  ],
+  [
+   "Entradas",
+   "Ensalada César",
+   120,
+   "",
+   ""
+  ],
+  [
+   "Pastas",
+   "Pasta Alfredo",
+   160,
+   "",
+   ""
+  ],
+  [
+   "Pastas",
+   "Pasta boloñesa",
+   160,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Cerveza",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Limonada",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Copa de vino tinto",
+   110,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Jueves de pizza",
+   "pct",
+   15,
+   "Pizzas",
+   "",
+   [
+    4
+   ]
+  ]
+ ]
+}

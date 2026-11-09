@@ -1,0 +1,135 @@
+{
+ "ver": 1,
+ "nombre": "TijuaNazo",
+ "lema": "Taquería · Paseo Ensenada, Playas de Tijuana",
+ "color": "#B91C1C",
+ "preciosReales": false,
+ "mesas": 12,
+ "iniciales": "TN",
+ "menu": [
+  [
+   "Tacos",
+   "Taco de adobada",
+   38,
+   "Al pastor",
+   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
+  ],
+  [
+   "Tacos",
+   "Taco de asada",
+   42,
+   "",
+   "Con: Todo, Sin cebolla, Sin cilantro, Sin guacamole"
+  ],
+  [
+   "Tacos",
+   "Taco de tripa",
+   42,
+   "",
+   "Término: Suave, Dorada"
+  ],
+  [
+   "Tacos",
+   "Taco de cabeza",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de ojo",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de paladar",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de pescado",
+   45,
+   "Capeado",
+   ""
+  ],
+  [
+   "Especiales",
+   "Quesataco",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Especiales",
+   "Mulita",
+   75,
+   "",
+   "Carne: Asada, Adobada, Tripa"
+  ],
+  [
+   "Especiales",
+   "Vampiro",
+   70,
+   "",
+   ""
+  ],
+  [
+   "Especiales",
+   "Quesadilla grande",
+   110,
+   "",
+   ""
+  ],
+  [
+   "Tortas y burros",
+   "Torta de asada",
+   120,
+   "",
+   ""
+  ],
+  [
+   "Tortas y burros",
+   "Burro de asada",
+   130,
+   "",
+   ""
+  ],
+  [
+   "Tortas y burros",
+   "Plato de tacos de pescado",
+   150,
+   "3 tacos con arroz y frijoles",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   35,
+   "",
+   "Sabor: Coca-Cola, Sprite, Fanta, Manzana"
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   40,
+   "",
+   "Sabor: Horchata, Jamaica, Piña"
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de adobada",
+   "pct",
+   10,
+   "Tacos",
+   "",
+   [
+    2
+   ]
+  ]
+ ]
+}

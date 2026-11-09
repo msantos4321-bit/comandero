@@ -1,0 +1,141 @@
+{
+ "ver": 1,
+ "nombre": "Jacinto Café Playas",
+ "lema": "Café de especialidad y chocolate de la casa",
+ "color": "#6B3E2E",
+ "preciosReales": false,
+ "mesas": 6,
+ "iniciales": "JC",
+ "aviso": "Así se vería Comandero en Jacinto Café: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son de ejemplo, sacados de cafés de Playas. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café",
+   "Espresso",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Café",
+   "Americano",
+   48,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Café",
+   "Cappuccino",
+   68,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café",
+   "Latte",
+   72,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Cajeta (+10), Canela (+10)"
+  ],
+  [
+   "Café",
+   "Mocha con chocolate de la casa",
+   82,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Chocolate",
+   "Chocolate caliente de la casa",
+   70,
+   "Chocolate hecho aquí",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Chocolate",
+   "Chocolate frío",
+   75,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Chocolate",
+   "Champurrado",
+   60,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Especialidades",
+   "Jaimico",
+   85,
+   "Jamaica, chiles, limón, agua mineral y espresso",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Espresso tonic",
+   80,
+   "",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Café de olla",
+   50,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Frappés",
+   "Frappé de chocolate",
+   85,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Frappés",
+   "Frappé de cajeta",
+   85,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Pan y antojos",
+   "Concha",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Pan y antojos",
+   "Croissant",
+   50,
+   "",
+   ""
+  ],
+  [
+   "Pan y antojos",
+   "Bísquet con mantequilla",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Pan y antojos",
+   "Sándwich de pavo",
+   110,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Tarde de chocolate",
+   "pct",
+   10,
+   "Chocolate",
+   "",
+   []
+  ]
+ ]
+}

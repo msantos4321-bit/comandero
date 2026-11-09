@@ -1,0 +1,144 @@
+{
+ "ver": 1,
+ "nombre": "Aramellia Brunch & Coffee",
+ "lema": "Brunch, café y repostería · Paseo Ensenada",
+ "color": "#9D4E6B",
+ "preciosReales": false,
+ "mesas": 8,
+ "iniciales": "AB",
+ "aviso": "Así se vería Comandero en Aramellia: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son de ejemplo, sacados de cafés de Playas. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café",
+   "Americano",
+   48,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Estilo: Normal, Corto"
+  ],
+  [
+   "Café",
+   "Cappuccino",
+   68,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café",
+   "Latte",
+   72,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10)"
+  ],
+  [
+   "Café",
+   "Pumpkin spice latte",
+   85,
+   "De temporada",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café",
+   "Tónico de espresso",
+   80,
+   "",
+   ""
+  ],
+  [
+   "Matcha",
+   "Matcha latte",
+   85,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Matcha",
+   "Matcha de fresa",
+   95,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Brunch",
+   "Chilaquiles",
+   145,
+   "Rojos o verdes con huevo o pollo",
+   "Salsa: Roja, Verde | Con: Huevo, Pollo (+20)"
+  ],
+  [
+   "Brunch",
+   "Huevos benedictinos",
+   165,
+   "",
+   ""
+  ],
+  [
+   "Brunch",
+   "Hot cakes",
+   120,
+   "Con fruta y miel",
+   ""
+  ],
+  [
+   "Brunch",
+   "Omelette",
+   140,
+   "Jamón, champiñón y queso",
+   ""
+  ],
+  [
+   "Brunch",
+   "Toast de aguacate",
+   130,
+   "",
+   ""
+  ],
+  [
+   "Repostería",
+   "Pastel de zanahoria",
+   85,
+   "Rebanada",
+   ""
+  ],
+  [
+   "Repostería",
+   "Pan de plátano",
+   65,
+   "Recién horneado",
+   ""
+  ],
+  [
+   "Repostería",
+   "Cheesecake",
+   90,
+   "",
+   ""
+  ],
+  [
+   "Jugos",
+   "Jugo de naranja",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Jugos",
+   "Jugo verde",
+   65,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Brunch de fin de semana",
+   "pct",
+   10,
+   "Brunch",
+   "",
+   [
+    6,
+    0
+   ]
+  ]
+ ]
+}

@@ -1,0 +1,141 @@
+{
+ "ver": 1,
+ "nombre": "Ilustre Coffee Roasters",
+ "lema": "Tostadores de café · Paseo Playas de Tijuana",
+ "color": "#C2410C",
+ "preciosReales": false,
+ "mesas": 6,
+ "iniciales": "IL",
+ "aviso": "Así se vería Comandero en Ilustre: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son de ejemplo, sacados de cafés de Playas. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Espresso",
+   "Espresso",
+   45,
+   "Grano de la casa",
+   ""
+  ],
+  [
+   "Espresso",
+   "Americano",
+   50,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Espresso",
+   "Cappuccino",
+   70,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Espresso",
+   "Latte",
+   75,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Café de olla (+10), Vainilla (+10), Caramelo (+10)"
+  ],
+  [
+   "Espresso",
+   "Flat white",
+   72,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Especialidades",
+   "Dirty horchata",
+   90,
+   "Horchata con espresso",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Temperatura: Frío, Caliente"
+  ],
+  [
+   "Especialidades",
+   "Latte de café de olla",
+   85,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Especialidades",
+   "Nitro cold brew",
+   80,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Hielo: Normal, Poco hielo, Sin hielo"
+  ],
+  [
+   "Métodos",
+   "Pour over (V60)",
+   85,
+   "Origen del día",
+   ""
+  ],
+  [
+   "Métodos",
+   "Chemex para 2",
+   150,
+   "",
+   ""
+  ],
+  [
+   "Frías",
+   "Cold brew",
+   70,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Hielo: Normal, Poco hielo, Sin hielo"
+  ],
+  [
+   "Frías",
+   "Té helado",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Galletas y pan",
+   "Galleta de chispas",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Galletas y pan",
+   "Galleta de avena",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Galletas y pan",
+   "Croissant",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Galletas y pan",
+   "Muffin de arándano",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Café en grano",
+   "Bolsa de café 340 g",
+   320,
+   "Para llevar",
+   "Molido: Grano entero, Molido para cafetera, Molido para espresso"
+  ]
+ ],
+ "promos": [
+  [
+   "Galleta con tu café",
+   "pct",
+   10,
+   "Galletas y pan",
+   "",
+   []
+  ]
+ ]
+}
