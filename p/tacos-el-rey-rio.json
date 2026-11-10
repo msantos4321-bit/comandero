@@ -1,0 +1,128 @@
+{
+ "ver": 1,
+ "nombre": "Tacos El Rey de Tijuana",
+ "lema": "Taquería · Zona Río, Tijuana",
+ "color": "#B45309",
+ "preciosReales": false,
+ "mesas": 10,
+ "iniciales": "ER",
+ "menu": [
+  [
+   "Tacos",
+   "Taco de asada",
+   40,
+   "",
+   "Con: Todo, Sin cebolla, Sin cilantro, Sin guacamole"
+  ],
+  [
+   "Tacos",
+   "Taco de adobada",
+   38,
+   "Al pastor",
+   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
+  ],
+  [
+   "Tacos",
+   "Taco de pollo",
+   38,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de tripa",
+   42,
+   "",
+   "Término: Suave, Dorada"
+  ],
+  [
+   "Tacos",
+   "Taco de cabeza",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de lengua",
+   48,
+   "",
+   ""
+  ],
+  [
+   "Especiales",
+   "Quesataco",
+   58,
+   "",
+   "Carne: Asada, Adobada, Pollo"
+  ],
+  [
+   "Especiales",
+   "Mulita",
+   75,
+   "",
+   "Carne: Asada, Adobada, Pollo"
+  ],
+  [
+   "Especiales",
+   "Vampiro",
+   70,
+   "",
+   ""
+  ],
+  [
+   "Especiales",
+   "Quesadilla con carne",
+   100,
+   "",
+   "Carne: Asada, Adobada, Pollo"
+  ],
+  [
+   "Tortas y burros",
+   "Torta",
+   115,
+   "",
+   "Carne: Asada, Adobada, Pollo"
+  ],
+  [
+   "Tortas y burros",
+   "Burro",
+   125,
+   "",
+   "Carne: Asada, Adobada, Pollo"
+  ],
+  [
+   "Tortas y burros",
+   "Papas preparadas",
+   140,
+   "Con carne, queso y guacamole",
+   "Carne: Asada, Adobada"
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   35,
+   "",
+   "Sabor: Coca-Cola, Sprite, Fanta, Manzanita"
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   40,
+   "",
+   "Sabor: Horchata, Jamaica, Piña"
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de adobada",
+   "pct",
+   10,
+   "Tacos",
+   "",
+   [
+    2
+   ]
+  ]
+ ]
+}

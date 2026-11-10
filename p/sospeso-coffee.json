@@ -1,0 +1,213 @@
+{
+ "ver": 1,
+ "nombre": "Sospeso Coffee & Roasting House",
+ "lema": "Café de especialidad y tueste propio · Zona Río, Tijuana",
+ "color": "#3E2C23",
+ "preciosReales": false,
+ "mesas": 8,
+ "iniciales": "SC",
+ "aviso": "Así se vería Comandero en Sospeso: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son de ejemplo, sacados de cafés de la Zona Río. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Espresso",
+   "Espresso",
+   45,
+   "Doble, tueste de la casa",
+   ""
+  ],
+  [
+   "Espresso",
+   "Americano",
+   50,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Espresso",
+   "Cortado",
+   55,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Espresso",
+   "Flat white",
+   70,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Espresso",
+   "Cappuccino",
+   70,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Espresso",
+   "Latte",
+   75,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10)"
+  ],
+  [
+   "Espresso",
+   "Latte Pecado",
+   90,
+   "Receta de la casa",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Avena (+12), Macadamia (+15)"
+  ],
+  [
+   "Espresso",
+   "Latte Pecado vegano",
+   100,
+   "Con leche vegetal",
+   "Leche: Avena, Almendra, Macadamia (+5)"
+  ],
+  [
+   "Espresso",
+   "Latte Dulce",
+   80,
+   "Con azúcar mascabado",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Espresso",
+   "Mocha",
+   85,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Filtrados",
+   "Método V60",
+   80,
+   "Café de origen de la semana",
+   "Origen: Chiapas, Veracruz, Oaxaca"
+  ],
+  [
+   "Filtrados",
+   "Chemex para 2",
+   140,
+   "",
+   ""
+  ],
+  [
+   "Filtrados",
+   "Prensa francesa",
+   85,
+   "",
+   ""
+  ],
+  [
+   "Fríos",
+   "Cold brew",
+   75,
+   "16 oz",
+   "Servido: Solo, Con leche (+10)"
+  ],
+  [
+   "Fríos",
+   "Latte frío",
+   85,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10)"
+  ],
+  [
+   "Fríos",
+   "Espresso tonic",
+   80,
+   "",
+   ""
+  ],
+  [
+   "Fríos",
+   "Frappé",
+   95,
+   "16 oz",
+   "Sabor: Mocha, Caramelo, Vainilla, Cookies (+10)"
+  ],
+  [
+   "Té y otros",
+   "Chai latte",
+   80,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Té y otros",
+   "Matcha latte",
+   90,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Servido: Caliente, Frío"
+  ],
+  [
+   "Té y otros",
+   "Chocolate caliente",
+   65,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Comida",
+   "Waffle de la casa",
+   120,
+   "Con fruta y miel de maple",
+   "Con: Fruta, Nutella (+15), Tocino (+20)"
+  ],
+  [
+   "Comida",
+   "Toast de aguacate",
+   135,
+   "Pan de masa madre",
+   ""
+  ],
+  [
+   "Comida",
+   "Bagel de salmón",
+   165,
+   "Queso crema, alcaparras",
+   ""
+  ],
+  [
+   "Comida",
+   "Croissant",
+   45,
+   "",
+   "Tipo: Mantequilla, Chocolate (+10), Jamón y queso (+40)"
+  ],
+  [
+   "Comida",
+   "Galleta",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Café para llevar",
+   "Bolsa de café en grano 340 g",
+   290,
+   "Tueste propio",
+   "Molido: Grano, Espresso, Filtro, Prensa"
+  ],
+  [
+   "Extras",
+   "Shot extra",
+   15,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de filtrados",
+   "pct",
+   15,
+   "Filtrados",
+   "",
+   [
+    2
+   ]
+  ]
+ ]
+}

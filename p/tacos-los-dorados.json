@@ -1,0 +1,101 @@
+{
+ "ver": 1,
+ "nombre": "Tacos Varios Los Dorados",
+ "lema": "Tacos de guisado y comida casera · Zona Río, Tijuana",
+ "color": "#CA8A04",
+ "preciosReales": true,
+ "mesas": 8,
+ "iniciales": "LD",
+ "menu": [
+  [
+   "Tacos varios",
+   "Taco de guisado",
+   70,
+   "",
+   "Guisado: Asada, Pechuga, Chicharrón en salsa verde, Bistec con papas, Pollo en mole, Papas con chorizo, Milanesa de pollo, Milanesa de res, Pollo en adobo"
+  ],
+  [
+   "Órdenes",
+   "Orden de guisado",
+   190,
+   "Con arroz, frijoles y tortillas",
+   "Guisado: Pollo en adobo, Birria, Pechuga, Asada, Bistec con papas, Pollo en mole, Papas con chorizo, Milanesa, Chicharrón | Tortilla: Maíz, Harina"
+  ],
+  [
+   "Chilaquiles",
+   "Chilaquiles Los Dorados",
+   210,
+   "Con un guisado",
+   "Salsa: Verde, Roja | Guisado: Asada, Pechuga, Birria, Chicharrón, Huevo"
+  ],
+  [
+   "Burros",
+   "Burro jumbo de guisado",
+   180,
+   "",
+   "Guisado: Asada, Birria, Chicharrón, Bistec con papas, Papas con chorizo, Pollo en mole"
+  ],
+  [
+   "Burros",
+   "Burro mediano de guisado",
+   105,
+   "",
+   "Guisado: Asada, Birria, Chicharrón, Bistec con papas, Papas con chorizo, Pollo en mole"
+  ],
+  [
+   "Bebidas",
+   "Agua de jamaica 16 oz",
+   50,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua embotellada",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   45,
+   "",
+   "Sabor: Coca-Cola, Sprite, Fresca, Manzanita"
+  ]
+ ],
+ "promos": [
+  [
+   "Combo 2 tacos + jamaica",
+   "precio",
+   148,
+   "",
+   "2 tacos de guisado + Agua de jamaica",
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    0
+   ]
+  ],
+  [
+   "Combo 1 taco + jamaica",
+   "precio",
+   115,
+   "",
+   "Taco de guisado + Agua de jamaica",
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    0
+   ]
+  ]
+ ]
+}

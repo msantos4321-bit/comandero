@@ -1,0 +1,149 @@
+{
+ "ver": 1,
+ "nombre": "Mariscos Mazatlán",
+ "lema": "Mariscos estilo Sinaloa · Paseo del Río, Tijuana",
+ "color": "#0369A1",
+ "preciosReales": false,
+ "mesas": 12,
+ "iniciales": "MM",
+ "menu": [
+  [
+   "Tacos",
+   "Taco de pescado",
+   45,
+   "Capeado",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de camarón",
+   60,
+   "Capeado",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco gobernador",
+   85,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de marlín",
+   70,
+   "",
+   ""
+  ],
+  [
+   "Tostadas",
+   "Tostada de ceviche de pescado",
+   65,
+   "",
+   ""
+  ],
+  [
+   "Tostadas",
+   "Tostada de ceviche de camarón",
+   85,
+   "",
+   ""
+  ],
+  [
+   "Tostadas",
+   "Tostada de pulpo",
+   110,
+   "",
+   ""
+  ],
+  [
+   "Tostadas",
+   "Tostada mixta",
+   130,
+   "",
+   ""
+  ],
+  [
+   "Cócteles",
+   "Cóctel de camarón",
+   220,
+   "",
+   "Tamaño: Mediano, Grande (+60)"
+  ],
+  [
+   "Cócteles",
+   "Campechana",
+   250,
+   "",
+   "Tamaño: Mediano, Grande (+60)"
+  ],
+  [
+   "Aguachiles",
+   "Aguachile de camarón",
+   260,
+   "",
+   "Salsa: Verde, Rojo, Negro"
+  ],
+  [
+   "Platillos",
+   "Camarones al gusto",
+   280,
+   "Con arroz y ensalada",
+   "Estilo: Al mojo de ajo, A la diabla, Empanizados, Rancheros"
+  ],
+  [
+   "Platillos",
+   "Filete de pescado",
+   240,
+   "Con arroz y ensalada",
+   "Estilo: Al mojo de ajo, Empanizado, A la plancha"
+  ],
+  [
+   "Platillos",
+   "Pescado zarandeado (kg)",
+   480,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Caldo de siete mares",
+   260,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   38,
+   "",
+   "Sabor: Coca-Cola, Sprite, Fanta"
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   40,
+   "",
+   "Sabor: Horchata, Jamaica"
+  ],
+  [
+   "Bebidas",
+   "Michelada",
+   90,
+   "",
+   "Cerveza: Tecate, Indio, Modelo (+10)"
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de tacos de pescado",
+   "pct",
+   15,
+   "Tacos",
+   "",
+   [
+    2
+   ]
+  ]
+ ]
+}

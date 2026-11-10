@@ -1,0 +1,229 @@
+{
+ "ver": 1,
+ "nombre": "Georgina",
+ "lema": "Desayunos y brunch · Zona Río, Tijuana",
+ "color": "#B08968",
+ "preciosReales": true,
+ "mesas": 16,
+ "iniciales": "G",
+ "aviso": "Así se vería Comandero en Georgina: el mesero toma la orden en el celular (con tipo de leche, huevos al gusto y notas), la barra y la cocina la ven al momento y usted ve sus ventas en vivo. Los precios son de su menú publicado en OpenTable (puede que hayan cambiado; se ajustan en un minuto). Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café",
+   "Café regular",
+   85,
+   "Rellenable",
+   ""
+  ],
+  [
+   "Café",
+   "Prensa francesa",
+   160,
+   "",
+   ""
+  ],
+  [
+   "Café",
+   "Americano",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Café",
+   "Macchiato",
+   75,
+   "",
+   "Leche: Entera, Deslactosada, Avena, Almendra"
+  ],
+  [
+   "Café",
+   "Cappuccino",
+   75,
+   "",
+   "Leche: Entera, Deslactosada, Avena, Almendra"
+  ],
+  [
+   "Café",
+   "Latte",
+   80,
+   "",
+   "Leche: Entera, Deslactosada, Avena, Almendra | Servido: Caliente, Frío"
+  ],
+  [
+   "Café",
+   "Mocha",
+   100,
+   "",
+   "Leche: Entera, Deslactosada, Avena, Almendra"
+  ],
+  [
+   "Café",
+   "Chai latte",
+   90,
+   "",
+   "Leche: Entera, Deslactosada, Avena, Almendra"
+  ],
+  [
+   "Café",
+   "Matcha",
+   120,
+   "",
+   "Leche: Entera, Deslactosada, Avena, Almendra | Servido: Caliente, Frío"
+  ],
+  [
+   "Café",
+   "Espresso tonic",
+   70,
+   "",
+   ""
+  ],
+  [
+   "Café",
+   "Té o tisana",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Pan de la mañana",
+   125,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Granola",
+   195,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Waffle de chía y avena",
+   205,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Pancakes de limón y ricotta",
+   255,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Aguacate y pan",
+   205,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Chilaquiles con burrata",
+   225,
+   "",
+   "Salsa: Verde, Roja"
+  ],
+  [
+   "Desayunos",
+   "Salmón ahumado",
+   270,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Huevos",
+   215,
+   "",
+   "Estilo: Revueltos con espárragos, Cremosos, Con salsa"
+  ],
+  [
+   "Desayunos",
+   "Benedictos",
+   225,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Benedictos con hot chicken",
+   265,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Quiche",
+   215,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "French toast",
+   255,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Montecristo",
+   265,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Steak and eggs",
+   545,
+   "",
+   "Término: Medio, Tres cuartos, Bien cocido"
+  ],
+  [
+   "Desayunos",
+   "Hamburguesa",
+   235,
+   "",
+   "Término: Medio, Tres cuartos, Bien cocido"
+  ],
+  [
+   "Desayunos",
+   "Papas a la francesa",
+   115,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Jugo",
+   65,
+   "",
+   "Tipo: Cítrico, Verde"
+  ],
+  [
+   "Bebidas",
+   "Mimosa o bellini",
+   115,
+   "",
+   "Tipo: Mimosa, Bellini"
+  ],
+  [
+   "Bebidas",
+   "Bottomless",
+   495,
+   "Mimosa, beermosa y bellini",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Aperol spritz",
+   205,
+   "",
+   ""
+  ]
+ ]
+}

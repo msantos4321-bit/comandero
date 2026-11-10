@@ -1,0 +1,120 @@
+{
+ "ver": 1,
+ "nombre": "Truck 91",
+ "lema": "Hamburguesas, alitas y fries · Zona Río, Tijuana",
+ "color": "#111827",
+ "preciosReales": true,
+ "mesas": 8,
+ "iniciales": "91",
+ "menu": [
+  [
+   "Hamburguesas",
+   "Clásica",
+   182,
+   "",
+   "Término: Medio, Tres cuartos, Bien cocida | Quitar: Nada, Sin cebolla, Sin tomate, Sin pepinillos"
+  ],
+  [
+   "Hamburguesas",
+   "Cheese Burger",
+   182,
+   "",
+   "Término: Medio, Tres cuartos, Bien cocida | Quitar: Nada, Sin cebolla, Sin tomate, Sin pepinillos"
+  ],
+  [
+   "Hamburguesas",
+   "Pollo Crunchy",
+   221,
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "50/50",
+   248,
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Pulpo",
+   260,
+   "",
+   ""
+  ],
+  [
+   "Alitas",
+   "Alitas",
+   234,
+   "",
+   "Salsa: Buffalo, Buffalo Extra Hot, BBQ, Spicy BBQ, Miel Sriracha"
+  ],
+  [
+   "Alitas",
+   "Boneless",
+   234,
+   "",
+   "Salsa: Buffalo, Buffalo Extra Hot, BBQ, Spicy BBQ, Miel Sriracha"
+  ],
+  [
+   "Fries",
+   "Papas 91",
+   91,
+   "",
+   ""
+  ],
+  [
+   "Fries",
+   "Carne Asada Fries",
+   234,
+   "",
+   ""
+  ],
+  [
+   "Fries",
+   "Buffalo Fries",
+   234,
+   "",
+   ""
+  ],
+  [
+   "Fries",
+   "Surf N Turf",
+   338,
+   "",
+   ""
+  ],
+  [
+   "Extras",
+   "Aros de cebolla",
+   117,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   40,
+   "",
+   "Sabor: Coca-Cola, Coca Zero, Sprite, Fanta"
+  ]
+ ],
+ "promos": [
+  [
+   "Combo Cheese Burger + bebida",
+   "precio",
+   155,
+   "",
+   "Cheese Burger + Refresco",
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    0
+   ]
+  ]
+ ]
+}

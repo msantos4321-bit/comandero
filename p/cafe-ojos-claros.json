@@ -1,0 +1,185 @@
+{
+ "ver": 1,
+ "nombre": "Café Ojos Claros",
+ "lema": "Café, pan y tés · Río Tijuana",
+ "color": "#2F6F73",
+ "preciosReales": false,
+ "mesas": 5,
+ "iniciales": "OC",
+ "aviso": "Así se vería Comandero en Café Ojos Claros: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son de ejemplo, sacados de cafés de la Zona Río. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café caliente",
+   "Espresso",
+   38,
+   "",
+   ""
+  ],
+  [
+   "Café caliente",
+   "Americano",
+   42,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Café caliente",
+   "Cappuccino",
+   60,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Latte",
+   65,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10)"
+  ],
+  [
+   "Café caliente",
+   "Mocha",
+   72,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Peppermint mocha",
+   80,
+   "De temporada",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Café de olla",
+   45,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Café caliente",
+   "Chai latte",
+   72,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Bebidas frías",
+   "Latte frío",
+   75,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10)"
+  ],
+  [
+   "Bebidas frías",
+   "Lemon tonic",
+   75,
+   "Espresso, tónica y limón",
+   ""
+  ],
+  [
+   "Bebidas frías",
+   "Cold brew",
+   65,
+   "16 oz",
+   ""
+  ],
+  [
+   "Bebidas frías",
+   "Frappé",
+   85,
+   "16 oz",
+   "Sabor: Mocha, Caramelo, Cajeta, Oreo (+10)"
+  ],
+  [
+   "Bebidas frías",
+   "Smoothie",
+   80,
+   "16 oz",
+   "Fruta: Fresa, Mango, Frutos rojos"
+  ],
+  [
+   "Té",
+   "Té de guayaba y canela",
+   50,
+   "De la casa",
+   "Servido: Caliente, Frío"
+  ],
+  [
+   "Té",
+   "Té de hoja",
+   45,
+   "",
+   "Tipo: Verde, Negro, Manzanilla"
+  ],
+  [
+   "Pan",
+   "Cinnamon roll",
+   55,
+   "",
+   "Servido: Natural, Calientito"
+  ],
+  [
+   "Pan",
+   "Croissant",
+   40,
+   "",
+   "Tipo: Mantequilla, Chocolate (+10), Jamón y queso (+35)"
+  ],
+  [
+   "Pan",
+   "Galleta de macadamia",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Postres",
+   "Tiramisú",
+   80,
+   "",
+   ""
+  ],
+  [
+   "Postres",
+   "Pastel de zanahoria",
+   70,
+   "Rebanada",
+   ""
+  ],
+  [
+   "Salado",
+   "Bagel de pavo",
+   90,
+   "Pavo, queso y aguacate",
+   ""
+  ],
+  [
+   "Salado",
+   "Sándwich de pollo",
+   110,
+   "",
+   ""
+  ],
+  [
+   "Extras",
+   "Shot extra",
+   15,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de cinnamon roll",
+   "pct",
+   15,
+   "Pan",
+   "",
+   [
+    2
+   ]
+  ]
+ ]
+}

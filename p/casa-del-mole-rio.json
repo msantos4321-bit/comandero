@@ -1,0 +1,160 @@
+{
+ "ver": 1,
+ "nombre": "La Casa del Mole Río",
+ "lema": "Cocina mexicana casera · Zona Río, Tijuana",
+ "color": "#7F1D1D",
+ "preciosReales": false,
+ "mesas": 14,
+ "iniciales": "CM",
+ "menu": [
+  [
+   "Desayunos",
+   "Chilaquiles",
+   140,
+   "Con frijoles y crema",
+   "Salsa: Verde, Roja, Mole (+15) | Con: Huevo, Pollo (+25), Arrachera (+50)"
+  ],
+  [
+   "Desayunos",
+   "Huevos al gusto",
+   125,
+   "Con frijoles y tortillas",
+   "Estilo: Rancheros, A la mexicana, Con chorizo, Con jamón"
+  ],
+  [
+   "Desayunos",
+   "Enmoladas de huevo",
+   145,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Molletes",
+   105,
+   "",
+   ""
+  ],
+  [
+   "Moles",
+   "Mole poblano con pollo",
+   185,
+   "Con arroz y frijoles",
+   "Pieza: Pierna, Pechuga (+15)"
+  ],
+  [
+   "Moles",
+   "Pipián verde con pollo",
+   185,
+   "Con arroz y frijoles",
+   ""
+  ],
+  [
+   "Moles",
+   "Enchiladas de mole",
+   165,
+   "Rellenas de pollo",
+   ""
+  ],
+  [
+   "Moles",
+   "Enmoladas de queso",
+   155,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Enchiladas suizas",
+   160,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Chile relleno",
+   165,
+   "De queso, capeado",
+   ""
+  ],
+  [
+   "Platillos",
+   "Carne en su jugo",
+   175,
+   "",
+   ""
+  ],
+  [
+   "Platillos",
+   "Milanesa de res",
+   170,
+   "Con papas y ensalada",
+   ""
+  ],
+  [
+   "Sopas",
+   "Sopa de tortilla",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Sopas",
+   "Caldo de res",
+   140,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   40,
+   "",
+   "Sabor: Horchata, Jamaica, Del día | Tamaño: Vaso, Jarra (+80)"
+  ],
+  [
+   "Bebidas",
+   "Café de olla",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   38,
+   "",
+   "Sabor: Coca-Cola, Sprite, Fanta"
+  ],
+  [
+   "Postres",
+   "Flan napolitano",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Postres",
+   "Arroz con leche",
+   50,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Comida corrida",
+   "precio",
+   165,
+   "",
+   "Sopa + plato fuerte + agua",
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  ]
+ ]
+}

@@ -1,0 +1,195 @@
+{
+ "ver": 1,
+ "nombre": "Murih Café",
+ "lema": "Café, té y repostería artesanal · Paseo del Río, Tijuana",
+ "color": "#8C5E58",
+ "preciosReales": false,
+ "mesas": 6,
+ "iniciales": "MC",
+ "aviso": "Así se vería Comandero en Murih Café: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son de ejemplo, sacados de cafés de la Zona Río. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café caliente",
+   "Espresso",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Café caliente",
+   "Americano",
+   45,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Café caliente",
+   "Cappuccino",
+   65,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Latte",
+   70,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10)"
+  ],
+  [
+   "Café caliente",
+   "Mocha",
+   78,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Chai latte",
+   78,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Matcha latte",
+   85,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Chocolate caliente",
+   60,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Bebidas frías",
+   "Latte frío",
+   78,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10)"
+  ],
+  [
+   "Bebidas frías",
+   "Matcha frío",
+   90,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Bebidas frías",
+   "Chai frío",
+   85,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Bebidas frías",
+   "Frappé",
+   90,
+   "16 oz",
+   "Sabor: Moka, Caramelo, Cookies, Taro (+10)"
+  ],
+  [
+   "Bebidas frías",
+   "Limonada",
+   45,
+   "",
+   "Tipo: Natural, Mineral (+5), Fresa (+10)"
+  ],
+  [
+   "Té",
+   "Té de hoja",
+   50,
+   "",
+   "Tipo: Verde, Negro, Manzanilla, Frutos rojos | Servido: Caliente, Frío"
+  ],
+  [
+   "Repostería",
+   "Crepe cake de frutos rojos",
+   85,
+   "Rebanada",
+   ""
+  ],
+  [
+   "Repostería",
+   "Crepe cake de matcha",
+   90,
+   "Rebanada",
+   ""
+  ],
+  [
+   "Repostería",
+   "Cheesecake",
+   80,
+   "Rebanada",
+   ""
+  ],
+  [
+   "Repostería",
+   "Pay de limón",
+   65,
+   "Rebanada",
+   ""
+  ],
+  [
+   "Repostería",
+   "Brownie",
+   50,
+   "",
+   ""
+  ],
+  [
+   "Repostería",
+   "Galleta artesanal",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Salado",
+   "Croissant de jamón y queso",
+   90,
+   "",
+   ""
+  ],
+  [
+   "Salado",
+   "Panini de pollo al pesto",
+   125,
+   "",
+   ""
+  ],
+  [
+   "Salado",
+   "Bagel de queso crema",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Extras",
+   "Shot extra",
+   15,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Café + rebanada",
+   "pct",
+   10,
+   "Repostería",
+   "",
+   [
+    1,
+    2,
+    3,
+    4
+   ]
+  ]
+ ]
+}

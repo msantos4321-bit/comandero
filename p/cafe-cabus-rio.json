@@ -1,0 +1,247 @@
+{
+ "ver": 1,
+ "nombre": "Café Cabús",
+ "lema": "Café para llevar desde las 6 a.m. · Zona Río, Tijuana",
+ "color": "#9A3412",
+ "preciosReales": true,
+ "mesas": 4,
+ "iniciales": "CC",
+ "aviso": "Así se vería Comandero en Café Cabús: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son los que publica en Rappi y DiDi; si cambiaron, se ajustan en un minuto. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Calientes",
+   "Espresso",
+   55,
+   "2 oz",
+   ""
+  ],
+  [
+   "Calientes",
+   "Americano",
+   55,
+   "",
+   "Tamaño: 12 oz, 16 oz (+5)"
+  ],
+  [
+   "Calientes",
+   "Cappuccino",
+   85,
+   "12 oz",
+   "Leche: Entera, Soya (+15), Almendra (+15), Avena (+15)"
+  ],
+  [
+   "Calientes",
+   "Latte",
+   90,
+   "",
+   "Tamaño: 12 oz, 16 oz (+5) | Leche: Entera, Soya (+15), Almendra (+15), Avena (+15)"
+  ],
+  [
+   "Calientes",
+   "Latte Cabús",
+   90,
+   "",
+   "Tamaño: 12 oz, 16 oz (+5) | Leche: Entera, Soya (+15), Almendra (+15), Avena (+15)"
+  ],
+  [
+   "Calientes",
+   "Latte Especial",
+   90,
+   "",
+   "Tamaño: 12 oz, 16 oz (+5) | Leche: Entera, Soya (+15), Almendra (+15), Avena (+15)"
+  ],
+  [
+   "Calientes",
+   "Chai latte",
+   90,
+   "",
+   "Tamaño: 12 oz, 16 oz (+5) | Leche: Entera, Soya (+15), Almendra (+15), Avena (+15)"
+  ],
+  [
+   "Calientes",
+   "Dirty chai",
+   90,
+   "",
+   "Tamaño: 12 oz, 16 oz (+5) | Leche: Entera, Soya (+15), Almendra (+15), Avena (+15)"
+  ],
+  [
+   "Calientes",
+   "Mocha",
+   90,
+   "",
+   "Tamaño: 12 oz, 16 oz (+5) | Leche: Entera, Soya (+15), Almendra (+15), Avena (+15)"
+  ],
+  [
+   "Rocas",
+   "Americano en las rocas",
+   70,
+   "16 oz",
+   ""
+  ],
+  [
+   "Rocas",
+   "Latte en las rocas",
+   90,
+   "16 oz",
+   "Leche: Entera, Soya (+15), Almendra (+15), Avena (+15) | Sabor: Natural, Cabús, Especial, Sugar free"
+  ],
+  [
+   "Rocas",
+   "Mocha frío",
+   90,
+   "16 oz",
+   "Leche: Entera, Soya (+15), Almendra (+15), Avena (+15)"
+  ],
+  [
+   "Rocas",
+   "Dirty chai frío",
+   95,
+   "16 oz",
+   "Leche: Entera, Soya (+15), Almendra (+15), Avena (+15)"
+  ],
+  [
+   "Rocas",
+   "Matcha",
+   95,
+   "16 oz",
+   "Leche: Entera, Soya (+15), Almendra (+15), Avena (+15)"
+  ],
+  [
+   "Rocas",
+   "Strawberry Foam Matcha",
+   105,
+   "16 oz",
+   ""
+  ],
+  [
+   "Rocas",
+   "Party",
+   120,
+   "16 oz",
+   ""
+  ],
+  [
+   "Frappés",
+   "Frappé",
+   95,
+   "16 oz",
+   "Sabor: Oreo, Caramelo, Mocha"
+  ],
+  [
+   "Fríos",
+   "Lemon tonic",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Fríos",
+   "Orange tonic",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Fríos",
+   "Black Honey Lemon",
+   105,
+   "",
+   ""
+  ],
+  [
+   "Fríos",
+   "Smoothie de mango",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Fríos",
+   "Limonada tropical",
+   65,
+   "",
+   ""
+  ],
+  [
+   "Fríos",
+   "Tisana",
+   60,
+   "",
+   ""
+  ],
+  [
+   "Fríos",
+   "Coca-Cola",
+   30,
+   "",
+   ""
+  ],
+  [
+   "Fríos",
+   "Agua embotellada",
+   15,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Sándwich de pollo",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Sándwich de jamón",
+   85,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Sándwich de queso fundido",
+   90,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Waffle clásico",
+   90,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Waffle de blueberries",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Galletas",
+   30,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Combo sándwich de pollo + chai",
+   "precio",
+   185,
+   "",
+   "Sándwich de pollo + Chai latte 16 oz",
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    0
+   ]
+  ]
+ ]
+}
