@@ -1,0 +1,143 @@
+{
+ "ver": 1,
+ "nombre": "Verde Matcha Coffee",
+ "lema": "Matcha bar y café de especialidad · Otay Constituyentes, Tijuana",
+ "color": "#5E7F36",
+ "preciosReales": true,
+ "mesas": 5,
+ "iniciales": "VM",
+ "aviso": "Así se vería Comandero en Verde Matcha Coffee: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son los de su menú en Rappi. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café",
+   "Americano",
+   70,
+   "16 oz",
+   ""
+  ],
+  [
+   "Café",
+   "Latte",
+   100,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Servido: Caliente, Frío"
+  ],
+  [
+   "Café",
+   "Dirty chai",
+   110,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café",
+   "Tónico",
+   110,
+   "Espresso, agua tónica y limón",
+   ""
+  ],
+  [
+   "Café",
+   "Strawberry coffee",
+   130,
+   "Con cold foam de taro",
+   ""
+  ],
+  [
+   "Matcha",
+   "Matcha caliente",
+   115,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Matcha",
+   "Matcha frío",
+   120,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Cold foam: Sin cold foam, Vainilla (+35), Pistache (+35)"
+  ],
+  [
+   "Matcha",
+   "Strawberry matcha",
+   130,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Cold foam: Sin cold foam, Vainilla (+35), Pistache (+35)"
+  ],
+  [
+   "Matcha",
+   "Mango matcha",
+   130,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Matcha",
+   "Coco matcha",
+   130,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Frappés",
+   "Frappé",
+   115,
+   "16 oz",
+   "Sabor: Strawberry matcha, Oreo, Mocha, Mocha blanco, Caramelo"
+  ],
+  [
+   "Otras bebidas",
+   "Taro con perlas explosivas",
+   130,
+   "16 oz",
+   ""
+  ],
+  [
+   "Otras bebidas",
+   "Té chai",
+   110,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Otras bebidas",
+   "Chocolate",
+   100,
+   "16 oz",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Otras bebidas",
+   "Soda italiana de fresa",
+   100,
+   "",
+   ""
+  ],
+  [
+   "Otras bebidas",
+   "Limonada",
+   100,
+   "",
+   "Tipo: Natural, Mineral"
+  ],
+  [
+   "Extras",
+   "Cold foam extra",
+   35,
+   "",
+   "Sabor: Vainilla, Pistache"
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de matcha",
+   "pct",
+   10,
+   "Matcha",
+   "",
+   [
+    2
+   ]
+  ]
+ ]
+}

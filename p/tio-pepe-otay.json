@@ -1,0 +1,130 @@
+{
+ "ver": 1,
+ "nombre": "Tacos y Tortas El Tío Pepe Otay",
+ "lema": "Carnitas, birria y tortas ahogadas · Otay, Tijuana",
+ "color": "#B3261E",
+ "preciosReales": true,
+ "mesas": 10,
+ "iniciales": "TP",
+ "menu": [
+  [
+   "Tacos",
+   "Taco Chávez",
+   65,
+   "Carnitas con guacamole, pico de gallo y queso",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de maciza",
+   65,
+   "",
+   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
+  ],
+  [
+   "Tacos",
+   "Taco de buche",
+   65,
+   "",
+   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
+  ],
+  [
+   "Tacos",
+   "Taco de cuero",
+   65,
+   "",
+   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
+  ],
+  [
+   "Tacos",
+   "Taco surtido",
+   65,
+   "",
+   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
+  ],
+  [
+   "Tacos",
+   "Taco de costilla de puerco",
+   65,
+   "",
+   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
+  ],
+  [
+   "Tacos",
+   "Taco de papa con carne",
+   65,
+   "",
+   "Tortilla: Suave, Dorado"
+  ],
+  [
+   "Especialidades",
+   "Terrible",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Torta ahogada",
+   140,
+   "Birote salado de Guadalajara",
+   "Salsa: Normal, Picosa, Mitad y mitad"
+  ],
+  [
+   "Especialidades",
+   "Orden de papa con carne",
+   175,
+   "3 tacos dorados con repollo y salsa de tomate",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Orden de tacos de papa sin carne",
+   95,
+   "",
+   ""
+  ],
+  [
+   "Consomé",
+   "Consomé de birria con carne",
+   65,
+   "",
+   ""
+  ],
+  [
+   "Órdenes y kilos",
+   "Media orden de carnitas",
+   190,
+   "Con tortillas, salsas y salsa bandera",
+   ""
+  ],
+  [
+   "Órdenes y kilos",
+   "Orden de carnitas",
+   300,
+   "Con tortillas, salsas y salsa bandera",
+   ""
+  ],
+  [
+   "Órdenes y kilos",
+   "Medio kilo de carnitas",
+   350,
+   "",
+   ""
+  ],
+  [
+   "Órdenes y kilos",
+   "Medio kilo de birria",
+   350,
+   "",
+   ""
+  ],
+  [
+   "Extras",
+   "Media orden de aguacate",
+   45,
+   "",
+   ""
+  ]
+ ]
+}

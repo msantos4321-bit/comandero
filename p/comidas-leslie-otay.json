@@ -1,0 +1,125 @@
+{
+ "ver": 1,
+ "nombre": "Comidas Corridas Leslie",
+ "lema": "Comida casera · Blvd. de las Bellas Artes, Otay",
+ "color": "#C2571A",
+ "preciosReales": false,
+ "mesas": 8,
+ "iniciales": "CL",
+ "menu": [
+  [
+   "Desayunos",
+   "Chilaquiles con huevo",
+   110,
+   "Con frijoles",
+   "Salsa: Verde, Roja"
+  ],
+  [
+   "Desayunos",
+   "Huevos al gusto",
+   95,
+   "Con frijoles y tortillas",
+   "Estilo: Rancheros, A la mexicana, Con jamón, Con chorizo"
+  ],
+  [
+   "Comida corrida",
+   "Milanesa",
+   157,
+   "Con arroz, frijoles y tortillas",
+   "Carne: Res, Pollo"
+  ],
+  [
+   "Comida corrida",
+   "Carne asada",
+   157,
+   "Con arroz, frijoles y tortillas",
+   ""
+  ],
+  [
+   "Comida corrida",
+   "Caldo de pollo",
+   157,
+   "",
+   ""
+  ],
+  [
+   "Comida corrida",
+   "Mole con pollo",
+   145,
+   "Con arroz y tortillas",
+   ""
+  ],
+  [
+   "Comida corrida",
+   "Costilla de puerco en salsa",
+   145,
+   "",
+   "Salsa: Roja, Verde"
+  ],
+  [
+   "Comida corrida",
+   "Chiles rellenos",
+   145,
+   "",
+   ""
+  ],
+  [
+   "Antojitos",
+   "Sopes (3)",
+   145,
+   "",
+   "Guiso: Picadillo, Asado, Adobada"
+  ],
+  [
+   "Antojitos",
+   "Tostada",
+   48,
+   "",
+   ""
+  ],
+  [
+   "Antojitos",
+   "Enchiladas",
+   120,
+   "",
+   "Salsa: Verdes, Rojas"
+  ],
+  [
+   "Bebidas",
+   "Agua del día",
+   30,
+   "",
+   "Tamaño: Chica, Grande (+10)"
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   30,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Café de olla",
+   30,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Comida del día",
+   "pct",
+   10,
+   "Comida corrida",
+   "",
+   [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  ]
+ ]
+}

@@ -1,0 +1,117 @@
+{
+ "ver": 1,
+ "nombre": "Táctil Coffee Experience",
+ "lema": "Café, desayunos y comida · Frente al Parque de la Amistad, Otay",
+ "color": "#2B2B2B",
+ "preciosReales": true,
+ "mesas": 8,
+ "iniciales": "TC",
+ "aviso": "Así se vería Comandero en Táctil Coffee Experience: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son los de su menú en Uber Eats. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café",
+   "Mocha mexicano",
+   95,
+   "Caliente",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café",
+   "Latte frío",
+   92,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10), Lavanda (+10)"
+  ],
+  [
+   "Café",
+   "Mocha blanco frío",
+   100,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Smoothies y jugos",
+   "Smoothie",
+   105,
+   "",
+   "Fruta: Frutos rojos, Tropical, Fresa"
+  ],
+  [
+   "Smoothies y jugos",
+   "Jugo de zanahoria con naranja",
+   89,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Chilaquiles",
+   159,
+   "",
+   "Salsa: Verde, Roja, Chipotle (+10) | Con: Solos, Huevo, Pollo"
+  ],
+  [
+   "Desayunos",
+   "Huevos rancheros",
+   159,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Omelette de jamón",
+   189,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Enchiladas",
+   129,
+   "",
+   "Salsa: Verdes, Rojas"
+  ],
+  [
+   "Desayunos",
+   "Sopes",
+   119,
+   "",
+   ""
+  ],
+  [
+   "Desayunos",
+   "Sincronizada de jamón",
+   165,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Bagel de pollo",
+   149,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Club sándwich",
+   219,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Táctil Hamburger",
+   189,
+   "",
+   "Término: Medio, Tres cuartos, Bien cocida"
+  ],
+  [
+   "Crepas",
+   "Crepa de Nutella",
+   159,
+   "Con fresa y plátano",
+   ""
+  ]
+ ]
+}

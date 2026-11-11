@@ -1,0 +1,109 @@
+{
+ "ver": 1,
+ "nombre": "Dogos Ángel",
+ "lema": "Hot dogs y hamburguesas · Otay Tecnológico, Tijuana",
+ "color": "#C62828",
+ "preciosReales": true,
+ "mesas": 6,
+ "iniciales": "DA",
+ "menu": [
+  [
+   "Hot dogs",
+   "Hot dog sonorense",
+   130,
+   "",
+   "Con: Todo, Sin cebolla, Sin jitomate, Sin mayonesa"
+  ],
+  [
+   "Hot dogs",
+   "Hot dog mega jumbo",
+   185,
+   "",
+   "Con: Todo, Sin cebolla, Sin jitomate, Sin mayonesa"
+  ],
+  [
+   "Hot dogs",
+   "Combo hot dogs jumbo",
+   185,
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa clásica de res",
+   185,
+   "",
+   "Con: Todo, Sin cebolla, Sin jitomate"
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa con champiñones",
+   165,
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa doble de res",
+   250,
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa Cielo y Tierra",
+   250,
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa hawaiana",
+   200,
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa de pollo",
+   185,
+   "",
+   ""
+  ],
+  [
+   "Tortas",
+   "Torta especial de pierna",
+   185,
+   "",
+   ""
+  ],
+  [
+   "Acompañamientos",
+   "Papas a la francesa",
+   150,
+   "Recién hechas",
+   ""
+  ],
+  [
+   "Acompañamientos",
+   "Salchipapas",
+   185,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Coca-Cola 355 ml",
+   35,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua de jamaica 500 ml",
+   35,
+   "",
+   ""
+  ]
+ ]
+}

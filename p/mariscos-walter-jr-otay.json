@@ -1,0 +1,144 @@
+{
+ "ver": 1,
+ "nombre": "Mariscos Walter Jr Otay",
+ "lema": "Mariscos · Otay Constituyentes, Tijuana",
+ "color": "#0B5FA5",
+ "preciosReales": false,
+ "mesas": 10,
+ "iniciales": "WJ",
+ "menu": [
+  [
+   "Tacos",
+   "Taco de pescado",
+   25,
+   "",
+   "Con: Todo, Sin repollo, Sin crema"
+  ],
+  [
+   "Tacos",
+   "Taco de camarón",
+   31,
+   "",
+   "Con: Todo, Sin repollo, Sin crema"
+  ],
+  [
+   "Tacos",
+   "Taco de pescado a la plancha",
+   33,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de cahuamanta",
+   45,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de camarón a la plancha",
+   53,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de marlin",
+   54,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco gobernador",
+   55,
+   "",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de camarón enchilado",
+   56,
+   "",
+   ""
+  ],
+  [
+   "Tostadas",
+   "Tostada de pescado",
+   63,
+   "",
+   ""
+  ],
+  [
+   "Tostadas",
+   "Tostada de camarón",
+   77,
+   "",
+   ""
+  ],
+  [
+   "Tostadas",
+   "Tostada de aguachile",
+   84,
+   "",
+   "Picante: Poco, Medio, Mucho"
+  ],
+  [
+   "Tostadas",
+   "Tostada especial",
+   112,
+   "",
+   ""
+  ],
+  [
+   "Cócteles y aguachiles",
+   "Cóctel de camarón",
+   225,
+   "",
+   "Tamaño: Mediano, Grande (+45) | Con: Todo, Sin cebolla morada, Aguacate extra (+20)"
+  ],
+  [
+   "Cócteles y aguachiles",
+   "Campechano",
+   225,
+   "",
+   "Tamaño: Mediano, Grande (+45)"
+  ],
+  [
+   "Cócteles y aguachiles",
+   "Aguachile verde",
+   225,
+   "",
+   "Tamaño: Mediano, Grande (+45) | Picante: Poco, Medio, Mucho"
+  ],
+  [
+   "Caldos",
+   "Caldo de cahuamanta",
+   84,
+   "",
+   "Tamaño: Mediano, Grande (+21)"
+  ],
+  [
+   "Caldos",
+   "Sopa de mariscos",
+   224,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   30,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   30,
+   "",
+   "Sabor: Jamaica, Horchata"
+  ]
+ ]
+}

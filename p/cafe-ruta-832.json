@@ -1,0 +1,145 @@
+{
+ "ver": 1,
+ "nombre": "Cafe Ruta 832",
+ "lema": "Café, bagels y desayunos · Nueva Tijuana, Garita de Otay",
+ "color": "#7A4A2A",
+ "preciosReales": true,
+ "mesas": 4,
+ "iniciales": "R8",
+ "aviso": "Así se vería Comandero en Cafe Ruta 832: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son los de su menú en Rappi. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café caliente",
+   "Americano",
+   40,
+   "",
+   "Tamaño: 12 oz, 20 oz (+9)"
+  ],
+  [
+   "Café caliente",
+   "Latte",
+   59,
+   "",
+   "Tamaño: 12 oz, 16 oz (+6), 20 oz (+10) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Capuccino",
+   59,
+   "",
+   "Tamaño: 12 oz, 16 oz (+6), 20 oz doble shot (+16) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Bebidas frías",
+   "Latte en las rocas",
+   69,
+   "16 oz",
+   "Sabor: Lavanda, Caramelo, Moka blanco, Vainilla, Avellana | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Bebidas frías",
+   "Licuado de plátano",
+   65,
+   "",
+   ""
+  ],
+  [
+   "Bebidas frías",
+   "Licuado de fresa",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Bagels",
+   "Bagel clásico",
+   75,
+   "Jamón y queso",
+   ""
+  ],
+  [
+   "Bagels",
+   "Bagel Philadelphia",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Bagels",
+   "Bagel de pollo",
+   85,
+   "",
+   ""
+  ],
+  [
+   "Ciabattas",
+   "Ciabatta de huevo",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Ciabattas",
+   "Ciabatta de pechuga de pollo",
+   85,
+   "",
+   ""
+  ],
+  [
+   "Sándwiches",
+   "Sándwich de jamón",
+   65,
+   "",
+   ""
+  ],
+  [
+   "Sándwiches",
+   "Sándwich de pollo",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Sándwiches",
+   "Sándwich de atún",
+   85,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Ensalada de pollo",
+   129,
+   "",
+   ""
+  ],
+  [
+   "Combos",
+   "Desayuno con americano",
+   140,
+   "Americano 12 oz",
+   ""
+  ],
+  [
+   "Combos",
+   "Combo con latte",
+   199,
+   "Latte 16 oz",
+   ""
+  ],
+  [
+   "Promos",
+   "2 capuccinos",
+   89,
+   "",
+   "Tamaño: 12 oz, 16 oz (+10), 20 oz (+20)"
+  ],
+  [
+   "Promos",
+   "Latte frío 2x1",
+   99,
+   "",
+   ""
+  ]
+ ]
+}

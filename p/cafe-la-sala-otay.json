@@ -1,0 +1,164 @@
+{
+ "ver": 1,
+ "nombre": "Café La Sala",
+ "lema": "Café, comida y juegos de mesa · Calz. del Tecnológico, Otay",
+ "color": "#7B2D3A",
+ "preciosReales": false,
+ "mesas": 10,
+ "iniciales": "LS",
+ "aviso": "Así se vería Comandero en Café La Sala: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son de ejemplo, sacados de cafés de Otay. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café caliente",
+   "Americano",
+   45,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Café caliente",
+   "Cappuccino",
+   65,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Latte",
+   70,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10), Lavanda (+10)"
+  ],
+  [
+   "Café caliente",
+   "Mocha",
+   78,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Chocolate caliente",
+   60,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Bebidas frías",
+   "Latte frío",
+   80,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10), Lavanda (+10)"
+  ],
+  [
+   "Bebidas frías",
+   "Frappé",
+   95,
+   "16 oz con crema batida",
+   "Sabor: Caramelo, Mocha, Cajeta, Vainilla, Oreo (+10)"
+  ],
+  [
+   "Bebidas frías",
+   "Limonada",
+   45,
+   "",
+   "Tipo: Natural, Mineral (+5)"
+  ],
+  [
+   "Bebidas frías",
+   "Soda italiana",
+   60,
+   "",
+   "Sabor: Fresa, Frutos rojos, Manzana verde"
+  ],
+  [
+   "Sándwiches",
+   "Sándwich de pavo",
+   125,
+   "Con papas",
+   ""
+  ],
+  [
+   "Sándwiches",
+   "Sándwich de pollo al pesto",
+   135,
+   "",
+   ""
+  ],
+  [
+   "Sándwiches",
+   "Panini caprese",
+   120,
+   "",
+   ""
+  ],
+  [
+   "Para compartir",
+   "Nachos",
+   120,
+   "Con queso, frijoles y jalapeños",
+   "Con: Solos, Carne (+30), Pollo (+25)"
+  ],
+  [
+   "Para compartir",
+   "Papas a la francesa",
+   75,
+   "",
+   ""
+  ],
+  [
+   "Comida",
+   "Chilaquiles",
+   140,
+   "",
+   "Salsa: Verde, Roja | Con: Huevo, Pollo (+25)"
+  ],
+  [
+   "Comida",
+   "Quesadillas",
+   95,
+   "",
+   "Tortilla: Maíz, Harina"
+  ],
+  [
+   "Comida",
+   "Hamburguesa",
+   145,
+   "Con papas",
+   ""
+  ],
+  [
+   "Postres",
+   "Crepa de Nutella",
+   90,
+   "",
+   "Con: Sola, Fresa, Plátano"
+  ],
+  [
+   "Postres",
+   "Pastel de chocolate",
+   75,
+   "Rebanada",
+   ""
+  ],
+  [
+   "Postres",
+   "Cheesecake",
+   80,
+   "Rebanada",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de juegos",
+   "pct",
+   15,
+   "Para compartir",
+   "",
+   [
+    2
+   ]
+  ]
+ ]
+}

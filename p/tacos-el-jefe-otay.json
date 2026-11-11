@@ -1,0 +1,130 @@
+{
+ "ver": 1,
+ "nombre": "Tacos El Jefe",
+ "lema": "Tortilla hecha a mano · Bellas Artes, Nueva Tijuana",
+ "color": "#1C1C1C",
+ "preciosReales": true,
+ "mesas": 10,
+ "iniciales": "EJ",
+ "menu": [
+  [
+   "Tacos",
+   "Taco de asada",
+   53,
+   "Tortilla de maíz hecha a mano, aguacate y frijoles de la olla",
+   "Tortilla: Maíz, Harina | Frijoles: Con frijoles, Sin frijoles | Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
+  ],
+  [
+   "Tacos",
+   "Taco de birria",
+   53,
+   "",
+   "Tortilla: Maíz, Harina"
+  ],
+  [
+   "Tacos",
+   "Taco de carnitas",
+   53,
+   "",
+   "Tortilla: Maíz, Harina"
+  ],
+  [
+   "Tacos",
+   "Taco al pastor",
+   46,
+   "Con piña",
+   "Con: Todo, Sin cebolla, Sin cilantro, Sin salsa"
+  ],
+  [
+   "Tacos",
+   "Quesa taco",
+   68,
+   "Asada con costra de queso",
+   ""
+  ],
+  [
+   "Birria",
+   "Media orden de birria",
+   163,
+   "",
+   ""
+  ],
+  [
+   "Birria",
+   "Orden de birria 1 L",
+   300,
+   "Consomé con carne",
+   ""
+  ],
+  [
+   "Birria",
+   "Quesabirria",
+   145,
+   "Tortilla de harina",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Burrito",
+   165,
+   "",
+   "Carne: Res, Pastor, Carnitas, Birria"
+  ],
+  [
+   "Especialidades",
+   "Vampiro",
+   72,
+   "",
+   "Carne: Res, Pastor, Carnitas, Birria"
+  ],
+  [
+   "Especialidades",
+   "Mulita",
+   158,
+   "",
+   "Tortilla: Maíz, Harina | Carne: Res, Pastor, Carnitas, Birria"
+  ],
+  [
+   "Especialidades",
+   "Quesadilla",
+   145,
+   "",
+   "Tortilla: Maíz, Harina | Carne: Res, Pastor, Carnitas, Birria"
+  ],
+  [
+   "Especialidades",
+   "Torta",
+   145,
+   "Telera con guacamole",
+   "Carne: Res, Pastor, Carnitas, Birria"
+  ],
+  [
+   "Combos",
+   "Combo martes y jueves",
+   163,
+   "3 tacos de birria o asada + agua chica",
+   "Tacos: Birria, Asada"
+  ],
+  [
+   "Combos",
+   "Promo miércoles",
+   110,
+   "3 tacos al pastor",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco de lata",
+   48,
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua fresca 500 ml",
+   48,
+   "",
+   "Sabor: Horchata, Jamaica"
+  ]
+ ]
+}

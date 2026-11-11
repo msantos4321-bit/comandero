@@ -1,0 +1,160 @@
+{
+ "ver": 1,
+ "nombre": "Valle Café",
+ "lema": "Espresso bar y repostería · Tijuana",
+ "color": "#6E7B4F",
+ "preciosReales": false,
+ "mesas": 5,
+ "iniciales": "VC",
+ "aviso": "Así se vería Comandero en Valle Café: tamaños, tipo de leche y sabores se eligen con un toque y la barra ve cada bebida al momento. Los precios son de ejemplo, sacados de cafés de Otay. Juéguele con confianza: nada de lo que haga aquí se guarda. Con su menú, sus precios y su logo se lo dejamos instalado gratis.",
+ "menu": [
+  [
+   "Café caliente",
+   "Espresso",
+   40,
+   "",
+   ""
+  ],
+  [
+   "Café caliente",
+   "Café de la casa",
+   35,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Café caliente",
+   "Americano",
+   45,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15)"
+  ],
+  [
+   "Café caliente",
+   "Cappuccino",
+   65,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Latte",
+   70,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10), Lavanda (+10)"
+  ],
+  [
+   "Café caliente",
+   "Flat white",
+   70,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Mocha",
+   78,
+   "",
+   "Tamaño: Chico 12 oz, Grande 16 oz (+15) | Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Chocolate caliente",
+   65,
+   "La especialidad de la casa",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Café caliente",
+   "Chai latte",
+   80,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Bebidas frías",
+   "Cold brew",
+   65,
+   "",
+   ""
+  ],
+  [
+   "Bebidas frías",
+   "Latte frío",
+   80,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12) | Sabor: Natural, Vainilla (+10), Caramelo (+10), Avellana (+10), Lavanda (+10)"
+  ],
+  [
+   "Bebidas frías",
+   "Frappé",
+   90,
+   "16 oz",
+   "Sabor: Caramelo, Mocha, Vainilla, Oreo (+10)"
+  ],
+  [
+   "Bebidas frías",
+   "Chocolate frío",
+   70,
+   "",
+   "Leche: Entera, Deslactosada, Almendra (+12), Avena (+12)"
+  ],
+  [
+   "Repostería",
+   "Rebanada de pastel",
+   75,
+   "",
+   "Sabor: Chocolate, Zanahoria, Tres leches"
+  ],
+  [
+   "Repostería",
+   "Cheesecake",
+   80,
+   "",
+   ""
+  ],
+  [
+   "Repostería",
+   "Croissant",
+   45,
+   "",
+   "Tipo: Mantequilla, Chocolate (+10)"
+  ],
+  [
+   "Repostería",
+   "Galleta",
+   30,
+   "",
+   ""
+  ],
+  [
+   "Repostería",
+   "Brownie",
+   50,
+   "",
+   ""
+  ],
+  [
+   "Extras",
+   "Shot extra de espresso",
+   15,
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Café + rebanada",
+   "pct",
+   10,
+   "Repostería",
+   "",
+   [
+    1,
+    2,
+    3,
+    4
+   ]
+  ]
+ ]
+}
