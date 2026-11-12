@@ -121,7 +121,7 @@ let ui={tab:LS.get('tab','demos'),g:'Todas',q:''};
 let DEMOS=[];
 const yo=()=>LS.get('nombre','');
 const ref=()=>slug(yo());
-const ligaDemo=d=>BASE+'?p='+d.id+(ref()?'&ref='+ref():'');
+const ligaDemo=d=>d.url?BASE+d.url+(ref()?'&ref='+ref():''):BASE+'?p='+d.id+(ref()?'&ref='+ref():'');
 const ligaGuia=d=>d.guia?BASE+d.guia:'';
 function toast(t,ms){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),ms||2600)}
 function wa(texto,tel){location.href='https://wa.me/'+(tel||'')+'?text='+encodeURIComponent(texto)}
@@ -140,12 +140,13 @@ function av(d){return `<div class="av" style="background:${esc(d.c)}">${d.logo?`
 function vDemos(){encab('Demos',yo()?'Hola, '+yo():'Comandero Ventas');
   const gs=['Todas',...new Set(DEMOS.map(d=>d.g))];const q=ui.q.trim().toLowerCase();
   const L=DEMOS.filter(d=>(ui.g==='Todas'||d.g===ui.g)&&(!q||(d.n+' '+d.l).toLowerCase().includes(q)));
-  const full=L.filter(d=>d.full),rest=L.filter(d=>!d.full);
+  const vets=L.filter(d=>d.vet),full=L.filter(d=>d.full&&!d.vet),rest=L.filter(d=>!d.full&&!d.vet);
   let h=`<div class="hero"><b>¿Vas a visitar un lugar nuevo?</b><p>Pide su demo con su menú, sus fotos y sus colores. Te la preparamos para que la enseñes en la visita.</p><button class="btn dk" data-a="tab" data-t="visita">Pedir una demo</button></div>
   <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C847C" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="text" placeholder="Buscar un negocio" value="${esc(ui.q)}" autocomplete="off"></div>
   <div class="chips">${gs.map(g=>`<button class="chip ${ui.g===g?'on':''}" data-a="giro" data-g="${esc(g)}">${esc(g)}</button>`).join('')}</div>`;
-  const card=d=>`<button class="demo" data-a="demo" data-i="${d.id}">${av(d)}<div style="min-width:0"><b>${esc(d.n)}</b><span>${esc(d.l)}</span><div class="bd">${d.full?'<i class="tag y">Completa: almacén y dinero</i>':''}${d.guia?'<i class="tag b">Guía PDF</i>':''}${d.reales?'<i class="tag g">Precios reales</i>':''}</div></div><span class="chev">›</span></button>`;
-  if(full.length)h+=`<div class="sec">Completas, con guía</div><div class="list">${full.map(card).join('')}</div>`;
+  const card=d=>`<button class="demo" data-a="demo" data-i="${d.id}">${av(d)}<div style="min-width:0"><b>${esc(d.n)}</b><span>${esc(d.l)}</span><div class="bd">${d.vet?'<i class="tag y">Completa: expedientes, agenda y caja</i>':d.full?'<i class="tag y">Completa: almacén y dinero</i>':''}${d.guia?'<i class="tag b">Guía PDF</i>':''}${d.reales?'<i class="tag g">Precios reales</i>':''}</div></div><span class="chev">›</span></button>`;
+  if(vets.length)h+=`<div class="sec">Veterinarias</div><div class="list">${vets.map(card).join('')}</div>`;
+  if(full.length)h+=`<div class="sec">Restaurantes completos, con guía</div><div class="list">${full.map(card).join('')}</div>`;
   if(rest.length)h+=`<div class="sec">Otras demos listas</div><div class="list">${rest.map(card).join('')}</div>`;
   if(!L.length)h+='<div class="empty">No encontré ese negocio. Pídele su demo en «Visita».</div>';
   return h}
@@ -158,7 +159,7 @@ function sheetDemo(d){const g=ligaGuia(d);
    <button class="btn" data-a="copiar" data-v="${esc(ligaDemo(d))}">Copiar la liga</button>
    <button class="btn dk" data-a="alta" data-i="${d.id}">Dijo que sí: pedir su alta</button>
   </div>
-  <p class="hint" style="margin-top:14px">En la demo, el PIN del dueño es <b>1234</b>. La liga lleva tu nombre: si el dueño escribe desde ahí, la venta queda a tu nombre.</p>`)}
+  <p class="hint" style="margin-top:14px">${d.vet?'Esta demo abre directo en la pantalla del doctor, sin PIN. Enséñale: la agenda de hoy, la ficha de un paciente, una consulta con receta y el recordatorio de vacunas por WhatsApp.':'En la demo, el PIN del dueño es <b>1234</b>.'} La liga lleva tu nombre: si el dueño escribe desde ahí, la venta queda a tu nombre.</p>`)}
 function sheetAlta(d){modal(`<h2>¡Dijo que sí!</h2><p class="sub">Se lo mandamos a Mauricio para darlo de alta. El primer mes es gratis.</p>
   <label for="al-n">Negocio</label><input id="al-n" type="text" value="${esc(d?d.n:'')}">
   <label for="al-d">Nombre del dueño o encargado</label><input id="al-d" type="text" autocomplete="off">
@@ -250,7 +251,7 @@ const A={
  tab:d=>{ui.tab=d.t;cerrar();render();scrollTo(0,0)},
  giro:d=>{ui.g=d.g;render()},
  demo:d=>sheetDemo(DEMOS.find(x=>x.id===d.i)),
- mandarDemo:d=>{const x=DEMOS.find(y=>y.id===d.i);wa(`Hola, soy ${yo()||'de Comandero'}. Le preparé cómo se vería ${x.n} en Comandero, el sistema para su negocio que se usa en el celular, con su menú: ${ligaDemo(x)}\n\nÁbralo en su celular y para entrar como dueño use el PIN 1234. ¿Le parece si paso a enseñárselo en 10 minutos?`)},
+ mandarDemo:d=>{const x=DEMOS.find(y=>y.id===d.i);if(x.vet){wa(`Hola, soy ${yo()||'de Comandero'}. Le preparé cómo se vería ${x.n} con un sistema hecho para veterinarias: agenda, expedientes con fotos y cartilla, recetas con la dosis calculada por peso, recordatorios de vacunas por WhatsApp y caja. Se usa en el celular o la tablet que ya tienen: ${ligaDemo(x)}\n\n¿Le parece si paso a enseñárselo en 10 minutos?`);return}wa(`Hola, soy ${yo()||'de Comandero'}. Le preparé cómo se vería ${x.n} en Comandero, el sistema para su negocio que se usa en el celular, con su menú: ${ligaDemo(x)}\n\nÁbralo en su celular y para entrar como dueño use el PIN 1234. ¿Le parece si paso a enseñárselo en 10 minutos?`)},
  mandarGuia:d=>{const x=DEMOS.find(y=>y.id===d.i);wa(`Aquí está la guía con fotos de cómo se usaría en ${x.n}: ${ligaGuia(x)}`)},
  copiar:d=>copiar(d.v),
  alta:d=>sheetAlta(DEMOS.find(x=>x.id===d.i)),

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Consultorio</title>
+<meta name="theme-color" content="#FAF7F2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap">
+<link rel="icon" href="../icono.svg" type="image/svg+xml">
+<style>
+:root{--brand:#F6A933;--brand-ink:#1D1B19;--brand-soft:#FFF1DA;--bg:#FAF7F2;--card:#FFFFFF;--ink:#1F1C19;--muted:#7A726A;--line:#ECE6DE;--chip:#F2EDE6;--ok:#1E8A55;--ok-soft:#E2F4EA;--warn:#B86E00;--warn-soft:#FDF0D9;--bad:#C2392B;--bad-soft:#FCE8E5;--info:#2E6BD0;--info-soft:#E7EFFC;--r:18px;--sab:env(safe-area-inset-bottom);--sat:env(safe-area-inset-top)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 Nunito,-apple-system,"Segoe UI",Roboto,sans-serif}
+button,input,textarea,select{font:inherit;color:inherit}
+h1,h2,h3{margin:0;letter-spacing:-.01em}
+.app{display:grid;grid-template-columns:minmax(0,1fr);min-height:100vh}.app>div{min-width:0}
+.side{display:none}
+.top{position:sticky;top:0;z-index:5;background:rgba(250,247,242,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:calc(var(--sat) + 10px) 16px 10px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line)}
+.top img{width:42px;height:42px;border-radius:50%}
+.top b{display:block;font-size:17px;font-weight:900;line-height:1.1}
+.top small{color:var(--muted);font-size:13px;font-weight:700}
+.top .sp{flex:1}
+main{padding:14px 16px calc(100px + var(--sab));max-width:1100px;width:100%;margin:0 auto}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:6;display:grid;grid-template-columns:repeat(6,1fr);background:rgba(255,255,255,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);padding:6px 2px calc(6px + var(--sab))}
+.tabs button,.side button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:800;color:var(--muted);padding:4px 0;cursor:pointer;position:relative}
+.tabs svg,.side svg{width:24px;height:24px}
+.tabs .on,.side .on{color:var(--ink)}
+.tabs .on svg,.side .on svg{color:#D98A0F}
+.dot{position:absolute;top:0;right:22%;min-width:17px;height:17px;border-radius:9px;background:var(--bad);color:#fff;font-size:10.5px;display:grid;place-items:center;padding:0 4px}
+@media(min-width:900px){
+ .app{grid-template-columns:230px minmax(0,1fr)}
+ .side{display:flex;flex-direction:column;gap:4px;position:sticky;top:0;height:100vh;padding:18px 12px;background:#fff;border-right:1px solid var(--line)}
+ .side .brand{display:flex;gap:10px;align-items:center;padding:4px 8px 16px}
+ .side .brand img{width:46px;height:46px;border-radius:50%}
+ .side .brand b{font-weight:900;line-height:1.1}
+ .side .brand small{display:block;color:var(--muted);font-size:12.5px}
+ .side button{flex-direction:row;gap:12px;font-size:15.5px;padding:11px 12px;border-radius:12px;justify-content:flex-start}
+ .side button.on{background:var(--brand-soft)}
+ .side .dot{position:static;margin-left:auto}
+ .tabs{display:none}
+ .top{display:none}
+ .top .tb{display:none}
+ main{padding:20px 28px 40px}
+}
+.h1{font-size:28px;font-weight:900;margin:2px 0 4px}
+.sub{color:var(--muted);margin:0 0 14px}
+.card{background:var(--card);border-radius:var(--r);padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 18px rgba(60,40,10,.05)}
+.sec{margin:22px 2px 10px;font-size:13px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;display:flex;align-items:center;gap:8px}
+.sec .sp{flex:1}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:700px){.kpis{grid-template-columns:repeat(4,1fr)}}
+.kpi{background:var(--card);border-radius:16px;padding:14px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.kpi span{font-size:12.5px;color:var(--muted);font-weight:800}
+.kpi b{display:block;font-size:26px;font-weight:900;margin-top:2px}
+.kpi small{color:var(--muted);font-size:12.5px}
+.grid2{display:grid;gap:14px}
+@media(min-width:900px){.grid2{grid-template-columns:1.25fr 1fr}}
+.list{display:grid;gap:8px}
+.row{display:flex;gap:10px;align-items:center}
+.sp{flex:1}
+.item{display:flex;gap:12px;align-items:center;background:var(--card);border-radius:16px;padding:12px;border:0;width:100%;text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.item .t{min-width:0;flex:1}
+.item b{display:block;font-weight:800;line-height:1.25}
+.item span{display:block;color:var(--muted);font-size:13.5px;line-height:1.3}.item span.tag,.item b .tag{display:inline-block;color:inherit}.item .tag.t-ok{color:var(--ok)}.item .tag.t-warn{color:var(--warn)}.item .tag.t-bad{color:var(--bad)}.item .tag.t-info{color:var(--info)}.item .tag.t-br{color:#8A5600}
+.hora{flex:none;width:58px;text-align:center;font-weight:900;font-size:15px}
+.hora small{display:block;color:var(--muted);font-weight:700;font-size:11.5px}
+.av{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-size:24px;background:var(--brand-soft)}
+.av.g{background:#E8F0FE}
+.av.lg{width:72px;height:72px;font-size:38px}
+.tag{display:inline-block;font-size:12px;font-weight:800;padding:3px 9px;border-radius:99px;background:var(--chip);color:var(--muted);white-space:nowrap}
+.t-ok{background:var(--ok-soft);color:var(--ok)}.t-warn{background:var(--warn-soft);color:var(--warn)}.t-bad{background:var(--bad-soft);color:var(--bad)}.t-info{background:var(--info-soft);color:var(--info)}.t-br{background:var(--brand-soft);color:#8A5600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:0;border-radius:13px;padding:11px 15px;font-weight:800;font-size:15px;cursor:pointer;background:var(--chip);color:var(--ink);text-decoration:none;white-space:nowrap}
+.btn.pri{background:var(--brand);color:var(--brand-ink)}
+.btn.dk{background:var(--ink);color:#fff}
+.btn.wa{background:#25D366;color:#06210f}
+.btn.ok{background:var(--ok);color:#fff}
+.btn.sm{padding:7px 11px;font-size:13.5px;border-radius:10px}
+.btn.full{width:100%}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.search{display:flex;align-items:center;gap:8px;background:#EFEAE3;border-radius:13px;padding:10px 12px;margin-bottom:12px}
+.search input{border:0;background:none;outline:none;width:100%;font-size:16px}
+label{display:block;font-size:13px;font-weight:800;color:var(--muted);margin:12px 2px 5px}
+input[type=text],input[type=tel],input[type=number],input[type=date],input[type=time],textarea,select{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 12px;font-size:16px;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+textarea{min-height:76px;resize:vertical}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.f4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 12px;font-size:14px;font-weight:700;cursor:pointer}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.seg{display:flex;background:#EFEAE3;border-radius:12px;padding:3px;gap:3px;overflow-x:auto}
+.seg button{border:0;background:none;border-radius:9px;padding:8px 13px;font-weight:800;font-size:14.5px;cursor:pointer;color:var(--muted);white-space:nowrap}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.ov{position:fixed;inset:0;z-index:20;background:rgba(30,20,10,.34);display:flex;align-items:flex-end;justify-content:center;animation:f .18s}
+@media(min-width:900px){.ov{align-items:center}}
+.sheet{background:var(--bg);width:100%;max-width:760px;max-height:94vh;overflow:auto;border-radius:22px 22px 0 0;padding:10px 18px calc(22px + var(--sab));animation:u .22s cubic-bezier(.2,.8,.2,1)}
+@media(min-width:900px){.sheet{border-radius:22px}}
+.grab{width:38px;height:5px;border-radius:9px;background:#D6CEC4;margin:2px auto 10px}
+.sheet h2{font-size:23px;font-weight:900;margin-bottom:2px}
+@keyframes u{from{transform:translateY(40px);opacity:.4}}@keyframes f{from{opacity:0}}
+.toast{position:fixed;left:50%;bottom:calc(96px + var(--sab));transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 16px;border-radius:14px;font-size:14.5px;font-weight:700;z-index:40;max-width:92vw;text-align:center}
+.alerta{background:var(--bad-soft);color:var(--bad);border-radius:12px;padding:8px 12px;font-weight:800;font-size:14px}
+.tbl{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl td,.tbl th{padding:9px 6px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.tbl th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.r{text-align:right}
+.hist{border-left:3px solid var(--brand);padding:4px 0 4px 12px;margin:0 0 14px}
+.hist b{display:block}
+.hist p{margin:3px 0;font-size:14.5px}
+.rx{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-top:8px}
+.rx b{font-weight:900}
+.chk{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.chk:last-child{border-bottom:0}
+.chk i{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid #CFC6BB;display:grid;place-items:center;font-style:normal;font-weight:900;color:#fff}
+.chk.on i{background:var(--ok);border-color:var(--ok)}
+.chk.on span{color:var(--muted);text-decoration:line-through}
+canvas.firma{width:100%;height:160px;background:#fff;border:1px dashed #CFC6BB;border-radius:12px;touch-action:none}
+.empty{color:var(--muted);text-align:center;padding:24px}
+.demo{background:var(--brand-soft);border-radius:14px;padding:10px 14px;font-size:14px;margin-bottom:14px;color:#6B4A0A}
+.bar{height:10px;border-radius:5px;background:var(--chip);overflow:hidden}.bar i{display:block;height:100%;background:var(--brand)}
+svg.spark{width:100%;height:70px}.av svg{width:24px;height:24px}@media(max-width:560px){.hm{display:none}}
+</style>
+</head>
+<body>
+<div class="app"><nav class="side" id="side"></nav><div><header class="top" id="top"></header><main id="main"></main></div></div>
+<nav class="tabs" id="tabs"></nav>
+<div id="modal"></div>
+<script>
+/* ===== Consultorio veterinario · demostración ===== */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=v=>'$'+Math.round(v||0).toLocaleString('es-MX');
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const D=864e5,ahora=()=>Date.now();
+const dk=t=>{const d=new Date(t);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const hoy0=()=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()};
+const hora=t=>new Date(t).toLocaleTimeString('es-MX',{hour:'numeric',minute:'2-digit'});
+const fecha=(t,o)=>new Date(t).toLocaleDateString('es-MX',o||{day:'numeric',month:'short'});
+const edad=t=>{const m=Math.floor((ahora()-t)/(30.44*D));return m<12?m+(m===1?' mes':' meses'):Math.floor(m/12)+(Math.floor(m/12)===1?' año':' años')};
+const telWa=t=>{t=String(t||'').replace(/\D/g,'');return t.length===10?'52'+t:t};
+function toast(t,ms){document.querySelectorAll('.toast').forEach(e=>e.remove());const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),ms||2600)}
+function wa(tel,txt){window.open('https://wa.me/'+telWa(tel)+'?text='+encodeURIComponent(txt),'_blank')}
+const CID=(new URLSearchParams(location.search).get('c')||'estacion-veterinaria').replace(/[^a-z0-9-]/g,'');
+let C=null,S=null,ui={tab:'hoy',q:'',dia:0};
+const KEY='vet-demo-'+CID;
+/* ---------- Datos de ejemplo ---------- */
+function rnd(seed){let s=seed;return()=>{s=(s*9301+49297)%233280;return s/233280}}
+function seed(){const r=rnd(7),pick=a=>a[Math.floor(r()*a.length)],now=ahora(),h0=hoy0();
+ const nombres=['Mariana López','Jorge Ramírez','Lucía Hernández','Carlos Medina','Ana Sofía Ruiz','Roberto Castillo','Gabriela Torres','Miguel Ángel Soto','Daniela Flores','Fernando Aguilar','Patricia Gómez','Luis Navarro','Valeria Cruz','Ricardo Morales','Andrea Vega','Héctor Ortiz','Karen Díaz','Sergio Peña','Claudia Rivas','Alejandro Mejía','Paola Sánchez','Eduardo Lara','Mónica Salas','Iván Contreras'];
+ const perros=[['Max','Labrador'],['Luna','Schnauzer'],['Rocky','Pitbull'],['Canela','Chihuahua'],['Toby','Poodle'],['Kira','Pastor alemán'],['Jack','Mestizo'],['Nala','Golden retriever'],['Bruno','Bulldog francés'],['Lola','Yorkshire'],['Coco','Shih tzu'],['Zeus','Husky'],['Mía','Beagle'],['Thor','Rottweiler'],['Princesa','Maltés'],['Simba','Mestizo'],['Chispa','Dachshund'],['Bobby','Border collie']];
+ const gatos=[['Michi','Doméstico'],['Pelusa','Persa'],['Garfield','Doméstico naranja'],['Salem','Doméstico negro'],['Kiara','Siamés'],['Oliver','Doméstico'],['Mimi','Angora']];
+ const duenos=nombres.map((n,i)=>({id:'d'+i,nombre:n,tel:'664'+String(1000000+Math.floor(r()*8999999)),desde:now-Math.floor(r()*700+30)*D}));
+ const masc=[];let k=0;
+ [...perros.map(x=>['Perro',...x]),...gatos.map(x=>['Gato',...x])].forEach(([esp,n,raza],i)=>{const d=duenos[i%duenos.length];const peso=esp==='Gato'?3+r()*3:({Chihuahua:2.5,Yorkshire:3,Maltés:3.5,Poodle:6,'Shih tzu':6,Schnauzer:8,Dachshund:7,'Bulldog francés':11,Beagle:12,Mestizo:14,'Border collie':17,Husky:22,Pitbull:25,Labrador:30,'Golden retriever':29,'Pastor alemán':33,Rottweiler:42}[raza]||12)*(0.9+r()*0.2);
+  const nac=now-Math.floor(r()*(i%6===0?0.8:10)*365*D)-60*D;const pesos=[];for(let j=5;j>=0;j--)pesos.push([now-j*60*D-Math.floor(r()*20)*D,Math.round(peso*(1-j*0.012+r()*0.03)*10)/10]);
+  masc.push({id:'m'+(k++),dueno:d.id,nombre:n,especie:esp,raza,sexo:r()<.5?'Macho':'Hembra',nac,esteril:r()<.6,alergias:i===3?'Penicilina':i===12?'Pollo (alimento)':'',pesos:pesos.filter(p=>p[0]>nac),color:pick(['café','negro','blanco','gris','dorado','atigrado','manchado'])})});
+ const cons=[],vac=[],ventas=[];const motivos=[['Vómito y diarrea','Gastroenteritis','Dieta blanda 3 días, hidratación','Metronidazol'],['Cojea de la pata trasera','Esguince leve','Reposo 7 días','Meloxicam'],['Comezón y se rasca mucho','Dermatitis alérgica','Shampoo medicado, cambio de alimento','Prednisolona'],['Revisión general','Paciente sano','Vacunas al día','' ],['Tos','Traqueobronquitis','Evitar collar, reposo','Amoxicilina con clavulánico'],['No quiere comer','Gastritis','Omeprazol y dieta','Omeprazol'],['Herida en la oreja','Otitis externa','Limpieza de oídos','Enrofloxacino'],['Dolor al caminar (adulto mayor)','Artrosis','Control de peso, suplemento articular','Meloxicam']];
+ for(let d=60;d>=1;d--){const t0=h0-d*D;const dow=new Date(t0).getDay();if(dow===0)continue;const n=2+Math.floor(r()*4);for(let j=0;j<n;j++){const m=pick(masc),mo=pick(motivos),t=t0+(9.5+r()*8.5)*36e5;const med=C.medicamentos.find(x=>x.n===mo[3]);const peso=m.pesos[m.pesos.length-1][1];
+   const rx=med?[{med:med.n,mg:Math.round(peso*med[m.especie==='Gato'?'gato':'perro']*10)/10,ml:Math.round(peso*med[m.especie==='Gato'?'gato':'perro']/med.mgml*100)/100,frec:med.frec,dias:med.dias,via:med.via}]:[];
+   const cobro=[['Consulta general',350]];if(r()<.25)cobro.push(['Ultrasonido',750]);if(med&&r()<.6){const p=C.productos.find(x=>x[0].startsWith(med.n.split(' ')[0])&&x[5]>0);if(p)cobro.push([p[0],p[5]])}
+   const c={id:uid(),mid:m.id,t,motivo:mo[0],peso,temp:(38+r()*1.2).toFixed(1),fc:Math.floor(80+r()*60),fr:Math.floor(18+r()*16),expl:'Mucosas rosadas, hidratación adecuada.',dx:mo[1],plan:mo[2],rx,doc:r()<.7?C.doctor:'Dra. Ana López',cobro};cons.push(c);
+   ventas.push({id:uid(),t:t+20*60000,mid:m.id,items:cobro.map(x=>[x[0],1,x[1]]),total:cobro.reduce((a,x)=>a+x[1],0),met:pick(['Efectivo','Efectivo','Tarjeta','Transferencia']),ref:c.id});}
+   if(r()<.4){const m=pick(masc);const tipo=pick(C.vacunas[m.especie]);const pr=C.servicios.find(s=>s[0].toLowerCase().includes(tipo[0].split(' ')[0].toLowerCase().slice(0,6)))||['Vacuna',400];ventas.push({id:uid(),t:t0+12*36e5,mid:m.id,items:[[pr[0],1,pr[1]]],total:pr[1],met:'Efectivo'})}
+   if(r()<.5){const p=pick(C.productos.filter(x=>x[5]>0&&x[1]==='Tienda'));ventas.push({id:uid(),t:t0+(10+r()*8)*36e5,items:[[p[0],1,p[5]]],total:p[5],met:pick(['Efectivo','Tarjeta'])})}}
+ masc.forEach((m,i)=>{(C.vacunas[m.especie]).forEach(([tipo,cada],j)=>{if(tipo.includes('cachorro'))return;const hace=Math.floor(r()*cada*0.75);const t=now-hace*D;if(t<m.nac)return;vac.push({id:uid(),mid:m.id,t,tipo,lote:'L'+Math.floor(1000+r()*8999),prox:t+cada*D})})});
+ // algunas que vencen esta semana para los recordatorios
+ vac.slice(0,70).forEach((v,i)=>{if(i%10===0)v.prox=now+(1+i%5)*D;if(i%13===5)v.prox=now-(3+i%9)*D});
+ const citas=[];const slots=[9.5,10,10.75,11.5,12.5,13,16,16.75,17.5,18.25];const mot=['Vacuna anual','Revisión de herida','Consulta: vómito','Ultrasonido','Desparasitación','Consulta: comezón','Control de peso','Baño y corte','Retiro de puntos','Primera consulta cachorro'];
+ const hh=new Date().getHours()+new Date().getMinutes()/60;
+ slots.forEach((h,i)=>{const m=masc[(i*7+3)%masc.length];const t=h0+h*36e5;citas.push({id:uid(),mid:m.id,t,dur:30,motivo:mot[i],estado:h<hh-1?(i===2?'falto':'termino'):h<hh?'consulta':i%3===0?'confirmada':'agendada'})});
+ citas.filter(c=>c.estado==='termino').forEach((c,i)=>{const m=masc.find(x=>x.id===c.mid);const vacu=/vacuna|desparas/i.test(c.motivo);const items=vacu?[[m.especie==='Gato'?'Vacuna triple felina':'Vacuna quíntuple',1,450]]:[['Consulta general',1,350]];if(i%2)items.push(['Croqueta premium adulto 7 kg',1,1150]);cons.push({id:uid(),mid:m.id,t:c.t+15*60000,motivo:c.motivo,peso:m.pesos[m.pesos.length-1][1],temp:'38.6',fc:96,fr:24,expl:'Sin hallazgos relevantes.',dx:vacu?'Paciente sano':'En observación',plan:vacu?'Próxima dosis en un año':'Revisión en 7 días',rx:[],doc:C.doctor,cobro:items.map(x=>[x[0],x[2]])});ventas.push({id:uid(),t:c.t+35*60000,mid:m.id,items,total:items.reduce((a,x)=>a+x[2],0),met:i%3?'Efectivo':'Tarjeta'})});
+ [1,1,2,3].forEach((d,i)=>{const m=masc[(i*7+2)%masc.length];citas.push({id:uid(),mid:m.id,t:h0+d*D+(10+i*2)*36e5,dur:30,motivo:mot[(i+4)%mot.length],estado:'agendada'})});
+ const hosp=[{id:uid(),mid:masc[2].id,ingreso:now-1.4*D,motivo:'Gastroenteritis hemorrágica',jaula:'Jaula 1',tareas:[['08:00','Suero Hartmann 40 ml/h'],['08:00','Maropitant 1 mg/kg SC'],['12:00','Revisar temperatura'],['14:00','Ofrecer agua en poca cantidad'],['20:00','Metronidazol oral']],hechas:{},notas:'Ya no ha vomitado desde ayer en la noche.'},{id:uid(),mid:masc[19].id,ingreso:now-0.3*D,motivo:'Esterilización (recuperación)',jaula:'Jaula 3',tareas:[['10:00','Meloxicam'],['13:00','Revisar herida'],['17:00','Alta si come bien']],hechas:{},notas:''}];
+ const prods=C.productos.map((p,i)=>({id:'p'+i,nombre:p[0],cat:p[1],stock:p[2],min:p[3],costo:p[4],precio:p[5],cad:now+(i%8===3?40:i%11===6?18:120+Math.floor(r()*400))*D}));
+ return {ver:C.ver,duenos,masc,cons,vac,citas,hosp,ventas:ventas.sort((a,b)=>a.t-b.t),prods,abiertas:[],avisos:{},firmas:[]}}
+function guardar(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function cargar(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.ver===C.ver&&s.dia===dk(ahora()))return s}catch(e){}const s=seed();s.dia=dk(ahora());return s}
+/* ---------- Ayudas ---------- */
+const mDe=id=>S.masc.find(m=>m.id===id), dDe=id=>S.duenos.find(d=>d.id===id);
+const pesoDe=m=>m.pesos.length?m.pesos[m.pesos.length-1][1]:0;
+const icono=m=>m.especie==='Gato'?'🐱':'🐶';
+const proxVac=m=>S.vac.filter(v=>v.mid===m.id).sort((a,b)=>a.prox-b.prox)[0];
+function vacEstado(v){const d=Math.ceil((v.prox-ahora())/D);return d<0?['Vencida','t-bad']:d<=7?['Toca '+(d===0?'hoy':d===1?'mañana':'en '+d+' días'),'t-warn']:['Al día','t-ok']}
+const ESTADOS={agendada:['Agendada','t-info'],confirmada:['Confirmó','t-ok'],llego:['En sala de espera','t-br'],consulta:['En consulta','t-warn'],termino:['Atendido','t-ok'],falto:['No vino','t-bad']};
+function recordatorios(){const now=ahora();return S.vac.filter(v=>v.prox<now+7*D&&v.prox>now-30*D&&!S.avisos['v'+v.id]).map(v=>({v,m:mDe(v.mid)})).filter(x=>x.m)}
+function seguimientos(){const a=hoy0()-D,b=hoy0();return S.cons.filter(c=>c.t>=a&&c.t<b&&!S.avisos['s'+c.id])}
+function porTerminar(){const now=ahora(),vis={};return S.cons.filter(c=>c.rx&&c.rx.length&&!S.avisos['r'+c.id]).map(c=>({c,fin:c.t+Math.max(...c.rx.map(x=>x.dias))*D})).filter(x=>x.fin>now&&x.fin<now+2*D&&!vis[x.c.mid]&&(vis[x.c.mid]=1))}
+const ICON={
+ hoy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg>',
+ agenda:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>',
+ pacientes:'<svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="7" cy="9" rx="2" ry="2.6"/><ellipse cx="17" cy="9" rx="2" ry="2.6"/><ellipse cx="10.2" cy="5.3" rx="1.9" ry="2.4"/><ellipse cx="13.8" cy="5.3" rx="1.9" ry="2.4"/><path d="M12 11.5c-3 0-5.5 3.6-5.5 6.1 0 1.6 1.4 2.4 3 1.9 1-.3 1.6-.6 2.5-.6s1.5.3 2.5.6c1.6.5 3-.3 3-1.9 0-2.5-2.5-6.1-5.5-6.1z"/></svg>',
+ hospital:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3.5" y="4" width="17" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></svg>',
+ caja:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h3"/></svg>',
+ mas:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 12h16M4 6h16M4 18h16"/></svg>',
+ farmacia:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6" y="7" width="12" height="14" rx="3"/><path d="M8 3h8v4H8zM12 11v6M9 14h6"/></svg>',
+ resumen:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>'};
+const TABS=[['hoy','Hoy'],['agenda','Agenda'],['pacientes','Pacientes'],['hospital','Hospital'],['caja','Caja'],['farmacia','Farmacia'],['resumen','Resumen']];
+function badge(k){if(k==='hoy'){const n=recordatorios().length+seguimientos().length+porTerminar().length;return n}if(k==='caja')return S.abiertas.length;if(k==='farmacia')return S.prods.filter(p=>p.stock<p.min||p.cad<ahora()+60*D).length;return 0}
+/* ---------- Pantallas ---------- */
+function vHoy(){const now=ahora(),h0=hoy0(),cit=S.citas.filter(c=>c.t>=h0&&c.t<h0+D).sort((a,b)=>a.t-b.t),ing=S.ventas.filter(v=>v.t>=h0).reduce((a,v)=>a+v.total,0),R=recordatorios(),SG=seguimientos(),PT=porTerminar();
+ const sal=new Date().getHours()<12?'Buenos días':new Date().getHours()<19?'Buenas tardes':'Buenas noches';
+ let h=`<div class="demo">Demostración preparada para <b>${esc(C.nombre)}</b>. Los pacientes, precios y cifras son de ejemplo. Toca todo con confianza: nada se guarda fuera de este aparato.<div style="margin-top:8px"><button class="btn sm dk" data-a="meInteresa">Lo quiero para mi veterinaria</button></div></div>
+ <div class="h1">${sal}, ${esc(C.doctorCorto)}</div><p class="sub">${fecha(now,{weekday:'long',day:'numeric',month:'long'})}</p>
+ <div class="kpis"><div class="kpi"><span>Citas de hoy</span><b>${cit.length}</b><small>${cit.filter(c=>c.estado==='termino').length} atendidas</small></div><div class="kpi"><span>Hospitalizados</span><b>${S.hosp.filter(x=>!x.alta).length}</b><small>${tareasPend()} tareas pendientes</small></div><div class="kpi"><span>Cobrado hoy</span><b>${money(ing)}</b><small>${S.abiertas.length?S.abiertas.length+' cuenta(s) por cobrar':'nada pendiente'}</small></div><div class="kpi"><span>Avisos por mandar</span><b>${R.length+SG.length+PT.length}</b><small>vacunas, seguimientos</small></div></div>
+ <div class="grid2" style="margin-top:4px"><div><div class="sec">Agenda de hoy<span class="sp"></span><button class="btn sm pri" data-a="nuevaCita">+ Cita</button></div><div class="list">${cit.map(citaItem).join('')||'<div class="empty">Sin citas hoy</div>'}</div></div>
+ <div><div class="sec">Recordatorios de vacunas</div><div class="list">${R.slice(0,6).map(({v,m})=>{const e=vacEstado(v),d=dDe(m.dueno);return `<div class="item"><div class="av ${m.especie==='Gato'?'g':''}">${icono(m)}</div><div class="t"><b>${esc(m.nombre)} · ${esc(v.tipo)}</b><span>${esc(d.nombre)} · <span class="tag ${e[1]}" style="display:inline">${e[0]}</span></span></div><button class="btn sm wa" data-a="recVac" data-v="${v.id}">WhatsApp</button></div>`}).join('')||'<div class="empty">Todo al día</div>'}${R.length>6?`<p class="sub" style="margin:4px 4px 0">Y ${R.length-6} más.</p>`:''}</div>
+ ${SG.length?`<div class="sec">¿Cómo siguen? (consultas de ayer)</div><div class="list">${SG.map(c=>{const m=mDe(c.mid),d=dDe(m.dueno);return `<div class="item"><div class="av ${m.especie==='Gato'?'g':''}">${icono(m)}</div><div class="t"><b>${esc(m.nombre)}</b><span>${esc(c.dx)} · ${esc(d.nombre)}</span></div><button class="btn sm wa" data-a="segui" data-c="${c.id}">Preguntar</button></div>`}).join('')}</div>`:''}
+ ${PT.length?`<div class="sec">Tratamientos que se terminan</div><div class="list">${PT.map(({c})=>{const m=mDe(c.mid);return `<div class="item"><div class="av ${m.especie==='Gato'?'g':''}">${icono(m)}</div><div class="t"><b>${esc(m.nombre)}</b><span>${esc(c.rx.map(x=>x.med).join(', '))}: se acaba en 2 días</span></div><button class="btn sm wa" data-a="resurtir" data-c="${c.id}">Avisar</button></div>`}).join('')}</div>`:''}
+ </div></div>`;return h}
+function citaItem(c){const m=mDe(c.mid),d=dDe(m.dueno),e=ESTADOS[c.estado];const sig={agendada:['confirmar','Confirmar','wa'],confirmada:['llego','Ya llegó',''],llego:['consultar','Pasar a consulta','pri'],consulta:['consultar','Abrir consulta','pri']}[c.estado];
+ return `<div class="item"><div class="hora">${hora(c.t).replace(/\s?[ap]\.?\s?m\.?/i,'')}<small>${new Date(c.t).getHours()<12?'a. m.':'p. m.'}</small></div><div class="av ${m.especie==='Gato'?'g':''}" data-a="ficha" data-m="${m.id}" style="cursor:pointer">${icono(m)}</div><div class="t" data-a="ficha" data-m="${m.id}" style="cursor:pointer"><b>${esc(m.nombre)} <span class="tag ${e[1]}">${e[0]}</span></b><span>${esc(c.motivo)} · ${esc(d.nombre)}</span></div>${sig?`<button class="btn sm ${sig[2]}" data-a="cita_${sig[0]}" data-c="${c.id}">${sig[1]}</button>`:''}</div>`}
+function tareasPend(){const k=dk(ahora());return S.hosp.filter(x=>!x.alta).reduce((a,x)=>a+x.tareas.filter((t,i)=>!(x.hechas[k]||[]).includes(i)).length,0)}
+function vAgenda(){const h0=hoy0()+ui.dia*D,cit=S.citas.filter(c=>c.t>=h0&&c.t<h0+D).sort((a,b)=>a.t-b.t);const dias=[...Array(7)].map((_,i)=>i);
+ return `<div class="row"><div class="h1" style="flex:1">Agenda</div><button class="btn pri" data-a="nuevaCita">+ Nueva cita</button></div>
+ <div class="seg" style="margin:10px 0 14px">${dias.map(i=>`<button class="${ui.dia===i?'on':''}" data-a="dia" data-d="${i}">${i===0?'Hoy':i===1?'Mañana':fecha(hoy0()+i*D,{weekday:'short',day:'numeric'})}</button>`).join('')}</div>
+ <div class="list">${cit.map(citaItem).join('')||'<div class="empty">No hay citas este día. Toca «+ Nueva cita».</div>'}</div>
+ <p class="sub" style="margin-top:14px">Un día antes, toca «Confirmar por WhatsApp» y el dueño responde. Las que no confirman son las que suelen faltar.</p>`}
+function vPacientes(){const q=ui.q.trim().toLowerCase();const L=S.masc.filter(m=>{const d=dDe(m.dueno);return !q||(m.nombre+' '+m.raza+' '+d.nombre+' '+d.tel).toLowerCase().includes(q)}).sort((a,b)=>a.nombre.localeCompare(b.nombre));
+ return `<div class="row"><div class="h1" style="flex:1">Pacientes</div><button class="btn pri" data-a="nuevoPaciente">+ Paciente nuevo</button></div><p class="sub">${S.masc.length} mascotas · ${S.duenos.length} dueños</p>
+ <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C847C" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="text" placeholder="Nombre de la mascota, del dueño o teléfono" value="${esc(ui.q)}" autocomplete="off"></div>
+ <div class="list">${L.map(m=>{const d=dDe(m.dueno),v=proxVac(m),e=v?vacEstado(v):null;return `<button class="item" data-a="ficha" data-m="${m.id}"><div class="av ${m.especie==='Gato'?'g':''}">${icono(m)}</div><div class="t"><b>${esc(m.nombre)} ${m.alergias?'<span class="tag t-bad">Alergia</span>':''}</b><span>${esc(m.raza)} · ${edad(m.nac)} · ${esc(d.nombre)}</span></div>${e?`<span class="tag ${e[1]}">${e[0]==='Al día'?'Vacunas al día':e[0]}</span>`:''}</button>`}).join('')}</div>`}
+function spark(m){const P=m.pesos;if(P.length<2)return '';const mn=Math.min(...P.map(p=>p[1]))*.97,mx=Math.max(...P.map(p=>p[1]))*1.03,W=300,H=60;const pts=P.map((p,i)=>[i/(P.length-1)*W,H-(p[1]-mn)/(mx-mn||1)*H]);return `<svg class="spark" viewBox="-6 -8 312 80" preserveAspectRatio="none"><polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="${C.color}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>${pts.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="#fff" stroke="${C.color}" stroke-width="2.5"/>`).join('')}</svg>`}
+function fichaHtml(m){const d=dDe(m.dueno),cons=S.cons.filter(c=>c.mid===m.id).sort((a,b)=>b.t-a.t),vac=S.vac.filter(v=>v.mid===m.id).sort((a,b)=>b.t-a.t),t=ui.ft||'hist';
+ const ult={};vac.forEach(v=>{if(!ult[v.tipo])ult[v.tipo]=v});
+ let h=`<div class="row" style="align-items:flex-start"><div class="av lg ${m.especie==='Gato'?'g':''}">${icono(m)}</div><div style="flex:1;min-width:0"><h2>${esc(m.nombre)}</h2><div class="sub" style="margin:0">${esc(m.especie)} · ${esc(m.raza)} · ${esc(m.sexo)}${m.esteril?' esterilizad'+(m.sexo==='Macho'?'o':'a'):''} · ${edad(m.nac)}</div><div class="sub" style="margin:2px 0 0">Dueño: <b style="color:var(--ink)">${esc(d.nombre)}</b> · ${esc(d.tel)}</div></div></div>
+ ${m.alergias?`<div class="alerta" style="margin-top:10px">⚠ Alergia: ${esc(m.alergias)}</div>`:''}
+ <div class="card" style="margin-top:12px;padding:12px 14px"><div class="row"><div><span class="sub" style="margin:0;font-size:13px;font-weight:800">Peso actual</span><div style="font-size:26px;font-weight:900">${pesoDe(m)} kg</div></div><div style="flex:1">${spark(m)}</div></div></div>
+ <div class="acts" style="margin:12px 0"><button class="btn pri" data-a="consulta" data-m="${m.id}">Nueva consulta</button><button class="btn" data-a="vacunar" data-m="${m.id}">Vacuna</button><button class="btn" data-a="nuevaCita" data-m="${m.id}">Cita</button><button class="btn" data-a="consent" data-m="${m.id}">Consentimiento</button><button class="btn wa" data-a="cartilla" data-m="${m.id}">Mandar cartilla</button></div>
+ <div class="seg" style="margin-bottom:12px">${[['hist','Historial'],['cart','Cartilla'],['arch','Archivos'],['datos','Datos']].map(([k,v])=>`<button class="${t===k?'on':''}" data-a="ftab" data-t="${k}" data-m="${m.id}">${v}</button>`).join('')}</div>`;
+ if(t==='hist')h+=cons.length?cons.map(c=>`<div class="hist"><b>${fecha(c.t,{day:'numeric',month:'long',year:'numeric'})} · ${esc(c.motivo)}</b><p><b style="display:inline">Diagnóstico:</b> ${esc(c.dx)} · ${c.peso} kg · ${c.temp} °C</p><p style="color:var(--muted)">${esc(c.plan)}</p>${(c.rx||[]).map(x=>`<p>💊 ${esc(x.med)}: ${x.ml} ml ${esc(x.frec)} por ${x.dias} días</p>`).join('')}<p style="color:var(--muted);font-size:13px">${esc(c.doc)}</p></div>`).join(''):'<div class="empty">Sin consultas todavía</div>';
+ if(t==='cart')h+=`<table class="tbl"><tr><th>Vacuna o desparasitación</th><th>Última</th><th>Próxima</th></tr>${C.vacunas[m.especie].filter(x=>!x[0].includes('cachorro')).map(([tipo])=>{const v=ult[tipo];const e=v?vacEstado(v):['Sin registro','t-bad'];return `<tr><td><b>${esc(tipo)}</b>${v?`<br><small style="color:var(--muted)">Lote ${esc(v.lote)}</small>`:''}</td><td class="num">${v?fecha(v.t,{day:'numeric',month:'short',year:'2-digit'}):'—'}</td><td>${v?`<span class="num">${fecha(v.prox,{day:'numeric',month:'short',year:'2-digit'})}</span><br>`:''}<span class="tag ${e[1]}">${e[0]}</span></td></tr>`}).join('')}</table>`;
+ if(t==='arch'){const F=(S.firmas||[]).filter(f=>f.mid===m.id);h+=`<p class="sub">Fotos de estudios, rayos X, análisis y consentimientos firmados de ${esc(m.nombre)}.</p><label class="btn full" for="arch-in" style="margin:0 0 12px">📷 Agregar foto o estudio</label><input id="arch-in" type="file" accept="image/*" multiple style="position:absolute;opacity:0;width:1px" data-m="${m.id}">
+  <div class="list">${(m.archivos||[]).map(a=>`<div class="item"><img src="${a.src}" style="width:64px;height:64px;object-fit:cover;border-radius:10px"><div class="t"><b>${esc(a.n)}</b><span>${fecha(a.t)}</span></div></div>`).join('')}${F.map(f=>`<div class="item"><img src="${f.firma}" style="width:90px;height:40px;object-fit:contain;background:#fff;border-radius:8px"><div class="t"><b>Consentimiento: ${esc(f.tipo)}</b><span>Firmó ${esc(f.nombre)} · ${fecha(f.t)}</span></div></div>`).join('')}${!(m.archivos||[]).length&&!F.length?'<div class="empty">Sin archivos todavía</div>':''}</div>`}
+ if(t==='datos')h+=`<table class="tbl"><tr><td>Dueño</td><td><b>${esc(d.nombre)}</b></td></tr><tr><td>Teléfono</td><td>${esc(d.tel)} <button class="btn sm wa" data-a="waDueno" data-d="${d.id}">WhatsApp</button></td></tr><tr><td>Cliente desde</td><td>${fecha(d.desde,{month:'long',year:'numeric'})}</td></tr><tr><td>Nacimiento</td><td>${fecha(m.nac,{day:'numeric',month:'long',year:'numeric'})}</td></tr><tr><td>Color</td><td>${esc(m.color)}</td></tr><tr><td>Otras mascotas</td><td>${S.masc.filter(x=>x.dueno===d.id&&x.id!==m.id).map(x=>`<button class="btn sm" data-a="ficha" data-m="${x.id}">${icono(x)} ${esc(x.nombre)}</button>`).join(' ')||'—'}</td></tr></table>`;
+ return h}
+function vHospital(){const L=S.hosp.filter(x=>!x.alta),k=dk(ahora());
+ return `<div class="row"><div class="h1" style="flex:1">Hospital</div><button class="btn pri" data-a="internar">+ Internar</button></div><p class="sub">Pacientes internados y lo que toca darles hoy. Cada quien palomea lo que hizo y queda registrado.</p>
+ <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">${L.map(x=>{const m=mDe(x.mid),d=dDe(m.dueno),hd=x.hechas[k]||[],dias=Math.max(1,Math.ceil((ahora()-x.ingreso)/D));return `<div class="card"><div class="row"><div class="av ${m.especie==='Gato'?'g':''}">${icono(m)}</div><div style="flex:1"><b style="font-size:18px">${esc(m.nombre)}</b> <span class="tag t-br">${esc(x.jaula)}</span><div class="sub" style="margin:0">${esc(x.motivo)} · día ${dias} · ${pesoDe(m)} kg</div></div></div>
+  <div style="margin-top:10px">${x.tareas.map(([h,t],i)=>`<div class="chk ${hd.includes(i)?'on':''}" data-a="tarea" data-h="${x.id}" data-i="${i}"><i>${hd.includes(i)?'✓':''}</i><b class="num" style="width:52px">${h}</b><span>${esc(t)}</span></div>`).join('')}</div>
+  ${x.notas?`<p style="margin:10px 0 0;font-size:14.5px">📝 ${esc(x.notas)}</p>`:''}
+  <div class="acts" style="margin-top:12px"><button class="btn sm wa" data-a="avisoHosp" data-h="${x.id}">Mandar foto y avance al dueño</button><button class="btn sm" data-a="alta" data-h="${x.id}">Dar de alta (${dias} día${dias>1?'s':''})</button></div></div>`}).join('')||'<div class="empty">No hay pacientes internados.</div>'}</div>`}
+function vCaja(){const h0=hoy0(),V=S.ventas.filter(v=>v.t>=h0).sort((a,b)=>b.t-a.t),tot=V.reduce((a,v)=>a+v.total,0),por=m=>V.filter(v=>v.met===m).reduce((a,v)=>a+v.total,0);
+ return `<div class="row"><div class="h1" style="flex:1">Caja</div><button class="btn pri" data-a="venta">+ Venta de mostrador</button></div>
+ <div class="kpis" style="margin-top:10px"><div class="kpi"><span>Cobrado hoy</span><b>${money(tot)}</b></div><div class="kpi"><span>Efectivo</span><b>${money(por('Efectivo'))}</b></div><div class="kpi"><span>Tarjeta</span><b>${money(por('Tarjeta'))}</b></div><div class="kpi"><span>Transferencia</span><b>${money(por('Transferencia'))}</b></div></div>
+ <div class="sec">Por cobrar</div><div class="list">${S.abiertas.map(a=>{const m=mDe(a.mid);return `<div class="item"><div class="av ${m.especie==='Gato'?'g':''}">${icono(m)}</div><div class="t"><b>${esc(m.nombre)} · ${money(a.items.reduce((s,x)=>s+x[1]*x[2],0))}</b><span>${esc(a.items.map(x=>x[0]).join(', '))}</span></div><button class="btn sm ok" data-a="cobrar" data-i="${a.id}">Cobrar</button></div>`}).join('')||'<div class="empty">Nada pendiente. Al terminar una consulta, su cuenta aparece aquí.</div>'}</div>
+ <div class="sec">Cobros de hoy</div><div class="card" style="padding:6px 12px"><table class="tbl">${V.map(v=>{const m=v.mid&&mDe(v.mid);return `<tr><td class="num">${hora(v.t)}</td><td>${m?esc(m.nombre)+' · ':''}${esc(v.items.map(x=>x[0]).join(', '))}</td><td>${esc(v.met)}</td><td class="num r"><b>${money(v.total)}</b></td></tr>`}).join('')||'<tr><td class="empty">Sin cobros todavía</td></tr>'}</table></div>
+ <div class="acts" style="margin-top:12px"><button class="btn dk" data-a="corte">Corte de caja</button></div>`}
+function vFarmacia(){const now=ahora(),L=S.prods.slice().sort((a,b)=>a.cat.localeCompare(b.cat)||a.nombre.localeCompare(b.nombre)),bajo=L.filter(p=>p.stock<p.min),cad=L.filter(p=>p.cad<now+60*D);
+ return `<div class="h1">Farmacia y tienda</div><p class="sub">Medicamentos, vacunas, alimento y material. Lo que se receta o se vende se descuenta solo.</p>
+ ${bajo.length?`<div class="card" style="border:2px solid var(--bad);margin-bottom:10px"><b>⚠ Hay que pedir:</b> ${bajo.map(p=>esc(p.nombre)).join(', ')}</div>`:''}
+ ${cad.length?`<div class="card" style="border:2px solid var(--warn);margin-bottom:10px"><b>⏳ Caduca pronto:</b> ${cad.map(p=>`${esc(p.nombre)} (${fecha(p.cad,{day:'numeric',month:'short'})})`).join(', ')}. Úsalos primero o pide cambio al proveedor.</div>`:''}
+ <div class="card" style="padding:6px 12px;overflow-x:auto"><table class="tbl"><tr><th>Producto</th><th>Hay</th><th class="hm">Caduca</th><th class="r">Precio</th></tr>${L.map(p=>`<tr><td><b>${esc(p.nombre)}</b><br><small style="color:var(--muted)">${esc(p.cat)}${p.cad<now+60*D?' · <b style="color:var(--warn)">caduca '+fecha(p.cad)+'</b>':''}</small></td><td class="num">${p.stock} ${p.stock<p.min?'<span class="tag t-bad">Pedir</span>':''}</td><td class="num hm">${fecha(p.cad,{month:'short',year:'2-digit'})} ${p.cad<now+60*D?'<span class="tag t-warn">Pronto</span>':''}</td><td class="num r">${p.precio?money(p.precio):'<small style="color:var(--muted)">uso interno</small>'}</td></tr>`).join('')}</table></div>`}
+function vResumen(){const now=new Date(),a=new Date(now.getFullYear(),now.getMonth(),1).getTime(),pa=new Date(now.getFullYear(),now.getMonth()-1,1).getTime();
+ const V=S.ventas.filter(v=>v.t>=a),Vp=S.ventas.filter(v=>v.t>=pa&&v.t<a),tot=V.reduce((s,v)=>s+v.total,0);const cats={};V.forEach(v=>v.items.forEach(([n,q,p])=>{const s=C.servicios.find(x=>x[0]===n);const c=s?s[2]:(S.prods.find(x=>x.nombre===n)||{}).cat||'Otros';cats[c]=(cats[c]||0)+q*p}));const mx=Math.max(1,...Object.values(cats));
+ const cons=S.cons.filter(c=>c.t>=a),dx={};cons.forEach(c=>dx[c.dx]=(dx[c.dx]||0)+1);const nuevos=S.duenos.filter(d=>d.desde>=a).length,vacM=S.vac.filter(v=>v.t>=a).length,av=Object.keys(S.avisos).length;
+ const dia=now.getDate(),proy=tot/Math.max(1,dia)*new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
+ return `<div class="h1">Resumen del mes</div><p class="sub">${now.toLocaleDateString('es-MX',{month:'long',year:'numeric'})} · para el doctor y la administración</p>
+ <div class="kpis"><div class="kpi"><span>Ingresos del mes</span><b>${money(tot)}</b><small>a este paso cierras en ${money(proy)}</small></div><div class="kpi"><span>Consultas</span><b>${cons.length}</b><small>ticket promedio ${money(tot/Math.max(1,V.length))}</small></div><div class="kpi"><span>Vacunas aplicadas</span><b>${vacM}</b><small>${av} avisos mandados</small></div><div class="kpi"><span>Mes pasado</span><b>${money(Vp.reduce((s,v)=>s+v.total,0))}</b><small>completo</small></div></div>
+ <div class="grid2" style="margin-top:14px"><div class="card"><b>De dónde viene el dinero</b><div style="display:grid;gap:10px;margin-top:12px">${Object.entries(cats).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div><div class="row"><span style="flex:1">${esc(k)}</span><b class="num">${money(v)}</b></div><div class="bar"><i style="width:${v/mx*100}%"></i></div></div>`).join('')}</div></div>
+ <div class="card"><b>Lo que más atienden</b><table class="tbl" style="margin-top:6px">${Object.entries(dx).sort((a,b)=>b[1]-a[1]).slice(0,7).map(([k,v])=>`<tr><td>${esc(k)}</td><td class="num r"><b>${v}</b></td></tr>`).join('')}</table>
+ <p class="sub" style="margin:10px 0 0">Mensaje para el doctor: cada vacuna recordada por WhatsApp es una visita que regresa. ${R0()} mascotas tienen vacunas vencidas: son unos <b>${money(R0()*400)}</b> esperando.</p></div></div>
+ <div class="card" style="margin-top:14px"><b>Al cerrar el día</b><p class="sub" style="margin:4px 0 8px">Lista para que nadie se vaya sin dejar todo listo.</p>${['Corte de caja hecho','Pacientes internados con sus tareas de la noche','Refrigerador de vacunas entre 2 y 8 °C','Citas de mañana confirmadas','Basura biológica en su contenedor'].map((t,i)=>`<div class="chk ${(S.cierre||{})[dk(ahora())+i]?'on':''}" data-a="cierre" data-i="${i}"><i>${(S.cierre||{})[dk(ahora())+i]?'✓':''}</i><span>${t}</span></div>`).join('')}</div>`}
+const R0=()=>S.masc.filter(m=>S.vac.some(v=>v.mid===m.id&&v.prox<ahora())).length;
+/* ---------- Modales ---------- */
+function modal(h){$('#modal').innerHTML=`<div class="ov" data-a="ovc"><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div>${h}</div></div>`}
+function cerrar(){$('#modal').innerHTML='';ui.modal=null}
+function selMascota(sel){return `<select id="sel-m">${S.masc.slice().sort((a,b)=>a.nombre.localeCompare(b.nombre)).map(m=>`<option value="${m.id}" ${m.id===sel?'selected':''}>${m.nombre} · ${dDe(m.dueno).nombre}</option>`).join('')}</select>`}
+function mConsulta(m){const pe=pesoDe(m),esp=m.especie==='Gato'?'gato':'perro';ui.rx=ui.rx||[];ui.cob=ui.cob||['Consulta general'];
+ const meds=C.medicamentos;
+ modal(`<div class="row"><div class="av ${m.especie==='Gato'?'g':''}">${icono(m)}</div><div><h2>Consulta de ${esc(m.nombre)}</h2><div class="sub" style="margin:0">${esc(m.raza)} · ${edad(m.nac)} · último peso ${pe} kg</div></div></div>
+ ${m.alergias?`<div class="alerta" style="margin-top:10px">⚠ Alergia: ${esc(m.alergias)}</div>`:''}
+ <label for="c-mot">Motivo de la consulta</label><input id="c-mot" type="text" placeholder="Ej. vómito desde ayer">
+ <div class="f4"><div><label for="c-peso">Peso kg</label><input id="c-peso" type="number" step="0.1" inputmode="decimal" value="${pe}"></div><div><label for="c-temp">Temp °C</label><input id="c-temp" type="number" step="0.1" inputmode="decimal" placeholder="38.5"></div><div><label for="c-fc">Pulso</label><input id="c-fc" type="number" inputmode="numeric" placeholder="lpm"></div><div><label for="c-fr">Resp.</label><input id="c-fr" type="number" inputmode="numeric" placeholder="rpm"></div></div>
+ <label for="c-exp">Exploración</label><textarea id="c-exp" placeholder="Toca el micrófono del teclado y dicta"></textarea>
+ <div class="f2"><div><label for="c-dx">Diagnóstico</label><input id="c-dx" type="text"></div><div><label for="c-plan">Indicaciones</label><input id="c-plan" type="text" placeholder="Ej. dieta blanda 3 días"></div></div>
+ <label>Receta: elige el medicamento y la dosis se calcula con el peso</label><div class="chips">${meds.map(x=>`<button class="chip" data-a="rxAdd" data-n="${esc(x.n)}">+ ${esc(x.n)}</button>`).join('')}</div>
+ <div id="rx"></div>
+ <label>Qué se cobra</label><div class="chips">${C.servicios.filter(s=>['Consulta','Estudios','Hospital'].includes(s[2])).map(s=>`<button class="chip ${ui.cob.includes(s[0])?'on':''}" data-a="cobTog" data-n="${esc(s[0])}">${esc(s[0])} · ${money(s[1])}</button>`).join('')}</div>
+ <div class="acts" style="margin-top:16px"><button class="btn" data-a="cerrar">Cancelar</button><span class="sp"></span><button class="btn pri" data-a="consultaOk" data-m="${m.id}">Guardar consulta</button></div>`);pintarRx(m)}
+function pintarRx(m){const pe=+($('#c-peso')&&$('#c-peso').value)||pesoDe(m),esp=m.especie==='Gato'?'gato':'perro';const el=$('#rx');if(!el)return;
+ el.innerHTML=ui.rx.map((n,i)=>{const x=C.medicamentos.find(y=>y.n===n),mg=Math.round(pe*x[esp]*10)/10,ml=Math.round(pe*x[esp]/x.mgml*100)/100;return `<div class="rx"><div class="row"><b style="flex:1">${esc(x.n)}</b><button class="btn sm" data-a="rxDel" data-i="${i}" aria-label="Quitar">✕</button></div><div style="font-size:15px;margin-top:2px">Dar <b>${ml} ml</b> (${mg} mg) ${esc(x.via)} <b>${esc(x.frec)}</b> por <b>${x.dias} días</b></div><small style="color:var(--muted)">${x[esp]} mg/kg × ${pe} kg · ${esc(x.pres)}. Dosis de referencia que el doctor ajusta.</small></div>`}).join('')}
+function mVacuna(m){modal(`<h2>Vacuna o desparasitación</h2><p class="sub">${esc(m.nombre)} · ${pesoDe(m)} kg</p><label>¿Qué se aplicó?</label><div class="chips">${C.vacunas[m.especie].map(([t])=>`<button class="chip ${ui.vt===t?'on':''}" data-a="vtipo" data-t="${esc(t)}" data-m="${m.id}">${esc(t)}</button>`).join('')}</div>
+ <div class="f2"><div><label for="v-lote">Lote</label><input id="v-lote" type="text" placeholder="Ej. L4821"></div><div><label for="v-fecha">Próxima dosis</label><input id="v-fecha" type="date" value="${ui.vt?dk(ahora()+(C.vacunas[m.especie].find(x=>x[0]===ui.vt)||[0,365])[1]*D):''}"></div></div>
+ <p class="sub" style="margin-top:10px">La próxima fecha se pone sola. Unos días antes te aparece en «Hoy» para mandarle el recordatorio al dueño.</p>
+ <div class="acts"><button class="btn" data-a="cerrar">Cancelar</button><span class="sp"></span><button class="btn pri" data-a="vacOk" data-m="${m.id}">Guardar y cobrar</button></div>`)}
+function mCita(mid){modal(`<h2>Nueva cita</h2><label>Paciente</label>${selMascota(mid)}<div class="f2"><div><label for="ct-d">Día</label><input id="ct-d" type="date" value="${dk(hoy0()+(ui.tab==='agenda'?ui.dia:0)*D)}"></div><div><label for="ct-h">Hora</label><input id="ct-h" type="time" value="${String(Math.min(C.horario[1]-1,new Date().getHours()+1)).padStart(2,'0')}:00"></div></div>
+ <label for="ct-m">Motivo</label><input id="ct-m" type="text" placeholder="Ej. vacuna anual"><div class="chips" style="margin-top:8px">${['Consulta','Vacuna','Desparasitación','Ultrasonido','Cirugía','Baño y corte','Revisión'].map(x=>`<button class="chip" data-a="ctMot" data-v="${x}">${x}</button>`).join('')}</div>
+ <div class="acts" style="margin-top:16px"><button class="btn" data-a="cerrar">Cancelar</button><span class="sp"></span><button class="btn pri" data-a="citaOk">Agendar</button></div>`)}
+function mConsent(m){const d=dDe(m.dueno);modal(`<h2>Consentimiento</h2><p class="sub">${esc(m.nombre)} · ${esc(d.nombre)}</p><div class="chips">${['Cirugía','Anestesia','Hospitalización','Eutanasia'].map(t=>`<button class="chip ${ui.ctp===t?'on':''}" data-a="ctp" data-t="${t}" data-m="${m.id}">${t}</button>`).join('')}</div>
+ <div class="card" style="margin-top:10px;font-size:14.5px">Yo, <b>${esc(d.nombre)}</b>, dueño de <b>${esc(m.nombre)}</b>, autorizo a ${esc(C.nombre)} a realizar el procedimiento de <b>${esc((ui.ctp||'Cirugía').toLowerCase())}</b>. Me explicaron los riesgos, los cuidados y el costo aproximado, y tuve oportunidad de preguntar.</div>
+ <label>Firma del dueño (con el dedo)</label><canvas class="firma" id="firma"></canvas><div class="acts" style="margin-top:12px"><button class="btn" data-a="firmaBorrar">Borrar firma</button><span class="sp"></span><button class="btn pri" data-a="consentOk" data-m="${m.id}">Guardar firmado</button></div>`);firmaInit()}
+function firmaInit(){const c=$('#firma');if(!c)return;const r=c.getBoundingClientRect();c.width=r.width*2;c.height=r.height*2;const x=c.getContext('2d');x.scale(2,2);x.lineWidth=2.4;x.lineCap='round';x.strokeStyle='#1F1C19';let on=false;ui.firmo=false;
+ const p=e=>{const b=c.getBoundingClientRect(),t=e.touches?e.touches[0]:e;return [t.clientX-b.left,t.clientY-b.top]};
+ const dn=e=>{on=true;ui.firmo=true;const [a,b]=p(e);x.beginPath();x.moveTo(a,b);e.preventDefault()},mv=e=>{if(!on)return;const [a,b]=p(e);x.lineTo(a,b);x.stroke();e.preventDefault()},up=()=>on=false;
+ c.addEventListener('pointerdown',dn);c.addEventListener('pointermove',mv);addEventListener('pointerup',up)}
+function mVenta(){ui.vta=ui.vta||[];const P=S.prods.filter(p=>p.precio>0);modal(`<h2>Venta de mostrador</h2><p class="sub">Alimento, antipulgas, accesorios…</p><div class="list">${P.map(p=>`<button class="item" data-a="vtaAdd" data-p="${p.id}"><div class="t"><b>${esc(p.nombre)}</b><span>${p.stock} en existencia</span></div><b class="num">${money(p.precio)}</b>${ui.vta.filter(x=>x===p.id).length?`<span class="tag t-br">×${ui.vta.filter(x=>x===p.id).length}</span>`:''}</button>`).join('')}</div>
+ <div class="row" style="margin-top:14px"><b style="flex:1;font-size:20px">Total ${money(ui.vta.reduce((a,id)=>a+S.prods.find(p=>p.id===id).precio,0))}</b>${['Efectivo','Tarjeta','Transferencia'].map(m=>`<button class="btn ${m==='Efectivo'?'ok':''}" data-a="vtaOk" data-m="${m}" ${ui.vta.length?'':'disabled'}>${m}</button>`).join('')}</div>`)}
+function mNuevoPaciente(){modal(`<h2>Paciente nuevo</h2><div class="f2"><div><label for="np-n">Nombre de la mascota</label><input id="np-n" type="text"></div><div><label for="np-e">Especie</label><select id="np-e"><option>Perro</option><option>Gato</option></select></div></div>
+ <div class="f2"><div><label for="np-r">Raza</label><input id="np-r" type="text" placeholder="Ej. Mestizo"></div><div><label for="np-p">Peso kg</label><input id="np-p" type="number" step="0.1" inputmode="decimal"></div></div>
+ <div class="f2"><div><label for="np-s">Sexo</label><select id="np-s"><option>Macho</option><option>Hembra</option></select></div><div><label for="np-ed">Edad (años)</label><input id="np-ed" type="number" step="0.5" inputmode="decimal"></div></div>
+ <div class="f2"><div><label for="np-d">Nombre del dueño</label><input id="np-d" type="text"></div><div><label for="np-t">WhatsApp</label><input id="np-t" type="tel" inputmode="tel"></div></div>
+ <label for="np-a">Alergias (si tiene)</label><input id="np-a" type="text"><div class="acts" style="margin-top:16px"><button class="btn" data-a="cerrar">Cancelar</button><span class="sp"></span><button class="btn pri" data-a="npOk">Guardar</button></div>`)}
+/* ---------- Acciones ---------- */
+const v=id=>{const e=document.getElementById(id);return e?e.value.trim():''};
+const A={
+ tab:d=>{ui.tab=d.t;ui.q=ui.q;cerrar();render();scrollTo(0,0)},
+ ovc:(d,e)=>{if(e.target.classList.contains('ov'))cerrar()},cerrar:()=>cerrar(),
+ dia:d=>{ui.dia=+d.d;render()},
+ ficha:d=>{const m=mDe(d.m);ui.ft='hist';ui.fm=m.id;modal(fichaHtml(m))},
+ ftab:d=>{ui.ft=d.t;const sh=$('.sheet');const y=sh.scrollTop;modal(fichaHtml(mDe(d.m)));$('.sheet').scrollTop=y},
+ consulta:d=>{ui.rx=[];ui.cob=['Consulta general'];mConsulta(mDe(d.m))},
+ rxAdd:d=>{if(!ui.rx.includes(d.n))ui.rx.push(d.n);pintarRx(mDe(ui.cm))},
+ rxDel:d=>{ui.rx.splice(+d.i,1);pintarRx(mDe(ui.cm))},
+ cobTog:(d,e)=>{const i=ui.cob.indexOf(d.n);i<0?ui.cob.push(d.n):ui.cob.splice(i,1);e.target.closest('.chip').classList.toggle('on')},
+ consultaOk:d=>{const m=mDe(d.m),pe=+v('c-peso')||pesoDe(m),esp=m.especie==='Gato'?'gato':'perro';if(!v('c-mot')){toast('Escribe el motivo');$('#c-mot').focus();return}
+  if(Math.abs(pe-pesoDe(m))>0.05)m.pesos.push([ahora(),pe]);
+  const rx=ui.rx.map(n=>{const x=C.medicamentos.find(y=>y.n===n);return {med:n,mg:Math.round(pe*x[esp]*10)/10,ml:Math.round(pe*x[esp]/x.mgml*100)/100,frec:x.frec,dias:x.dias,via:x.via}});
+  const items=ui.cob.map(n=>{const s=C.servicios.find(x=>x[0]===n);return [n,1,s?s[1]:0]});rx.forEach(r=>{const p=S.prods.find(x=>x.nombre.startsWith(r.med.split(' ')[0])&&x.precio>0);if(p)items.push([p.nombre,1,p.precio])});
+  const c={id:uid(),mid:m.id,t:ahora(),motivo:v('c-mot'),peso:pe,temp:v('c-temp'),fc:v('c-fc'),fr:v('c-fr'),expl:v('c-exp'),dx:v('c-dx')||'—',plan:v('c-plan'),rx,doc:C.doctor,cobro:items.map(x=>[x[0],x[2]])};S.cons.push(c);
+  S.abiertas.push({id:uid(),mid:m.id,items,ref:c.id});const ci=S.citas.find(x=>x.mid===m.id&&x.t>=hoy0()&&x.t<hoy0()+D&&x.estado!=='termino');if(ci)ci.estado='termino';guardar();
+  cerrar();render();modal(`<h2>Consulta guardada</h2><p class="sub">${esc(m.nombre)} · su cuenta ya está en Caja.</p><div class="acts" style="flex-direction:column">${rx.length?`<button class="btn wa full" data-a="mandarRx" data-c="${c.id}">Mandar receta al dueño por WhatsApp</button>`:''}<button class="btn pri full" data-a="tab" data-t="caja">Ir a cobrar</button><button class="btn full" data-a="cerrar">Listo</button></div>`)},
+ mandarRx:d=>{const c=S.cons.find(x=>x.id===d.c),m=mDe(c.mid),du=dDe(m.dueno);wa(du.tel,`Hola ${du.nombre.split(' ')[0]}, le comparto la receta de ${m.nombre} (${fecha(c.t,{day:'numeric',month:'long'})}):\n\n${c.rx.map(x=>`• ${x.med}: ${x.ml} ml ${x.via}, ${x.frec}, por ${x.dias} días`).join('\n')}${c.plan?'\n\nIndicaciones: '+c.plan:''}\n\nCualquier duda, aquí estamos. — ${C.nombre}`)},
+ vacunar:d=>{ui.vt='';mVacuna(mDe(d.m))},
+ vtipo:d=>{ui.vt=d.t;mVacuna(mDe(d.m))},
+ vacOk:d=>{const m=mDe(d.m);if(!ui.vt){toast('Elige qué se aplicó');return}const f=v('v-fecha');const prox=f?new Date(f+'T12:00').getTime():ahora()+365*D;
+  S.vac.push({id:uid(),mid:m.id,t:ahora(),tipo:ui.vt,lote:v('v-lote')||'—',prox});const s=C.servicios.find(x=>x[0].toLowerCase().includes(ui.vt.split(' ')[0].toLowerCase().slice(0,6)))||[ui.vt,400];
+  const p=S.prods.find(x=>x.nombre.toLowerCase().includes(ui.vt.split(' ')[0].toLowerCase().slice(0,6)));if(p&&p.stock>0)p.stock--;
+  S.abiertas.push({id:uid(),mid:m.id,items:[[s[0],1,s[1]]]});guardar();cerrar();toast(`Listo. Próxima: ${fecha(prox,{day:'numeric',month:'long'})}. La cuenta está en Caja.`,4000);render()},
+ nuevaCita:d=>mCita(d&&d.m),
+ ctMot:d=>{$('#ct-m').value=d.v},
+ citaOk:()=>{const mid=v('sel-m'),f=v('ct-d'),h=v('ct-h');if(!f||!h){toast('Elige día y hora');return}S.citas.push({id:uid(),mid,t:new Date(f+'T'+h).getTime(),dur:30,motivo:v('ct-m')||'Consulta',estado:'agendada'});guardar();cerrar();toast('Cita agendada');render()},
+ cita_confirmar:d=>{const c=S.citas.find(x=>x.id===d.c),m=mDe(c.mid),du=dDe(m.dueno);wa(du.tel,`Hola ${du.nombre.split(' ')[0]}, le recordamos la cita de ${m.nombre} ${dk(c.t)===dk(ahora())?'hoy':'el '+fecha(c.t,{weekday:'long',day:'numeric'})} a las ${hora(c.t)} en ${C.nombre} (${C.direccion}). ¿Nos confirma? 🐾`);c.estado='confirmada';guardar();setTimeout(render,400)},
+ cita_llego:d=>{S.citas.find(x=>x.id===d.c).estado='llego';guardar();render();toast('En sala de espera')},
+ cita_consultar:d=>{const c=S.citas.find(x=>x.id===d.c);c.estado='consulta';guardar();render();ui.rx=[];ui.cob=['Consulta general'];ui.cm=c.mid;mConsulta(mDe(c.mid))},
+ recVac:d=>{const x=S.vac.find(y=>y.id===d.v),m=mDe(x.mid),du=dDe(m.dueno),venc=x.prox<ahora();wa(du.tel,`Hola ${du.nombre.split(' ')[0]}, le saludamos de ${C.nombre} 🐾. ${venc?'A '+m.nombre+' ya le toca':'A '+m.nombre+' le toca'} su ${x.tipo.toLowerCase()} ${venc?'(venció el '+fecha(x.prox,{day:'numeric',month:'long'})+')':'el '+fecha(x.prox,{day:'numeric',month:'long'})}. ¿Le agendamos una cita? Tenemos espacio esta semana.`);S.avisos['v'+x.id]=ahora();guardar();setTimeout(render,400)},
+ segui:d=>{const c=S.cons.find(x=>x.id===d.c),m=mDe(c.mid),du=dDe(m.dueno);wa(du.tel,`Hola ${du.nombre.split(' ')[0]}, ¿cómo sigue ${m.nombre}? Queremos saber cómo va con el tratamiento. Si le gustó la atención, nos ayudaría mucho su opinión en Google: ${C.resenaGoogle} 🐾 — ${C.nombre}`);S.avisos['s'+c.id]=ahora();guardar();setTimeout(render,400)},
+ resurtir:d=>{const c=S.cons.find(x=>x.id===d.c),m=mDe(c.mid),du=dDe(m.dueno);wa(du.tel,`Hola ${du.nombre.split(' ')[0]}, el tratamiento de ${m.nombre} (${c.rx.map(x=>x.med).join(', ')}) termina en 2 días. ¿Cómo lo ve? Si quiere, le preparamos más o le agendamos su revisión. — ${C.nombre}`);S.avisos['r'+c.id]=ahora();guardar();setTimeout(render,400)},
+ cartilla:d=>{const m=mDe(d.m),du=dDe(m.dueno),ult={};S.vac.filter(x=>x.mid===m.id).sort((a,b)=>b.t-a.t).forEach(x=>{if(!ult[x.tipo])ult[x.tipo]=x});wa(du.tel,`Cartilla de ${m.nombre} 🐾 (${C.nombre})\n\n${Object.values(ult).map(x=>`• ${x.tipo}: aplicada ${fecha(x.t,{day:'numeric',month:'short',year:'numeric'})}, próxima ${fecha(x.prox,{day:'numeric',month:'short',year:'numeric'})}`).join('\n')}\n\nPeso actual: ${pesoDe(m)} kg`)},
+ waDueno:d=>{const du=dDe(d.d);wa(du.tel,`Hola ${du.nombre.split(' ')[0]}, le escribimos de ${C.nombre}. `)},
+ consent:d=>{ui.ctp='Cirugía';mConsent(mDe(d.m))},
+ ctp:d=>{ui.ctp=d.t;mConsent(mDe(d.m))},
+ firmaBorrar:()=>{const c=$('#firma');c.getContext('2d').clearRect(0,0,c.width,c.height);ui.firmo=false},
+ consentOk:d=>{if(!ui.firmo){toast('Falta la firma del dueño');return}const m=mDe(d.m);S.firmas.push({id:uid(),mid:m.id,t:ahora(),tipo:ui.ctp,nombre:dDe(m.dueno).nombre,firma:$('#firma').toDataURL('image/png')});guardar();ui.ft='arch';modal(fichaHtml(m));toast('Consentimiento firmado y guardado en su expediente')},
+ tarea:d=>{const x=S.hosp.find(y=>y.id===d.h),k=dk(ahora()),a=x.hechas[k]=x.hechas[k]||[],i=+d.i,j=a.indexOf(i);j<0?a.push(i):a.splice(j,1);guardar();render()},
+ avisoHosp:d=>{const x=S.hosp.find(y=>y.id===d.h),m=mDe(x.mid),du=dDe(m.dueno);wa(du.tel,`Hola ${du.nombre.split(' ')[0]}, le compartimos cómo va ${m.nombre} 🐾\n\n${x.notas||'Está estable y comiendo poco a poco.'}\n\nLe mandamos una foto en un momento. — ${C.nombre}`)},
+ alta:d=>{const x=S.hosp.find(y=>y.id===d.h),dias=Math.max(1,Math.ceil((ahora()-x.ingreso)/D));x.alta=ahora();S.abiertas.push({id:uid(),mid:x.mid,items:[['Hospitalización (día)',dias,650]]});guardar();render();toast('Alta lista. La cuenta está en Caja.')},
+ internar:()=>{modal(`<h2>Internar paciente</h2><label>Paciente</label>${selMascota()}<label for="in-m">Motivo</label><input id="in-m" type="text"><label for="in-j">Jaula</label><input id="in-j" type="text" value="Jaula 2"><div class="acts" style="margin-top:16px"><button class="btn" data-a="cerrar">Cancelar</button><span class="sp"></span><button class="btn pri" data-a="internarOk">Internar</button></div>`)},
+ internarOk:()=>{S.hosp.push({id:uid(),mid:v('sel-m'),ingreso:ahora(),motivo:v('in-m')||'Observación',jaula:v('in-j')||'Jaula',tareas:[['08:00','Revisar signos'],['14:00','Medicamento'],['20:00','Revisar signos']],hechas:{},notas:''});guardar();cerrar();render()},
+ cobrar:d=>{const a=S.abiertas.find(x=>x.id===d.i),m=mDe(a.mid),t=a.items.reduce((s,x)=>s+x[1]*x[2],0);modal(`<h2>Cobrar ${money(t)}</h2><p class="sub">${esc(m.nombre)} · ${esc(dDe(m.dueno).nombre)}</p><table class="tbl">${a.items.map(x=>`<tr><td>${esc(x[0])}${x[1]>1?' × '+x[1]:''}</td><td class="num r">${money(x[1]*x[2])}</td></tr>`).join('')}</table><div class="acts" style="margin-top:16px">${['Efectivo','Tarjeta','Transferencia'].map(mt=>`<button class="btn ${mt==='Efectivo'?'ok':''}" data-a="cobrarOk" data-i="${a.id}" data-m="${mt}">${mt}</button>`).join('')}</div>`)},
+ cobrarOk:d=>{const a=S.abiertas.find(x=>x.id===d.i);const t=a.items.reduce((s,x)=>s+x[1]*x[2],0);a.items.forEach(([n,q])=>{const p=S.prods.find(x=>x.nombre===n);if(p)p.stock=Math.max(0,p.stock-q)});S.ventas.push({id:uid(),t:ahora(),mid:a.mid,items:a.items,total:t,met:d.m,ref:a.ref});S.abiertas=S.abiertas.filter(x=>x.id!==a.id);guardar();cerrar();render();toast('Cobrado '+money(t)+' · '+d.m)},
+ venta:()=>{ui.vta=[];mVenta()},vtaAdd:d=>{ui.vta.push(d.p);const y=$('.sheet').scrollTop;mVenta();$('.sheet').scrollTop=y},
+ vtaOk:d=>{const it={};ui.vta.forEach(id=>it[id]=(it[id]||0)+1);const items=Object.entries(it).map(([id,q])=>{const p=S.prods.find(x=>x.id===id);p.stock=Math.max(0,p.stock-q);return [p.nombre,q,p.precio]});const t=items.reduce((s,x)=>s+x[1]*x[2],0);S.ventas.push({id:uid(),t:ahora(),items,total:t,met:d.m});guardar();cerrar();render();toast('Venta cobrada: '+money(t))},
+ corte:()=>{const h0=hoy0(),V=S.ventas.filter(x=>x.t>=h0),ef=V.filter(x=>x.met==='Efectivo').reduce((a,x)=>a+x.total,0);modal(`<h2>Corte de caja</h2><p class="sub">Debe haber <b>${money(ef)}</b> en efectivo (más el fondo).</p><label for="co-e">¿Cuánto hay en el cajón, sin el fondo?</label><input id="co-e" type="number" inputmode="decimal"><div class="acts" style="margin-top:14px"><span class="sp"></span><button class="btn pri" data-a="corteOk" data-e="${ef}">Ver resultado</button></div>`)},
+ corteOk:d=>{const c=+v('co-e'),e=+d.e,dif=c-e;toast(Math.abs(dif)<1?'✓ Cuadra perfecto':dif>0?'Sobran '+money(dif):'Faltan '+money(-dif),4500);cerrar()},
+ nuevoPaciente:()=>mNuevoPaciente(),
+ npOk:()=>{if(!v('np-n')||!v('np-d')){toast('Falta el nombre de la mascota o del dueño');return}const d={id:uid(),nombre:v('np-d'),tel:v('np-t'),desde:ahora()};S.duenos.push(d);const m={id:uid(),dueno:d.id,nombre:v('np-n'),especie:v('np-e'),raza:v('np-r')||'Mestizo',sexo:v('np-s'),nac:ahora()-(+v('np-ed')||1)*365*D,esteril:false,alergias:v('np-a'),pesos:v('np-p')?[[ahora(),+v('np-p')]]:[],color:''};S.masc.push(m);guardar();render();ui.ft='hist';modal(fichaHtml(m));toast('Paciente guardado')},
+ meInteresa:()=>{const r=new URLSearchParams(location.search).get('ref');wa('526862595403',`Hola, vi la demostración del sistema para ${C.nombre} y me interesa. ¿Me pueden dar más información?${r?' (Me la enseñó: '+r+')':''}`)},
+ cierre:d=>{S.cierre=S.cierre||{};const k=dk(ahora())+d.i;S.cierre[k]=!S.cierre[k];guardar();render()}
+};
+/* ---------- Render ---------- */
+function nav(){const it=TABS.map(([k,l])=>{const b=badge(k);return `<button class="${ui.tab===k?'on':''}" data-a="tab" data-t="${k}">${ICON[k]}<span>${l}</span>${b?`<i class="dot">${b}</i>`:''}</button>`});
+ $('#side').innerHTML=`<div class="brand"><img src="${esc(C.logo)}" alt=""><div><b>${esc(C.nombre)}</b><small>${esc(C.doctor)}</small></div></div>`+it.join('');
+ const mob=['hoy','agenda','pacientes','hospital','caja'];$('#tabs').innerHTML=TABS.filter(([k])=>mob.includes(k)).map(([k,l])=>{const b=badge(k);return `<button class="${ui.tab===k?'on':''}" data-a="tab" data-t="${k}">${ICON[k]}<span>${l}</span>${b?`<i class="dot">${b}</i>`:''}</button>`}).join('')+`<button class="${['farmacia','resumen'].includes(ui.tab)?'on':''}" data-a="mas">${ICON.mas}<span>Más</span></button>`;
+ $('#top').innerHTML=`<img src="${esc(C.logo)}" alt=""><div><b>${esc(C.nombre)}</b><small>${esc(C.lema)}</small></div><span class="sp"></span>`}
+A.mas=()=>modal(`<h2>Más</h2><div class="list" style="margin-top:10px">${[['farmacia','Farmacia y tienda','Existencias y caducidades'],['resumen','Resumen del mes','Ingresos, consultas y cierre del día']].map(([k,t,s])=>`<button class="item" data-a="tab" data-t="${k}"><div class="av">${ICON[k]}</div><div class="t"><b>${t}</b><span>${s}</span></div></button>`).join('')}</div>`);
+function render(){nav();$('#main').innerHTML={hoy:vHoy,agenda:vAgenda,pacientes:vPacientes,hospital:vHospital,caja:vCaja,farmacia:vFarmacia,resumen:vResumen}[ui.tab]();document.title=C.nombre}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const f=A[b.dataset.a];if(!f)return;if(b.dataset.a==='consulta'||b.dataset.a==='cita_consultar')ui.cm=b.dataset.m||ui.cm;f(b.dataset,e)});
+document.addEventListener('input',e=>{const t=e.target;if(t.id==='q'){ui.q=t.value;const p=t.selectionStart;render();const q=$('#q');q.focus();q.setSelectionRange(p,p)}if(t.id==='c-peso'&&ui.cm)pintarRx(mDe(ui.cm))});
+document.addEventListener('change',e=>{const t=e.target;if(t.id==='arch-in'){const m=mDe(t.dataset.m);m.archivos=m.archivos||[];[...t.files].slice(0,4).forEach(f=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas'),s=Math.min(1,640/Math.max(im.width,im.height));c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);m.archivos.push({n:f.name.replace(/\.[^.]+$/,''),t:ahora(),src:c.toDataURL('image/jpeg',.75)});guardar();ui.ft='arch';modal(fichaHtml(m))};im.src=r.result};r.readAsDataURL(f)})}});
+fetch('c/'+CID+'.json',{cache:'no-cache'}).then(r=>r.json()).then(c=>{C=c;document.documentElement.style.setProperty('--brand',C.color);C.logo=C.logo||'../icono-192.png';S=cargar();guardar();render()}).catch(()=>{$('#main').innerHTML='<div class="empty">No se pudo abrir esta demostración.</div>'});
+</script>
+</body>
+</html>
