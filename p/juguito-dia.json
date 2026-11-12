@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Juguito día",
  "lema": "Juices, smoothies & more · Playas de Tijuana",
  "color": "#F5A01E",
@@ -200,5 +200,1019 @@
     5
    ]
   ]
+ ],
+ "inv": {
+  "escala": {
+   "20 oz": 1.25
+  },
+  "insumos": [
+   [
+    "naranja",
+    "Naranja",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    18,
+    15,
+    45
+   ],
+   [
+    "zanahoria",
+    "Zanahoria",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    14,
+    8,
+    25
+   ],
+   [
+    "betabel",
+    "Betabel",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    22,
+    3,
+    10
+   ],
+   [
+    "pina",
+    "Piña",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    20,
+    5,
+    15
+   ],
+   [
+    "jengibre",
+    "Jengibre",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    90,
+    0.3,
+    1
+   ],
+   [
+    "pepino",
+    "Pepino",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    20,
+    2,
+    6
+   ],
+   [
+    "apio",
+    "Apio",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    30,
+    2,
+    6
+   ],
+   [
+    "espinaca",
+    "Espinaca",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    60,
+    0.5,
+    1.5
+   ],
+   [
+    "manzana",
+    "Manzana verde",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    45,
+    2,
+    6
+   ],
+   [
+    "platano",
+    "Plátano",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    22,
+    3,
+    8
+   ],
+   [
+    "fresa",
+    "Fresa",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    55,
+    3,
+    8
+   ],
+   [
+    "lechuga",
+    "Lechugas mixtas",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    90,
+    0.5,
+    1.5
+   ],
+   [
+    "tomate",
+    "Tomate",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    25,
+    1,
+    3
+   ],
+   [
+    "cebolla",
+    "Cebolla morada",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    25,
+    0.5,
+    1.5
+   ],
+   [
+    "aguacate",
+    "Aguacate",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    70,
+    1,
+    3
+   ],
+   [
+    "alfalfa",
+    "Alfalfa",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    150,
+    0.2,
+    0.5
+   ],
+   [
+    "verduras",
+    "Elote, ejote y zanahoria picada",
+    "kg",
+    "Frutas y verduras",
+    "Central de abastos",
+    50,
+    0.5,
+    1.5
+   ],
+   [
+    "mango",
+    "Mango congelado",
+    "kg",
+    "Lácteos y carnes",
+    "Costco",
+    70,
+    2,
+    6
+   ],
+   [
+    "frutos",
+    "Frutos rojos congelados",
+    "kg",
+    "Lácteos y carnes",
+    "Costco",
+    120,
+    2,
+    5
+   ],
+   [
+    "leche",
+    "Leche",
+    "L",
+    "Lácteos y carnes",
+    "Costco",
+    28,
+    4,
+    12
+   ],
+   [
+    "pollo",
+    "Pechuga de pollo cocida",
+    "kg",
+    "Lácteos y carnes",
+    "Costco",
+    130,
+    1,
+    3
+   ],
+   [
+    "atun",
+    "Atún en lata",
+    "pz",
+    "Lácteos y carnes",
+    "Costco",
+    22,
+    6,
+    24
+   ],
+   [
+    "pavo",
+    "Jamón de pavo",
+    "kg",
+    "Lácteos y carnes",
+    "Costco",
+    160,
+    0.5,
+    2
+   ],
+   [
+    "panela",
+    "Queso panela",
+    "kg",
+    "Lácteos y carnes",
+    "Costco",
+    140,
+    0.5,
+    2
+   ],
+   [
+    "queso",
+    "Queso amarillo",
+    "kg",
+    "Lácteos y carnes",
+    "Costco",
+    150,
+    0.3,
+    1
+   ],
+   [
+    "aderezo",
+    "Mayonesa y aderezo",
+    "kg",
+    "Secos y suplementos",
+    "Costco",
+    90,
+    0.5,
+    2
+   ],
+   [
+    "cacao",
+    "Cacao en polvo",
+    "kg",
+    "Secos y suplementos",
+    "Secos y suplementos",
+    280,
+    0.3,
+    1
+   ],
+   [
+    "mani",
+    "Mantequilla de maní",
+    "kg",
+    "Secos y suplementos",
+    "Secos y suplementos",
+    160,
+    0.5,
+    2
+   ],
+   [
+    "canela",
+    "Canela molida",
+    "kg",
+    "Secos y suplementos",
+    "Secos y suplementos",
+    300,
+    0.05,
+    0.2
+   ],
+   [
+    "vainilla",
+    "Vainilla",
+    "L",
+    "Secos y suplementos",
+    "Secos y suplementos",
+    200,
+    0.1,
+    0.5
+   ],
+   [
+    "cafe",
+    "Café molido",
+    "kg",
+    "Secos y suplementos",
+    "Secos y suplementos",
+    380,
+    0.5,
+    2
+   ],
+   [
+    "protv",
+    "Proteína vainilla",
+    "kg",
+    "Secos y suplementos",
+    "Secos y suplementos",
+    750,
+    0.5,
+    2
+   ],
+   [
+    "protc",
+    "Proteína chocolate",
+    "kg",
+    "Secos y suplementos",
+    "Secos y suplementos",
+    750,
+    0.5,
+    2
+   ],
+   [
+    "creatina",
+    "Creatina",
+    "kg",
+    "Secos y suplementos",
+    "Secos y suplementos",
+    900,
+    0.1,
+    0.5
+   ],
+   [
+    "colageno",
+    "Péptidos de colágeno",
+    "kg",
+    "Secos y suplementos",
+    "Secos y suplementos",
+    650,
+    0.2,
+    0.8
+   ],
+   [
+    "pan",
+    "Pan para sándwich",
+    "pz",
+    "Pan y galletas",
+    "Panadería",
+    9,
+    10,
+    30
+   ],
+   [
+    "galleta",
+    "Galletas",
+    "pz",
+    "Pan y galletas",
+    "Panadería",
+    9,
+    6,
+    20
+   ],
+   [
+    "v16",
+    "Vaso 16 oz",
+    "pz",
+    "Vasos y empaque",
+    "Desechables",
+    3.2,
+    50,
+    200
+   ],
+   [
+    "v20",
+    "Vaso 20 oz",
+    "pz",
+    "Vasos y empaque",
+    "Desechables",
+    3.8,
+    50,
+    200
+   ],
+   [
+    "tapa",
+    "Tapa y popote",
+    "pz",
+    "Vasos y empaque",
+    "Desechables",
+    1.6,
+    100,
+    400
+   ],
+   [
+    "vcafe",
+    "Vaso de café 10 oz con tapa",
+    "pz",
+    "Vasos y empaque",
+    "Desechables",
+    2.8,
+    25,
+    100
+   ],
+   [
+    "emp",
+    "Empaque de sándwich",
+    "pz",
+    "Vasos y empaque",
+    "Desechables",
+    3,
+    20,
+    80
+   ]
+  ],
+  "recetas": {
+   "Naranja": [
+    [
+     "naranja",
+     1.1
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Zanahoria": [
+    [
+     "zanahoria",
+     1.0
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Betabel": [
+    [
+     "betabel",
+     0.9
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Naranja con piña, zanahoria y jengibre": [
+    [
+     "naranja",
+     0.5
+    ],
+    [
+     "pina",
+     0.3
+    ],
+    [
+     "zanahoria",
+     0.35
+    ],
+    [
+     "jengibre",
+     0.015
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Verde": [
+    [
+     "naranja",
+     0.35
+    ],
+    [
+     "pepino",
+     0.2
+    ],
+    [
+     "apio",
+     0.2
+    ],
+    [
+     "espinaca",
+     0.04
+    ],
+    [
+     "pina",
+     0.25
+    ],
+    [
+     "manzana",
+     0.2
+    ],
+    [
+     "jengibre",
+     0.01
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Mango & Piña": [
+    [
+     "mango",
+     0.22
+    ],
+    [
+     "pina",
+     0.18
+    ],
+    [
+     "naranja",
+     0.2
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Frutos del Campo": [
+    [
+     "frutos",
+     0.22
+    ],
+    [
+     "fresa",
+     0.08
+    ],
+    [
+     "platano",
+     0.1
+    ],
+    [
+     "naranja",
+     0.2
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Fresa & Mango": [
+    [
+     "fresa",
+     0.15
+    ],
+    [
+     "mango",
+     0.15
+    ],
+    [
+     "naranja",
+     0.2
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Fresa con plátano": [
+    [
+     "fresa",
+     0.15
+    ],
+    [
+     "platano",
+     0.12
+    ],
+    [
+     "leche",
+     0.2
+    ],
+    [
+     "vainilla",
+     0.003
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Cacao con plátano": [
+    [
+     "cacao",
+     0.02
+    ],
+    [
+     "platano",
+     0.15
+    ],
+    [
+     "mani",
+     0.03
+    ],
+    [
+     "canela",
+     0.002
+    ],
+    [
+     "leche",
+     0.25
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Licuado de fresa": [
+    [
+     "fresa",
+     0.12
+    ],
+    [
+     "platano",
+     0.1
+    ],
+    [
+     "leche",
+     0.3
+    ],
+    [
+     "vainilla",
+     0.003
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Licuado de cacao": [
+    [
+     "cacao",
+     0.02
+    ],
+    [
+     "platano",
+     0.12
+    ],
+    [
+     "mani",
+     0.025
+    ],
+    [
+     "canela",
+     0.002
+    ],
+    [
+     "leche",
+     0.3
+    ],
+    [
+     "v16",
+     1,
+     "!20 oz"
+    ],
+    [
+     "v20",
+     1,
+     "20 oz"
+    ],
+    [
+     "tapa",
+     1
+    ]
+   ],
+   "Sándwich de pollo": [
+    [
+     "pan",
+     1
+    ],
+    [
+     "pollo",
+     0.1
+    ],
+    [
+     "verduras",
+     0.05
+    ],
+    [
+     "lechuga",
+     0.03
+    ],
+    [
+     "pepino",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.015
+    ],
+    [
+     "tomate",
+     0.04
+    ],
+    [
+     "alfalfa",
+     0.01
+    ],
+    [
+     "aderezo",
+     0.02
+    ],
+    [
+     "emp",
+     1
+    ]
+   ],
+   "Sándwich de atún": [
+    [
+     "pan",
+     1
+    ],
+    [
+     "atun",
+     1
+    ],
+    [
+     "verduras",
+     0.05
+    ],
+    [
+     "lechuga",
+     0.03
+    ],
+    [
+     "pepino",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.015
+    ],
+    [
+     "tomate",
+     0.04
+    ],
+    [
+     "alfalfa",
+     0.01
+    ],
+    [
+     "aderezo",
+     0.025
+    ],
+    [
+     "emp",
+     1
+    ]
+   ],
+   "Sándwich de jamón de pavo": [
+    [
+     "pan",
+     1
+    ],
+    [
+     "pavo",
+     0.08
+    ],
+    [
+     "queso",
+     0.03
+    ],
+    [
+     "aguacate",
+     0.05
+    ],
+    [
+     "lechuga",
+     0.03
+    ],
+    [
+     "pepino",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.015
+    ],
+    [
+     "tomate",
+     0.04
+    ],
+    [
+     "alfalfa",
+     0.01
+    ],
+    [
+     "emp",
+     1
+    ]
+   ],
+   "Sándwich de panela": [
+    [
+     "pan",
+     1
+    ],
+    [
+     "panela",
+     0.09
+    ],
+    [
+     "aguacate",
+     0.05
+    ],
+    [
+     "lechuga",
+     0.03
+    ],
+    [
+     "pepino",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.015
+    ],
+    [
+     "tomate",
+     0.04
+    ],
+    [
+     "alfalfa",
+     0.01
+    ],
+    [
+     "emp",
+     1
+    ]
+   ],
+   "Café americano 10 oz": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vcafe",
+     1
+    ]
+   ],
+   "Galleta": [
+    [
+     "galleta",
+     1
+    ]
+   ],
+   "Scoop de proteína": [
+    [
+     "protv",
+     0.03,
+     "!Chocolate"
+    ],
+    [
+     "protc",
+     0.03,
+     "Chocolate"
+    ]
+   ],
+   "Scoop de creatina": [
+    [
+     "creatina",
+     0.005
+    ]
+   ],
+   "Scoop de péptidos de colágeno": [
+    [
+     "colageno",
+     0.01
+    ]
+   ]
+  },
+  "demo": {
+   "naranja": 0.75,
+   "fresa": 0.5,
+   "aguacate": 0.15,
+   "v16": 0.9,
+   "pan": 0.8,
+   "leche": 1.3,
+   "tapa": 1.6,
+   "platano": 1.2
+  },
+  "provs": {
+   "Central de abastos": "",
+   "Costco": "",
+   "Secos y suplementos": "",
+   "Desechables": "",
+   "Panadería": ""
+  }
+ },
+ "horario": [
+  8,
+  17
  ]
 }
