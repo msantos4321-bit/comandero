@@ -1,5 +1,5 @@
 {
- "ver": 2,
+ "ver": 3,
  "nombre": "Estación Veterinaria",
  "lema": "El mejor cuidado para tu mascota",
  "doctor": "Dr. Sergio Murillo",
@@ -489,6 +489,86 @@
    4,
    45,
    0
+  ],
+  [
+   "Pelota de hule mediana",
+   "Tienda",
+   14,
+   5,
+   35,
+   89
+  ],
+  [
+   "Juguete mordedera de cuerda",
+   "Tienda",
+   9,
+   4,
+   45,
+   120
+  ],
+  [
+   "Correa retráctil 5 m",
+   "Tienda",
+   4,
+   2,
+   180,
+   350
+  ],
+  [
+   "Collar ajustable mediano",
+   "Tienda",
+   7,
+   3,
+   60,
+   150
+  ],
+  [
+   "Cama acolchada mediana",
+   "Tienda",
+   2,
+   1,
+   420,
+   790
+  ],
+  [
+   "Arena para gato 10 kg",
+   "Tienda",
+   8,
+   4,
+   140,
+   240
+  ],
+  [
+   "Premios dentales (bolsa)",
+   "Tienda",
+   15,
+   6,
+   55,
+   110
+  ],
+  [
+   "Croqueta gato adulto 3 kg",
+   "Tienda",
+   6,
+   3,
+   330,
+   520
+  ],
+  [
+   "Rascador para gato",
+   "Tienda",
+   2,
+   1,
+   260,
+   480
+  ],
+  [
+   "Plato de acero inoxidable",
+   "Tienda",
+   10,
+   4,
+   40,
+   95
   ]
  ],
  "cedula": "Cédula profesional (la del doctor)",
