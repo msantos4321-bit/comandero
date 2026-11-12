@@ -1,5 +1,5 @@
 {
- "ver": 3,
+ "ver": 4,
  "nombre": "Juguito día",
  "lema": "Juices, smoothies & more · Playas de Tijuana",
  "color": "#F5A01E",
@@ -1209,10 +1209,197 @@
    "Secos y suplementos": "",
    "Desechables": "",
    "Panadería": ""
-  }
+  },
+  "entregas": {
+   "Central de abastos": [
+    1,
+    4
+   ],
+   "Costco": [
+    2
+   ],
+   "Panadería": [
+    1,
+    3,
+    5
+   ],
+   "Desechables": "q",
+   "Secos y suplementos": [
+    6
+   ]
+  },
+  "faltan": {
+   "naranja": 1.2,
+   "fresa": 0.4,
+   "v16": 6,
+   "platano": 0.5
+  },
+  "mermas": [
+   [
+    4,
+    "platano",
+    1.5,
+    "Se echó a perder"
+   ],
+   [
+    2,
+    "fresa",
+    0.6,
+    "Se echó a perder"
+   ],
+   [
+    1,
+    "naranja",
+    0.8,
+    "Bebida mal hecha, se rehízo"
+   ],
+   [
+    0,
+    "lechuga",
+    0.2,
+    "Se echó a perder"
+   ]
+  ],
+  "motivo2": "Bebida mal hecha, se rehízo",
+  "credito": "Desechables"
  },
  "horario": [
   8,
   17
- ]
+ ],
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    18000
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet Telmex",
+    599
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1500
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    2800,
+    {
+     "ant": 3100
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    550
+   ],
+   [
+    12,
+    "Gas",
+    "Gas LP",
+    380,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    15,
+    "Publicidad",
+    "Anuncio en Facebook",
+    600,
+    {
+     "met": "Tarjeta"
+    }
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    [
+     450,
+     380
+    ],
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    9900,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Afilado y servicio del extractor",
+    650,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    -2,
+    "Mantenimiento",
+    "Refrigerador: cambio de empaque",
+    350,
+    "Refrigeración Playas",
+    {
+     "factura": false
+    }
+   ],
+   [
+    5,
+    "Luz",
+    "Recibo CFE (bimestre)",
+    2950,
+    "CFE"
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 400,
+   "Miguel": 400,
+   "Toño": 450,
+   "Karla": 400
+  }
+ }
 }

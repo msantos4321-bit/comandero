@@ -1,0 +1,2682 @@
+{
+ "ver": 1,
+ "nombre": "Ribs la 28",
+ "lema": "Altabrisa · Costillas · Alitas · Hamburguesas",
+ "color": "#F5B514",
+ "preciosReales": true,
+ "mesas": 10,
+ "iniciales": "R28",
+ "logo": "p/ribs-la-28/logo.webp",
+ "salsas": "BBQ, Tamarindo, De la casa, Búfalo, BBQ chipotle, BBQ habanero, Mango habanero",
+ "menu": [
+  [
+   "Costillas",
+   "Plato individual puerco",
+   315,
+   "440 g de costilla, 1 trozo de elote y papas fritas",
+   "Salsa: *",
+   ""
+  ],
+  [
+   "Costillas",
+   "Kilo de costilla puerco",
+   595,
+   "1 kilo de costilla, 1 elote amarillo y papas fritas",
+   "Salsa: *",
+   "p/ribs-la-28/c_kilo.webp"
+  ],
+  [
+   "Costillas",
+   "Plato individual res",
+   425,
+   "440 g de costilla, 1 trozo de elote y papas fritas",
+   "Salsa: *",
+   ""
+  ],
+  [
+   "Costillas",
+   "Combinación",
+   300,
+   "220 g de costilla, 160 g de alitas, 1 trozo de elote, papas fritas, apio, zanahoria y ranch",
+   "Salsa: *",
+   "p/ribs-la-28/c_combinacion.webp"
+  ],
+  [
+   "Costillas",
+   "Platillo rib eye",
+   440,
+   "250 g rib eye, puré, guacamole, verduras salteadas, elote y totopos",
+   "Término: Medio, Tres cuartos, Bien cocido",
+   ""
+  ],
+  [
+   "Alitas",
+   "Alitas personal",
+   255,
+   "250 g de alitas, papas fritas, apio, zanahoria y ranch",
+   "Salsa: * | Estilo: Normal, Crispy (+20)",
+   ""
+  ],
+  [
+   "Alitas",
+   "Alitas doble",
+   350,
+   "500 g de alitas, papas fritas, apio, zanahoria y ranch",
+   "Salsa: * | Estilo: Normal, Crispy (+20)",
+   ""
+  ],
+  [
+   "Alitas",
+   "Alitas 1 kilo",
+   670,
+   "1 kg de alitas, 6 dedos de queso, papas fritas, apio, zanahoria y ranch",
+   "Salsa: * | Estilo: Normal, Crispy (+20)",
+   "p/ribs-la-28/a_kilo.webp"
+  ],
+  [
+   "Boneless",
+   "Boneless personal",
+   255,
+   "190 g de boneless, papas fritas, apio, zanahoria y ranch",
+   "Salsa: *",
+   ""
+  ],
+  [
+   "Boneless",
+   "Boneless doble",
+   335,
+   "380 g de boneless, papas fritas, apio, zanahoria y ranch",
+   "Salsa: *",
+   "p/ribs-la-28/b_doble.webp"
+  ],
+  [
+   "Samplers",
+   "Sampler #1",
+   615,
+   "430 g de costilla, 260 g de alitas, 3 salchichas, aros, papas fritas y elote",
+   "Salsa: *",
+   "p/ribs-la-28/s_1.webp"
+  ],
+  [
+   "Samplers",
+   "Sampler #2",
+   595,
+   "550 g de costilla, 190 g de boneless, 4 dedos de queso, papas fritas y elote",
+   "Salsa: *",
+   "p/ribs-la-28/s_2.webp"
+  ],
+  [
+   "Samplers",
+   "Sampler #3",
+   640,
+   "660 g de costilla, 295 g de alitas, 3 dedos de queso, nachos y elote",
+   "Salsa: *",
+   ""
+  ],
+  [
+   "Samplers",
+   "Sampler #4",
+   720,
+   "260 g rib eye, 440 g de costilla, 2 salchichas polaca, guacamole, puré y 2 trozos de elote",
+   "Salsa: *",
+   ""
+  ],
+  [
+   "Samplers",
+   "Sampler #5",
+   845,
+   "260 g rib eye, 440 g de costilla, 250 g de alitas, quesadilla, nachos, papas fritas y 1 trozo de elote",
+   "Salsa: *",
+   ""
+  ],
+  [
+   "Samplers",
+   "Sampler #6",
+   895,
+   "Hamburguesa vaquera, 440 g de costilla, 280 g de alitas, 190 g de boneless, 2 salchichas polaca, 8 aros, 4 dedos de queso, papas y elote",
+   "Salsa: *",
+   "p/ribs-la-28/s_6.webp"
+  ],
+  [
+   "Samplers",
+   "Sampler #7",
+   575,
+   "310 g de alitas, 320 g de boneless, 4 dedos de queso, 8 aros de cebolla y papas fritas",
+   "Salsa: *",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa de res",
+   260,
+   "Carne de res, queso americano, lechuga, tomate, cebolla, aderezo de la casa y papas fritas",
+   "Término: Medio, Tres cuartos, Bien cocida",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa de pollo",
+   260,
+   "Pechuga, queso americano, lechuga, tomate, cebolla y papas fritas",
+   "Pechuga: Empanizada, A la plancha",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa de costilla",
+   270,
+   "Carne de costilla, queso de nachos, lechuga, tomate, cebolla y papas fritas",
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "La Vaquera",
+   290,
+   "Carne de res, queso americano, aros de cebolla, tocino, BBQ y papas fritas",
+   "Término: Medio, Tres cuartos, Bien cocida",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "La Guacamole",
+   300,
+   "Carne de res, queso monterrey, guacamole, tocino, lechuga, aderezo de la casa y papas fritas",
+   "Término: Medio, Tres cuartos, Bien cocida",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "La 28",
+   300,
+   "Carne de costilla, tocino, salchicha polaca, queso de nachos, lechuga, tomate, cebolla y papas fritas",
+   "",
+   "p/ribs-la-28/h_la28.webp"
+  ],
+  [
+   "Hamburguesas",
+   "La Philly",
+   300,
+   "Carne rib eye, pimiento morrón, cebolla caramelizada, queso monterrey, aderezo de la casa y papas fritas",
+   "",
+   ""
+  ],
+  [
+   "Hamburguesas",
+   "Hamburguesa de camarón",
+   335,
+   "Camarón, tocino, morrón, queso monterrey, tomate, cebolla, lechuga, aderezo de la casa y papas fritas",
+   "",
+   "p/ribs-la-28/h_camaron.webp"
+  ],
+  [
+   "Hot dogs",
+   "Hot dog de costilla",
+   265,
+   "Salchicha polaca, carne de costilla, tocino, queso de nachos, cebolla caramelizada y papas fritas",
+   "",
+   ""
+  ],
+  [
+   "Hot dogs",
+   "Hot dog de camarón",
+   315,
+   "Camarón, carne de costilla, cebolla caramelizada, tocino, costra de queso monterrey, aderezo chipotle y papas",
+   "",
+   "p/ribs-la-28/hd_camaron.webp"
+  ],
+  [
+   "Papas",
+   "Papas sencillas",
+   100,
+   "450 g de papas fritas",
+   "",
+   ""
+  ],
+  [
+   "Papas",
+   "Papas con queso",
+   145,
+   "450 g de papas fritas con queso de nachos",
+   "",
+   ""
+  ],
+  [
+   "Papas",
+   "Papas con tocino",
+   175,
+   "450 g de papas fritas con queso de nachos y tocino",
+   "",
+   ""
+  ],
+  [
+   "Papas",
+   "Papas con carne",
+   220,
+   "450 g de papas fritas con queso de nachos y carne de costilla",
+   "",
+   ""
+  ],
+  [
+   "Papas",
+   "Salchipapas con carne",
+   235,
+   "450 g de papas con queso de nachos, carne de costilla y salchicha polaca",
+   "",
+   ""
+  ],
+  [
+   "Papas",
+   "Chache bowl",
+   235,
+   "450 g de papas con queso de nachos, boneless y carne de costilla",
+   "Salsa: *",
+   ""
+  ],
+  [
+   "Papas",
+   "Rib eye fries",
+   285,
+   "450 g de papas con queso de nachos, guacamole, rib eye y jalapeños",
+   "",
+   ""
+  ],
+  [
+   "Entradas",
+   "8 dedos de queso",
+   135,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Entradas",
+   "Orden de elote",
+   75,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Entradas",
+   "2 salchichas tipo polaca",
+   85,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Entradas",
+   "Aros de cebolla",
+   125,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Entradas",
+   "Chicharrón de rib eye",
+   225,
+   "",
+   "",
+   ""
+  ],
+  [
+   "Entradas",
+   "Cazuelitas",
+   210,
+   "4 tostaditas sobre cama de guacamole con chicharrón de rib eye, camarón o costilla",
+   "Proteína: Rib eye, Camarón, Costilla",
+   ""
+  ],
+  [
+   "Entradas",
+   "Costillas costa azul",
+   210,
+   "240 g de costillas envueltas en tocino sobre guacamole con costra de queso monterrey",
+   "",
+   ""
+  ],
+  [
+   "Nachos",
+   "Nachos sencillos",
+   235,
+   "Totopos, queso de nachos y jalapeños",
+   "",
+   ""
+  ],
+  [
+   "Nachos",
+   "Nachos de costilla",
+   300,
+   "Totopos, queso de nachos, carne de costilla y jalapeños",
+   "",
+   ""
+  ],
+  [
+   "Nachos",
+   "Nachos de rib eye",
+   340,
+   "Totopos, queso de nachos, rib eye, guacamole y jalapeños",
+   "",
+   ""
+  ],
+  [
+   "Barra fría",
+   "Ensalada La Ligera",
+   200,
+   "Pechuga, guacamole, lechuga y ranch",
+   "",
+   ""
+  ],
+  [
+   "Barra fría",
+   "Ensalada de la casa",
+   235,
+   "Pechuga, guacamole, tocino, tiritas de tortilla, queso monterrey, lechuga y ranch",
+   "",
+   ""
+  ],
+  [
+   "Barra fría",
+   "Ceviche de atún",
+   335,
+   "Atún, mango, tomate, cebolla, cilantro y aguacate, con tostadas",
+   "",
+   ""
+  ],
+  [
+   "Barra fría",
+   "Aguachile de costilla",
+   305,
+   "350 g de costilla, aguacate y cebolla morada en aguachile, con tostadas",
+   "",
+   "p/ribs-la-28/ag_costilla.webp"
+  ],
+  [
+   "Barra fría",
+   "Aguachile de rib eye",
+   380,
+   "250 g de rib eye, aguacate y cebolla morada en aguachile, con tostadas",
+   "",
+   ""
+  ],
+  [
+   "Quesa tacos",
+   "Quesa taco de atún",
+   85,
+   "Tortilla de maíz, queso monterrey, atún, tocino, morrón y cebolla",
+   "Cantidad: 1 pieza, Orden de 3 (+153)",
+   ""
+  ],
+  [
+   "Quesa tacos",
+   "Quesa taco de costilla",
+   95,
+   "Tortilla de maíz, queso monterrey, costilla, tocino, cebolla y elote",
+   "Cantidad: 1 pieza, Orden de 3 (+160)",
+   ""
+  ],
+  [
+   "Quesa tacos",
+   "Quesa taco de rib eye",
+   120,
+   "Tortilla de maíz, queso monterrey, rib eye, morrón y guacamole",
+   "Cantidad: 1 pieza, Orden de 3 (+220)",
+   ""
+  ],
+  [
+   "Quesa tacos",
+   "Quesa taco de camarón",
+   130,
+   "Tortilla de maíz, queso monterrey, camarón, morrón, cebolla y aderezo chipotle",
+   "Cantidad: 1 pieza, Orden de 3 (+230)",
+   "p/ribs-la-28/qt_camaron.webp"
+  ],
+  [
+   "Quesa tacos",
+   "Quesa taco mar y tierra",
+   130,
+   "Tortilla de maíz, queso monterrey, camarón, rib eye, morrón y aderezo chipotle",
+   "Cantidad: 1 pieza, Orden de 3 (+230)",
+   ""
+  ],
+  [
+   "Kids",
+   "Hot dog kids",
+   125,
+   "Salchicha de pavo, tocino, tomate, cebolla y papas fritas",
+   "",
+   ""
+  ],
+  [
+   "Kids",
+   "Nuggets",
+   115,
+   "7 nuggets de pollo con papas fritas",
+   "",
+   ""
+  ],
+  [
+   "Kids",
+   "Corn dog",
+   135,
+   "1 corn dog con papas fritas",
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   45,
+   "Precio de ejemplo: falta capturar el menú de bebidas",
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Limonada",
+   55,
+   "Precio de ejemplo: falta capturar el menú de bebidas",
+   "Tipo: Natural, Mineral",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua de sabor",
+   50,
+   "Precio de ejemplo: falta capturar el menú de bebidas",
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Cerveza",
+   60,
+   "Precio de ejemplo: falta capturar el menú de bebidas",
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de alitas",
+   "pct",
+   15,
+   "Alitas",
+   "",
+   [
+    2
+   ]
+  ],
+  [
+   "Paquete pareja (ejemplo)",
+   "precio",
+   635,
+   "",
+   "Combinación + papas con queso + 2 bebidas",
+   [
+    5,
+    6,
+    0
+   ]
+  ],
+  [
+   "Elote de cortesía",
+   "cortesia",
+   0,
+   "",
+   "Orden de elote",
+   [
+    0
+   ]
+  ]
+ ],
+ "inv": {
+  "escala": {
+   "Orden de 3": 3
+  },
+  "insumos": [
+   [
+    "cost_cerdo",
+    "Costilla de cerdo cruda",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    135,
+    20,
+    50
+   ],
+   [
+    "cost_res",
+    "Costilla de res cruda",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    230,
+    8,
+    20
+   ],
+   [
+    "ribeye",
+    "Rib eye",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    480,
+    3,
+    8
+   ],
+   [
+    "molida",
+    "Carne molida para hamburguesa",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    150,
+    4,
+    10
+   ],
+   [
+    "alitas",
+    "Alitas de pollo",
+    "kg",
+    "Carnes",
+    "Costco",
+    95,
+    10,
+    25
+   ],
+   [
+    "boneless",
+    "Boneless (pechuga empanizada)",
+    "kg",
+    "Carnes",
+    "Costco",
+    150,
+    4,
+    10
+   ],
+   [
+    "pechuga",
+    "Pechuga de pollo",
+    "kg",
+    "Carnes",
+    "Costco",
+    130,
+    2,
+    5
+   ],
+   [
+    "tocino",
+    "Tocino",
+    "kg",
+    "Carnes",
+    "Costco",
+    220,
+    1,
+    3
+   ],
+   [
+    "salchicha",
+    "Salchicha para hot dog",
+    "pz",
+    "Carnes",
+    "Costco",
+    8,
+    20,
+    60
+   ],
+   [
+    "polaca",
+    "Salchicha polaca",
+    "pz",
+    "Carnes",
+    "Costco",
+    15,
+    10,
+    30
+   ],
+   [
+    "camaron",
+    "Camarón limpio",
+    "kg",
+    "Pescados y mariscos",
+    "Pescadería",
+    330,
+    2,
+    5
+   ],
+   [
+    "atun",
+    "Atún fresco",
+    "kg",
+    "Pescados y mariscos",
+    "Pescadería",
+    350,
+    1,
+    3
+   ],
+   [
+    "pan_h",
+    "Pan de hamburguesa",
+    "pz",
+    "Pan y tortillas",
+    "Panadería",
+    7,
+    30,
+    80
+   ],
+   [
+    "pan_hd",
+    "Pan de hot dog",
+    "pz",
+    "Pan y tortillas",
+    "Panadería",
+    5,
+    20,
+    60
+   ],
+   [
+    "tortilla",
+    "Tortilla de harina",
+    "pz",
+    "Pan y tortillas",
+    "Tortillería",
+    3,
+    40,
+    120
+   ],
+   [
+    "papas",
+    "Papas a la francesa congeladas",
+    "kg",
+    "Congelados",
+    "Costco",
+    45,
+    15,
+    40
+   ],
+   [
+    "aros",
+    "Aros de cebolla congelados",
+    "kg",
+    "Congelados",
+    "Costco",
+    85,
+    3,
+    8
+   ],
+   [
+    "dedos",
+    "Dedos de queso",
+    "pz",
+    "Congelados",
+    "Costco",
+    6,
+    40,
+    120
+   ],
+   [
+    "nuggets",
+    "Nuggets",
+    "kg",
+    "Congelados",
+    "Costco",
+    120,
+    2,
+    5
+   ],
+   [
+    "corndog",
+    "Corn dog",
+    "pz",
+    "Congelados",
+    "Costco",
+    14,
+    10,
+    30
+   ],
+   [
+    "queso_ch",
+    "Queso cheddar y amarillo",
+    "kg",
+    "Lácteos",
+    "Costco",
+    150,
+    3,
+    8
+   ],
+   [
+    "queso_m",
+    "Queso para quesatacos",
+    "kg",
+    "Lácteos",
+    "Costco",
+    140,
+    3,
+    8
+   ],
+   [
+    "totopos",
+    "Totopos",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    60,
+    3,
+    8
+   ],
+   [
+    "frijol",
+    "Frijoles refritos",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    40,
+    2,
+    5
+   ],
+   [
+    "aceite",
+    "Aceite para freír",
+    "L",
+    "Abarrotes",
+    "Costco",
+    40,
+    15,
+    40
+   ],
+   [
+    "elote",
+    "Elote",
+    "pz",
+    "Verduras",
+    "Mercado",
+    8,
+    15,
+    40
+   ],
+   [
+    "lechuga",
+    "Lechuga",
+    "kg",
+    "Verduras",
+    "Mercado",
+    35,
+    2,
+    5
+   ],
+   [
+    "jitomate",
+    "Jitomate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "cebolla",
+    "Cebolla",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "aguacate",
+    "Aguacate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    70,
+    2,
+    6
+   ],
+   [
+    "pepino",
+    "Pepino",
+    "kg",
+    "Verduras",
+    "Mercado",
+    20,
+    1,
+    4
+   ],
+   [
+    "limon",
+    "Limón",
+    "kg",
+    "Verduras",
+    "Mercado",
+    30,
+    3,
+    8
+   ],
+   [
+    "cilantro",
+    "Cilantro (manojo)",
+    "pz",
+    "Verduras",
+    "Mercado",
+    8,
+    5,
+    12
+   ],
+   [
+    "salsas",
+    "Salsas para alitas y costillas",
+    "L",
+    "Salsas y aderezos",
+    "Costco",
+    80,
+    6,
+    15
+   ],
+   [
+    "aderezo",
+    "Aderezos (ranch, mayonesa)",
+    "kg",
+    "Salsas y aderezos",
+    "Costco",
+    90,
+    2,
+    5
+   ],
+   [
+    "rub",
+    "Rub de especias",
+    "kg",
+    "Salsas y aderezos",
+    "Mercado",
+    200,
+    1,
+    3
+   ],
+   [
+    "carbon",
+    "Carbón y leña",
+    "kg",
+    "Ahumador",
+    "Carbonería",
+    12,
+    30,
+    80
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora",
+    14,
+    48,
+    120
+   ],
+   [
+    "cerveza",
+    "Cerveza",
+    "pz",
+    "Bebidas",
+    "Distribuidora",
+    22,
+    48,
+    144
+   ],
+   [
+    "mineral",
+    "Agua mineral",
+    "pz",
+    "Bebidas",
+    "Distribuidora",
+    12,
+    24,
+    72
+   ],
+   [
+    "concentrado",
+    "Concentrado para agua de sabor",
+    "L",
+    "Bebidas",
+    "Costco",
+    40,
+    3,
+    8
+   ],
+   [
+    "ahu_cerdo",
+    "Costilla de cerdo ahumada",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 6,
+      "usa": [
+       [
+        "cost_cerdo",
+        10
+       ],
+       [
+        "rub",
+        0.25
+       ],
+       [
+        "carbon",
+        6
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "ahu_res",
+    "Costilla de res ahumada",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 5.5,
+      "usa": [
+       [
+        "cost_res",
+        10
+       ],
+       [
+        "rub",
+        0.25
+       ],
+       [
+        "carbon",
+        7
+       ]
+      ]
+     }
+    }
+   ]
+  ],
+  "recetas": {
+   "Plato individual puerco": [
+    [
+     "ahu_cerdo",
+     0.44
+    ],
+    [
+     "papas",
+     0.2
+    ],
+    [
+     "elote",
+     0.5
+    ],
+    [
+     "salsas",
+     0.05
+    ],
+    [
+     "aceite",
+     0.05
+    ]
+   ],
+   "Kilo de costilla puerco": [
+    [
+     "ahu_cerdo",
+     1
+    ],
+    [
+     "salsas",
+     0.1
+    ],
+    [
+     "papas",
+     0.3
+    ],
+    [
+     "aceite",
+     0.07
+    ]
+   ],
+   "Plato individual res": [
+    [
+     "ahu_res",
+     0.45
+    ],
+    [
+     "papas",
+     0.2
+    ],
+    [
+     "elote",
+     0.5
+    ],
+    [
+     "salsas",
+     0.05
+    ],
+    [
+     "aceite",
+     0.05
+    ]
+   ],
+   "Combinación": [
+    [
+     "ahu_cerdo",
+     0.25
+    ],
+    [
+     "alitas",
+     0.25
+    ],
+    [
+     "papas",
+     0.2
+    ],
+    [
+     "salsas",
+     0.06
+    ],
+    [
+     "aceite",
+     0.06
+    ]
+   ],
+   "Platillo rib eye": [
+    [
+     "ribeye",
+     0.35
+    ],
+    [
+     "papas",
+     0.2
+    ],
+    [
+     "elote",
+     0.5
+    ],
+    [
+     "aceite",
+     0.05
+    ]
+   ],
+   "Alitas personal": [
+    [
+     "alitas",
+     0.45
+    ],
+    [
+     "salsas",
+     0.06
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.1
+    ],
+    [
+     "aderezo",
+     0.03
+    ]
+   ],
+   "Alitas doble": [
+    [
+     "alitas",
+     0.7
+    ],
+    [
+     "salsas",
+     0.09
+    ],
+    [
+     "papas",
+     0.2
+    ],
+    [
+     "aceite",
+     0.14
+    ],
+    [
+     "aderezo",
+     0.04
+    ]
+   ],
+   "Alitas 1 kilo": [
+    [
+     "alitas",
+     1.2
+    ],
+    [
+     "salsas",
+     0.12
+    ],
+    [
+     "aceite",
+     0.15
+    ],
+    [
+     "aderezo",
+     0.06
+    ]
+   ],
+   "Boneless personal": [
+    [
+     "boneless",
+     0.3
+    ],
+    [
+     "salsas",
+     0.06
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.08
+    ],
+    [
+     "aderezo",
+     0.03
+    ]
+   ],
+   "Boneless doble": [
+    [
+     "boneless",
+     0.5
+    ],
+    [
+     "salsas",
+     0.08
+    ],
+    [
+     "papas",
+     0.2
+    ],
+    [
+     "aceite",
+     0.1
+    ],
+    [
+     "aderezo",
+     0.04
+    ]
+   ],
+   "Sampler #1": [
+    [
+     "ahu_cerdo",
+     0.4
+    ],
+    [
+     "alitas",
+     0.4
+    ],
+    [
+     "boneless",
+     0.25
+    ],
+    [
+     "papas",
+     0.3
+    ],
+    [
+     "aros",
+     0.15
+    ],
+    [
+     "dedos",
+     4
+    ],
+    [
+     "salsas",
+     0.12
+    ],
+    [
+     "aceite",
+     0.15
+    ]
+   ],
+   "Sampler #2": [
+    [
+     "ahu_cerdo",
+     0.39
+    ],
+    [
+     "alitas",
+     0.39
+    ],
+    [
+     "boneless",
+     0.24
+    ],
+    [
+     "papas",
+     0.29
+    ],
+    [
+     "aros",
+     0.15
+    ],
+    [
+     "dedos",
+     4
+    ],
+    [
+     "salsas",
+     0.12
+    ],
+    [
+     "aceite",
+     0.15
+    ]
+   ],
+   "Sampler #3": [
+    [
+     "ahu_cerdo",
+     0.42
+    ],
+    [
+     "alitas",
+     0.42
+    ],
+    [
+     "boneless",
+     0.26
+    ],
+    [
+     "papas",
+     0.31
+    ],
+    [
+     "aros",
+     0.16
+    ],
+    [
+     "dedos",
+     4
+    ],
+    [
+     "salsas",
+     0.12
+    ],
+    [
+     "aceite",
+     0.16
+    ]
+   ],
+   "Sampler #4": [
+    [
+     "ahu_cerdo",
+     0.47
+    ],
+    [
+     "alitas",
+     0.47
+    ],
+    [
+     "boneless",
+     0.29
+    ],
+    [
+     "papas",
+     0.35
+    ],
+    [
+     "aros",
+     0.18
+    ],
+    [
+     "dedos",
+     5
+    ],
+    [
+     "salsas",
+     0.14
+    ],
+    [
+     "aceite",
+     0.18
+    ]
+   ],
+   "Sampler #5": [
+    [
+     "ahu_cerdo",
+     0.55
+    ],
+    [
+     "alitas",
+     0.55
+    ],
+    [
+     "boneless",
+     0.34
+    ],
+    [
+     "papas",
+     0.41
+    ],
+    [
+     "aros",
+     0.21
+    ],
+    [
+     "dedos",
+     5
+    ],
+    [
+     "salsas",
+     0.16
+    ],
+    [
+     "aceite",
+     0.21
+    ]
+   ],
+   "Sampler #6": [
+    [
+     "ahu_cerdo",
+     0.58
+    ],
+    [
+     "alitas",
+     0.58
+    ],
+    [
+     "boneless",
+     0.36
+    ],
+    [
+     "papas",
+     0.44
+    ],
+    [
+     "aros",
+     0.22
+    ],
+    [
+     "dedos",
+     6
+    ],
+    [
+     "salsas",
+     0.17
+    ],
+    [
+     "aceite",
+     0.22
+    ]
+   ],
+   "Sampler #7": [
+    [
+     "ahu_cerdo",
+     0.37
+    ],
+    [
+     "alitas",
+     0.37
+    ],
+    [
+     "boneless",
+     0.23
+    ],
+    [
+     "papas",
+     0.28
+    ],
+    [
+     "aros",
+     0.14
+    ],
+    [
+     "dedos",
+     4
+    ],
+    [
+     "salsas",
+     0.11
+    ],
+    [
+     "aceite",
+     0.14
+    ]
+   ],
+   "Hamburguesa de res": [
+    [
+     "molida",
+     0.2
+    ],
+    [
+     "pan_h",
+     1
+    ],
+    [
+     "queso_ch",
+     0.03
+    ],
+    [
+     "lechuga",
+     0.02
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.05
+    ],
+    [
+     "aderezo",
+     0.02
+    ]
+   ],
+   "Hamburguesa de pollo": [
+    [
+     "pechuga",
+     0.18
+    ],
+    [
+     "pan_h",
+     1
+    ],
+    [
+     "queso_ch",
+     0.03
+    ],
+    [
+     "lechuga",
+     0.02
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.05
+    ],
+    [
+     "aderezo",
+     0.02
+    ]
+   ],
+   "Hamburguesa de costilla": [
+    [
+     "ahu_cerdo",
+     0.2
+    ],
+    [
+     "pan_h",
+     1
+    ],
+    [
+     "queso_ch",
+     0.03
+    ],
+    [
+     "lechuga",
+     0.02
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.05
+    ],
+    [
+     "aderezo",
+     0.02
+    ]
+   ],
+   "La Vaquera": [
+    [
+     "molida",
+     0.2
+    ],
+    [
+     "pan_h",
+     1
+    ],
+    [
+     "queso_ch",
+     0.03
+    ],
+    [
+     "lechuga",
+     0.02
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.05
+    ],
+    [
+     "aderezo",
+     0.02
+    ],
+    [
+     "tocino",
+     0.03
+    ],
+    [
+     "aros",
+     0.05
+    ]
+   ],
+   "La Guacamole": [
+    [
+     "molida",
+     0.2
+    ],
+    [
+     "pan_h",
+     1
+    ],
+    [
+     "queso_ch",
+     0.03
+    ],
+    [
+     "lechuga",
+     0.02
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.05
+    ],
+    [
+     "aderezo",
+     0.02
+    ],
+    [
+     "aguacate",
+     0.06
+    ]
+   ],
+   "La 28": [
+    [
+     "molida",
+     0.2
+    ],
+    [
+     "ahu_cerdo",
+     0.1
+    ],
+    [
+     "pan_h",
+     1
+    ],
+    [
+     "queso_ch",
+     0.03
+    ],
+    [
+     "lechuga",
+     0.02
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.05
+    ],
+    [
+     "aderezo",
+     0.02
+    ],
+    [
+     "tocino",
+     0.03
+    ]
+   ],
+   "La Philly": [
+    [
+     "ribeye",
+     0.15
+    ],
+    [
+     "pan_h",
+     1
+    ],
+    [
+     "queso_ch",
+     0.03
+    ],
+    [
+     "lechuga",
+     0.02
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.05
+    ],
+    [
+     "aderezo",
+     0.02
+    ],
+    [
+     "queso_ch",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.03
+    ]
+   ],
+   "Hamburguesa de camarón": [
+    [
+     "camaron",
+     0.15
+    ],
+    [
+     "pan_h",
+     1
+    ],
+    [
+     "queso_ch",
+     0.03
+    ],
+    [
+     "lechuga",
+     0.02
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.05
+    ],
+    [
+     "aderezo",
+     0.02
+    ]
+   ],
+   "Hot dog de costilla": [
+    [
+     "salchicha",
+     1
+    ],
+    [
+     "pan_hd",
+     1
+    ],
+    [
+     "ahu_cerdo",
+     0.12
+    ],
+    [
+     "queso_ch",
+     0.02
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.05
+    ]
+   ],
+   "Hot dog de camarón": [
+    [
+     "salchicha",
+     1
+    ],
+    [
+     "pan_hd",
+     1
+    ],
+    [
+     "camaron",
+     0.1
+    ],
+    [
+     "queso_ch",
+     0.02
+    ],
+    [
+     "papas",
+     0.15
+    ],
+    [
+     "aceite",
+     0.05
+    ]
+   ],
+   "Papas sencillas": [
+    [
+     "papas",
+     0.35
+    ],
+    [
+     "aceite",
+     0.08
+    ]
+   ],
+   "Papas con queso": [
+    [
+     "papas",
+     0.35
+    ],
+    [
+     "aceite",
+     0.08
+    ],
+    [
+     "queso_ch",
+     0.08
+    ]
+   ],
+   "Papas con tocino": [
+    [
+     "papas",
+     0.35
+    ],
+    [
+     "aceite",
+     0.08
+    ],
+    [
+     "queso_ch",
+     0.08
+    ],
+    [
+     "tocino",
+     0.05
+    ]
+   ],
+   "Papas con carne": [
+    [
+     "papas",
+     0.35
+    ],
+    [
+     "aceite",
+     0.08
+    ],
+    [
+     "queso_ch",
+     0.08
+    ],
+    [
+     "ribeye",
+     0.1
+    ]
+   ],
+   "Salchipapas con carne": [
+    [
+     "papas",
+     0.3
+    ],
+    [
+     "salchicha",
+     2
+    ],
+    [
+     "ribeye",
+     0.08
+    ],
+    [
+     "queso_ch",
+     0.06
+    ],
+    [
+     "aceite",
+     0.08
+    ]
+   ],
+   "Chache bowl": [
+    [
+     "papas",
+     0.3
+    ],
+    [
+     "ahu_cerdo",
+     0.15
+    ],
+    [
+     "queso_ch",
+     0.06
+    ],
+    [
+     "salsas",
+     0.05
+    ],
+    [
+     "aceite",
+     0.08
+    ]
+   ],
+   "Rib eye fries": [
+    [
+     "papas",
+     0.35
+    ],
+    [
+     "ribeye",
+     0.15
+    ],
+    [
+     "queso_ch",
+     0.08
+    ],
+    [
+     "aceite",
+     0.08
+    ]
+   ],
+   "8 dedos de queso": [
+    [
+     "dedos",
+     8
+    ],
+    [
+     "aceite",
+     0.06
+    ],
+    [
+     "aderezo",
+     0.03
+    ]
+   ],
+   "Orden de elote": [
+    [
+     "elote",
+     2
+    ],
+    [
+     "aderezo",
+     0.03
+    ],
+    [
+     "queso_m",
+     0.02
+    ]
+   ],
+   "2 salchichas tipo polaca": [
+    [
+     "polaca",
+     2
+    ],
+    [
+     "aceite",
+     0.02
+    ]
+   ],
+   "Aros de cebolla": [
+    [
+     "aros",
+     0.3
+    ],
+    [
+     "aceite",
+     0.06
+    ],
+    [
+     "aderezo",
+     0.02
+    ]
+   ],
+   "Chicharrón de rib eye": [
+    [
+     "ribeye",
+     0.2
+    ],
+    [
+     "aceite",
+     0.05
+    ],
+    [
+     "limon",
+     0.03
+    ]
+   ],
+   "Cazuelitas": [
+    [
+     "queso_m",
+     0.12
+    ],
+    [
+     "tortilla",
+     3
+    ],
+    [
+     "ribeye",
+     0.1,
+     "Rib eye"
+    ],
+    [
+     "camaron",
+     0.1,
+     "Camarón"
+    ],
+    [
+     "ahu_cerdo",
+     0.12,
+     "Costilla"
+    ]
+   ],
+   "Costillas costa azul": [
+    [
+     "ahu_cerdo",
+     0.25
+    ],
+    [
+     "camaron",
+     0.05
+    ],
+    [
+     "salsas",
+     0.04
+    ]
+   ],
+   "Nachos sencillos": [
+    [
+     "totopos",
+     0.2
+    ],
+    [
+     "queso_ch",
+     0.1
+    ],
+    [
+     "frijol",
+     0.1
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "aguacate",
+     0.04
+    ],
+    [
+     "cebolla",
+     0.02
+    ]
+   ],
+   "Nachos de costilla": [
+    [
+     "totopos",
+     0.2
+    ],
+    [
+     "queso_ch",
+     0.1
+    ],
+    [
+     "frijol",
+     0.1
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "aguacate",
+     0.04
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "ahu_cerdo",
+     0.15
+    ]
+   ],
+   "Nachos de rib eye": [
+    [
+     "totopos",
+     0.2
+    ],
+    [
+     "queso_ch",
+     0.1
+    ],
+    [
+     "frijol",
+     0.1
+    ],
+    [
+     "jitomate",
+     0.03
+    ],
+    [
+     "aguacate",
+     0.04
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "ribeye",
+     0.15
+    ]
+   ],
+   "Ensalada La Ligera": [
+    [
+     "lechuga",
+     0.15
+    ],
+    [
+     "pechuga",
+     0.12
+    ],
+    [
+     "jitomate",
+     0.05
+    ],
+    [
+     "pepino",
+     0.05
+    ],
+    [
+     "aguacate",
+     0.05
+    ],
+    [
+     "aderezo",
+     0.03
+    ]
+   ],
+   "Ensalada de la casa": [
+    [
+     "lechuga",
+     0.15
+    ],
+    [
+     "pechuga",
+     0.1
+    ],
+    [
+     "tocino",
+     0.03
+    ],
+    [
+     "queso_ch",
+     0.03
+    ],
+    [
+     "jitomate",
+     0.05
+    ],
+    [
+     "aguacate",
+     0.05
+    ],
+    [
+     "aderezo",
+     0.04
+    ]
+   ],
+   "Ceviche de atún": [
+    [
+     "atun",
+     0.2
+    ],
+    [
+     "limon",
+     0.1
+    ],
+    [
+     "pepino",
+     0.08
+    ],
+    [
+     "cebolla",
+     0.03
+    ],
+    [
+     "aguacate",
+     0.05
+    ],
+    [
+     "cilantro",
+     0.2
+    ],
+    [
+     "totopos",
+     0.05
+    ]
+   ],
+   "Aguachile de costilla": [
+    [
+     "ahu_cerdo",
+     0.2
+    ],
+    [
+     "limon",
+     0.1
+    ],
+    [
+     "pepino",
+     0.08
+    ],
+    [
+     "cebolla",
+     0.03
+    ],
+    [
+     "aguacate",
+     0.05
+    ],
+    [
+     "cilantro",
+     0.2
+    ]
+   ],
+   "Aguachile de rib eye": [
+    [
+     "ribeye",
+     0.2
+    ],
+    [
+     "limon",
+     0.1
+    ],
+    [
+     "pepino",
+     0.08
+    ],
+    [
+     "cebolla",
+     0.03
+    ],
+    [
+     "aguacate",
+     0.05
+    ],
+    [
+     "cilantro",
+     0.2
+    ]
+   ],
+   "Quesa taco de atún": [
+    [
+     "atun",
+     0.06
+    ],
+    [
+     "queso_m",
+     0.04
+    ],
+    [
+     "tortilla",
+     1
+    ],
+    [
+     "aceite",
+     0.01
+    ]
+   ],
+   "Quesa taco de costilla": [
+    [
+     "ahu_cerdo",
+     0.07
+    ],
+    [
+     "queso_m",
+     0.04
+    ],
+    [
+     "tortilla",
+     1
+    ],
+    [
+     "aceite",
+     0.01
+    ]
+   ],
+   "Quesa taco de rib eye": [
+    [
+     "ribeye",
+     0.07
+    ],
+    [
+     "queso_m",
+     0.04
+    ],
+    [
+     "tortilla",
+     1
+    ],
+    [
+     "aceite",
+     0.01
+    ]
+   ],
+   "Quesa taco de camarón": [
+    [
+     "camaron",
+     0.07
+    ],
+    [
+     "queso_m",
+     0.04
+    ],
+    [
+     "tortilla",
+     1
+    ],
+    [
+     "aceite",
+     0.01
+    ]
+   ],
+   "Quesa taco mar y tierra": [
+    [
+     "camaron",
+     0.04
+    ],
+    [
+     "ribeye",
+     0.04
+    ],
+    [
+     "queso_m",
+     0.04
+    ],
+    [
+     "tortilla",
+     1
+    ],
+    [
+     "aceite",
+     0.01
+    ]
+   ],
+   "Hot dog kids": [
+    [
+     "salchicha",
+     1
+    ],
+    [
+     "pan_hd",
+     1
+    ],
+    [
+     "papas",
+     0.12
+    ],
+    [
+     "aceite",
+     0.04
+    ]
+   ],
+   "Nuggets": [
+    [
+     "nuggets",
+     0.2
+    ],
+    [
+     "papas",
+     0.12
+    ],
+    [
+     "aceite",
+     0.06
+    ]
+   ],
+   "Corn dog": [
+    [
+     "corndog",
+     1
+    ],
+    [
+     "papas",
+     0.12
+    ],
+    [
+     "aceite",
+     0.05
+    ]
+   ],
+   "Refresco": [
+    [
+     "refresco",
+     1
+    ]
+   ],
+   "Limonada": [
+    [
+     "limon",
+     0.08
+    ],
+    [
+     "mineral",
+     1,
+     "Mineral"
+    ]
+   ],
+   "Agua de sabor": [
+    [
+     "concentrado",
+     0.05
+    ]
+   ],
+   "Cerveza": [
+    [
+     "cerveza",
+     1
+    ]
+   ]
+  },
+  "demo": {
+   "ahu_cerdo": 0.7,
+   "cerveza": 0.8,
+   "alitas": 0.6,
+   "aguacate": 0.3,
+   "papas": 1.3
+  },
+  "entregas": {
+   "Carnicería": [
+    2,
+    5
+   ],
+   "Costco": [
+    1,
+    4
+   ],
+   "Pescadería": [
+    3,
+    6
+   ],
+   "Panadería": [
+    1,
+    3,
+    5
+   ],
+   "Mercado": [
+    1,
+    3,
+    5
+   ],
+   "Tortillería": [
+    2,
+    5
+   ],
+   "Carbonería": [
+    1
+   ],
+   "Distribuidora": [
+    4
+   ]
+  },
+  "faltan": {
+   "ahu_cerdo": 0.8,
+   "cerveza": 6,
+   "alitas": 0.5
+  },
+  "mermas": [
+   [
+    3,
+    "ahu_cerdo",
+    1.2,
+    "Sobró al cierre"
+   ],
+   [
+    2,
+    "lechuga",
+    0.5,
+    "Se echó a perder"
+   ],
+   [
+    1,
+    "papas",
+    1,
+    "Se cayó o se tiró"
+   ],
+   [
+    0,
+    "aguacate",
+    0.4,
+    "Se echó a perder"
+   ]
+  ],
+  "motivo2": "Sobró al cierre",
+  "credito": "Carnicería",
+  "provs": {}
+ },
+ "horario": [
+  13,
+  22
+ ],
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    30000
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    699
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    2000
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    6500,
+    {
+     "ant": 7200
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    1200
+   ],
+   [
+    15,
+    "Publicidad",
+    "Anuncios en Facebook e Instagram",
+    1500,
+    {
+     "met": "Tarjeta"
+    }
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    700,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    600,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    22000,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio del ahumador",
+    1500,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    6400,
+    "CFE"
+   ],
+   [
+    -1,
+    "Mantenimiento",
+    "Limpieza de campana y extractor",
+    1800,
+    "Mantenimiento industrial",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 450,
+   "Miguel": 450,
+   "Toño": 550,
+   "Karla": 450
+  },
+  "factura": 640
+ },
+ "aviso": "Así se vería Comandero en Ribs la 28, con su logo, sus fotos y su menú completo. Lo nuevo: entre como Gerente y vea «Almacén» (cuánta costilla ahumada sale de cada kilo crudo, lo que hay que ahumar hoy, el pedido a la carnicería por WhatsApp y cuánto deja cada platillo) y «Dinero y contador» (cuánto le quedó en el mes, gastos, nómina y el paquete para su contador). Los costos son de ejemplo. Nada de lo que haga aquí se guarda.",
+ "frase": "Costillas ahumadas en Altabrisa",
+ "volumen": 0.65
+}

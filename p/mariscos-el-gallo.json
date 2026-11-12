@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Mariscos El Gallo",
  "lema": "Parque Azteca · Playas de Tijuana",
  "color": "#D2232A",
@@ -9,7 +9,7 @@
  "logo": "p/mariscos-el-gallo/logo.webp",
  "portada": "p/mariscos-el-gallo/portada.webp",
  "frase": "Siete años de mariscos en Playas",
- "aviso": "Así se vería Comandero en Mariscos El Gallo: con su logo, fotos de sus platillos y los precios de su menú. Juéguele con confianza: nada de lo que haga aquí se guarda. Se lo dejamos instalado gratis, con todas las tablets y celulares que quiera, y el primer mes no paga.",
+ "aviso": "Así se vería Comandero en Mariscos El Gallo, con su logo, sus fotos y los precios de su menú. Lo nuevo: entre como Gerente y vea «Almacén» (cuánto camarón limpio sale de cada kilo, el ceviche que preparan, el pedido a la pescadería por WhatsApp y cuánto deja cada taco) y «Dinero y contador» (cuánto le quedó en el mes, gastos, nómina y el paquete para su contador). Los costos son de ejemplo. Nada de lo que haga aquí se guarda.",
  "menu": [
   [
    "Tacos",
@@ -141,5 +141,1134 @@
    "Taco + tostada de camarón, pescado o campechana",
    []
   ]
- ]
+ ],
+ "inv": {
+  "escala": {
+   "Grande": 1.35
+  },
+  "insumos": [
+   [
+    "pescado",
+    "Filete de pescado para capear",
+    "kg",
+    "Pescados y mariscos",
+    "Pescadería",
+    140,
+    3,
+    8
+   ],
+   [
+    "camaron",
+    "Camarón con cáscara",
+    "kg",
+    "Pescados y mariscos",
+    "Pescadería",
+    220,
+    4,
+    10
+   ],
+   [
+    "marlin",
+    "Marlín ahumado",
+    "kg",
+    "Pescados y mariscos",
+    "Pescadería",
+    300,
+    1,
+    3
+   ],
+   [
+    "pesc_cev",
+    "Pescado para ceviche",
+    "kg",
+    "Pescados y mariscos",
+    "Pescadería",
+    110,
+    3,
+    8
+   ],
+   [
+    "mixtura",
+    "Mixtura de mariscos (pulpo, callo, camarón)",
+    "kg",
+    "Pescados y mariscos",
+    "Pescadería",
+    220,
+    2,
+    5
+   ],
+   [
+    "harina",
+    "Harina y batido para capear",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    30,
+    3,
+    8
+   ],
+   [
+    "aceite",
+    "Aceite para freír",
+    "L",
+    "Abarrotes",
+    "Costco",
+    42,
+    8,
+    20
+   ],
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas",
+    "Tortillería",
+    24,
+    5,
+    12
+   ],
+   [
+    "harina_tort",
+    "Tortilla de harina grande",
+    "pz",
+    "Tortillas",
+    "Tortillería",
+    5,
+    20,
+    60
+   ],
+   [
+    "tostada",
+    "Tostadas",
+    "pz",
+    "Tortillas",
+    "Tortillería",
+    1.5,
+    60,
+    200
+   ],
+   [
+    "repollo",
+    "Repollo",
+    "kg",
+    "Verduras",
+    "Mercado",
+    18,
+    3,
+    8
+   ],
+   [
+    "limon",
+    "Limón",
+    "kg",
+    "Verduras",
+    "Mercado",
+    30,
+    6,
+    15
+   ],
+   [
+    "pepino",
+    "Pepino",
+    "kg",
+    "Verduras",
+    "Mercado",
+    20,
+    2,
+    6
+   ],
+   [
+    "cebolla",
+    "Cebolla morada",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    2,
+    6
+   ],
+   [
+    "jitomate",
+    "Jitomate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "cilantro",
+    "Cilantro (manojo)",
+    "pz",
+    "Verduras",
+    "Mercado",
+    8,
+    6,
+    15
+   ],
+   [
+    "aguacate",
+    "Aguacate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    70,
+    2,
+    5
+   ],
+   [
+    "chile",
+    "Chile serrano",
+    "kg",
+    "Verduras",
+    "Mercado",
+    45,
+    0.5,
+    2
+   ],
+   [
+    "zanahoria",
+    "Zanahoria",
+    "kg",
+    "Verduras",
+    "Mercado",
+    14,
+    1,
+    3
+   ],
+   [
+    "crema",
+    "Crema",
+    "L",
+    "Lácteos y salsas",
+    "Costco",
+    60,
+    2,
+    5
+   ],
+   [
+    "mayonesa",
+    "Mayonesa",
+    "kg",
+    "Lácteos y salsas",
+    "Costco",
+    90,
+    1,
+    3
+   ],
+   [
+    "queso",
+    "Queso para gobernador",
+    "kg",
+    "Lácteos y salsas",
+    "Costco",
+    140,
+    1,
+    3
+   ],
+   [
+    "salsa",
+    "Salsas de la mesa",
+    "L",
+    "Lácteos y salsas",
+    "Mercado",
+    35,
+    3,
+    8
+   ],
+   [
+    "coctel",
+    "Clamato y salsa para coctel",
+    "L",
+    "Lácteos y salsas",
+    "Costco",
+    45,
+    4,
+    10
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    12,
+    24,
+    72
+   ],
+   [
+    "plato",
+    "Platos desechables",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.2,
+    100,
+    300
+   ],
+   [
+    "vaso_coctel",
+    "Vasos para coctel con tapa",
+    "pz",
+    "Desechables",
+    "Desechables",
+    4.5,
+    30,
+    100
+   ],
+   [
+    "charola",
+    "Charolas para burrito",
+    "pz",
+    "Desechables",
+    "Desechables",
+    3,
+    30,
+    100
+   ],
+   [
+    "camaron_limpio",
+    "Camarón pelado y limpio",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 6.5,
+      "usa": [
+       [
+        "camaron",
+        10
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "cev_pescado",
+    "Ceviche de pescado preparado",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 7,
+      "usa": [
+       [
+        "pesc_cev",
+        4
+       ],
+       [
+        "limon",
+        2
+       ],
+       [
+        "pepino",
+        0.8
+       ],
+       [
+        "cebolla",
+        0.5
+       ],
+       [
+        "jitomate",
+        1
+       ],
+       [
+        "cilantro",
+        4
+       ],
+       [
+        "zanahoria",
+        0.5
+       ],
+       [
+        "chile",
+        0.1
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "cev_camaron",
+    "Ceviche de camarón preparado",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 5,
+      "usa": [
+       [
+        "camaron_limpio",
+        2.8
+       ],
+       [
+        "limon",
+        1.5
+       ],
+       [
+        "pepino",
+        0.6
+       ],
+       [
+        "cebolla",
+        0.4
+       ],
+       [
+        "jitomate",
+        0.8
+       ],
+       [
+        "cilantro",
+        3
+       ],
+       [
+        "chile",
+        0.08
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "enchilado",
+    "Camarón enchilado de la casa",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 3,
+      "usa": [
+       [
+        "camaron_limpio",
+        2.8
+       ],
+       [
+        "chile",
+        0.2
+       ],
+       [
+        "aceite",
+        0.2
+       ],
+       [
+        "salsa",
+        0.3
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "caldo",
+    "Caldo de mariscos",
+    "L",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 20,
+      "usa": [
+       [
+        "mixtura",
+        3
+       ],
+       [
+        "jitomate",
+        2
+       ],
+       [
+        "cebolla",
+        0.5
+       ],
+       [
+        "chile",
+        0.1
+       ],
+       [
+        "zanahoria",
+        1
+       ]
+      ]
+     }
+    }
+   ]
+  ],
+  "recetas": {
+   "Taco de pescado": [
+    [
+     "pescado",
+     0.06
+    ],
+    [
+     "harina",
+     0.02
+    ],
+    [
+     "aceite",
+     0.02
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "repollo",
+     0.02
+    ],
+    [
+     "crema",
+     0.01
+    ],
+    [
+     "salsa",
+     0.01
+    ],
+    [
+     "plato",
+     0.3,
+     "!zzz"
+    ]
+   ],
+   "Taco de camarón": [
+    [
+     "camaron_limpio",
+     0.045
+    ],
+    [
+     "harina",
+     0.02
+    ],
+    [
+     "aceite",
+     0.02
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "repollo",
+     0.02
+    ],
+    [
+     "crema",
+     0.01
+    ],
+    [
+     "salsa",
+     0.01
+    ],
+    [
+     "plato",
+     0.3,
+     "!zzz"
+    ]
+   ],
+   "Taco enchilado": [
+    [
+     "enchilado",
+     0.08
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "queso",
+     0.02
+    ],
+    [
+     "repollo",
+     0.02
+    ],
+    [
+     "crema",
+     0.01
+    ],
+    [
+     "aguacate",
+     0.02
+    ],
+    [
+     "plato",
+     0.5,
+     "!zzz"
+    ]
+   ],
+   "Taco perrón": [
+    [
+     "camaron_limpio",
+     0.04
+    ],
+    [
+     "marlin",
+     0.02
+    ],
+    [
+     "queso",
+     0.03
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "aguacate",
+     0.02
+    ],
+    [
+     "crema",
+     0.01
+    ],
+    [
+     "plato",
+     0.5,
+     "!zzz"
+    ]
+   ],
+   "Taco de marlín": [
+    [
+     "marlin",
+     0.07
+    ],
+    [
+     "queso",
+     0.02
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "aceite",
+     0.01
+    ],
+    [
+     "plato",
+     0.5,
+     "!zzz"
+    ]
+   ],
+   "Taco gobernador": [
+    [
+     "camaron_limpio",
+     0.07
+    ],
+    [
+     "queso",
+     0.04
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.01
+    ],
+    [
+     "chile",
+     0.005
+    ],
+    [
+     "plato",
+     0.5,
+     "!zzz"
+    ]
+   ],
+   "Tostada de ceviche de pescado": [
+    [
+     "cev_pescado",
+     0.12
+    ],
+    [
+     "tostada",
+     1
+    ],
+    [
+     "aguacate",
+     0.02
+    ],
+    [
+     "mayonesa",
+     0.01
+    ],
+    [
+     "salsa",
+     0.01
+    ],
+    [
+     "plato",
+     0.5,
+     "!zzz"
+    ]
+   ],
+   "Tostada de ceviche de camarón": [
+    [
+     "cev_camaron",
+     0.12
+    ],
+    [
+     "tostada",
+     1
+    ],
+    [
+     "aguacate",
+     0.02
+    ],
+    [
+     "mayonesa",
+     0.01
+    ],
+    [
+     "salsa",
+     0.01
+    ],
+    [
+     "plato",
+     0.5,
+     "!zzz"
+    ]
+   ],
+   "Burrito de camarón": [
+    [
+     "camaron_limpio",
+     0.14
+    ],
+    [
+     "harina_tort",
+     1
+    ],
+    [
+     "queso",
+     0.04
+    ],
+    [
+     "aguacate",
+     0.03
+    ],
+    [
+     "crema",
+     0.02
+    ],
+    [
+     "repollo",
+     0.03
+    ],
+    [
+     "charola",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Burrito de pescado": [
+    [
+     "pescado",
+     0.16
+    ],
+    [
+     "harina",
+     0.03
+    ],
+    [
+     "aceite",
+     0.03
+    ],
+    [
+     "harina_tort",
+     1
+    ],
+    [
+     "repollo",
+     0.04
+    ],
+    [
+     "crema",
+     0.02
+    ],
+    [
+     "charola",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Burrito de marlín": [
+    [
+     "marlin",
+     0.14
+    ],
+    [
+     "harina_tort",
+     1
+    ],
+    [
+     "queso",
+     0.04
+    ],
+    [
+     "aguacate",
+     0.03
+    ],
+    [
+     "crema",
+     0.02
+    ],
+    [
+     "charola",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Aguachile": [
+    [
+     "camaron_limpio",
+     0.35
+    ],
+    [
+     "limon",
+     0.3
+    ],
+    [
+     "pepino",
+     0.15
+    ],
+    [
+     "cebolla",
+     0.05
+    ],
+    [
+     "chile",
+     0.03
+    ],
+    [
+     "aguacate",
+     0.05
+    ],
+    [
+     "tostada",
+     4
+    ],
+    [
+     "plato",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Sopa de mariscos": [
+    [
+     "caldo",
+     0.5
+    ],
+    [
+     "mixtura",
+     0.1
+    ],
+    [
+     "limon",
+     0.03
+    ],
+    [
+     "tostada",
+     2
+    ],
+    [
+     "vaso_coctel",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Coctel de camarón": [
+    [
+     "camaron_limpio",
+     0.15
+    ],
+    [
+     "coctel",
+     0.25
+    ],
+    [
+     "pepino",
+     0.04
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "aguacate",
+     0.04
+    ],
+    [
+     "cilantro",
+     0.1
+    ],
+    [
+     "limon",
+     0.03
+    ],
+    [
+     "tostada",
+     2
+    ],
+    [
+     "vaso_coctel",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Refresco": [
+    [
+     "refresco",
+     1
+    ]
+   ]
+  },
+  "demo": {
+   "camaron": 0.6,
+   "camaron_limpio": 1.3,
+   "aguacate": 0.35,
+   "cev_pescado": 0.7,
+   "limon": 0.9,
+   "tostada": 1.3
+  },
+  "entregas": {
+   "Pescadería": [
+    2,
+    5
+   ],
+   "Mercado": [
+    1,
+    4
+   ],
+   "Tortillería": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Costco": [
+    3
+   ],
+   "Distribuidora de refrescos": [
+    4
+   ],
+   "Desechables": "q"
+  },
+  "faltan": {
+   "camaron_limpio": 0.4,
+   "refresco": 3,
+   "limon": 0.8
+  },
+  "mermas": [
+   [
+    3,
+    "cev_pescado",
+    0.6,
+    "Sobró al cierre"
+   ],
+   [
+    2,
+    "aguacate",
+    0.5,
+    "Se echó a perder"
+   ],
+   [
+    1,
+    "tostada",
+    8,
+    "Se cayó o se tiró"
+   ],
+   [
+    0,
+    "cilantro",
+    2,
+    "Se echó a perder"
+   ]
+  ],
+  "motivo2": "Sobró al cierre",
+  "credito": "Pescadería",
+  "provs": {}
+ },
+ "horario": [
+  9,
+  18
+ ],
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    12000
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    499
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1500
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE (refrigeradores)",
+    3500,
+    {
+     "ant": 3900
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    800
+   ],
+   [
+    15,
+    "Publicidad",
+    "Anuncio en Facebook",
+    500,
+    {
+     "met": "Tarjeta"
+    }
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de las freidoras",
+    420,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     1,
+     4,
+     8,
+     11,
+     15,
+     18,
+     22,
+     25,
+     29
+    ],
+    "Hielo",
+    "Hielo para el pescado",
+    150,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     17
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    350,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    8400,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    20,
+    "Mantenimiento",
+    "Mantenimiento del refrigerador",
+    900,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    4,
+    "Luz",
+    "Recibo CFE",
+    3600,
+    "CFE"
+   ],
+   [
+    -1,
+    "Mantenimiento",
+    "Limpieza de la freidora",
+    700,
+    "Técnico",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 350,
+   "Miguel": 350,
+   "Toño": 400,
+   "Karla": 300
+  },
+  "factura": 300
+ }
 }

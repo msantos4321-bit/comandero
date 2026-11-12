@@ -1,5 +1,5 @@
 {
- "ver": 3,
+ "ver": 4,
  "nombre": "Xolo Tacos La Cuesta",
  "lema": "Playas de Tijuana · Tacos de birria",
  "color": "#D3201F",
@@ -190,5 +190,1152 @@
     0
    ]
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "carne",
+    "Carne de res para birria",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    135,
+    20,
+    50
+   ],
+   [
+    "hueso_caldo",
+    "Hueso para consomé",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    45,
+    5,
+    15
+   ],
+   [
+    "tuetano",
+    "Hueso con tuétano",
+    "pz",
+    "Carnes",
+    "Carnicería",
+    20,
+    10,
+    30,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "nervio",
+    "Nervio cocido",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    140,
+    2,
+    6,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "tripa",
+    "Tripa",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    120,
+    2,
+    5,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "pata",
+    "Pata de res",
+    "pz",
+    "Carnes",
+    "Carnicería",
+    22,
+    6,
+    20,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "chicharron",
+    "Chicharrón",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    160,
+    1,
+    3,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "chiles",
+    "Chiles secos (guajillo y ancho)",
+    "kg",
+    "Chiles y especias",
+    "Mercado",
+    180,
+    1,
+    3
+   ],
+   [
+    "especias",
+    "Especias (comino, orégano, clavo, laurel)",
+    "kg",
+    "Chiles y especias",
+    "Mercado",
+    220,
+    0.3,
+    1
+   ],
+   [
+    "ajo",
+    "Ajo",
+    "kg",
+    "Verduras",
+    "Mercado",
+    80,
+    0.5,
+    2
+   ],
+   [
+    "jitomate",
+    "Jitomate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "cebolla",
+    "Cebolla",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    4,
+    10,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "cilantro",
+    "Cilantro (manojo)",
+    "pz",
+    "Verduras",
+    "Mercado",
+    8,
+    6,
+    15,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "limon",
+    "Limón",
+    "kg",
+    "Verduras",
+    "Mercado",
+    30,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "salsa",
+    "Salsa de la casa",
+    "L",
+    "Verduras",
+    "Mercado",
+    35,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas",
+    "Tortillería",
+    24,
+    10,
+    25,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "harina",
+    "Tortilla de harina",
+    "pz",
+    "Tortillas",
+    "Tortillería",
+    3,
+    20,
+    60,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "queso",
+    "Queso para quesabirria",
+    "kg",
+    "Lácteos y abarrotes",
+    "Costco",
+    150,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "crema",
+    "Crema",
+    "L",
+    "Lácteos y abarrotes",
+    "Costco",
+    60,
+    1,
+    3,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "aceite",
+    "Aceite",
+    "L",
+    "Lácteos y abarrotes",
+    "Costco",
+    45,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    15,
+    24,
+    72,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "agua",
+    "Agua embotellada",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    8,
+    12,
+    48,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "plato",
+    "Platos desechables",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.2,
+    100,
+    400,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "vaso",
+    "Vasos para consomé con tapa",
+    "pz",
+    "Desechables",
+    "Desechables",
+    2.5,
+    50,
+    200,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "gas",
+    "Gas LP",
+    "kg",
+    "Gas",
+    "Gasera",
+    22,
+    20,
+    60
+   ],
+   [
+    "birria",
+    "Birria cocida",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "puesto": true,
+     "prep": {
+      "rinde": 6.5,
+      "usa": [
+       [
+        "carne",
+        10
+       ],
+       [
+        "chiles",
+        0.5
+       ],
+       [
+        "especias",
+        0.15
+       ],
+       [
+        "ajo",
+        0.3
+       ],
+       [
+        "jitomate",
+        1
+       ],
+       [
+        "gas",
+        4
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "consome",
+    "Consomé",
+    "L",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "puesto": true,
+     "prep": {
+      "rinde": 20,
+      "usa": [
+       [
+        "hueso_caldo",
+        4
+       ],
+       [
+        "chiles",
+        0.2
+       ],
+       [
+        "especias",
+        0.05
+       ],
+       [
+        "cebolla",
+        0.5
+       ],
+       [
+        "jitomate",
+        1
+       ],
+       [
+        "gas",
+        3
+       ]
+      ]
+     }
+    }
+   ]
+  ],
+  "recetas": {
+   "Taco de birria": [
+    [
+     "birria",
+     0.045
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "nervio",
+     0.02,
+     "Con nervio"
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3,
+     "!zzz"
+    ]
+   ],
+   "Taco con tuétano": [
+    [
+     "birria",
+     0.04
+    ],
+    [
+     "tuetano",
+     0.25
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3,
+     "!zzz"
+    ]
+   ],
+   "Taco con nervio": [
+    [
+     "nervio",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3,
+     "!zzz"
+    ]
+   ],
+   "Taco con chicharrón": [
+    [
+     "birria",
+     0.035
+    ],
+    [
+     "chicharron",
+     0.02
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3,
+     "!zzz"
+    ]
+   ],
+   "Taco con tripa": [
+    [
+     "tripa",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "aceite",
+     0.005
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3,
+     "!zzz"
+    ]
+   ],
+   "Quesabirria": [
+    [
+     "birria",
+     0.045
+    ],
+    [
+     "queso",
+     0.03
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "nervio",
+     0.02,
+     "Con nervio"
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3,
+     "!zzz"
+    ]
+   ],
+   "Xolautas": [
+    [
+     "tortilla",
+     0.12
+    ],
+    [
+     "birria",
+     0.1
+    ],
+    [
+     "queso",
+     0.03
+    ],
+    [
+     "crema",
+     0.03
+    ],
+    [
+     "aceite",
+     0.06
+    ],
+    [
+     "plato",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Coquetona": [
+    [
+     "birria",
+     0.15
+    ],
+    [
+     "queso",
+     0.06
+    ],
+    [
+     "harina",
+     2
+    ],
+    [
+     "crema",
+     0.03
+    ],
+    [
+     "plato",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Xolaquiles": [
+    [
+     "tortilla",
+     0.15
+    ],
+    [
+     "aceite",
+     0.08
+    ],
+    [
+     "birria",
+     0.12
+    ],
+    [
+     "queso",
+     0.04
+    ],
+    [
+     "crema",
+     0.04
+    ],
+    [
+     "consome",
+     0.15
+    ],
+    [
+     "plato",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Costra de queso": [
+    [
+     "queso",
+     0.1
+    ],
+    [
+     "birria",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "plato",
+     0.5,
+     "!zzz"
+    ]
+   ],
+   "Quesadilla sencilla": [
+    [
+     "tortilla",
+     0.06,
+     "!Harina"
+    ],
+    [
+     "harina",
+     2,
+     "Harina"
+    ],
+    [
+     "queso",
+     0.04
+    ],
+    [
+     "plato",
+     0.5,
+     "!zzz"
+    ]
+   ],
+   "Plato chico": [
+    [
+     "birria",
+     0.07
+    ],
+    [
+     "consome",
+     0.1
+    ],
+    [
+     "tortilla",
+     0.06
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "cilantro",
+     0.05
+    ],
+    [
+     "plato",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Orden de birria": [
+    [
+     "birria",
+     0.25
+    ],
+    [
+     "consome",
+     0.35
+    ],
+    [
+     "tortilla",
+     0.15
+    ],
+    [
+     "cebolla",
+     0.03
+    ],
+    [
+     "cilantro",
+     0.1
+    ],
+    [
+     "limon",
+     0.03
+    ],
+    [
+     "salsa",
+     0.04
+    ],
+    [
+     "plato",
+     1,
+     "!zzz"
+    ],
+    [
+     "vaso",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Media orden de birria": [
+    [
+     "birria",
+     0.12
+    ],
+    [
+     "consome",
+     0.25
+    ],
+    [
+     "tortilla",
+     0.08
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "cilantro",
+     0.05
+    ],
+    [
+     "limon",
+     0.02
+    ],
+    [
+     "salsa",
+     0.02
+    ],
+    [
+     "plato",
+     1,
+     "!zzz"
+    ],
+    [
+     "vaso",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Orden con tuétano y/o nervio": [
+    [
+     "birria",
+     0.2
+    ],
+    [
+     "nervio",
+     0.06
+    ],
+    [
+     "tuetano",
+     1
+    ],
+    [
+     "consome",
+     0.35
+    ],
+    [
+     "tortilla",
+     0.15
+    ],
+    [
+     "cebolla",
+     0.03
+    ],
+    [
+     "cilantro",
+     0.1
+    ],
+    [
+     "limon",
+     0.03
+    ],
+    [
+     "salsa",
+     0.04
+    ],
+    [
+     "plato",
+     1,
+     "!zzz"
+    ],
+    [
+     "vaso",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Hueso": [
+    [
+     "tuetano",
+     1
+    ],
+    [
+     "plato",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Pata": [
+    [
+     "pata",
+     1
+    ],
+    [
+     "plato",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Consomé": [
+    [
+     "consome",
+     0.35
+    ],
+    [
+     "vaso",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Consomé con carne": [
+    [
+     "consome",
+     0.35
+    ],
+    [
+     "birria",
+     0.04
+    ],
+    [
+     "vaso",
+     1,
+     "!zzz"
+    ]
+   ],
+   "Refresco": [
+    [
+     "refresco",
+     1
+    ]
+   ],
+   "Agua": [
+    [
+     "agua",
+     1
+    ]
+   ]
+  },
+  "demo": {
+   "birria": 0.8,
+   "tortilla": 0.7,
+   "carne": 0.6,
+   "queso": 1.4,
+   "consome": 1.2,
+   "cilantro": 0.9
+  },
+  "entregas": {
+   "Carnicería": [
+    1,
+    3,
+    5
+   ],
+   "Mercado": [
+    1,
+    4
+   ],
+   "Tortillería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Costco": [
+    2
+   ],
+   "Distribuidora de refrescos": [
+    4
+   ],
+   "Desechables": "q",
+   "Gasera": [
+    1
+   ]
+  },
+  "faltan": {
+   "tortilla": 1.5,
+   "refresco": 4,
+   "birria": 0.6
+  },
+  "mermas": [
+   [
+    3,
+    "tortilla",
+    1,
+    "Sobró al cierre"
+   ],
+   [
+    1,
+    "birria",
+    0.4,
+    "Sobró al cierre"
+   ],
+   [
+    2,
+    "cilantro",
+    3,
+    "Se echó a perder"
+   ],
+   [
+    0,
+    "cebolla",
+    0.5,
+    "Se echó a perder"
+   ]
+  ],
+  "motivo2": "Sobró al cierre",
+  "credito": "Carnicería",
+  "quien": [
+   "David",
+   "Karla",
+   "Toño"
+  ],
+  "provs": {}
+ },
+ "movil": true,
+ "horario": [
+  8,
+  16
+ ],
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta de la cocina y bodega",
+    6000
+   ],
+   [
+    1,
+    "Impuestos y permisos",
+    "Permiso de la plaza",
+    1800,
+    {
+     "factura": false
+    }
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1200
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Recarga del celular",
+    300,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gasolina y transporte",
+    "Gasolina de la camioneta",
+    900,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     1,
+     5,
+     8,
+     12,
+     15,
+     19,
+     22,
+     26,
+     29
+    ],
+    "Hielo",
+    "Hielo",
+    120,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     17
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    300,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    8400,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    18,
+    "Mantenimiento",
+    "Lona y mesas del puesto",
+    1200,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    3,
+    "Gas",
+    "Gas LP del tanque",
+    1650,
+    "Gasera"
+   ],
+   [
+    -1,
+    "Mantenimiento",
+    "Reparación de la plancha",
+    600,
+    "Taller",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 350,
+   "Miguel": 350,
+   "Toño": 400,
+   "Karla": 300
+  },
+  "factura": 185
+ },
+ "aviso": "Así se vería Comandero en Xolo Tacos, con su logo, sus fotos y su menú con los botones que pidió el encargado. Lo nuevo: entre como Gerente y vea «Almacén» (lo que se lleva al puesto, cuánta birria sale de cada olla, el pedido a la carnicería por WhatsApp y cuánto deja cada taco) y «Dinero y contador» (cuánto le quedó en el mes, gasolina, gas, permiso, nómina y el paquete para su contador). Los costos son de ejemplo. Nada de lo que haga aquí se guarda."
 }
