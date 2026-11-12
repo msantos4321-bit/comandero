@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Comandero Ventas</title>
+<meta name="description" content="La app de los vendedores de Comandero: demos, visitas y prospectos.">
+<meta name="theme-color" content="#F7F5F2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Ventas">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="../icono.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icono-192.png">
+<style>
+:root{--bg:#F5F3F0;--card:#FFFFFF;--ink:#1D1B19;--muted:#77706A;--line:#E6E1DB;--chip:#EFEBE6;--brand:#F5B514;--brand-ink:#1D1B19;--brand-soft:#FFF4D6;--ok:#1F8A52;--ok-soft:#E1F3E8;--bad:#C0392B;--bad-soft:#FBE7E4;--info:#2F6FD6;--info-soft:#E6EEFB;--r:18px;
+  --sat:env(safe-area-inset-top);--sab:env(safe-area-inset-bottom)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif}
+button,input,textarea,select{font:inherit;color:inherit}
+a{color:var(--info)}
+.top{position:sticky;top:0;z-index:5;background:rgba(245,243,240,.88);backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);padding:calc(var(--sat) + 10px) 18px 10px;border-bottom:1px solid transparent}
+.top.sc{border-bottom-color:var(--line)}
+.top small{display:block;color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.02em}
+.top h1{margin:0;font-size:30px;line-height:1.1;letter-spacing:-.02em}
+main{padding:6px 16px calc(96px + var(--sab));max-width:720px;margin:0 auto}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:6;display:grid;grid-template-columns:repeat(5,1fr);background:rgba(255,255,255,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:6px 4px calc(6px + var(--sab))}
+.tabs button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:600;color:var(--muted);padding:4px 0;cursor:pointer}
+.tabs button svg{width:25px;height:25px}
+.tabs button.on{color:var(--ink)}
+.tabs button.on svg{color:#C88A00}
+.card{background:var(--card);border-radius:var(--r);padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 18px rgba(0,0,0,.04)}
+.sec{margin:22px 4px 8px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.search{display:flex;align-items:center;gap:8px;background:#E9E5E0;border-radius:12px;padding:9px 12px;margin:4px 0 10px}
+.search input{border:0;background:none;outline:none;width:100%;font-size:16px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{border:0;background:var(--chip);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer}
+.chip.on{background:var(--ink);color:#fff}
+.list{display:grid;gap:10px}
+.demo{display:flex;gap:12px;align-items:center;background:var(--card);border-radius:var(--r);padding:12px;border:0;width:100%;text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.av{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:18px;overflow:hidden;background:#ccc}
+.av img{width:100%;height:100%;object-fit:cover;background:#fff}
+.demo b{display:block;font-size:16px;line-height:1.25}
+.demo span{display:block;color:var(--muted);font-size:13.5px;line-height:1.3;margin-top:2px}
+.bd{display:inline-flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.tag{font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:99px;background:var(--chip);color:var(--muted)}
+.tag.y{background:var(--brand-soft);color:#8A5D00}.tag.g{background:var(--ok-soft);color:var(--ok)}.tag.r{background:var(--bad-soft);color:var(--bad)}.tag.b{background:var(--info-soft);color:var(--info)}
+.chev{margin-left:auto;color:#C2BBB3;font-size:22px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:14px;padding:14px 16px;font-weight:700;font-size:16px;cursor:pointer;background:var(--chip);color:var(--ink);text-decoration:none}
+.btn.pri{background:var(--brand);color:var(--brand-ink)}
+.btn.wa{background:#25D366;color:#06210f}
+.btn.dk{background:var(--ink);color:#fff}
+.btn.sm{padding:9px 12px;font-size:14px;width:auto;border-radius:11px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin:14px 2px 6px}
+input[type=text],input[type=tel],input[type=email],input[type=date],textarea,select{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px;font-size:16px;outline:none}
+input:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+textarea{min-height:110px;resize:vertical}
+.hint{font-size:13px;color:var(--muted);margin:6px 2px 0}
+.ov{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.32);display:flex;align-items:flex-end;justify-content:center;animation:f .18s}
+.sheet{background:var(--bg);width:100%;max-width:720px;max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:8px 16px calc(20px + var(--sab));animation:u .22s cubic-bezier(.2,.8,.2,1)}
+.grab{width:38px;height:5px;border-radius:9px;background:#CFC8C0;margin:4px auto 10px}
+.sheet h2{margin:4px 0 2px;font-size:24px;letter-spacing:-.01em}
+.sheet .sub{color:var(--muted);margin:0 0 14px}
+.acts{display:grid;gap:10px}
+@keyframes u{from{transform:translateY(40px);opacity:.4}}@keyframes f{from{opacity:0}}
+.toast{position:fixed;left:50%;bottom:calc(92px + var(--sab));transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 16px;border-radius:14px;font-size:14.5px;font-weight:600;z-index:30;max-width:90vw;text-align:center}
+.step{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:0}
+.step .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--brand);font-weight:800;display:grid;place-items:center}
+.step b{display:block}.step p{margin:2px 0 0;color:var(--muted);font-size:14.5px}
+.say{background:var(--brand-soft);border-radius:14px;padding:12px 14px;margin:8px 0;font-size:15px}
+details{background:var(--card);border-radius:14px;padding:12px 14px;margin-bottom:8px}
+summary{font-weight:700;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";float:right;color:var(--muted);font-weight:400}
+details[open] summary:after{content:"−"}
+details p{margin:8px 0 0;color:#3D3935;font-size:15px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kpi{background:var(--card);border-radius:16px;padding:12px;text-align:center}
+.kpi b{display:block;font-size:24px}.kpi span{font-size:12px;color:var(--muted);font-weight:600}
+.big{font-size:40px;font-weight:800;letter-spacing:-.02em;margin:4px 0}
+.row{display:flex;gap:10px;align-items:center}
+.fotos{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.fotos img{width:68px;height:68px;object-fit:cover;border-radius:10px}
+.empty{color:var(--muted);text-align:center;padding:30px 10px}
+.hero{background:linear-gradient(135deg,#FFE7A3,#FFF8E6);border-radius:22px;padding:18px;margin:4px 0 6px}
+.hero b{font-size:19px}.hero p{margin:6px 0 12px;color:#5C4A1E}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:#E9E5E0;border-radius:12px;padding:3px;gap:3px}
+.seg button{border:0;background:none;border-radius:9px;padding:9px;font-weight:700;font-size:14.5px;cursor:pointer;color:var(--muted)}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.pros{background:var(--card);border-radius:16px;padding:14px;display:grid;gap:8px}
+.pros .h{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.est{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.est button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:6px 11px;font-size:13px;font-weight:600;white-space:nowrap;cursor:pointer}
+.est button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+</style>
+</head>
+<body>
+<header class="top" id="top"></header>
+<main id="app"></main>
+<nav class="tabs" id="tabs"></nav>
+<div id="modal"></div>
+<script>
+const WA_MAURICIO='526862595403';
+const BASE=location.origin+location.pathname.replace(/vende\/?(index\.html)?$/,'');
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money=v=>'$'+Math.round(v).toLocaleString('es-MX');
+const LS={get(k,d){try{const v=localStorage.getItem('cv-'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('cv-'+k,JSON.stringify(v))}catch(e){}}};
+const slug=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,30);
+// Liga personal: ?n=Nombre&t=familia|comisionista&c=<correo de Mauricio en base64>
+(function(){const q=new URLSearchParams(location.search);let ch=false;
+  if(q.get('n')){LS.set('nombre',q.get('n').slice(0,40));ch=true}
+  if(q.get('t')){LS.set('trato',q.get('t')==='familia'?'familia':'comisionista');ch=true}
+  if(q.get('c')){try{LS.set('correo',atob(q.get('c')))}catch(e){}ch=true}
+  if(ch)history.replaceState(null,'',location.pathname)})();
+let ui={tab:LS.get('tab','demos'),g:'Todas',q:''};
+let DEMOS=[];
+const yo=()=>LS.get('nombre','');
+const ref=()=>slug(yo());
+const ligaDemo=d=>BASE+'?p='+d.id+(ref()?'&ref='+ref():'');
+const ligaGuia=d=>d.guia?BASE+d.guia:'';
+function toast(t,ms){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),ms||2600)}
+function wa(texto,tel){location.href='https://wa.me/'+(tel||'')+'?text='+encodeURIComponent(texto)}
+async function copiar(t){try{await navigator.clipboard.writeText(t);toast('Copiado')}catch(e){prompt('Copia esto:',t)}}
+const ICON={
+ demos:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.5h3"/></svg>',
+ visita:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>',
+ pros:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>',
+ vender:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2zm0 0A2 2 0 0 0 6 22h12"/></svg>',
+ dinero:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M15 9.2c-.6-.9-1.7-1.4-3-1.4-1.8 0-3 .9-3 2.1 0 2.9 6 1.4 6 4.2 0 1.2-1.3 2.1-3 2.1-1.4 0-2.5-.5-3.1-1.4M12 6.3v1.5m0 8.4v1.5"/></svg>'};
+const TABS=[['demos','Demos'],['visita','Visita'],['pros','Prospectos'],['vender','Cómo vender'],['dinero','Mis ganancias']];
+function tabs(){$('#tabs').innerHTML=TABS.map(([k,v])=>`<button class="${ui.tab===k?'on':''}" data-a="tab" data-t="${k}" aria-label="${v}">${ICON[k]}<span>${v}</span></button>`).join('')}
+function encab(t,s){$('#top').innerHTML=`<small>${esc(s||'Comandero Ventas')}</small><h1>${esc(t)}</h1>`}
+function av(d){return `<div class="av" style="background:${esc(d.c)}">${d.logo?`<img src="../${esc(d.logo)}" alt="">`:esc(d.n.replace(/^(La|El|Los|Las|Café|Cafe|Mariscos|Tacos)\s+/i,'').slice(0,2).toUpperCase())}</div>`}
+/* ---------- Pantallas ---------- */
+function vDemos(){encab('Demos',yo()?'Hola, '+yo():'Comandero Ventas');
+  const gs=['Todas',...new Set(DEMOS.map(d=>d.g))];const q=ui.q.trim().toLowerCase();
+  const L=DEMOS.filter(d=>(ui.g==='Todas'||d.g===ui.g)&&(!q||(d.n+' '+d.l).toLowerCase().includes(q)));
+  const full=L.filter(d=>d.full),rest=L.filter(d=>!d.full);
+  let h=`<div class="hero"><b>¿Vas a visitar un lugar nuevo?</b><p>Pide su demo con su menú, sus fotos y sus colores. Te la preparamos para que la enseñes en la visita.</p><button class="btn dk" data-a="tab" data-t="visita">Pedir una demo</button></div>
+  <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C847C" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="text" placeholder="Buscar un negocio" value="${esc(ui.q)}" autocomplete="off"></div>
+  <div class="chips">${gs.map(g=>`<button class="chip ${ui.g===g?'on':''}" data-a="giro" data-g="${esc(g)}">${esc(g)}</button>`).join('')}</div>`;
+  const card=d=>`<button class="demo" data-a="demo" data-i="${d.id}">${av(d)}<div style="min-width:0"><b>${esc(d.n)}</b><span>${esc(d.l)}</span><div class="bd">${d.full?'<i class="tag y">Completa: almacén y dinero</i>':''}${d.guia?'<i class="tag b">Guía PDF</i>':''}${d.reales?'<i class="tag g">Precios reales</i>':''}</div></div><span class="chev">›</span></button>`;
+  if(full.length)h+=`<div class="sec">Completas, con guía</div><div class="list">${full.map(card).join('')}</div>`;
+  if(rest.length)h+=`<div class="sec">Otras demos listas</div><div class="list">${rest.map(card).join('')}</div>`;
+  if(!L.length)h+='<div class="empty">No encontré ese negocio. Pídele su demo en «Visita».</div>';
+  return h}
+function sheetDemo(d){const g=ligaGuia(d);
+  modal(`<div style="display:flex;gap:12px;align-items:center">${av(d)}<div><h2>${esc(d.n)}</h2><p class="sub" style="margin:0">${esc(d.l)}</p></div></div>
+  <div class="acts" style="margin-top:16px">
+   <a class="btn pri" href="${esc(ligaDemo(d))}" target="_blank" rel="noopener">Abrir la demo</a>
+   <button class="btn wa" data-a="mandarDemo" data-i="${d.id}">Mandársela al dueño por WhatsApp</button>
+   ${g?`<a class="btn" href="${esc(g)}" target="_blank" rel="noopener">Ver la guía PDF</a><button class="btn" data-a="mandarGuia" data-i="${d.id}">Mandar la guía por WhatsApp</button>`:''}
+   <button class="btn" data-a="copiar" data-v="${esc(ligaDemo(d))}">Copiar la liga</button>
+   <button class="btn dk" data-a="alta" data-i="${d.id}">Dijo que sí: pedir su alta</button>
+  </div>
+  <p class="hint" style="margin-top:14px">En la demo, el PIN del dueño es <b>1234</b>. La liga lleva tu nombre: si el dueño escribe desde ahí, la venta queda a tu nombre.</p>`)}
+function sheetAlta(d){modal(`<h2>¡Dijo que sí!</h2><p class="sub">Se lo mandamos a Mauricio para darlo de alta. El primer mes es gratis.</p>
+  <label for="al-n">Negocio</label><input id="al-n" type="text" value="${esc(d?d.n:'')}">
+  <label for="al-d">Nombre del dueño o encargado</label><input id="al-d" type="text" autocomplete="off">
+  <label for="al-t">WhatsApp del dueño</label><input id="al-t" type="tel" inputmode="tel" placeholder="664 000 0000">
+  <label for="al-s">¿Cuántos locales?</label><input id="al-s" type="text" inputmode="numeric" value="1">
+  <label for="al-x">Algo que deba saber Mauricio (opcional)</label><textarea id="al-x" placeholder="Ej. quiere empezar el lunes, tiene 2 tablets"></textarea>
+  <div class="acts" style="margin-top:16px"><button class="btn wa" data-a="altaOk" data-i="${d?d.id:''}">Mandar a Mauricio por WhatsApp</button></div>`)}
+const INTERES=['Cobrar más rápido','Control del almacén','Saber cuánto gana','Meseros y cocina','Paquete para el contador','Nómina y asistencia','Pedidos para llevar','Varias sucursales'];
+function vVisita(){encab('Visita','Pide una demo o cuéntanos tu visita');const v=ui.v||(ui.v=LS.get('borrador',{tipo:'demo',int:[]}));
+  return `<div class="seg"><button class="${v.tipo==='demo'?'on':''}" data-a="vtipo" data-t="demo">Quiero una demo</button><button class="${v.tipo==='visita'?'on':''}" data-a="vtipo" data-t="visita">Ya lo visité</button></div>
+  <p class="hint" style="margin-top:10px">${v.tipo==='demo'?'Antes de ir: con estos datos te preparamos su demo con su menú, fotos y colores.':'Después de ir: cuéntanos qué pidió el dueño para ajustar su versión.'}</p>
+  <div class="card" style="margin-top:12px">
+   <label for="v-lugar" style="margin-top:0">Nombre del lugar</label><input id="v-lugar" type="text" data-v="lugar" value="${esc(v.lugar||'')}" placeholder="Ej. Tacos Don Beto">
+   <label for="v-zona">Zona o dirección</label><input id="v-zona" type="text" data-v="zona" value="${esc(v.zona||'')}" placeholder="Ej. Playas, junto al Calimax">
+   <label for="v-ligas">Ligas: Google Maps, Facebook, Instagram, TikTok</label><textarea id="v-ligas" data-v="ligas" style="min-height:80px" placeholder="Pega aquí las ligas, una por renglón">${esc(v.ligas||'')}</textarea>
+   <p class="hint">En la app de Maps o Facebook: Compartir → Copiar enlace, y pégalo aquí.</p>
+   <div class="grid2"><div><label for="v-enc">Dueño o encargado</label><input id="v-enc" type="text" data-v="enc" value="${esc(v.enc||'')}"></div><div><label for="v-tel">Su WhatsApp</label><input id="v-tel" type="tel" inputmode="tel" data-v="tel" value="${esc(v.tel||'')}"></div></div>
+  </div>
+  <div class="card" style="margin-top:12px">
+   <label style="margin-top:0">¿Qué le interesó o qué le duele?</label><div class="chips" style="flex-wrap:wrap">${INTERES.map(x=>`<button class="chip ${v.int.includes(x)?'on':''}" data-a="vint" data-x="${esc(x)}">${esc(x)}</button>`).join('')}</div>
+   <label for="v-notas">Notas</label><textarea id="v-notas" data-v="notas" placeholder="Cuéntanos todo lo que viste y lo que dijo el dueño">${esc(v.notas||'')}</textarea>
+   <p class="hint">🎙️ Toca el micrófono del teclado y habla: tu iPhone lo escribe solo. Al salir de la visita, dicta 1 o 2 minutos de lo que pidió el cliente.</p>
+   <label>Fotos del menú y del local</label><label for="v-fotos" class="btn" style="margin:0;color:var(--ink);font-size:16px">📷 Agregar fotos</label><input id="v-fotos" type="file" accept="image/*" multiple style="position:absolute;width:1px;height:1px;opacity:0">
+   <div class="fotos" id="fotos"></div>
+  </div>
+  <div class="acts" style="margin-top:14px"><button class="btn pri" data-a="enviar" data-m="correo">Mandar a Mauricio por correo</button><button class="btn wa" data-a="enviar" data-m="wa">Mandar por WhatsApp</button><button class="btn" data-a="limpiar">Borrar y empezar otra</button></div>
+  <p class="hint">Se guarda solo en «Prospectos». En el correo, las fotos se agregan solas si tu iPhone lo permite; si no, toca la foto en el correo para pegarlas.</p>`}
+const ESTADOS=[['demo','Demo pedida'],['visita','Visitado'],['prueba','En prueba'],['cliente','Cliente'],['no','No le interesó']];
+function vPros(){encab('Prospectos','Tus lugares y en qué van');const L=LS.get('pros',[]);
+  const c=k=>L.filter(p=>p.est===k).length;
+  let h=`<div class="kpis"><div class="kpi"><b>${c('demo')+c('visita')}</b><span>En proceso</span></div><div class="kpi"><b>${c('prueba')}</b><span>En prueba</span></div><div class="kpi"><b>${c('cliente')}</b><span>Clientes</span></div></div>`;
+  const hoy=Date.now(),seg=L.filter(p=>['visita','prueba'].includes(p.est)&&hoy-(p.t||0)>2*864e5);
+  if(seg.length)h+=`<div class="card" style="margin-top:12px;background:var(--brand-soft)"><b>Toca dar seguimiento</b><p class="hint" style="margin-top:4px">${seg.map(p=>esc(p.lugar)).join(', ')}: pasaron más de 2 días. Mándales un mensaje corto.</p></div>`;
+  h+='<div class="sec">Tus lugares</div>';
+  h+=L.length?'<div class="list">'+L.slice().sort((a,b)=>(b.t||0)-(a.t||0)).map(p=>{const d=DEMOS.find(x=>x.id===p.demo);return `<div class="pros"><div class="h"><div><b>${esc(p.lugar)}</b><div class="hint" style="margin:2px 0 0">${esc(p.zona||'')}${p.enc?' · '+esc(p.enc):''} · ${new Date(p.t).toLocaleDateString('es-MX',{day:'numeric',month:'short'})}</div></div>${p.tel?`<a class="btn sm wa" href="https://wa.me/52${esc(String(p.tel).replace(/\D/g,'').slice(-10))}" target="_blank" rel="noopener">WhatsApp</a>`:''}</div>
+   <div class="est">${ESTADOS.map(([k,v])=>`<button class="${p.est===k?'on':''}" data-a="pest" data-id="${p.id}" data-e="${k}">${v}</button>`).join('')}</div>
+   <div class="row">${d?`<a class="btn sm" href="${esc(ligaDemo(d))}" target="_blank" rel="noopener">Abrir su demo</a>`:`<button class="btn sm" data-a="ligarDemo" data-id="${p.id}">Ligar su demo</button>`}<button class="btn sm" data-a="pborrar" data-id="${p.id}" style="margin-left:auto;color:var(--bad)">Quitar</button></div></div>`}).join('')+'</div>':'<div class="empty">Todavía no tienes lugares. Empieza en «Visita».</div>';
+  return h}
+function vVender(){encab('Cómo vender','La ruta de cada venta');
+  const pasos=[['Elige el lugar','Restaurantes, taquerías, cafés y puestos donde el dueño está presente. Mejor si se ve que lleva todo en libreta.'],['Pide su demo','En «Visita» → «Quiero una demo»: nombre, ligas de Maps o Facebook y fotos del menú. Te la regresamos con su menú y sus colores.'],['Visita en hora tranquila','Entre 3 y 5 de la tarde, o temprano antes de abrir. Pregunta por el dueño. Nunca a la hora de la comida.'],['Enseña en 5 minutos','Su menú → tomar un pedido → cobrar → el resumen del dueño. Deja que él toque el celular.'],['Deja todo por WhatsApp','Desde «Demos»: la liga de su demo y la guía PDF. Así lo vuelve a ver con calma.'],['Cuéntanos la visita','En «Visita» → «Ya lo visité»: dicta lo que pidió. Ajustamos su versión a lo que necesita.'],['Da seguimiento','A los 2 días y a los 7 días. Un mensaje corto: «¿Pudo verla? ¿Se la dejo instalada esta semana?»'],['Dijo que sí','En su demo toca «Dijo que sí». Mauricio lo da de alta y el primer mes es gratis. Acompáñalo esa primera semana.']];
+  return `<div class="card">${pasos.map(([t,p],i)=>`<div class="step"><div class="n">${i+1}</div><div><b>${t}</b><p>${p}</p></div></div>`).join('')}</div>
+  <div class="sec">Qué decir</div>
+  <div class="card"><b>Al llegar (20 segundos)</b><div class="say">«Hola, soy ${esc(yo()||'[tu nombre]')}. Le preparé cómo se vería su negocio en un sistema que se usa en el celular: con su menú y sus fotos. ¿Me regala 5 minutos para enseñárselo?»</div>
+  <b>Al enseñar</b><div class="say">«Mire, aquí toma el pedido, le llega a la cocina, cobra y el cambio sale solo. Y usted, desde su casa, ve cuánto vendió y qué se está acabando.»</div>
+  <b>Para cerrar</b><div class="say">«Se lo dejamos instalado esta semana, con todo su menú. El primer mes no paga y no hay contrato. ¿Qué día le queda bien?»</div></div>
+  <div class="sec">Preguntas para el dueño</div>
+  <div class="card"><ol style="margin:0;padding-left:20px;display:grid;gap:6px"><li>¿Cómo lleva hoy sus pedidos y su caja?</li><li>¿Le ha faltado dinero o producto alguna vez?</li><li>¿Sabe cuánto le dejó el mes pasado, ya pagado todo?</li><li>¿Qué es lo que más se le echa a perder?</li><li>¿Quién le lleva la contabilidad?</li><li>¿Qué le gustaría que hiciera un sistema por usted?</li></ol></div>
+  <div class="sec">Precio</div>
+  <div class="card"><div class="big">$399 <span style="font-size:17px;color:var(--muted);font-weight:600">al mes por local</span></div><ul style="margin:6px 0 0;padding-left:20px;display:grid;gap:4px;color:#3D3935"><li>Celulares, tablets y usuarios ilimitados.</li><li>Instalación y su menú con fotos: <b>gratis</b>.</li><li><b>Primer mes gratis</b>, sin contrato.</li><li>Cada local extra: $299 al mes. Pago anual: 10 meses por 12.</li></ul></div>
+  <div class="sec">Si te dicen…</div>
+  ${[['«Está caro»','Son $13 al día, menos que un refresco. Y con lo que se deja de tirar o de perder en la caja, se paga solo. El primer mes es gratis para que lo compruebe.'],['«No sé de tecnología»','Por eso es así de sencillo: si sabe usar WhatsApp, sabe usar esto. Se lo dejamos instalado, le enseñamos y trae una guía con fotos.'],['«Ya tengo sistema»','¡Qué bien! ¿Le dice qué se está acabando y cuánto le deja cada platillo? Véalo un mes gratis y compare.'],['«Lo voy a pensar»','Claro. Le dejo la liga y la guía por WhatsApp para que lo vea con calma. ¿Le escribo el jueves?'],['«¿Y si no hay internet?»','Sigue funcionando en el celular y se pone al día cuando regresa el internet.'],['«Mis empleados no lo van a usar»','Cada quien tiene su pantalla y su PIN: el mesero solo ve pedidos, la cocina solo lo que preparar. Es más fácil que la libreta.']].map(([a,b])=>`<details><summary>${a}</summary><p>${b}</p></details>`).join('')}
+  <div class="sec">Nunca</div>
+  <div class="card"><ul style="margin:0;padding-left:20px;display:grid;gap:4px"><li>Prometer algo que la app no hace: si no sabes, «lo pregunto y le confirmo hoy».</li><li>Bajar el precio o inventar promociones.</li><li>Pedir o guardar contraseñas, PIN o datos de tarjetas del cliente.</li><li>Enseñar datos de otros clientes.</li></ul></div>
+  <div class="acts" style="margin-top:14px"><a class="btn" href="${esc(BASE)}social/Manual-del-vendedor-Comandero.pdf" target="_blank" rel="noopener">Manual completo del vendedor (PDF)</a></div>`}
+function vDinero(){encab('Mis ganancias','Lo que te toca por cada cliente');const tr=LS.get('trato','comisionista'),n=+(ui.calc??3),fam=tr==='familia';
+  const mes=fam?n*399*0.5:n*40,alta=fam?0:n*399;
+  return `<div class="card"><b>${fam?'Tu trato: mitad y mitad':'Tu trato: comisionista'}</b><p class="hint" style="margin-top:6px;font-size:15px;color:#3D3935">${fam?'Te toca el <b>50%</b> de lo que paguen los clientes que tú acomodes: unos <b>$200 al mes por cada local</b>. El primer mes es gratis para el cliente, así que tu pago empieza con su primera mensualidad.':'Por cada cliente que contrate: <b>$399</b> cuando paga su primera mensualidad, y <b>$40 al mes</b> durante su primer año.'}</p></div>
+  <div class="sec">Calcula</div>
+  <div class="card"><label for="calc" style="margin-top:0">Si acomodas este número de locales:</label><input id="calc" type="range" min="1" max="30" value="${n}" style="width:100%"><div class="row" style="justify-content:space-between"><b style="font-size:22px">${n} ${n===1?'local':'locales'}</b></div>
+   <div class="grid2" style="margin-top:12px">${alta?`<div class="kpi"><span>Al contratar</span><b>${money(alta)}</b></div>`:''}<div class="kpi" ${alta?'':'style="grid-column:1/-1"'}><span>Cada mes</span><b>${money(mes)}</b></div></div>
+   <p class="hint">${fam?'Mientras esos clientes sigan pagando.':'Durante el primer año de cada cliente.'}</p></div>
+  <div class="sec">Tu liga</div>
+  <div class="card"><p style="margin:0 0 10px">Tus demos llevan tu nombre${yo()?` (<b>${esc(ref())}</b>)`:''}: si el dueño escribe a Comandero desde la demo, la venta queda a tu nombre.</p>
+   <label for="nom" style="margin-top:0">Tu nombre</label><input id="nom" type="text" value="${esc(yo())}" placeholder="Ej. Ana" autocomplete="given-name">
+   <label for="cor">Correo de Mauricio (para mandarle tus visitas)</label><input id="cor" type="email" value="${esc(LS.get('correo',''))}" placeholder="correo@gmail.com" autocomplete="off">
+   <p class="hint">Mauricio paga las comisiones cada mes y te avisa por WhatsApp.</p></div>`}
+/* ---------- Modal ---------- */
+function modal(h){$('#modal').innerHTML=`<div class="ov" data-a="cerrar"><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div>${h}</div></div>`}
+function cerrar(){$('#modal').innerHTML=''}
+/* ---------- Visitas ---------- */
+let FOTOS=[];
+function guardarBorrador(){if(ui.v)LS.set('borrador',ui.v)}
+function textoVisita(v){const t=v.tipo==='demo'?'DEMO':'VISITA';return {asunto:`${t}: ${v.lugar||'(sin nombre)'}`,cuerpo:[`${t==='DEMO'?'Pido una demo para este lugar.':'Visité este lugar.'}`,'',`Vendedor: ${yo()||'(sin nombre)'}`,`Lugar: ${v.lugar||''}`,`Zona: ${v.zona||''}`,`Dueño o encargado: ${v.enc||''}`,`WhatsApp del dueño: ${v.tel||''}`,`Le interesó: ${(v.int||[]).join(', ')}`,'','Ligas:',v.ligas||'(ninguna)','','Notas:',v.notas||'(sin notas)','',FOTOS.length?`Fotos: ${FOTOS.length} adjuntas`:'Fotos: (ninguna)','','— Enviado desde Comandero Ventas'].join('\n')}}
+function registrarPros(v){const L=LS.get('pros',[]);const k=slug(v.lugar);let p=L.find(x=>slug(x.lugar)===k);if(!p){p={id:Date.now().toString(36),lugar:v.lugar};L.push(p)}Object.assign(p,{zona:v.zona,enc:v.enc,tel:v.tel,t:Date.now(),est:v.tipo==='demo'?(p.est&&p.est!=='demo'?p.est:'demo'):(['prueba','cliente'].includes(p.est)?p.est:'visita')});const d=DEMOS.find(x=>slug(x.n)===k);if(d)p.demo=d.id;LS.set('pros',L)}
+async function enviar(modo){const v=ui.v;leerForm();if(!v.lugar){toast('Escribe el nombre del lugar');$('#v-lugar').focus();return}
+  const {asunto,cuerpo}=textoVisita(v);registrarPros(v);guardarBorrador();
+  if(modo==='wa'){if(FOTOS.length&&navigator.canShare&&navigator.canShare({files:FOTOS})){try{await navigator.share({files:FOTOS,text:asunto+'\n\n'+cuerpo});toast('Elige el chat de Mauricio');return}catch(e){if(e.name==='AbortError')return}}wa(asunto+'\n\n'+cuerpo,WA_MAURICIO);return}
+  if(FOTOS.length&&navigator.canShare&&navigator.canShare({files:FOTOS})){
+    try{await copiarSilencioso(LS.get('correo',''));await navigator.share({files:FOTOS,title:asunto,text:asunto+'\n\n'+cuerpo});toast('Listo. Si elegiste Mail, pon el correo de Mauricio (ya está copiado).',4500);return}catch(e){if(e.name==='AbortError')return}}
+  const to=LS.get('correo','');if(!to)toast('Escribe el correo de Mauricio en «Mis ganancias» para que llegue solo',4500);
+  location.href='mailto:'+encodeURIComponent(to)+'?subject='+encodeURIComponent(asunto)+'&body='+encodeURIComponent(cuerpo)}
+async function copiarSilencioso(t){try{if(t)await navigator.clipboard.writeText(t)}catch(e){}}
+function leerForm(){document.querySelectorAll('[data-v]').forEach(e=>ui.v[e.dataset.v]=e.value.trim())}
+/* ---------- Render y eventos ---------- */
+function render(){LS.set('tab',ui.tab);tabs();const V={demos:vDemos,visita:vVisita,pros:vPros,vender:vVender,dinero:vDinero}[ui.tab];$('#app').innerHTML=V();
+  if(ui.tab==='visita')pintarFotos()}
+function pintarFotos(){const f=$('#fotos');if(f)f.innerHTML=FOTOS.map(x=>`<img src="${URL.createObjectURL(x)}" alt="">`).join('')}
+const A={
+ tab:d=>{ui.tab=d.t;cerrar();render();scrollTo(0,0)},
+ giro:d=>{ui.g=d.g;render()},
+ demo:d=>sheetDemo(DEMOS.find(x=>x.id===d.i)),
+ mandarDemo:d=>{const x=DEMOS.find(y=>y.id===d.i);wa(`Hola, soy ${yo()||'de Comandero'}. Le preparé cómo se vería ${x.n} en Comandero, el sistema para su negocio que se usa en el celular, con su menú: ${ligaDemo(x)}\n\nÁbralo en su celular y para entrar como dueño use el PIN 1234. ¿Le parece si paso a enseñárselo en 10 minutos?`)},
+ mandarGuia:d=>{const x=DEMOS.find(y=>y.id===d.i);wa(`Aquí está la guía con fotos de cómo se usaría en ${x.n}: ${ligaGuia(x)}`)},
+ copiar:d=>copiar(d.v),
+ alta:d=>sheetAlta(DEMOS.find(x=>x.id===d.i)),
+ altaOk:d=>{const g=k=>($('#'+k).value||'').trim();if(!g('al-n')||!g('al-t')){toast('Falta el negocio o el WhatsApp del dueño');return}
+   const L=LS.get('pros',[]);let p=L.find(x=>slug(x.lugar)===slug(g('al-n')));if(!p){p={id:Date.now().toString(36),lugar:g('al-n')};L.push(p)}Object.assign(p,{enc:g('al-d'),tel:g('al-t'),est:'prueba',t:Date.now(),demo:d.i||p.demo});LS.set('pros',L);
+   wa(`ALTA: ${g('al-n')} dijo que sí.\n\nDueño: ${g('al-d')}\nWhatsApp: ${g('al-t')}\nLocales: ${g('al-s')}\nDemo: ${d.i||'(sin demo)'}\nVendió: ${yo()||'(sin nombre)'}\n${g('al-x')?'\nNotas: '+g('al-x'):''}`,WA_MAURICIO)},
+ vtipo:d=>{leerForm();ui.v.tipo=d.t;guardarBorrador();render()},
+ vint:d=>{leerForm();const a=ui.v.int;const i=a.indexOf(d.x);i<0?a.push(d.x):a.splice(i,1);guardarBorrador();render()},
+ enviar:d=>enviar(d.m),
+ limpiar:()=>{if(!confirmar('limpiar'))return;ui.v={tipo:'demo',int:[]};FOTOS=[];LS.set('borrador',ui.v);render();toast('Listo para otra')},
+ pest:d=>{const L=LS.get('pros',[]);const p=L.find(x=>x.id===d.id);if(p){p.est=d.e;p.t=Date.now()}LS.set('pros',L);render()},
+ pborrar:d=>{if(!confirmar('b'+d.id))return;LS.set('pros',LS.get('pros',[]).filter(x=>x.id!==d.id));render()},
+ ligarDemo:d=>{const L=LS.get('pros',[]),p=L.find(x=>x.id===d.id);modal(`<h2>¿Cuál es su demo?</h2><p class="sub">${esc(p.lugar)}</p><div class="list">${DEMOS.map(x=>`<button class="demo" data-a="ligarOk" data-id="${p.id}" data-i="${x.id}">${av(x)}<div><b>${esc(x.n)}</b><span>${esc(x.l)}</span></div></button>`).join('')}</div>`)},
+ ligarOk:d=>{const L=LS.get('pros',[]),p=L.find(x=>x.id===d.id);if(p)p.demo=d.i;LS.set('pros',L);cerrar();render()},
+ cerrar:(d,e)=>{if(e.target.classList.contains('ov'))cerrar()}
+};
+let conf={};function confirmar(k){if(conf[k]&&Date.now()-conf[k]<3000)return true;conf[k]=Date.now();toast('Toca otra vez para confirmar');return false}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const f=A[b.dataset.a];if(f){if(b.dataset.a!=='cerrar')e.preventDefault&&b.tagName!=='A'&&e.preventDefault();f(b.dataset,e)}});
+document.addEventListener('input',e=>{const t=e.target;
+  if(t.id==='q'){ui.q=t.value;const p=t.selectionStart;render();const q=$('#q');q.focus();q.setSelectionRange(p,p);return}
+  if(t.dataset.v&&ui.v){ui.v[t.dataset.v]=t.value;clearTimeout(window._bt);window._bt=setTimeout(guardarBorrador,400);return}
+  if(t.id==='calc'){ui.calc=+t.value;const y=scrollY;render();scrollTo(0,y);$('#calc').focus();return}});
+document.addEventListener('change',e=>{const t=e.target;
+  if(t.id==='v-fotos'){FOTOS=FOTOS.concat([...t.files]).slice(0,12);pintarFotos();toast(FOTOS.length+' foto'+(FOTOS.length>1?'s':'')+' lista'+(FOTOS.length>1?'s':''));return}
+  if(t.id==='nom'){LS.set('nombre',t.value.trim().slice(0,40));toast('Guardado');render();return}
+  if(t.id==='cor'){LS.set('correo',t.value.trim());toast('Guardado');return}});
+addEventListener('scroll',()=>$('#top').classList.toggle('sc',scrollY>4),{passive:true});
+fetch('demos.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{DEMOS=d;render()}).catch(()=>{$('#app').innerHTML='<div class="empty">No se pudieron cargar las demos. Revisa tu internet y vuelve a abrir.</div>'});
+render();
+if(!yo())setTimeout(()=>{modal(`<h2>¡Bienvenida!</h2><p class="sub">Esta es tu app para vender Comandero. ¿Cómo te llamas?</p><input id="nom1" type="text" placeholder="Tu nombre" autocomplete="given-name"><div class="acts" style="margin-top:14px"><button class="btn pri" id="nomOk">Empezar</button></div><p class="hint">Tu nombre va en las ligas que mandes, para que las ventas queden a tu nombre.</p>`);$('#nomOk').onclick=()=>{const v=$('#nom1').value.trim();if(!v){toast('Escribe tu nombre');return}LS.set('nombre',v.slice(0,40));cerrar();render()}},400);
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body>
+</html>
