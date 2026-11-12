@@ -116,7 +116,7 @@ const slug=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(
   if(q.get('n')){LS.set('nombre',q.get('n').slice(0,40));ch=true}
   if(q.get('t')){LS.set('trato',q.get('t')==='familia'?'familia':'comisionista');ch=true}
   if(q.get('c')){try{LS.set('correo',atob(q.get('c')))}catch(e){}ch=true}
-  if(ch)history.replaceState(null,'',location.pathname)})();
+  /* No se borran de la liga: en iPhone, «Agregar a inicio» guarda la liga tal cual y la app instalada tiene su propia memoria. */})();
 let ui={tab:LS.get('tab','demos'),g:'Todas',q:''};
 let DEMOS=[];
 const yo=()=>LS.get('nombre','');
