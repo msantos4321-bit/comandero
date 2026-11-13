@@ -1,5 +1,5 @@
 {
- "ver": 2,
+ "ver": 3,
  "nombre": "Mariscos El Gallo",
  "lema": "Parque Azteca · Playas de Tijuana",
  "color": "#D2232A",
@@ -989,7 +989,8 @@
     ],
     [
      "tostada",
-     2
+     2,
+     "!zzz"
     ],
     [
      "vaso_coctel",
@@ -1028,7 +1029,8 @@
     ],
     [
      "tostada",
-     2
+     2,
+     "!zzz"
     ],
     [
      "vaso_coctel",
