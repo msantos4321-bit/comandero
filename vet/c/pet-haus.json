@@ -1,0 +1,1572 @@
+{
+ "ver": 1,
+ "nombre": "Pet Haüs",
+ "lema": "Clínica veterinaria · Estética canina",
+ "marcaSub": "Clínica veterinaria · Estética canina",
+ "doctor": "MVZ Daniela Ríos",
+ "doctorCorto": "equipo Pet Haüs",
+ "equipo": [
+  {
+   "n": "MVZ Daniela Ríos",
+   "rol": "Médica veterinaria",
+   "sueldo": 0
+  },
+  {
+   "n": "MVZ Carlos Peña",
+   "rol": "Médico veterinario y cirugías",
+   "sueldo": 8000,
+   "comision": 10
+  },
+  {
+   "n": "Fernanda",
+   "rol": "Estilista canina",
+   "sueldo": 3500,
+   "comision": 30
+  },
+  {
+   "n": "Jessica",
+   "rol": "Estilista y bañadora",
+   "sueldo": 3000,
+   "comision": 20
+  },
+  {
+   "n": "Karla",
+   "rol": "Recepción y caja",
+   "sueldo": 4000
+  }
+ ],
+ "direccion": "",
+ "telefono": "(642) 242 7135",
+ "color": "#BF9B52",
+ "colorTinta": "#2E2E2C",
+ "logo": "c/pet-haus/logo.webp",
+ "logoPrint": "c/pet-haus/logo-largo-osc.webp",
+ "logoLargo": "c/pet-haus/logo-largo.webp",
+ "horario": [
+  9,
+  18
+ ],
+ "resenaGoogle": "",
+ "movil": [
+  "hoy",
+  "agenda",
+  "estetica",
+  "pacientes",
+  "caja"
+ ],
+ "tema": {
+  "fuentes": [
+   "Montserrat",
+   "Cinzel"
+  ],
+  "ola": [
+   "#BF9B52",
+   "#6E6C4F"
+  ],
+  "vars": {
+   "--brand": "#BF9B52",
+   "--brand-ink": "#2E2E2C",
+   "--brand-soft": "#F1E9D6",
+   "--brand-dk": "#7A5E26",
+   "--accent": "#8E7232",
+   "--accent2": "#6E6C4F",
+   "--bg": "#F5F2EA",
+   "--ink": "#2E2E2C",
+   "--muted": "#76736A",
+   "--line": "#E5DFD1",
+   "--chip": "#ECE7DA",
+   "--side-bg": "#2E2E2C",
+   "--side-ink": "#F6F3EA",
+   "--side-muted": "#BDB8AA",
+   "--side-on": "rgba(191,155,82,.22)",
+   "--top-bg": "#2E2E2C",
+   "--top-ink": "#F6F3EA",
+   "--top-muted": "#CDB98C",
+   "--top-line": "#BF9B52",
+   "--top-solid": "#2E2E2C",
+   "--font": "Montserrat",
+   "--font-t": "Montserrat",
+   "--font-marca": "Cinzel"
+  }
+ },
+ "servicios": [
+  [
+   "Consulta general",
+   350,
+   "Consulta"
+  ],
+  [
+   "Consulta de seguimiento",
+   200,
+   "Consulta"
+  ],
+  [
+   "Urgencia fuera de horario",
+   700,
+   "Consulta"
+  ],
+  [
+   "Vacuna quíntuple",
+   450,
+   "Vacunas"
+  ],
+  [
+   "Vacuna séxtuple",
+   480,
+   "Vacunas"
+  ],
+  [
+   "Vacuna antirrábica",
+   250,
+   "Vacunas"
+  ],
+  [
+   "Vacuna triple felina",
+   450,
+   "Vacunas"
+  ],
+  [
+   "Vacuna leucemia felina",
+   480,
+   "Vacunas"
+  ],
+  [
+   "Desparasitación interna",
+   180,
+   "Vacunas"
+  ],
+  [
+   "Desparasitación externa",
+   250,
+   "Vacunas"
+  ],
+  [
+   "Ultrasonido",
+   750,
+   "Estudios"
+  ],
+  [
+   "Rayos X (por placa)",
+   600,
+   "Estudios"
+  ],
+  [
+   "Esterilización perra",
+   2800,
+   "Cirugía"
+  ],
+  [
+   "Esterilización perro",
+   2200,
+   "Cirugía"
+  ],
+  [
+   "Esterilización gato",
+   1300,
+   "Cirugía"
+  ],
+  [
+   "Limpieza dental",
+   1800,
+   "Cirugía"
+  ],
+  [
+   "Extracción dental (por pieza)",
+   400,
+   "Cirugía"
+  ],
+  [
+   "Anestesia inhalada",
+   900,
+   "Cirugía"
+  ],
+  [
+   "Retiro de tumor (desde)",
+   3500,
+   "Cirugía"
+  ],
+  [
+   "Cesárea",
+   4500,
+   "Cirugía"
+  ],
+  [
+   "Hospitalización (día)",
+   650,
+   "Hospital"
+  ],
+  [
+   "Suero y canalización",
+   400,
+   "Hospital"
+  ],
+  [
+   "Curación",
+   250,
+   "Consulta"
+  ]
+ ],
+ "vacunas": {
+  "Perro": [
+   [
+    "Parvovirus (cachorro)",
+    21
+   ],
+   [
+    "Quíntuple",
+    365
+   ],
+   [
+    "Séxtuple",
+    365
+   ],
+   [
+    "Antirrábica",
+    365
+   ],
+   [
+    "Desparasitación interna",
+    90
+   ],
+   [
+    "Desparasitación externa",
+    30
+   ]
+  ],
+  "Gato": [
+   [
+    "Triple felina",
+    365
+   ],
+   [
+    "Leucemia felina",
+    365
+   ],
+   [
+    "Antirrábica",
+    365
+   ],
+   [
+    "Desparasitación interna",
+    90
+   ],
+   [
+    "Desparasitación externa",
+    30
+   ]
+  ]
+ },
+ "medicamentos": [
+  {
+   "n": "Amoxicilina con clavulánico",
+   "pres": "suspensión 50 mg/ml",
+   "mgml": 50,
+   "perro": 12.5,
+   "gato": 12.5,
+   "frec": "cada 12 horas",
+   "dias": 7,
+   "via": "oral"
+  },
+  {
+   "n": "Meloxicam",
+   "pres": "suspensión 1.5 mg/ml",
+   "mgml": 1.5,
+   "perro": 0.1,
+   "gato": 0.05,
+   "frec": "cada 24 horas",
+   "dias": 3,
+   "via": "oral"
+  },
+  {
+   "n": "Metronidazol",
+   "pres": "suspensión 25 mg/ml",
+   "mgml": 25,
+   "perro": 15,
+   "gato": 10,
+   "frec": "cada 12 horas",
+   "dias": 5,
+   "via": "oral"
+  },
+  {
+   "n": "Maropitant",
+   "pres": "inyectable 10 mg/ml",
+   "mgml": 10,
+   "perro": 1,
+   "gato": 1,
+   "frec": "cada 24 horas",
+   "dias": 3,
+   "via": "subcutánea"
+  },
+  {
+   "n": "Enrofloxacino",
+   "pres": "suspensión 25 mg/ml",
+   "mgml": 25,
+   "perro": 5,
+   "gato": 5,
+   "frec": "cada 24 horas",
+   "dias": 7,
+   "via": "oral"
+  },
+  {
+   "n": "Prednisolona",
+   "pres": "suspensión 5 mg/ml",
+   "mgml": 5,
+   "perro": 0.5,
+   "gato": 1,
+   "frec": "cada 24 horas",
+   "dias": 5,
+   "via": "oral"
+  },
+  {
+   "n": "Omeprazol",
+   "pres": "suspensión 2 mg/ml",
+   "mgml": 2,
+   "perro": 1,
+   "gato": 1,
+   "frec": "cada 24 horas",
+   "dias": 7,
+   "via": "oral"
+  },
+  {
+   "n": "Tramadol",
+   "pres": "gotas 50 mg/ml",
+   "mgml": 50,
+   "perro": 3,
+   "gato": 2,
+   "frec": "cada 8 horas",
+   "dias": 3,
+   "via": "oral"
+  }
+ ],
+ "proveedor": {
+  "n": "Distribuidora Veterinaria del Noroeste",
+  "tel": "6640000000"
+ },
+ "controlados": [
+  "Ketamina 50 mg/ml frasco 10 ml",
+  "Diazepam 5 mg/ml ampolleta",
+  "Tramadol gotas 10 ml"
+ ],
+ "cedula": "Céd. Prof. 0000000 (ejemplo)",
+ "productos": [
+  [
+   "Amoxicilina con clavulánico susp. 60 ml",
+   "Farmacia",
+   6,
+   3,
+   180,
+   290
+  ],
+  [
+   "Meloxicam susp. 10 ml",
+   "Farmacia",
+   9,
+   3,
+   95,
+   180
+  ],
+  [
+   "Metronidazol susp. 120 ml",
+   "Farmacia",
+   4,
+   3,
+   70,
+   150
+  ],
+  [
+   "Maropitant inyectable 20 ml",
+   "Farmacia",
+   1,
+   1,
+   1450,
+   0
+  ],
+  [
+   "Enrofloxacino susp. 60 ml",
+   "Farmacia",
+   5,
+   2,
+   120,
+   220
+  ],
+  [
+   "Prednisolona susp. 60 ml",
+   "Farmacia",
+   7,
+   2,
+   85,
+   160
+  ],
+  [
+   "Omeprazol susp. 100 ml",
+   "Farmacia",
+   3,
+   2,
+   90,
+   170
+  ],
+  [
+   "Tramadol gotas 10 ml",
+   "Farmacia",
+   2,
+   2,
+   110,
+   210
+  ],
+  [
+   "Vacuna quíntuple (dosis)",
+   "Biológicos",
+   14,
+   10,
+   160,
+   0
+  ],
+  [
+   "Vacuna séxtuple (dosis)",
+   "Biológicos",
+   8,
+   6,
+   180,
+   0
+  ],
+  [
+   "Vacuna antirrábica (dosis)",
+   "Biológicos",
+   20,
+   10,
+   45,
+   0
+  ],
+  [
+   "Vacuna triple felina (dosis)",
+   "Biológicos",
+   5,
+   6,
+   170,
+   0
+  ],
+  [
+   "Vacuna leucemia felina (dosis)",
+   "Biológicos",
+   3,
+   4,
+   190,
+   0
+  ],
+  [
+   "Desparasitante interno tableta",
+   "Farmacia",
+   40,
+   20,
+   35,
+   0
+  ],
+  [
+   "Pipeta antipulgas perro mediano",
+   "Farmacia",
+   12,
+   6,
+   140,
+   260
+  ],
+  [
+   "Pipeta antipulgas gato",
+   "Farmacia",
+   7,
+   5,
+   120,
+   230
+  ],
+  [
+   "Croqueta premium cachorro 2 kg",
+   "Tienda",
+   6,
+   4,
+   310,
+   480
+  ],
+  [
+   "Croqueta premium adulto 7 kg",
+   "Tienda",
+   4,
+   3,
+   780,
+   1150
+  ],
+  [
+   "Lata alimento renal 400 g",
+   "Tienda",
+   10,
+   6,
+   65,
+   110
+  ],
+  [
+   "Collar isabelino mediano",
+   "Tienda",
+   5,
+   3,
+   60,
+   140
+  ],
+  [
+   "Jeringa 3 ml (caja 100)",
+   "Insumos",
+   2,
+   2,
+   210,
+   0
+  ],
+  [
+   "Solución Hartmann 500 ml",
+   "Insumos",
+   9,
+   6,
+   38,
+   0
+  ],
+  [
+   "Guantes de exploración (caja)",
+   "Insumos",
+   2,
+   3,
+   150,
+   0
+  ],
+  [
+   "Ketamina 50 mg/ml frasco 10 ml",
+   "Insumos",
+   3,
+   2,
+   380,
+   0
+  ],
+  [
+   "Diazepam 5 mg/ml ampolleta",
+   "Insumos",
+   8,
+   4,
+   45,
+   0
+  ],
+  [
+   "Pelota de hule mediana",
+   "Tienda",
+   14,
+   5,
+   35,
+   89
+  ],
+  [
+   "Juguete mordedera de cuerda",
+   "Tienda",
+   9,
+   4,
+   45,
+   120
+  ],
+  [
+   "Correa retráctil 5 m",
+   "Tienda",
+   4,
+   2,
+   180,
+   350
+  ],
+  [
+   "Collar ajustable mediano",
+   "Tienda",
+   7,
+   3,
+   60,
+   150
+  ],
+  [
+   "Cama acolchada mediana",
+   "Tienda",
+   2,
+   1,
+   420,
+   790
+  ],
+  [
+   "Arena para gato 10 kg",
+   "Tienda",
+   8,
+   4,
+   140,
+   240
+  ],
+  [
+   "Premios dentales (bolsa)",
+   "Tienda",
+   15,
+   6,
+   55,
+   110
+  ],
+  [
+   "Croqueta gato adulto 3 kg",
+   "Tienda",
+   6,
+   3,
+   330,
+   520
+  ],
+  [
+   "Rascador para gato",
+   "Tienda",
+   2,
+   1,
+   260,
+   480
+  ],
+  [
+   "Plato de acero inoxidable",
+   "Tienda",
+   10,
+   4,
+   40,
+   95
+  ],
+  [
+   "Shampoo hipoalergénico 500 ml",
+   "Estética",
+   8,
+   4,
+   120,
+   240
+  ],
+  [
+   "Shampoo para pelo blanco 500 ml",
+   "Estética",
+   5,
+   3,
+   135,
+   260
+  ],
+  [
+   "Acondicionador desenredante 500 ml",
+   "Estética",
+   4,
+   3,
+   140,
+   270
+  ],
+  [
+   "Perfume para perro 120 ml",
+   "Estética",
+   9,
+   4,
+   70,
+   150
+  ],
+  [
+   "Moños y pañoletas (pieza)",
+   "Estética",
+   60,
+   30,
+   8,
+   35
+  ],
+  [
+   "Cepillo carda",
+   "Estética",
+   5,
+   2,
+   90,
+   190
+  ],
+  [
+   "Shampoo profesional galón (uso interno)",
+   "Insumos",
+   3,
+   2,
+   480,
+   0
+  ],
+  [
+   "Toallas desechables (paquete)",
+   "Insumos",
+   4,
+   3,
+   160,
+   0
+  ],
+  [
+   "Prueba rápida Parvovirus (kit)",
+   "Laboratorio",
+   6,
+   3,
+   180,
+   0
+  ],
+  [
+   "Prueba rápida Moquillo (kit)",
+   "Laboratorio",
+   4,
+   3,
+   180,
+   0
+  ],
+  [
+   "Prueba rápida Giardia (kit)",
+   "Laboratorio",
+   3,
+   2,
+   170,
+   0
+  ],
+  [
+   "Prueba rápida 4Dx (kit)",
+   "Laboratorio",
+   1,
+   2,
+   330,
+   0
+  ],
+  [
+   "Prueba rápida FeLV/FIV (kit)",
+   "Laboratorio",
+   3,
+   2,
+   280,
+   0
+  ],
+  [
+   "Tiras de orina (frasco 100)",
+   "Laboratorio",
+   1,
+   1,
+   450,
+   0
+  ],
+  [
+   "Rotor de química sanguínea",
+   "Laboratorio",
+   7,
+   4,
+   220,
+   0
+  ]
+ ],
+ "gastosFijos": [
+  [
+   "Renta del local",
+   14000,
+   "Renta",
+   1
+  ],
+  [
+   "Internet y teléfono",
+   650,
+   "Luz, agua e internet",
+   5
+  ],
+  [
+   "Luz (CFE)",
+   3400,
+   "Luz, agua e internet",
+   8
+  ],
+  [
+   "Agua",
+   900,
+   "Luz, agua e internet",
+   10
+  ],
+  [
+   "Oxígeno y gas anestésico",
+   1300,
+   "Insumos médicos",
+   12
+  ],
+  [
+   "Recolección de basura biológica (RPBI)",
+   950,
+   "Basura biológica",
+   15
+  ],
+  [
+   "Shampoos e insumos de estética",
+   1800,
+   "Insumos de estética",
+   17
+  ],
+  [
+   "Publicidad en Facebook",
+   800,
+   "Publicidad",
+   20
+  ],
+  [
+   "Honorarios del contador",
+   1500,
+   "Contador",
+   28
+  ]
+ ],
+ "planes": [
+  {
+   "id": "cach",
+   "n": "Plan Cachorro",
+   "precio": 399,
+   "consultas": 3,
+   "incluye": [
+    "Todas sus vacunas del primer año",
+    "Desparasitación cada mes",
+    "3 consultas",
+    "10% en farmacia y alimento"
+   ]
+  },
+  {
+   "id": "adulto",
+   "n": "Plan Adulto",
+   "precio": 299,
+   "consultas": 2,
+   "incluye": [
+    "Vacunas anuales",
+    "Desparasitación cada 3 meses",
+    "2 consultas",
+    "10% en farmacia y alimento"
+   ]
+  },
+  {
+   "id": "gato",
+   "n": "Plan Gato",
+   "precio": 249,
+   "consultas": 2,
+   "incluye": [
+    "Triple felina, leucemia y antirrábica",
+    "Desparasitación cada 3 meses",
+    "2 consultas",
+    "10% en farmacia"
+   ]
+  },
+  {
+   "id": "bano",
+   "n": "Club de Baño",
+   "precio": 449,
+   "consultas": 0,
+   "banos": 2,
+   "incluye": [
+    "2 baños al mes (chico o mediano)",
+    "Corte de uñas y limpieza de oídos",
+    "10% en shampoos y accesorios",
+    "Recordatorio por WhatsApp"
+   ]
+  }
+ ],
+ "estetica": {
+  "cada": 30,
+  "foto": "c/pet-haus/perros.webp",
+  "tamanos": [
+   [
+    "Chico",
+    "hasta 10 kg",
+    10
+   ],
+   [
+    "Mediano",
+    "10 a 25 kg",
+    25
+   ],
+   [
+    "Grande",
+    "25 a 40 kg",
+    40
+   ],
+   [
+    "Gigante",
+    "más de 40 kg",
+    999
+   ]
+  ],
+  "servicios": [
+   [
+    "Baño",
+    [
+     250,
+     320,
+     400,
+     500
+    ],
+    "Shampoo, secado, perfume y moño"
+   ],
+   [
+    "Baño y corte",
+    [
+     350,
+     450,
+     600,
+     750
+    ],
+    "Baño completo más corte a tijera o máquina"
+   ],
+   [
+    "Baño medicado",
+    [
+     300,
+     380,
+     480,
+     580
+    ],
+    "Con el shampoo que indica el doctor"
+   ],
+   [
+    "Deslanado",
+    [
+     350,
+     450,
+     580,
+     700
+    ],
+    "Quita el pelo muerto de razas de doble capa"
+   ],
+   [
+    "Corte higiénico",
+    [
+     150,
+     180,
+     220,
+     260
+    ],
+    "Patitas, carita y zona íntima"
+   ],
+   [
+    "Spa completo",
+    [
+     480,
+     580,
+     720,
+     880
+    ],
+    "Baño, mascarilla, corte, uñas, oídos y perfume"
+   ]
+  ],
+  "extras": [
+   [
+    "Corte de uñas",
+    80,
+    0.45
+   ],
+   [
+    "Limpieza de oídos",
+    70,
+    0.35
+   ],
+   [
+    "Vaciado de glándulas",
+    90,
+    0.15
+   ],
+   [
+    "Cepillado dental",
+    100,
+    0.08
+   ],
+   [
+    "Desenredado (nudos)",
+    [
+     100,
+     150,
+     200,
+     250
+    ],
+    0.1
+   ],
+   [
+    "Baño antipulgas",
+    [
+     120,
+     150,
+     180,
+     220
+    ],
+    0.1
+   ],
+   [
+    "Mascarilla hidratante",
+    [
+     120,
+     150,
+     180,
+     220
+    ],
+    0.07
+   ],
+   [
+    "Recoger y entregar a domicilio",
+    100,
+    0.08
+   ]
+  ],
+  "pelos": [
+   "Corto",
+   "Largo",
+   "Doble capa",
+   "Rizado"
+  ],
+  "cortes": [
+   "Corte cachorro",
+   "Corte de raza",
+   "Rapado completo",
+   "Cara redonda",
+   "Solo emparejar",
+   "Patitas y carita"
+  ],
+  "obs": [
+   "Pulgas",
+   "Garrapatas",
+   "Heridas o irritación",
+   "Oídos sucios u olor",
+   "Bultos",
+   "Nudos",
+   "Uñas muy largas"
+  ],
+  "comp": [
+   "Nervioso",
+   "Muerde",
+   "No le gusta la secadora",
+   "Tranquilo",
+   "Primera vez"
+  ]
+ },
+ "lab": {
+  "externo": {
+   "n": "Laboratorio de referencia (ejemplo)"
+  },
+  "plantillas": {
+   "bh": [
+    [
+     "Hematocrito",
+     "%",
+     [
+      37,
+      55
+     ],
+     [
+      30,
+      45
+     ]
+    ],
+    [
+     "Hemoglobina",
+     "g/dL",
+     [
+      12,
+      18
+     ],
+     [
+      9,
+      15
+     ]
+    ],
+    [
+     "Eritrocitos",
+     "×10⁶/µL",
+     [
+      5.5,
+      8.5
+     ],
+     [
+      5,
+      10
+     ]
+    ],
+    [
+     "Leucocitos",
+     "×10³/µL",
+     [
+      6,
+      17
+     ],
+     [
+      5.5,
+      19.5
+     ]
+    ],
+    [
+     "Neutrófilos",
+     "×10³/µL",
+     [
+      3,
+      11.5
+     ],
+     [
+      2.5,
+      12.5
+     ]
+    ],
+    [
+     "Linfocitos",
+     "×10³/µL",
+     [
+      1,
+      4.8
+     ],
+     [
+      1.5,
+      7
+     ]
+    ],
+    [
+     "Plaquetas",
+     "×10³/µL",
+     [
+      200,
+      500
+     ],
+     [
+      300,
+      800
+     ]
+    ]
+   ],
+   "qs": [
+    [
+     "Glucosa",
+     "mg/dL",
+     [
+      70,
+      120
+     ],
+     [
+      70,
+      150
+     ]
+    ],
+    [
+     "Urea (BUN)",
+     "mg/dL",
+     [
+      7,
+      27
+     ],
+     [
+      16,
+      36
+     ]
+    ],
+    [
+     "Creatinina",
+     "mg/dL",
+     [
+      0.5,
+      1.8
+     ],
+     [
+      0.8,
+      2.4
+     ]
+    ],
+    [
+     "ALT",
+     "U/L",
+     [
+      10,
+      100
+     ],
+     [
+      12,
+      130
+     ]
+    ],
+    [
+     "Fosfatasa alcalina",
+     "U/L",
+     [
+      23,
+      212
+     ],
+     [
+      14,
+      111
+     ]
+    ],
+    [
+     "Proteínas totales",
+     "g/dL",
+     [
+      5.2,
+      8.2
+     ],
+     [
+      5.7,
+      8.9
+     ]
+    ],
+    [
+     "Albúmina",
+     "g/dL",
+     [
+      2.3,
+      4
+     ],
+     [
+      2.2,
+      4
+     ]
+    ],
+    [
+     "Colesterol",
+     "mg/dL",
+     [
+      110,
+      320
+     ],
+     [
+      65,
+      225
+     ]
+    ],
+    [
+     "Calcio",
+     "mg/dL",
+     [
+      7.9,
+      12
+     ],
+     [
+      7.8,
+      11.3
+     ]
+    ],
+    [
+     "Fósforo",
+     "mg/dL",
+     [
+      2.5,
+      6.8
+     ],
+     [
+      3.1,
+      7.5
+     ]
+    ],
+    [
+     "Bilirrubina total",
+     "mg/dL",
+     [
+      0,
+      0.9
+     ],
+     [
+      0,
+      0.9
+     ]
+    ],
+    [
+     "Amilasa",
+     "U/L",
+     [
+      500,
+      1500
+     ],
+     [
+      500,
+      1500
+     ]
+    ]
+   ],
+   "ego": [
+    [
+     "Aspecto",
+     "",
+     null,
+     null,
+     "Amarillo claro, transparente"
+    ],
+    [
+     "Densidad",
+     "",
+     [
+      1.015,
+      1.045
+     ],
+     [
+      1.035,
+      1.06
+     ]
+    ],
+    [
+     "pH",
+     "",
+     [
+      5.5,
+      7.5
+     ],
+     [
+      6,
+      7
+     ]
+    ],
+    [
+     "Proteínas",
+     "mg/dL",
+     [
+      0,
+      30
+     ],
+     [
+      0,
+      30
+     ]
+    ],
+    [
+     "Glucosa",
+     "mg/dL",
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ]
+    ],
+    [
+     "Sedimento",
+     "",
+     null,
+     null,
+     "Sin cristales ni bacterias"
+    ]
+   ],
+   "copro": [
+    [
+     "Método",
+     "",
+     null,
+     null,
+     "Flotación"
+    ],
+    [
+     "Resultado",
+     "",
+     null,
+     null,
+     "No se observaron huevos ni quistes"
+    ]
+   ],
+   "raspado": [
+    [
+     "Ácaros (Demodex / Sarcoptes)",
+     "",
+     null,
+     null,
+     "No se observaron"
+    ],
+    [
+     "Hongos",
+     "",
+     null,
+     null,
+     "No se observaron"
+    ]
+   ],
+   "oido": [
+    [
+     "Levaduras (Malassezia)",
+     "",
+     null,
+     null,
+     "Escasas"
+    ],
+    [
+     "Bacterias",
+     "",
+     null,
+     null,
+     "Moderadas (cocos)"
+    ],
+    [
+     "Ácaros",
+     "",
+     null,
+     null,
+     "No se observaron"
+    ]
+   ],
+   "glu": [
+    [
+     "Glucosa",
+     "mg/dL",
+     [
+      70,
+      120
+     ],
+     [
+      70,
+      150
+     ]
+    ]
+   ],
+   "t4": [
+    [
+     "T4 total",
+     "µg/dL",
+     [
+      1,
+      4
+     ],
+     [
+      0.8,
+      4.7
+     ]
+    ]
+   ]
+  },
+  "estudios": [
+   {
+    "n": "Análisis de sangre completo",
+    "precio": 950,
+    "costo": 180,
+    "tipo": "interno",
+    "plantilla": "pre",
+    "consulta": 1,
+    "peso": 4
+   },
+   {
+    "n": "Hemograma",
+    "precio": 450,
+    "costo": 90,
+    "tipo": "interno",
+    "plantilla": "bh",
+    "consulta": 1,
+    "peso": 4
+   },
+   {
+    "n": "Química sanguínea 12 elementos",
+    "precio": 850,
+    "costo": 220,
+    "tipo": "interno",
+    "plantilla": "qs",
+    "consulta": 1,
+    "peso": 2
+   },
+   {
+    "n": "Examen general de orina",
+    "precio": 350,
+    "costo": 60,
+    "tipo": "interno",
+    "plantilla": "ego",
+    "consulta": 1,
+    "peso": 2
+   },
+   {
+    "n": "Coproparasitoscópico",
+    "precio": 250,
+    "costo": 30,
+    "tipo": "interno",
+    "plantilla": "copro",
+    "consulta": 1,
+    "peso": 3
+   },
+   {
+    "n": "Raspado de piel",
+    "precio": 300,
+    "costo": 30,
+    "tipo": "interno",
+    "plantilla": "raspado",
+    "peso": 2
+   },
+   {
+    "n": "Citología de oído",
+    "precio": 300,
+    "costo": 30,
+    "tipo": "interno",
+    "plantilla": "oido",
+    "peso": 2
+   },
+   {
+    "n": "Glucosa",
+    "precio": 120,
+    "costo": 15,
+    "tipo": "interno",
+    "plantilla": "glu",
+    "peso": 1
+   },
+   {
+    "n": "Prueba de parvovirus",
+    "precio": 450,
+    "costo": 180,
+    "tipo": "rapida",
+    "kit": "Prueba rápida Parvovirus (kit)",
+    "consulta": 1,
+    "peso": 3
+   },
+   {
+    "n": "Prueba de moquillo",
+    "precio": 450,
+    "costo": 180,
+    "tipo": "rapida",
+    "kit": "Prueba rápida Moquillo (kit)",
+    "peso": 1
+   },
+   {
+    "n": "Prueba de giardia",
+    "precio": 450,
+    "costo": 170,
+    "tipo": "rapida",
+    "kit": "Prueba rápida Giardia (kit)",
+    "peso": 1
+   },
+   {
+    "n": "Prueba 4Dx (garrapata y gusano del corazón)",
+    "precio": 750,
+    "costo": 330,
+    "tipo": "rapida",
+    "kit": "Prueba rápida 4Dx (kit)",
+    "pruebas": [
+     "Ehrlichia",
+     "Anaplasma",
+     "Lyme",
+     "Dirofilaria (gusano del corazón)"
+    ],
+    "consulta": 1,
+    "peso": 2
+   },
+   {
+    "n": "Leucemia e inmunodeficiencia felina",
+    "precio": 650,
+    "costo": 280,
+    "tipo": "rapida",
+    "kit": "Prueba rápida FeLV/FIV (kit)",
+    "pruebas": [
+     "Leucemia felina (FeLV)",
+     "Inmunodeficiencia felina (FIV)"
+    ],
+    "peso": 1
+   },
+   {
+    "n": "Perfil tiroideo (T4)",
+    "precio": 900,
+    "costo": 450,
+    "tipo": "externo",
+    "dias": 3,
+    "plantilla": "t4",
+    "peso": 0.7
+   },
+   {
+    "n": "Cultivo y antibiograma",
+    "precio": 1100,
+    "costo": 550,
+    "tipo": "externo",
+    "dias": 5,
+    "ejemplo": "Se aisló Staphylococcus pseudintermedius. Sensible a: amoxicilina con clavulánico, cefalexina y enrofloxacino. Resistente a: penicilina.",
+    "peso": 0.6
+   },
+   {
+    "n": "Biopsia (histopatología)",
+    "precio": 1400,
+    "costo": 700,
+    "tipo": "externo",
+    "dias": 7,
+    "ejemplo": "Lipoma subcutáneo. Bordes libres de lesión. Benigno.",
+    "peso": 0.4
+   }
+  ]
+ },
+ "guia": "Pet-Haus-guia-de-uso.pdf"
+}
