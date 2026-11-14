@@ -1,0 +1,1623 @@
+{
+ "ver": 1,
+ "nombre": "Sandy Cocina Mexicana",
+ "lema": "Desayunos y guisados caseros · Playas de Tijuana",
+ "color": "#F2B705",
+ "preciosReales": true,
+ "mesas": 4,
+ "iniciales": "SC",
+ "logo": "p/sandy-cocina-mexicana/logo.webp",
+ "portada": "p/sandy-cocina-mexicana/portada.webp",
+ "frase": "Sazón 100% casero en Playas",
+ "tema": {
+  "fuente": "Playfair Display",
+  "barra": "#4A2C1A",
+  "fondo": "#FBF5E8"
+ },
+ "menu": [
+  [
+   "Desayunos",
+   "Hotcakes normales",
+   65,
+   "Dos hotcakes esponjosos con café",
+   "Café: Americano, De olla | Agregar*: Mantequilla extra, Miel extra",
+   "p/sandy-cocina-mexicana/hotcakes.webp"
+  ],
+  [
+   "Desayunos",
+   "Hotcakes especiales",
+   95,
+   "Dos hotcakes, dos huevos al gusto y café",
+   "Huevos: Estrellados, Revueltos, Rancheros, Divorciados | Café: Americano, De olla",
+   "p/sandy-cocina-mexicana/hotcakes-esp.webp"
+  ],
+  [
+   "Desayunos",
+   "Omelette de jamón",
+   120,
+   "Omelette relleno de jamón, con arroz y frijoles",
+   "Tortillas: Maíz, Harina | Agregar*: Queso, Champiñones",
+   "p/sandy-cocina-mexicana/omelette.webp"
+  ],
+  [
+   "Huevos",
+   "Huevos a la mexicana",
+   95,
+   "Revueltos con jitomate, cebolla y chile. Con arroz y frijoles",
+   "Tortillas: Maíz, Harina | Frijoles: Refritos, De la olla | Picante: Normal, Sin chile",
+   "p/sandy-cocina-mexicana/mexicana.webp"
+  ],
+  [
+   "Huevos",
+   "Huevos con jamón",
+   95,
+   "Con arroz y frijoles",
+   "Tortillas: Maíz, Harina | Frijoles: Refritos, De la olla",
+   "p/sandy-cocina-mexicana/jamon.webp"
+  ],
+  [
+   "Huevos",
+   "Huevos con chorizo",
+   95,
+   "Con arroz y frijoles",
+   "Tortillas: Maíz, Harina | Frijoles: Refritos, De la olla",
+   "p/sandy-cocina-mexicana/chorizo.webp"
+  ],
+  [
+   "Huevos",
+   "Huevos estrellados",
+   95,
+   "Dos huevos fritos con arroz y frijoles",
+   "Yema: Tiernita, Bien cocida | Tortillas: Maíz, Harina | Frijoles: Refritos, De la olla",
+   "p/sandy-cocina-mexicana/estrellados.webp"
+  ],
+  [
+   "Antojitos",
+   "Flautas",
+   120,
+   "Taquitos dorados con lechuga, crema, queso y salsa de la casa",
+   "Relleno: Pollo, Res, Papa | Quitar*: Sin crema, Sin lechuga",
+   "p/sandy-cocina-mexicana/flautas.webp"
+  ],
+  [
+   "Antojitos",
+   "Enchiladas verdes y rojas",
+   120,
+   "Bañadas en salsa de la casa, con crema, queso, cebolla y guarnición",
+   "Salsa: Verdes, Rojas, Divorciadas | Relleno: Pollo, Queso",
+   "p/sandy-cocina-mexicana/enchiladas.webp"
+  ],
+  [
+   "Antojitos",
+   "Sopes",
+   120,
+   "Masa hecha a mano con frijoles, carne o guisado, lechuga, crema, queso y salsa",
+   "Relleno: Carne deshebrada, Guisado del día, Solo frijol | Quitar*: Sin crema, Sin lechuga",
+   "p/sandy-cocina-mexicana/sopes.webp"
+  ],
+  [
+   "Comida del día",
+   "Comida del día",
+   130,
+   "Guisado casero con arroz, frijoles y tortillas. El guisado cambia cada día",
+   "Guisado: Picadillo, Chile colorado, Pollo en mole, Bistec a la mexicana, Chicharrón en salsa verde | Tortillas: Maíz, Harina",
+   "p/sandy-cocina-mexicana/picadillo.webp"
+  ],
+  [
+   "Bebidas",
+   "Café americano",
+   30,
+   "Precio de ejemplo. Refill incluido",
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Café de olla",
+   35,
+   "Precio de ejemplo. Con canela y piloncillo",
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Jugo de naranja",
+   45,
+   "Precio de ejemplo. Natural, recién exprimido",
+   "Tamaño: Chico, Grande (+15)",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua fresca",
+   35,
+   "Precio de ejemplo. Vaso de 1 litro",
+   "Sabor: Jamaica, Horchata",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   35,
+   "Precio de ejemplo.",
+   "Sabor: Coca-Cola, Coca sin azúcar, Sprite, Fanta",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de enchiladas (ejemplo)",
+   "pct",
+   10,
+   "Antojitos",
+   "",
+   [
+    2
+   ]
+  ],
+  [
+   "Desayuno para dos (ejemplo)",
+   "precio",
+   199,
+   "",
+   "2 Hotcakes especiales + 2 jugos de naranja",
+   [
+    6,
+    0
+   ]
+  ],
+  [
+   "Café de cortesía (ejemplo)",
+   "cortesia",
+   0,
+   "",
+   "Café americano",
+   [
+    1
+   ]
+  ]
+ ],
+ "inv": {
+  "escala": {
+   "Grande": 1.5
+  },
+  "insumos": [
+   [
+    "huevo",
+    "Huevo",
+    "pz",
+    "Huevo y lácteos",
+    "Costco",
+    2.8,
+    90,
+    360
+   ],
+   [
+    "leche",
+    "Leche",
+    "L",
+    "Huevo y lácteos",
+    "Costco",
+    26,
+    4,
+    12
+   ],
+   [
+    "mantequilla",
+    "Mantequilla",
+    "kg",
+    "Huevo y lácteos",
+    "Costco",
+    160,
+    0.5,
+    2
+   ],
+   [
+    "queso_fresco",
+    "Queso fresco",
+    "kg",
+    "Huevo y lácteos",
+    "Costco",
+    130,
+    1.5,
+    4
+   ],
+   [
+    "queso_g",
+    "Queso para gratinar",
+    "kg",
+    "Huevo y lácteos",
+    "Costco",
+    150,
+    0.5,
+    2
+   ],
+   [
+    "crema",
+    "Crema",
+    "L",
+    "Huevo y lácteos",
+    "Costco",
+    60,
+    1.5,
+    4
+   ],
+   [
+    "jamon",
+    "Jamón",
+    "kg",
+    "Carnes",
+    "Costco",
+    120,
+    1,
+    3
+   ],
+   [
+    "chorizo",
+    "Chorizo",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    110,
+    1,
+    3
+   ],
+   [
+    "pollo",
+    "Pollo (pechuga y pierna)",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    95,
+    4,
+    10
+   ],
+   [
+    "res",
+    "Res para deshebrar",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    170,
+    3,
+    8
+   ],
+   [
+    "molida",
+    "Carne molida",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    140,
+    3,
+    6
+   ],
+   [
+    "bistec",
+    "Bistec de res",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    165,
+    1.5,
+    4
+   ],
+   [
+    "chicharron",
+    "Chicharrón",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    160,
+    0.5,
+    2
+   ],
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas y masa",
+    "Tortillería",
+    24,
+    4,
+    10
+   ],
+   [
+    "harina_t",
+    "Tortilla de harina",
+    "pz",
+    "Tortillas y masa",
+    "Tortillería",
+    3,
+    20,
+    60
+   ],
+   [
+    "masa",
+    "Masa para sopes",
+    "kg",
+    "Tortillas y masa",
+    "Tortillería",
+    18,
+    2,
+    5
+   ],
+   [
+    "harina_h",
+    "Harina para hotcakes",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    45,
+    3,
+    8
+   ],
+   [
+    "miel",
+    "Miel para hotcakes",
+    "L",
+    "Abarrotes",
+    "Costco",
+    70,
+    1,
+    3
+   ],
+   [
+    "arroz",
+    "Arroz",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    30,
+    4,
+    10
+   ],
+   [
+    "frijol",
+    "Frijol",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    35,
+    4,
+    10
+   ],
+   [
+    "aceite",
+    "Aceite",
+    "L",
+    "Abarrotes",
+    "Costco",
+    40,
+    4,
+    10
+   ],
+   [
+    "cafe",
+    "Café molido",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    280,
+    0.5,
+    2
+   ],
+   [
+    "piloncillo",
+    "Piloncillo",
+    "kg",
+    "Abarrotes",
+    "Mercado",
+    50,
+    0.5,
+    2
+   ],
+   [
+    "canela",
+    "Canela",
+    "kg",
+    "Abarrotes",
+    "Mercado",
+    300,
+    0.1,
+    0.3
+   ],
+   [
+    "mole",
+    "Pasta de mole",
+    "kg",
+    "Abarrotes",
+    "Mercado",
+    120,
+    0.5,
+    1.5
+   ],
+   [
+    "guajillo",
+    "Chile guajillo seco",
+    "kg",
+    "Abarrotes",
+    "Mercado",
+    180,
+    0.3,
+    1
+   ],
+   [
+    "jitomate",
+    "Jitomate",
+    "kg",
+    "Verduras y fruta",
+    "Mercado",
+    25,
+    4,
+    10
+   ],
+   [
+    "tomate_v",
+    "Tomate verde",
+    "kg",
+    "Verduras y fruta",
+    "Mercado",
+    30,
+    2,
+    6
+   ],
+   [
+    "cebolla",
+    "Cebolla",
+    "kg",
+    "Verduras y fruta",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "serrano",
+    "Chile serrano",
+    "kg",
+    "Verduras y fruta",
+    "Mercado",
+    40,
+    0.5,
+    1.5
+   ],
+   [
+    "ajo",
+    "Ajo",
+    "kg",
+    "Verduras y fruta",
+    "Mercado",
+    80,
+    0.2,
+    0.6
+   ],
+   [
+    "papa",
+    "Papa",
+    "kg",
+    "Verduras y fruta",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "zanahoria",
+    "Zanahoria",
+    "kg",
+    "Verduras y fruta",
+    "Mercado",
+    20,
+    2,
+    5
+   ],
+   [
+    "lechuga",
+    "Lechuga",
+    "kg",
+    "Verduras y fruta",
+    "Mercado",
+    35,
+    1,
+    3
+   ],
+   [
+    "cilantro",
+    "Cilantro (manojo)",
+    "pz",
+    "Verduras y fruta",
+    "Mercado",
+    8,
+    3,
+    8
+   ],
+   [
+    "champi",
+    "Champiñones",
+    "kg",
+    "Verduras y fruta",
+    "Costco",
+    90,
+    0.3,
+    1
+   ],
+   [
+    "naranja",
+    "Naranja para jugo",
+    "kg",
+    "Verduras y fruta",
+    "Mercado",
+    18,
+    8,
+    20
+   ],
+   [
+    "jamaica",
+    "Flor de jamaica",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    160,
+    0.3,
+    1
+   ],
+   [
+    "horchata",
+    "Concentrado de horchata",
+    "L",
+    "Bebidas",
+    "Costco",
+    70,
+    1,
+    3
+   ],
+   [
+    "azucar",
+    "Azúcar",
+    "kg",
+    "Bebidas",
+    "Costco",
+    28,
+    2,
+    5
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora",
+    14,
+    24,
+    72
+   ],
+   [
+    "mezcla_hot",
+    "Mezcla para hotcakes",
+    "L",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 4,
+      "usa": [
+       [
+        "harina_h",
+        1.5
+       ],
+       [
+        "huevo",
+        6
+       ],
+       [
+        "leche",
+        2
+       ],
+       [
+        "mantequilla",
+        0.15
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "frijoles",
+    "Frijoles cocidos",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 5,
+      "usa": [
+       [
+        "frijol",
+        2
+       ],
+       [
+        "cebolla",
+        0.2
+       ],
+       [
+        "aceite",
+        0.15
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "arroz_r",
+    "Arroz rojo",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 5,
+      "usa": [
+       [
+        "arroz",
+        2
+       ],
+       [
+        "jitomate",
+        0.5
+       ],
+       [
+        "cebolla",
+        0.2
+       ],
+       [
+        "zanahoria",
+        0.2
+       ],
+       [
+        "aceite",
+        0.15
+       ],
+       [
+        "ajo",
+        0.03
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "salsa_v",
+    "Salsa verde de la casa",
+    "L",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 3,
+      "usa": [
+       [
+        "tomate_v",
+        2
+       ],
+       [
+        "serrano",
+        0.15
+       ],
+       [
+        "cebolla",
+        0.3
+       ],
+       [
+        "ajo",
+        0.03
+       ],
+       [
+        "cilantro",
+        2
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "salsa_r",
+    "Salsa roja de la casa",
+    "L",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 3,
+      "usa": [
+       [
+        "jitomate",
+        1.8
+       ],
+       [
+        "guajillo",
+        0.15
+       ],
+       [
+        "cebolla",
+        0.3
+       ],
+       [
+        "ajo",
+        0.04
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "picadillo",
+    "Picadillo",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 6,
+      "usa": [
+       [
+        "molida",
+        3
+       ],
+       [
+        "papa",
+        1.5
+       ],
+       [
+        "zanahoria",
+        1
+       ],
+       [
+        "jitomate",
+        0.8
+       ],
+       [
+        "cebolla",
+        0.3
+       ],
+       [
+        "aceite",
+        0.1
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "pollo_d",
+    "Pollo deshebrado",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 3.5,
+      "usa": [
+       [
+        "pollo",
+        5
+       ],
+       [
+        "cebolla",
+        0.2
+       ],
+       [
+        "ajo",
+        0.03
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "res_d",
+    "Res deshebrada",
+    "kg",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 3,
+      "usa": [
+       [
+        "res",
+        5
+       ],
+       [
+        "cebolla",
+        0.2
+       ],
+       [
+        "ajo",
+        0.03
+       ]
+      ]
+     }
+    }
+   ],
+   [
+    "cafe_olla",
+    "Café de olla",
+    "L",
+    "Lo que preparo",
+    "",
+    0,
+    0,
+    0,
+    {
+     "prep": {
+      "rinde": 4,
+      "usa": [
+       [
+        "cafe",
+        0.12
+       ],
+       [
+        "piloncillo",
+        0.25
+       ],
+       [
+        "canela",
+        0.02
+       ]
+      ]
+     }
+    }
+   ]
+  ],
+  "recetas": {
+   "Hotcakes normales": [
+    [
+     "mezcla_hot",
+     0.3
+    ],
+    [
+     "mantequilla",
+     0.015
+    ],
+    [
+     "miel",
+     0.03
+    ],
+    [
+     "mantequilla",
+     0.015,
+     "Mantequilla extra"
+    ],
+    [
+     "miel",
+     0.03,
+     "Miel extra"
+    ],
+    [
+     "cafe",
+     0.012,
+     "Americano"
+    ],
+    [
+     "cafe_olla",
+     0.25,
+     "De olla"
+    ]
+   ],
+   "Hotcakes especiales": [
+    [
+     "mezcla_hot",
+     0.3
+    ],
+    [
+     "mantequilla",
+     0.015
+    ],
+    [
+     "miel",
+     0.03
+    ],
+    [
+     "huevo",
+     2
+    ],
+    [
+     "aceite",
+     0.01
+    ],
+    [
+     "salsa_r",
+     0.05,
+     "Rancheros"
+    ],
+    [
+     "salsa_r",
+     0.03,
+     "Divorciados"
+    ],
+    [
+     "salsa_v",
+     0.03,
+     "Divorciados"
+    ],
+    [
+     "cafe",
+     0.012,
+     "Americano"
+    ],
+    [
+     "cafe_olla",
+     0.25,
+     "De olla"
+    ]
+   ],
+   "Omelette de jamón": [
+    [
+     "huevo",
+     3
+    ],
+    [
+     "jamon",
+     0.06
+    ],
+    [
+     "leche",
+     0.02
+    ],
+    [
+     "aceite",
+     0.01
+    ],
+    [
+     "queso_g",
+     0.04,
+     "Queso"
+    ],
+    [
+     "champi",
+     0.04,
+     "Champiñones"
+    ],
+    [
+     "arroz_r",
+     0.15
+    ],
+    [
+     "frijoles",
+     0.15
+    ],
+    [
+     "tortilla",
+     0.1,
+     "Maíz"
+    ],
+    [
+     "harina_t",
+     2,
+     "Harina"
+    ]
+   ],
+   "Huevos a la mexicana": [
+    [
+     "huevo",
+     3
+    ],
+    [
+     "aceite",
+     0.015
+    ],
+    [
+     "jitomate",
+     0.06
+    ],
+    [
+     "cebolla",
+     0.03
+    ],
+    [
+     "serrano",
+     0.01,
+     "!Sin chile"
+    ],
+    [
+     "arroz_r",
+     0.15
+    ],
+    [
+     "frijoles",
+     0.15
+    ],
+    [
+     "tortilla",
+     0.1,
+     "Maíz"
+    ],
+    [
+     "harina_t",
+     2,
+     "Harina"
+    ]
+   ],
+   "Huevos con jamón": [
+    [
+     "huevo",
+     3
+    ],
+    [
+     "aceite",
+     0.015
+    ],
+    [
+     "jamon",
+     0.06
+    ],
+    [
+     "arroz_r",
+     0.15
+    ],
+    [
+     "frijoles",
+     0.15
+    ],
+    [
+     "tortilla",
+     0.1,
+     "Maíz"
+    ],
+    [
+     "harina_t",
+     2,
+     "Harina"
+    ]
+   ],
+   "Huevos con chorizo": [
+    [
+     "huevo",
+     3
+    ],
+    [
+     "aceite",
+     0.015
+    ],
+    [
+     "chorizo",
+     0.07
+    ],
+    [
+     "arroz_r",
+     0.15
+    ],
+    [
+     "frijoles",
+     0.15
+    ],
+    [
+     "tortilla",
+     0.1,
+     "Maíz"
+    ],
+    [
+     "harina_t",
+     2,
+     "Harina"
+    ]
+   ],
+   "Huevos estrellados": [
+    [
+     "huevo",
+     2
+    ],
+    [
+     "aceite",
+     0.02
+    ],
+    [
+     "salsa_r",
+     0.05
+    ],
+    [
+     "arroz_r",
+     0.15
+    ],
+    [
+     "frijoles",
+     0.15
+    ],
+    [
+     "tortilla",
+     0.1,
+     "Maíz"
+    ],
+    [
+     "harina_t",
+     2,
+     "Harina"
+    ]
+   ],
+   "Flautas": [
+    [
+     "tortilla",
+     0.12
+    ],
+    [
+     "pollo_d",
+     0.1,
+     "Pollo"
+    ],
+    [
+     "res_d",
+     0.1,
+     "Res"
+    ],
+    [
+     "papa",
+     0.12,
+     "Papa"
+    ],
+    [
+     "aceite",
+     0.05
+    ],
+    [
+     "lechuga",
+     0.03,
+     "!Sin lechuga"
+    ],
+    [
+     "crema",
+     0.03,
+     "!Sin crema"
+    ],
+    [
+     "queso_fresco",
+     0.03
+    ],
+    [
+     "salsa_v",
+     0.05
+    ]
+   ],
+   "Enchiladas verdes y rojas": [
+    [
+     "tortilla",
+     0.12
+    ],
+    [
+     "pollo_d",
+     0.1,
+     "Pollo"
+    ],
+    [
+     "queso_fresco",
+     0.08,
+     "Relleno: Queso"
+    ],
+    [
+     "salsa_v",
+     0.15,
+     "Verdes"
+    ],
+    [
+     "salsa_r",
+     0.15,
+     "Rojas"
+    ],
+    [
+     "salsa_v",
+     0.08,
+     "Divorciadas"
+    ],
+    [
+     "salsa_r",
+     0.08,
+     "Divorciadas"
+    ],
+    [
+     "crema",
+     0.03
+    ],
+    [
+     "queso_fresco",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.02
+    ],
+    [
+     "aceite",
+     0.02
+    ],
+    [
+     "arroz_r",
+     0.1
+    ],
+    [
+     "frijoles",
+     0.1
+    ]
+   ],
+   "Sopes": [
+    [
+     "masa",
+     0.15
+    ],
+    [
+     "frijoles",
+     0.06
+    ],
+    [
+     "res_d",
+     0.08,
+     "Carne deshebrada"
+    ],
+    [
+     "picadillo",
+     0.08,
+     "Guisado del día"
+    ],
+    [
+     "lechuga",
+     0.03,
+     "!Sin lechuga"
+    ],
+    [
+     "crema",
+     0.03,
+     "!Sin crema"
+    ],
+    [
+     "queso_fresco",
+     0.03
+    ],
+    [
+     "salsa_r",
+     0.04
+    ],
+    [
+     "aceite",
+     0.03
+    ]
+   ],
+   "Comida del día": [
+    [
+     "picadillo",
+     0.28,
+     "Picadillo"
+    ],
+    [
+     "res_d",
+     0.2,
+     "Chile colorado"
+    ],
+    [
+     "salsa_r",
+     0.12,
+     "Chile colorado"
+    ],
+    [
+     "pollo",
+     0.3,
+     "Pollo en mole"
+    ],
+    [
+     "mole",
+     0.06,
+     "Pollo en mole"
+    ],
+    [
+     "bistec",
+     0.18,
+     "Bistec"
+    ],
+    [
+     "jitomate",
+     0.06,
+     "Bistec"
+    ],
+    [
+     "chicharron",
+     0.12,
+     "Chicharrón"
+    ],
+    [
+     "salsa_v",
+     0.12,
+     "Chicharrón"
+    ],
+    [
+     "arroz_r",
+     0.15
+    ],
+    [
+     "frijoles",
+     0.15
+    ],
+    [
+     "tortilla",
+     0.1,
+     "Maíz"
+    ],
+    [
+     "harina_t",
+     2,
+     "Harina"
+    ]
+   ],
+   "Café americano": [
+    [
+     "cafe",
+     0.015
+    ]
+   ],
+   "Café de olla": [
+    [
+     "cafe_olla",
+     0.3
+    ]
+   ],
+   "Jugo de naranja": [
+    [
+     "naranja",
+     0.7,
+     "Chico"
+    ],
+    [
+     "naranja",
+     1.1,
+     "Grande"
+    ]
+   ],
+   "Agua fresca": [
+    [
+     "jamaica",
+     0.03,
+     "Jamaica"
+    ],
+    [
+     "horchata",
+     0.12,
+     "Horchata"
+    ],
+    [
+     "azucar",
+     0.06,
+     "Jamaica"
+    ]
+   ],
+   "Refresco": [
+    [
+     "refresco",
+     1
+    ]
+   ]
+  },
+  "demo": {
+   "huevo": 0.8,
+   "picadillo": 0.6,
+   "salsa_v": 0.4,
+   "naranja": 1.2,
+   "tortilla": 1.1
+  },
+  "entregas": {
+   "Costco": [
+    1,
+    4
+   ],
+   "Carnicería": [
+    2,
+    5
+   ],
+   "Tortillería": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Mercado": [
+    1,
+    3,
+    5
+   ],
+   "Distribuidora": [
+    3
+   ]
+  },
+  "faltan": {
+   "huevo": 30,
+   "picadillo": 0.8,
+   "naranja": 2
+  },
+  "mermas": [
+   [
+    3,
+    "picadillo",
+    0.8,
+    "Sobró al cierre"
+   ],
+   [
+    2,
+    "lechuga",
+    0.4,
+    "Se echó a perder"
+   ],
+   [
+    1,
+    "huevo",
+    4,
+    "Se cayó o se rompió"
+   ],
+   [
+    0,
+    "tortilla",
+    0.3,
+    "Se echó a perder"
+   ]
+  ],
+  "motivo2": "Sobró al cierre",
+  "credito": "Carnicería",
+  "provs": {}
+ },
+ "horario": [
+  8,
+  17
+ ],
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    12000
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    499
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1200
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    1900,
+    {
+     "ant": 2100
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    450
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    780,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    300,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    6600,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    900,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    1850,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    2400,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ },
+ "volumen": 0.65,
+ "aviso": "Así se vería Comandero en Sandy Cocina Mexicana, con su logo, sus fotos, sus 4 mesas y su menú con sus precios. Las bebidas, los guisados extra y las promociones son de ejemplo. Entre como Gerente y vea «Almacén» (cuánto picadillo sale de cada olla, el huevo y la tortilla que quedan, el pedido a la carnicería por WhatsApp y cuánto deja cada platillo) y «Dinero y contador» (cuánto le quedó en el mes, gastos, nómina y el paquete para su contador). Los costos son de ejemplo. Nada de lo que haga aquí se guarda."
+}
