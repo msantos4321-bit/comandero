@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Sospeso Coffee & Roasting House",
  "lema": "Café de especialidad y tueste propio · Zona Río, Tijuana",
  "color": "#3E2C23",
@@ -209,5 +209,583 @@
     2
    ]
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "jamon",
+    "Jamón",
+    "kg",
+    "Carnes",
+    "Costco",
+    120,
+    1,
+    3
+   ],
+   [
+    "queso_am",
+    "Queso amarillo (rebanada)",
+    "pz",
+    "Lácteos",
+    "Costco",
+    2.5,
+    30,
+    90
+   ],
+   [
+    "leche",
+    "Leche",
+    "L",
+    "Lácteos",
+    "Costco",
+    26,
+    6,
+    18
+   ],
+   [
+    "huevo",
+    "Huevo",
+    "pz",
+    "Lácteos",
+    "Costco",
+    2.8,
+    60,
+    240
+   ],
+   [
+    "harina_hot",
+    "Harina para hotcakes",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    30,
+    2,
+    5
+   ],
+   [
+    "pan_dulce",
+    "Pan dulce y repostería",
+    "pz",
+    "Panadería",
+    "Panadería",
+    14,
+    10,
+    30
+   ],
+   [
+    "cafe",
+    "Café en grano",
+    "kg",
+    "Café",
+    "Tostador",
+    380,
+    1,
+    3
+   ],
+   [
+    "matcha",
+    "Matcha",
+    "kg",
+    "Café",
+    "Tostador",
+    1200,
+    0.2,
+    0.5
+   ],
+   [
+    "te",
+    "Té (sobres)",
+    "pz",
+    "Café",
+    "Costco",
+    3,
+    30,
+    90
+   ],
+   [
+    "chocolate",
+    "Chocolate en polvo",
+    "kg",
+    "Café",
+    "Costco",
+    200,
+    0.5,
+    2
+   ],
+   [
+    "hielo",
+    "Hielo",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    6,
+    10,
+    30
+   ],
+   [
+    "vaso",
+    "Vasos y tapas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.5,
+    100,
+    300
+   ]
+  ],
+  "recetas": {
+   "Espresso": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Americano": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Cortado": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Flat white": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Cappuccino": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Latte": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Latte Pecado": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Latte Pecado vegano": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Latte Dulce": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Mocha": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ],
+    [
+     "chocolate",
+     0.02
+    ]
+   ],
+   "Cold brew": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Latte frío": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Espresso tonic": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Frappé": [
+    [
+     "leche",
+     0.25
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "cafe",
+     0.015
+    ]
+   ],
+   "Chai latte": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Matcha latte": [
+    [
+     "matcha",
+     0.004
+    ],
+    [
+     "leche",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Chocolate caliente": [
+    [
+     "te",
+     1
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Waffle de la casa": [
+    [
+     "harina_hot",
+     0.1
+    ],
+    [
+     "leche",
+     0.1
+    ],
+    [
+     "huevo",
+     1
+    ]
+   ],
+   "Bagel de salmón": [
+    [
+     "pan_dulce",
+     1
+    ],
+    [
+     "jamon",
+     0.05
+    ],
+    [
+     "queso_am",
+     1
+    ]
+   ],
+   "Croissant": [
+    [
+     "pan_dulce",
+     1
+    ],
+    [
+     "jamon",
+     0.05
+    ],
+    [
+     "queso_am",
+     1
+    ]
+   ],
+   "Galleta": [
+    [
+     "pan_dulce",
+     1
+    ]
+   ],
+   "Bolsa de café en grano 340 g": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ]
+  },
+  "entregas": {
+   "Costco": [
+    2
+   ],
+   "Desechables": "q",
+   "Mercado": [
+    1,
+    4
+   ],
+   "Panadería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Tostador": [
+    1
+   ]
+  },
+  "faltan": {
+   "jamon": 0.6,
+   "pan_dulce": 0.6
+  },
+  "mermas": [],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Costco"
+ },
+ "horario": [
+  7,
+  20
+ ],
+ "volumen": 0.6,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    19200
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    800
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1920
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    3040,
+    {
+     "ant": 3360
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    720
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    1250,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    480,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    10560,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    1440,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    2960,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    3840,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
 }

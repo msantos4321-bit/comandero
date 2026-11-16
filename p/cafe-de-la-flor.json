@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Café de la Flor",
  "lema": "Desayunos, comida y cena · Playas",
  "color": "#9D174D",
@@ -103,5 +103,656 @@
    "",
    ""
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas",
+    "Tortillería",
+    24,
+    10,
+    25,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "pollo",
+    "Pollo",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    95,
+    3,
+    8
+   ],
+   [
+    "alitas",
+    "Alitas y boneless",
+    "kg",
+    "Carnes",
+    "Costco",
+    95,
+    5,
+    15
+   ],
+   [
+    "carne_hamb",
+    "Carne para hamburguesa",
+    "pz",
+    "Carnes",
+    "Costco",
+    22,
+    24,
+    72
+   ],
+   [
+    "queso",
+    "Queso para derretir",
+    "kg",
+    "Lácteos",
+    "Costco",
+    140,
+    3,
+    8
+   ],
+   [
+    "queso_am",
+    "Queso amarillo (rebanada)",
+    "pz",
+    "Lácteos",
+    "Costco",
+    2.5,
+    30,
+    90
+   ],
+   [
+    "crema",
+    "Crema",
+    "L",
+    "Lácteos",
+    "Costco",
+    60,
+    1.5,
+    4
+   ],
+   [
+    "leche",
+    "Leche",
+    "L",
+    "Lácteos",
+    "Costco",
+    26,
+    6,
+    18
+   ],
+   [
+    "huevo",
+    "Huevo",
+    "pz",
+    "Lácteos",
+    "Costco",
+    2.8,
+    60,
+    240
+   ],
+   [
+    "cebolla",
+    "Cebolla",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    4,
+    10,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "cilantro",
+    "Cilantro (manojo)",
+    "pz",
+    "Verduras",
+    "Mercado",
+    8,
+    6,
+    15,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "jitomate",
+    "Jitomate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "lechuga",
+    "Lechuga",
+    "pz",
+    "Verduras",
+    "Mercado",
+    15,
+    3,
+    8
+   ],
+   [
+    "fruta",
+    "Fruta de temporada",
+    "kg",
+    "Verduras",
+    "Mercado",
+    40,
+    4,
+    10
+   ],
+   [
+    "salsa",
+    "Salsas de la casa",
+    "L",
+    "Salsas",
+    "Mercado",
+    35,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "frijol",
+    "Frijol",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    35,
+    3,
+    8
+   ],
+   [
+    "salsa_bbq",
+    "Salsas para alitas",
+    "L",
+    "Salsas",
+    "Costco",
+    70,
+    1,
+    4
+   ],
+   [
+    "harina_hot",
+    "Harina para hotcakes",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    30,
+    2,
+    5
+   ],
+   [
+    "pan_hamb",
+    "Pan para hamburguesa y dogo",
+    "pz",
+    "Panadería",
+    "Panadería",
+    6,
+    24,
+    72
+   ],
+   [
+    "pan_dulce",
+    "Pan dulce y repostería",
+    "pz",
+    "Panadería",
+    "Panadería",
+    14,
+    10,
+    30
+   ],
+   [
+    "cafe",
+    "Café en grano",
+    "kg",
+    "Café",
+    "Tostador",
+    380,
+    1,
+    3
+   ],
+   [
+    "hielo",
+    "Hielo",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    6,
+    10,
+    30
+   ],
+   [
+    "vaso",
+    "Vasos y tapas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.5,
+    100,
+    300
+   ],
+   [
+    "plato",
+    "Platos y charolas desechables",
+    "pz",
+    "Desechables",
+    "Desechables",
+    0.6,
+    100,
+    400
+   ]
+  ],
+  "recetas": {
+   "Huevos Primavera": [
+    [
+     "huevo",
+     2
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ]
+   ],
+   "Slam Light de Nopales": [
+    [
+     "huevo",
+     2
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ]
+   ],
+   "La Flor Slam": [
+    [
+     "huevo",
+     2
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ]
+   ],
+   "Pancake Slam": [
+    [
+     "harina_hot",
+     0.1
+    ],
+    [
+     "leche",
+     0.1
+    ],
+    [
+     "huevo",
+     1
+    ]
+   ],
+   "Ensalada de fruta": [
+    [
+     "huevo",
+     2
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ]
+   ],
+   "Chilaquiles rellenos": [
+    [
+     "tortilla",
+     0.1
+    ],
+    [
+     "salsa",
+     0.1
+    ],
+    [
+     "crema",
+     0.03
+    ],
+    [
+     "queso",
+     0.02
+    ]
+   ],
+   "Chilaquiles ahogados": [
+    [
+     "tortilla",
+     0.1
+    ],
+    [
+     "salsa",
+     0.1
+    ],
+    [
+     "crema",
+     0.03
+    ],
+    [
+     "queso",
+     0.02
+    ]
+   ],
+   "Flautas de pollo o de carne": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "pollo",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Nuestra Hamburguesa": [
+    [
+     "pan_hamb",
+     1
+    ],
+    [
+     "carne_hamb",
+     1
+    ],
+    [
+     "queso_am",
+     1
+    ],
+    [
+     "lechuga",
+     0.05
+    ],
+    [
+     "jitomate",
+     0.03
+    ]
+   ],
+   "Búfalo Wings": [
+    [
+     "alitas",
+     0.35
+    ],
+    [
+     "salsa_bbq",
+     0.04
+    ]
+   ],
+   "Latte": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Jugo verde": [
+    [
+     "fruta",
+     0.2
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Flan": [
+    [
+     "pan_dulce",
+     1
+    ]
+   ]
+  },
+  "entregas": {
+   "Carnicería": [
+    1,
+    3,
+    5
+   ],
+   "Costco": [
+    2
+   ],
+   "Desechables": "q",
+   "Mercado": [
+    1,
+    4
+   ],
+   "Panadería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Tortillería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Tostador": [
+    1
+   ]
+  },
+  "faltan": {
+   "pollo": 0.6,
+   "alitas": 0.6
+  },
+  "mermas": [
+   [
+    1,
+    "carne_hamb",
+    1,
+    "Se echó a perder"
+   ],
+   [
+    2,
+    "cebolla",
+    1,
+    "Se echó a perder"
+   ]
+  ],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Carnicería"
+ },
+ "horario": [
+  7,
+  20
+ ],
+ "volumen": 0.6,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    14400
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    600
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1440
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    2280,
+    {
+     "ant": 2520
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    540
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    940,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    360,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    7920,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    1080,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    2220,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    2880,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
 }

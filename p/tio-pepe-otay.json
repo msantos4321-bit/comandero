@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Tacos y Tortas El Tío Pepe Otay",
  "lema": "Carnitas, birria y tortas ahogadas · Otay, Tijuana",
  "color": "#B3261E",
@@ -126,5 +126,743 @@
    "",
    ""
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas",
+    "Tortillería",
+    24,
+    10,
+    25,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "pollo",
+    "Pollo",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    95,
+    3,
+    8
+   ],
+   [
+    "birria",
+    "Res para birria",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    135,
+    8,
+    20
+   ],
+   [
+    "carnitas",
+    "Carnitas",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    110,
+    4,
+    10
+   ],
+   [
+    "costilla",
+    "Costilla de cerdo",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    160,
+    5,
+    12
+   ],
+   [
+    "cebolla",
+    "Cebolla",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    4,
+    10,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "cilantro",
+    "Cilantro (manojo)",
+    "pz",
+    "Verduras",
+    "Mercado",
+    8,
+    6,
+    15,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "aguacate",
+    "Aguacate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    70,
+    3,
+    8
+   ],
+   [
+    "salsa",
+    "Salsas de la casa",
+    "L",
+    "Salsas",
+    "Mercado",
+    35,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "frijol",
+    "Frijol",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    35,
+    3,
+    8
+   ],
+   [
+    "salsa_bbq",
+    "Salsas para alitas",
+    "L",
+    "Salsas",
+    "Costco",
+    70,
+    1,
+    4
+   ],
+   [
+    "pan",
+    "Pan (bolillo y telera)",
+    "pz",
+    "Panadería",
+    "Panadería",
+    4,
+    20,
+    60
+   ],
+   [
+    "vaso",
+    "Vasos y tapas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.5,
+    100,
+    300
+   ],
+   [
+    "plato",
+    "Platos y charolas desechables",
+    "pz",
+    "Desechables",
+    "Desechables",
+    0.6,
+    100,
+    400
+   ]
+  ],
+  "recetas": {
+   "Taco Chávez": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "carnitas",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de maciza": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "carnitas",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de buche": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "carnitas",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de cuero": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "carnitas",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco surtido": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "carnitas",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de costilla de puerco": [
+    [
+     "costilla",
+     0.45
+    ],
+    [
+     "salsa_bbq",
+     0.05
+    ]
+   ],
+   "Taco de papa con carne": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "carnitas",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Torta ahogada": [
+    [
+     "pan",
+     1
+    ],
+    [
+     "carnitas",
+     0.12
+    ],
+    [
+     "aguacate",
+     0.03
+    ],
+    [
+     "frijol",
+     0.03
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Orden de papa con carne": [
+    [
+     "pollo",
+     0.25
+    ],
+    [
+     "tortilla",
+     0.12
+    ],
+    [
+     "cebolla",
+     0.032
+    ],
+    [
+     "cilantro",
+     0.12
+    ],
+    [
+     "salsa",
+     0.06
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Orden de tacos de papa sin carne": [
+    [
+     "carnitas",
+     0.25
+    ],
+    [
+     "tortilla",
+     0.12
+    ],
+    [
+     "cebolla",
+     0.032
+    ],
+    [
+     "cilantro",
+     0.12
+    ],
+    [
+     "salsa",
+     0.06
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Consomé de birria con carne": [
+    [
+     "birria",
+     0.06
+    ],
+    [
+     "cebolla",
+     0.01
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Media orden de carnitas": [
+    [
+     "carnitas",
+     0.125
+    ],
+    [
+     "tortilla",
+     0.06
+    ],
+    [
+     "cebolla",
+     0.032
+    ],
+    [
+     "cilantro",
+     0.12
+    ],
+    [
+     "salsa",
+     0.06
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Orden de carnitas": [
+    [
+     "carnitas",
+     0.25
+    ],
+    [
+     "tortilla",
+     0.12
+    ],
+    [
+     "cebolla",
+     0.032
+    ],
+    [
+     "cilantro",
+     0.12
+    ],
+    [
+     "salsa",
+     0.06
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Medio kilo de carnitas": [
+    [
+     "carnitas",
+     0.25
+    ],
+    [
+     "tortilla",
+     0.12
+    ],
+    [
+     "cebolla",
+     0.032
+    ],
+    [
+     "cilantro",
+     0.12
+    ],
+    [
+     "salsa",
+     0.06
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Medio kilo de birria": [
+    [
+     "birria",
+     0.25
+    ],
+    [
+     "tortilla",
+     0.12
+    ],
+    [
+     "cebolla",
+     0.032
+    ],
+    [
+     "cilantro",
+     0.12
+    ],
+    [
+     "salsa",
+     0.06
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Media orden de aguacate": [
+    [
+     "carnitas",
+     0.125
+    ],
+    [
+     "tortilla",
+     0.06
+    ],
+    [
+     "cebolla",
+     0.032
+    ],
+    [
+     "cilantro",
+     0.12
+    ],
+    [
+     "salsa",
+     0.06
+    ],
+    [
+     "plato",
+     1
+    ]
+   ]
+  },
+  "entregas": {
+   "Carnicería": [
+    1,
+    3,
+    5
+   ],
+   "Costco": [
+    2
+   ],
+   "Desechables": "q",
+   "Mercado": [
+    1,
+    4
+   ],
+   "Panadería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Tortillería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "faltan": {
+   "pollo": 0.6,
+   "birria": 0.6
+  },
+  "mermas": [
+   [
+    1,
+    "carnitas",
+    1,
+    "Se echó a perder"
+   ],
+   [
+    2,
+    "costilla",
+    1,
+    "Se echó a perder"
+   ]
+  ],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Carnicería"
+ },
+ "horario": [
+  9,
+  22
+ ],
+ "volumen": 0.6,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    24000
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    1000
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    2400
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    3800,
+    {
+     "ant": 4200
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    900
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    1560,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    600,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    13200,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    1800,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    3700,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    4800,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
 }

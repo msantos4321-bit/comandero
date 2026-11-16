@@ -1,0 +1,1078 @@
+{
+ "ver": 2,
+ "nombre": "Tu Taquería",
+ "lema": "Tacos · quesatacos · birria",
+ "color": "#B91C1C",
+ "preciosReales": true,
+ "mesas": 8,
+ "iniciales": "TT",
+ "frase": "Los tacos más rápidos de la cuadra",
+ "movil": true,
+ "publica": true,
+ "aviso": "Así se ve Comandero en una taquería de 8 mesas: el mesero toma la orden en su celular, la cocina y el taquero la ven al momento, y la caja cobra sin errores. Entre como Gerente y vea «Almacén» (cuánta carne y tortilla salió y qué pedir) y «Dinero y contador». Los datos son de ejemplo y nada de lo que haga aquí se guarda.",
+ "menu": [
+  [
+   "Tacos",
+   "Taco de asada",
+   30,
+   "Carne asada al carbón con cebolla, cilantro y salsa",
+   "Tortilla: Maíz, Harina | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de adobada",
+   28,
+   "Adobada del trompo con piña",
+   "Tortilla: Maíz, Harina | Quitar*: Sin cebolla, Sin cilantro, Sin salsa | Agregar*: Piña",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de birria",
+   32,
+   "Birria de res con su consomé",
+   "Tortilla: Maíz, Harina | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de tripa",
+   32,
+   "Tripita dorada",
+   "Tripa: Suave, Dorada | Tortilla: Maíz, Harina | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de cabeza",
+   30,
+   "Cabeza de res al vapor",
+   "Tortilla: Maíz, Harina | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
+   ""
+  ],
+  [
+   "Tacos",
+   "Taco de pollo",
+   26,
+   "Pollo asado",
+   "Tortilla: Maíz, Harina | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Quesataco de asada",
+   45,
+   "Tortilla con queso derretido y asada",
+   "Tortilla: Maíz, Harina | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Quesabirria",
+   55,
+   "Con queso y consomé para remojar",
+   "Quitar*: Sin cebolla, Sin cilantro",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Mulita de adobada",
+   55,
+   "Dos tortillas, queso y adobada",
+   "Tortilla: Maíz, Harina | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Vampiro de asada",
+   50,
+   "Tortilla dorada, queso y asada",
+   "Tortilla: Maíz, Harina | Quitar*: Sin cebolla, Sin cilantro, Sin salsa",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Burro de asada",
+   95,
+   "Tortilla de harina, asada, frijoles y queso",
+   "Agregar*: Guacamole (+15), Queso extra (+10)",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Quesadilla con carne",
+   70,
+   "Tortilla de harina con queso y carne",
+   "Carne: Asada, Adobada, Pollo",
+   ""
+  ],
+  [
+   "Especialidades",
+   "Torta de adobada",
+   85,
+   "Telera con adobada, aguacate y frijoles",
+   "Agregar*: Queso (+10)",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Orden de birria",
+   140,
+   "Medio litro de birria con tortillas",
+   "",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Consomé",
+   30,
+   "Consomé de birria",
+   "Tamaño: Chico, Grande (+15)",
+   ""
+  ],
+  [
+   "Órdenes",
+   "Papas preparadas",
+   70,
+   "Papas con queso, crema y carne",
+   "Carne: Asada, Adobada",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Refresco",
+   28,
+   "De lata o vidrio",
+   "Sabor: Coca-Cola, Sprite, Fanta, Manzanita",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua de horchata",
+   30,
+   "Vaso de 500 ml",
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua de jamaica",
+   30,
+   "Vaso de 500 ml",
+   "",
+   ""
+  ],
+  [
+   "Bebidas",
+   "Agua embotellada",
+   20,
+   "600 ml",
+   "",
+   ""
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de asada (ejemplo)",
+   "pct",
+   15,
+   "Tacos",
+   "",
+   [
+    2
+   ]
+  ],
+  [
+   "Combo 3 tacos + refresco (ejemplo)",
+   "precio",
+   99,
+   "",
+   "3 Taco de asada + 1 Refresco",
+   [
+    1,
+    3,
+    4
+   ]
+  ]
+ ],
+ "horario": [
+  9,
+  23
+ ],
+ "volumen": 0.75,
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas",
+    "Tortillería",
+    24,
+    10,
+    25,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "harina",
+    "Tortilla de harina",
+    "pz",
+    "Tortillas",
+    "Tortillería",
+    3,
+    20,
+    60,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "asada",
+    "Res para asada",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    190,
+    5,
+    15
+   ],
+   [
+    "adobada",
+    "Cerdo adobado (pastor)",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    120,
+    5,
+    15
+   ],
+   [
+    "pollo",
+    "Pollo",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    95,
+    3,
+    8
+   ],
+   [
+    "birria",
+    "Res para birria",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    135,
+    8,
+    20
+   ],
+   [
+    "tripa",
+    "Tripa",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    120,
+    2,
+    5,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "cabeza",
+    "Cabeza de res",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    140,
+    2,
+    5
+   ],
+   [
+    "queso",
+    "Queso para derretir",
+    "kg",
+    "Lácteos",
+    "Costco",
+    140,
+    3,
+    8
+   ],
+   [
+    "cebolla",
+    "Cebolla",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    4,
+    10,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "cilantro",
+    "Cilantro (manojo)",
+    "pz",
+    "Verduras",
+    "Mercado",
+    8,
+    6,
+    15,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "aguacate",
+    "Aguacate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    70,
+    3,
+    8
+   ],
+   [
+    "salsa",
+    "Salsas de la casa",
+    "L",
+    "Salsas",
+    "Mercado",
+    35,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "frijol",
+    "Frijol",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    35,
+    3,
+    8
+   ],
+   [
+    "papas_fr",
+    "Papas a la francesa",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    45,
+    5,
+    15
+   ],
+   [
+    "pan",
+    "Pan (bolillo y telera)",
+    "pz",
+    "Panadería",
+    "Panadería",
+    4,
+    20,
+    60
+   ],
+   [
+    "hielo",
+    "Hielo",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    6,
+    10,
+    30
+   ],
+   [
+    "jamaica",
+    "Flor de jamaica y horchata",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    180,
+    0.5,
+    2
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    14,
+    24,
+    72
+   ],
+   [
+    "agua",
+    "Agua embotellada",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    8,
+    24,
+    48
+   ],
+   [
+    "vaso",
+    "Vasos y tapas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.5,
+    100,
+    300
+   ],
+   [
+    "plato",
+    "Platos y charolas desechables",
+    "pz",
+    "Desechables",
+    "Desechables",
+    0.6,
+    100,
+    400
+   ]
+  ],
+  "recetas": {
+   "Taco de asada": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "asada",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de adobada": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "adobada",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de birria": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "birria",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de tripa": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "tripa",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de cabeza": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "cabeza",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de pollo": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "pollo",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Quesataco de asada": [
+    [
+     "tortilla",
+     0.06
+    ],
+    [
+     "queso",
+     0.03
+    ],
+    [
+     "asada",
+     0.05
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Quesabirria": [
+    [
+     "tortilla",
+     0.06
+    ],
+    [
+     "queso",
+     0.03
+    ],
+    [
+     "birria",
+     0.05
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Mulita de adobada": [
+    [
+     "tortilla",
+     0.06
+    ],
+    [
+     "queso",
+     0.03
+    ],
+    [
+     "adobada",
+     0.05
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Vampiro de asada": [
+    [
+     "tortilla",
+     0.06
+    ],
+    [
+     "queso",
+     0.03
+    ],
+    [
+     "asada",
+     0.05
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Burro de asada": [
+    [
+     "harina",
+     1
+    ],
+    [
+     "asada",
+     0.15
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "queso",
+     0.02
+    ],
+    [
+     "salsa",
+     0.02
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Quesadilla con carne": [
+    [
+     "tortilla",
+     0.06
+    ],
+    [
+     "queso",
+     0.06
+    ],
+    [
+     "asada",
+     0.05
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.5
+    ]
+   ],
+   "Torta de adobada": [
+    [
+     "pan",
+     1
+    ],
+    [
+     "adobada",
+     0.12
+    ],
+    [
+     "aguacate",
+     0.03
+    ],
+    [
+     "frijol",
+     0.03
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Orden de birria": [
+    [
+     "birria",
+     0.25
+    ],
+    [
+     "tortilla",
+     0.12
+    ],
+    [
+     "cebolla",
+     0.032
+    ],
+    [
+     "cilantro",
+     0.12
+    ],
+    [
+     "salsa",
+     0.06
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Consomé": [
+    [
+     "birria",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.01
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Papas preparadas": [
+    [
+     "papas_fr",
+     0.2
+    ],
+    [
+     "salsa",
+     0.02
+    ]
+   ],
+   "Refresco": [
+    [
+     "refresco",
+     1
+    ]
+   ],
+   "Agua de horchata": [
+    [
+     "jamaica",
+     0.02
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Agua de jamaica": [
+    [
+     "jamaica",
+     0.02
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Agua embotellada": [
+    [
+     "agua",
+     1
+    ]
+   ]
+  },
+  "entregas": {
+   "Carnicería": [
+    1,
+    3,
+    5
+   ],
+   "Costco": [
+    2
+   ],
+   "Desechables": "q",
+   "Distribuidora de refrescos": [
+    4
+   ],
+   "Mercado": [
+    1,
+    4
+   ],
+   "Panadería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Tortillería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "faltan": {
+   "asada": 0.6,
+   "adobada": 0.6
+  },
+  "mermas": [
+   [
+    1,
+    "pollo",
+    1,
+    "Se echó a perder"
+   ],
+   [
+    2,
+    "birria",
+    1,
+    "Se echó a perder"
+   ]
+  ],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Carnicería"
+ },
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    19200
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    800
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1920
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    3040,
+    {
+     "ant": 3360
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    720
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    1250,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    480,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    10560,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    1440,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    2960,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    3840,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
+}

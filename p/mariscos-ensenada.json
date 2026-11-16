@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Mariscos Ensenada",
  "lema": "Tacos y mariscos · Playas de Tijuana",
  "color": "#1D4ED8",
@@ -103,5 +103,653 @@
    "",
    ""
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas",
+    "Tortillería",
+    24,
+    10,
+    25,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "lengua",
+    "Lengua de res",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    260,
+    1,
+    3
+   ],
+   [
+    "camaron",
+    "Camarón",
+    "kg",
+    "Mariscos",
+    "Pescadería",
+    280,
+    3,
+    8
+   ],
+   [
+    "pescado",
+    "Pescado",
+    "kg",
+    "Mariscos",
+    "Pescadería",
+    160,
+    3,
+    8
+   ],
+   [
+    "pulpo",
+    "Pulpo",
+    "kg",
+    "Mariscos",
+    "Pescadería",
+    320,
+    1,
+    3
+   ],
+   [
+    "cebolla",
+    "Cebolla",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    4,
+    10,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "cilantro",
+    "Cilantro (manojo)",
+    "pz",
+    "Verduras",
+    "Mercado",
+    8,
+    6,
+    15,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "limon",
+    "Limón",
+    "kg",
+    "Verduras",
+    "Mercado",
+    30,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "aguacate",
+    "Aguacate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    70,
+    3,
+    8
+   ],
+   [
+    "jitomate",
+    "Jitomate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "salsa",
+    "Salsas de la casa",
+    "L",
+    "Salsas",
+    "Mercado",
+    35,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "tostada",
+    "Tostadas",
+    "pz",
+    "Tortillas",
+    "Tortillería",
+    1.5,
+    50,
+    150
+   ],
+   [
+    "hielo",
+    "Hielo",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    6,
+    10,
+    30
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    14,
+    24,
+    72
+   ],
+   [
+    "cerveza",
+    "Cerveza",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    22,
+    24,
+    96
+   ],
+   [
+    "vaso",
+    "Vasos y tapas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.5,
+    100,
+    300
+   ],
+   [
+    "plato",
+    "Platos y charolas desechables",
+    "pz",
+    "Desechables",
+    "Desechables",
+    0.6,
+    100,
+    400
+   ]
+  ],
+  "recetas": {
+   "Taco de pescado capeado": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "pescado",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de pescado asado": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "pescado",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de camarón": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "camaron",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de camarón enchilado con queso": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "camaron",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de pulpo": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "pulpo",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de marlin": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "pescado",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Flautas de lenguado": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "lengua",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Flautas de marlin": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "pescado",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Tostada de ceviche de camarón": [
+    [
+     "camaron",
+     0.08
+    ],
+    [
+     "tostada",
+     1
+    ],
+    [
+     "aguacate",
+     0.02
+    ],
+    [
+     "jitomate",
+     0.02
+    ],
+    [
+     "limon",
+     0.03
+    ]
+   ],
+   "Agua fresca": [
+    [
+     "limon",
+     0.06
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Refresco": [
+    [
+     "refresco",
+     1
+    ]
+   ],
+   "Cerveza": [
+    [
+     "cerveza",
+     1
+    ],
+    [
+     "limon",
+     0.02
+    ]
+   ],
+   "Michelada": [
+    [
+     "cerveza",
+     1
+    ],
+    [
+     "limon",
+     0.02
+    ]
+   ]
+  },
+  "entregas": {
+   "Carnicería": [
+    1,
+    3,
+    5
+   ],
+   "Desechables": "q",
+   "Distribuidora de refrescos": [
+    4
+   ],
+   "Mercado": [
+    1,
+    4
+   ],
+   "Pescadería": [
+    2,
+    5
+   ],
+   "Tortillería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "faltan": {
+   "lengua": 0.6,
+   "camaron": 0.6
+  },
+  "mermas": [
+   [
+    1,
+    "pescado",
+    1,
+    "Se echó a perder"
+   ],
+   [
+    2,
+    "pulpo",
+    1,
+    "Se echó a perder"
+   ]
+  ],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Carnicería"
+ },
+ "horario": [
+  10,
+  19
+ ],
+ "volumen": 0.6,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    14400
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    600
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1440
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    2280,
+    {
+     "ant": 2520
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    540
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    940,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    360,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    7920,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    1080,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    2220,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    2880,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
 }

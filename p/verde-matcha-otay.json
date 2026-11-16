@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Verde Matcha Coffee",
  "lema": "Matcha bar y café de especialidad · Otay Constituyentes, Tijuana",
  "color": "#5E7F36",
@@ -139,5 +139,427 @@
     2
    ]
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "leche",
+    "Leche",
+    "L",
+    "Lácteos",
+    "Costco",
+    26,
+    6,
+    18
+   ],
+   [
+    "limon",
+    "Limón",
+    "kg",
+    "Verduras",
+    "Mercado",
+    30,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "cafe",
+    "Café en grano",
+    "kg",
+    "Café",
+    "Tostador",
+    380,
+    1,
+    3
+   ],
+   [
+    "matcha",
+    "Matcha",
+    "kg",
+    "Café",
+    "Tostador",
+    1200,
+    0.2,
+    0.5
+   ],
+   [
+    "te",
+    "Té (sobres)",
+    "pz",
+    "Café",
+    "Costco",
+    3,
+    30,
+    90
+   ],
+   [
+    "hielo",
+    "Hielo",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    6,
+    10,
+    30
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    14,
+    24,
+    72
+   ],
+   [
+    "vaso",
+    "Vasos y tapas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.5,
+    100,
+    300
+   ]
+  ],
+  "recetas": {
+   "Americano": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Latte": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Dirty chai": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Tónico": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Strawberry coffee": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Matcha caliente": [
+    [
+     "matcha",
+     0.004
+    ],
+    [
+     "leche",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Matcha frío": [
+    [
+     "matcha",
+     0.004
+    ],
+    [
+     "leche",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Strawberry matcha": [
+    [
+     "matcha",
+     0.004
+    ],
+    [
+     "leche",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Mango matcha": [
+    [
+     "matcha",
+     0.004
+    ],
+    [
+     "leche",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Coco matcha": [
+    [
+     "matcha",
+     0.004
+    ],
+    [
+     "leche",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Frappé": [
+    [
+     "leche",
+     0.25
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "cafe",
+     0.015
+    ]
+   ],
+   "Té chai": [
+    [
+     "te",
+     1
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Soda italiana de fresa": [
+    [
+     "refresco",
+     1
+    ]
+   ],
+   "Limonada": [
+    [
+     "limon",
+     0.06
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ]
+  },
+  "entregas": {
+   "Costco": [
+    2
+   ],
+   "Desechables": "q",
+   "Distribuidora de refrescos": [
+    4
+   ],
+   "Mercado": [
+    1,
+    4
+   ],
+   "Tostador": [
+    1
+   ]
+  },
+  "faltan": {
+   "limon": 0.6
+  },
+  "mermas": [],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Costco"
+ },
+ "horario": [
+  7,
+  20
+ ],
+ "volumen": 0.6,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    12000
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    500
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1200
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    1900,
+    {
+     "ant": 2100
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    450
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    780,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    300,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    6600,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    900,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    1850,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    2400,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
 }

@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "El Mesón de Playas",
  "lema": "Desayunos · Playas de Tijuana",
  "color": "#92400E",
@@ -82,5 +82,462 @@
    "",
    ""
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas",
+    "Tortillería",
+    24,
+    10,
+    25,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "queso",
+    "Queso para derretir",
+    "kg",
+    "Lácteos",
+    "Costco",
+    140,
+    3,
+    8
+   ],
+   [
+    "crema",
+    "Crema",
+    "L",
+    "Lácteos",
+    "Costco",
+    60,
+    1.5,
+    4
+   ],
+   [
+    "leche",
+    "Leche",
+    "L",
+    "Lácteos",
+    "Costco",
+    26,
+    6,
+    18
+   ],
+   [
+    "huevo",
+    "Huevo",
+    "pz",
+    "Lácteos",
+    "Costco",
+    2.8,
+    60,
+    240
+   ],
+   [
+    "fruta",
+    "Fruta de temporada",
+    "kg",
+    "Verduras",
+    "Mercado",
+    40,
+    4,
+    10
+   ],
+   [
+    "salsa",
+    "Salsas de la casa",
+    "L",
+    "Salsas",
+    "Mercado",
+    35,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "frijol",
+    "Frijol",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    35,
+    3,
+    8
+   ],
+   [
+    "harina_hot",
+    "Harina para hotcakes",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    30,
+    2,
+    5
+   ],
+   [
+    "pan_dulce",
+    "Pan dulce y repostería",
+    "pz",
+    "Panadería",
+    "Panadería",
+    14,
+    10,
+    30
+   ],
+   [
+    "cafe",
+    "Café en grano",
+    "kg",
+    "Café",
+    "Tostador",
+    380,
+    1,
+    3
+   ],
+   [
+    "chocolate",
+    "Chocolate en polvo",
+    "kg",
+    "Café",
+    "Costco",
+    200,
+    0.5,
+    2
+   ],
+   [
+    "hielo",
+    "Hielo",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    6,
+    10,
+    30
+   ],
+   [
+    "vaso",
+    "Vasos y tapas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.5,
+    100,
+    300
+   ]
+  ],
+  "recetas": {
+   "Desayuno americano": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Huevos rancheros": [
+    [
+     "huevo",
+     2
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ]
+   ],
+   "Chilaquiles": [
+    [
+     "tortilla",
+     0.1
+    ],
+    [
+     "salsa",
+     0.1
+    ],
+    [
+     "crema",
+     0.03
+    ],
+    [
+     "queso",
+     0.02
+    ]
+   ],
+   "Machaca con huevo": [
+    [
+     "huevo",
+     2
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ]
+   ],
+   "Omelette": [
+    [
+     "huevo",
+     3
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ]
+   ],
+   "Hotcakes": [
+    [
+     "harina_hot",
+     0.1
+    ],
+    [
+     "leche",
+     0.1
+    ],
+    [
+     "huevo",
+     1
+    ]
+   ],
+   "Pan dulce": [
+    [
+     "pan_dulce",
+     1
+    ]
+   ],
+   "Café de olla": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Jugo de naranja": [
+    [
+     "fruta",
+     0.2
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Chocolate caliente": [
+    [
+     "chocolate",
+     0.03
+    ],
+    [
+     "leche",
+     0.25
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ]
+  },
+  "entregas": {
+   "Costco": [
+    2
+   ],
+   "Desechables": "q",
+   "Mercado": [
+    1,
+    4
+   ],
+   "Panadería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Tortillería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Tostador": [
+    1
+   ]
+  },
+  "faltan": {
+   "fruta": 0.6,
+   "pan_dulce": 0.6
+  },
+  "mermas": [],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Costco"
+ },
+ "horario": [
+  7,
+  20
+ ],
+ "volumen": 0.6,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    14400
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    600
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1440
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    2280,
+    {
+     "ant": 2520
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    540
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    940,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    360,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    7920,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    1080,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    2220,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    2880,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
 }

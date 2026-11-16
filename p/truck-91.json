@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Truck 91",
  "lema": "Hamburguesas, alitas y fries · Zona Río, Tijuana",
  "color": "#111827",
@@ -116,5 +116,440 @@
     0
    ]
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "alitas",
+    "Alitas y boneless",
+    "kg",
+    "Carnes",
+    "Costco",
+    95,
+    5,
+    15
+   ],
+   [
+    "carne_hamb",
+    "Carne para hamburguesa",
+    "pz",
+    "Carnes",
+    "Costco",
+    22,
+    24,
+    72
+   ],
+   [
+    "queso_am",
+    "Queso amarillo (rebanada)",
+    "pz",
+    "Lácteos",
+    "Costco",
+    2.5,
+    30,
+    90
+   ],
+   [
+    "jitomate",
+    "Jitomate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "lechuga",
+    "Lechuga",
+    "pz",
+    "Verduras",
+    "Mercado",
+    15,
+    3,
+    8
+   ],
+   [
+    "salsa",
+    "Salsas de la casa",
+    "L",
+    "Salsas",
+    "Mercado",
+    35,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "papas_fr",
+    "Papas a la francesa",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    45,
+    5,
+    15
+   ],
+   [
+    "salsa_bbq",
+    "Salsas para alitas",
+    "L",
+    "Salsas",
+    "Costco",
+    70,
+    1,
+    4
+   ],
+   [
+    "pan_hamb",
+    "Pan para hamburguesa y dogo",
+    "pz",
+    "Panadería",
+    "Panadería",
+    6,
+    24,
+    72
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    14,
+    24,
+    72
+   ]
+  ],
+  "recetas": {
+   "Clásica": [
+    [
+     "pan_hamb",
+     1
+    ],
+    [
+     "carne_hamb",
+     1
+    ],
+    [
+     "queso_am",
+     1
+    ],
+    [
+     "lechuga",
+     0.05
+    ],
+    [
+     "jitomate",
+     0.03
+    ]
+   ],
+   "Cheese Burger": [
+    [
+     "pan_hamb",
+     1
+    ],
+    [
+     "carne_hamb",
+     1
+    ],
+    [
+     "queso_am",
+     1
+    ],
+    [
+     "lechuga",
+     0.05
+    ],
+    [
+     "jitomate",
+     0.03
+    ]
+   ],
+   "Pollo Crunchy": [
+    [
+     "pan_hamb",
+     1
+    ],
+    [
+     "carne_hamb",
+     1
+    ],
+    [
+     "queso_am",
+     1
+    ],
+    [
+     "lechuga",
+     0.05
+    ],
+    [
+     "jitomate",
+     0.03
+    ]
+   ],
+   "50/50": [
+    [
+     "pan_hamb",
+     1
+    ],
+    [
+     "carne_hamb",
+     1
+    ],
+    [
+     "queso_am",
+     1
+    ],
+    [
+     "lechuga",
+     0.05
+    ],
+    [
+     "jitomate",
+     0.03
+    ]
+   ],
+   "Pulpo": [
+    [
+     "pan_hamb",
+     1
+    ],
+    [
+     "carne_hamb",
+     1
+    ],
+    [
+     "queso_am",
+     1
+    ],
+    [
+     "lechuga",
+     0.05
+    ],
+    [
+     "jitomate",
+     0.03
+    ]
+   ],
+   "Alitas": [
+    [
+     "alitas",
+     0.35
+    ],
+    [
+     "salsa_bbq",
+     0.04
+    ]
+   ],
+   "Boneless": [
+    [
+     "alitas",
+     0.35
+    ],
+    [
+     "salsa_bbq",
+     0.04
+    ]
+   ],
+   "Papas 91": [
+    [
+     "papas_fr",
+     0.2
+    ],
+    [
+     "salsa",
+     0.02
+    ]
+   ],
+   "Refresco": [
+    [
+     "refresco",
+     1
+    ]
+   ]
+  },
+  "entregas": {
+   "Costco": [
+    2
+   ],
+   "Distribuidora de refrescos": [
+    4
+   ],
+   "Mercado": [
+    1,
+    4
+   ],
+   "Panadería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "faltan": {
+   "alitas": 0.6,
+   "carne_hamb": 0.6
+  },
+  "mermas": [
+   [
+    1,
+    "jitomate",
+    1,
+    "Se echó a perder"
+   ],
+   [
+    2,
+    "lechuga",
+    1,
+    "Se echó a perder"
+   ]
+  ],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Costco"
+ },
+ "horario": [
+  13,
+  23
+ ],
+ "volumen": 0.6,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    19200
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    800
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1920
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    3040,
+    {
+     "ant": 3360
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    720
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    1250,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    480,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    10560,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    1440,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    2960,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    3840,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
 }

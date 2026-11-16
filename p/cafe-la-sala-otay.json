@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Café La Sala",
  "lema": "Café, comida y juegos de mesa · Calz. del Tecnológico, Otay",
  "color": "#7B2D3A",
@@ -160,5 +160,724 @@
     2
    ]
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas",
+    "Tortillería",
+    24,
+    10,
+    25,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "pollo",
+    "Pollo",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    95,
+    3,
+    8
+   ],
+   [
+    "carne_hamb",
+    "Carne para hamburguesa",
+    "pz",
+    "Carnes",
+    "Costco",
+    22,
+    24,
+    72
+   ],
+   [
+    "jamon",
+    "Jamón",
+    "kg",
+    "Carnes",
+    "Costco",
+    120,
+    1,
+    3
+   ],
+   [
+    "queso",
+    "Queso para derretir",
+    "kg",
+    "Lácteos",
+    "Costco",
+    140,
+    3,
+    8
+   ],
+   [
+    "queso_am",
+    "Queso amarillo (rebanada)",
+    "pz",
+    "Lácteos",
+    "Costco",
+    2.5,
+    30,
+    90
+   ],
+   [
+    "crema",
+    "Crema",
+    "L",
+    "Lácteos",
+    "Costco",
+    60,
+    1.5,
+    4
+   ],
+   [
+    "leche",
+    "Leche",
+    "L",
+    "Lácteos",
+    "Costco",
+    26,
+    6,
+    18
+   ],
+   [
+    "huevo",
+    "Huevo",
+    "pz",
+    "Lácteos",
+    "Costco",
+    2.8,
+    60,
+    240
+   ],
+   [
+    "limon",
+    "Limón",
+    "kg",
+    "Verduras",
+    "Mercado",
+    30,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "jitomate",
+    "Jitomate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "lechuga",
+    "Lechuga",
+    "pz",
+    "Verduras",
+    "Mercado",
+    15,
+    3,
+    8
+   ],
+   [
+    "salsa",
+    "Salsas de la casa",
+    "L",
+    "Salsas",
+    "Mercado",
+    35,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "papas_fr",
+    "Papas a la francesa",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    45,
+    5,
+    15
+   ],
+   [
+    "harina_hot",
+    "Harina para hotcakes",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    30,
+    2,
+    5
+   ],
+   [
+    "pan_hamb",
+    "Pan para hamburguesa y dogo",
+    "pz",
+    "Panadería",
+    "Panadería",
+    6,
+    24,
+    72
+   ],
+   [
+    "pan_dulce",
+    "Pan dulce y repostería",
+    "pz",
+    "Panadería",
+    "Panadería",
+    14,
+    10,
+    30
+   ],
+   [
+    "pan_molde",
+    "Pan de caja",
+    "pz",
+    "Panadería",
+    "Panadería",
+    3,
+    20,
+    60
+   ],
+   [
+    "cafe",
+    "Café en grano",
+    "kg",
+    "Café",
+    "Tostador",
+    380,
+    1,
+    3
+   ],
+   [
+    "chocolate",
+    "Chocolate en polvo",
+    "kg",
+    "Café",
+    "Costco",
+    200,
+    0.5,
+    2
+   ],
+   [
+    "hielo",
+    "Hielo",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    6,
+    10,
+    30
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    14,
+    24,
+    72
+   ],
+   [
+    "vaso",
+    "Vasos y tapas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.5,
+    100,
+    300
+   ],
+   [
+    "plato",
+    "Platos y charolas desechables",
+    "pz",
+    "Desechables",
+    "Desechables",
+    0.6,
+    100,
+    400
+   ]
+  ],
+  "recetas": {
+   "Americano": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Cappuccino": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Latte": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Mocha": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ],
+    [
+     "chocolate",
+     0.02
+    ]
+   ],
+   "Chocolate caliente": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "chocolate",
+     0.02
+    ]
+   ],
+   "Latte frío": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "leche",
+     0.2
+    ]
+   ],
+   "Frappé": [
+    [
+     "leche",
+     0.25
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ],
+    [
+     "cafe",
+     0.015
+    ]
+   ],
+   "Limonada": [
+    [
+     "limon",
+     0.06
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Soda italiana": [
+    [
+     "refresco",
+     1
+    ]
+   ],
+   "Sándwich de pavo": [
+    [
+     "pan_molde",
+     2
+    ],
+    [
+     "jamon",
+     0.05
+    ],
+    [
+     "queso_am",
+     1
+    ]
+   ],
+   "Sándwich de pollo al pesto": [
+    [
+     "pan_molde",
+     2
+    ],
+    [
+     "jamon",
+     0.05
+    ],
+    [
+     "queso_am",
+     1
+    ],
+    [
+     "pollo",
+     0.08
+    ]
+   ],
+   "Panini caprese": [
+    [
+     "pan_molde",
+     2
+    ],
+    [
+     "jamon",
+     0.05
+    ],
+    [
+     "queso_am",
+     1
+    ]
+   ],
+   "Papas a la francesa": [
+    [
+     "papas_fr",
+     0.2
+    ],
+    [
+     "salsa",
+     0.02
+    ]
+   ],
+   "Chilaquiles": [
+    [
+     "tortilla",
+     0.1
+    ],
+    [
+     "salsa",
+     0.1
+    ],
+    [
+     "crema",
+     0.03
+    ],
+    [
+     "queso",
+     0.02
+    ]
+   ],
+   "Quesadillas": [
+    [
+     "tortilla",
+     0.06
+    ],
+    [
+     "queso",
+     0.06
+    ],
+    [
+     "pollo",
+     0.05
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.5
+    ]
+   ],
+   "Hamburguesa": [
+    [
+     "pan_hamb",
+     1
+    ],
+    [
+     "carne_hamb",
+     1
+    ],
+    [
+     "queso_am",
+     1
+    ],
+    [
+     "lechuga",
+     0.05
+    ],
+    [
+     "jitomate",
+     0.03
+    ]
+   ],
+   "Crepa de Nutella": [
+    [
+     "harina_hot",
+     0.1
+    ],
+    [
+     "leche",
+     0.1
+    ],
+    [
+     "huevo",
+     1
+    ]
+   ],
+   "Pastel de chocolate": [
+    [
+     "pan_dulce",
+     1
+    ]
+   ],
+   "Cheesecake": [
+    [
+     "pan_dulce",
+     1
+    ]
+   ]
+  },
+  "entregas": {
+   "Carnicería": [
+    1,
+    3,
+    5
+   ],
+   "Costco": [
+    2
+   ],
+   "Desechables": "q",
+   "Distribuidora de refrescos": [
+    4
+   ],
+   "Mercado": [
+    1,
+    4
+   ],
+   "Panadería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Tortillería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Tostador": [
+    1
+   ]
+  },
+  "faltan": {
+   "pollo": 0.6,
+   "carne_hamb": 0.6
+  },
+  "mermas": [
+   [
+    1,
+    "jamon",
+    1,
+    "Se echó a perder"
+   ],
+   [
+    2,
+    "limon",
+    1,
+    "Se echó a perder"
+   ]
+  ],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Carnicería"
+ },
+ "horario": [
+  7,
+  20
+ ],
+ "volumen": 0.6,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    24000
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    1000
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    2400
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    3800,
+    {
+     "ant": 4200
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    900
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    1560,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    600,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    13200,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    1800,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    3700,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    4800,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
 }

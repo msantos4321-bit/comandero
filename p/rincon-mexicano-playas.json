@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Rincón Mexicano",
  "lema": "Comida mexicana tradicional · Paseo del Pedregal",
  "color": "#15803D",
@@ -131,5 +131,491 @@
     3
    ]
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas",
+    "Tortillería",
+    24,
+    10,
+    25,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "birria",
+    "Res para birria",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    135,
+    8,
+    20
+   ],
+   [
+    "chorizo",
+    "Chorizo",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    110,
+    1,
+    3
+   ],
+   [
+    "queso",
+    "Queso para derretir",
+    "kg",
+    "Lácteos",
+    "Costco",
+    140,
+    3,
+    8
+   ],
+   [
+    "crema",
+    "Crema",
+    "L",
+    "Lácteos",
+    "Costco",
+    60,
+    1.5,
+    4
+   ],
+   [
+    "huevo",
+    "Huevo",
+    "pz",
+    "Lácteos",
+    "Costco",
+    2.8,
+    60,
+    240
+   ],
+   [
+    "cebolla",
+    "Cebolla",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    4,
+    10,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "cilantro",
+    "Cilantro (manojo)",
+    "pz",
+    "Verduras",
+    "Mercado",
+    8,
+    6,
+    15,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "limon",
+    "Limón",
+    "kg",
+    "Verduras",
+    "Mercado",
+    30,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "salsa",
+    "Salsas de la casa",
+    "L",
+    "Salsas",
+    "Mercado",
+    35,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "frijol",
+    "Frijol",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    35,
+    3,
+    8
+   ],
+   [
+    "cafe",
+    "Café en grano",
+    "kg",
+    "Café",
+    "Tostador",
+    380,
+    1,
+    3
+   ],
+   [
+    "hielo",
+    "Hielo",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    6,
+    10,
+    30
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    14,
+    24,
+    72
+   ],
+   [
+    "vaso",
+    "Vasos y tapas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.5,
+    100,
+    300
+   ],
+   [
+    "plato",
+    "Platos y charolas desechables",
+    "pz",
+    "Desechables",
+    "Desechables",
+    0.6,
+    100,
+    400
+   ]
+  ],
+  "recetas": {
+   "Chilaquiles": [
+    [
+     "tortilla",
+     0.1
+    ],
+    [
+     "salsa",
+     0.1
+    ],
+    [
+     "crema",
+     0.03
+    ],
+    [
+     "queso",
+     0.02
+    ]
+   ],
+   "Huevos rancheros": [
+    [
+     "huevo",
+     2
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ]
+   ],
+   "Machaca con huevo": [
+    [
+     "huevo",
+     2
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "tortilla",
+     0.03
+    ]
+   ],
+   "Consomé de pollo": [
+    [
+     "birria",
+     0.03
+    ],
+    [
+     "cebolla",
+     0.01
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Quesadilla de chorizo": [
+    [
+     "tortilla",
+     0.06
+    ],
+    [
+     "queso",
+     0.06
+    ],
+    [
+     "chorizo",
+     0.05
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.5
+    ]
+   ],
+   "Café de olla": [
+    [
+     "cafe",
+     0.018
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Agua fresca": [
+    [
+     "limon",
+     0.06
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Refresco": [
+    [
+     "refresco",
+     1
+    ]
+   ]
+  },
+  "entregas": {
+   "Carnicería": [
+    1,
+    3,
+    5
+   ],
+   "Costco": [
+    2
+   ],
+   "Desechables": "q",
+   "Distribuidora de refrescos": [
+    4
+   ],
+   "Mercado": [
+    1,
+    4
+   ],
+   "Tortillería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Tostador": [
+    1
+   ]
+  },
+  "faltan": {
+   "birria": 0.6,
+   "chorizo": 0.6
+  },
+  "mermas": [
+   [
+    1,
+    "cebolla",
+    1,
+    "Se echó a perder"
+   ],
+   [
+    2,
+    "cilantro",
+    1,
+    "Se echó a perder"
+   ]
+  ],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Carnicería"
+ },
+ "horario": [
+  7,
+  20
+ ],
+ "volumen": 0.6,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    26400
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    1100
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    2640
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    4180,
+    {
+     "ant": 4620
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    990
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    1720,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    660,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    14520,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    1980,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    4070,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    5280,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
 }

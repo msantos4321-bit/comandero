@@ -1,5 +1,5 @@
 {
- "ver": 1,
+ "ver": 2,
  "nombre": "Casa Sonora",
  "lema": "Cocina sonorense · Parque Azteca, Playas",
  "color": "#7C2D12",
@@ -124,5 +124,577 @@
     2
    ]
   ]
- ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "tortilla",
+    "Tortilla de maíz",
+    "kg",
+    "Tortillas",
+    "Tortillería",
+    24,
+    10,
+    25,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "harina",
+    "Tortilla de harina",
+    "pz",
+    "Tortillas",
+    "Tortillería",
+    3,
+    20,
+    60,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "asada",
+    "Res para asada",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    190,
+    5,
+    15
+   ],
+   [
+    "costilla",
+    "Costilla de cerdo",
+    "kg",
+    "Carnes",
+    "Carnicería",
+    160,
+    5,
+    12
+   ],
+   [
+    "camaron",
+    "Camarón",
+    "kg",
+    "Mariscos",
+    "Pescadería",
+    280,
+    3,
+    8
+   ],
+   [
+    "queso",
+    "Queso para derretir",
+    "kg",
+    "Lácteos",
+    "Costco",
+    140,
+    3,
+    8
+   ],
+   [
+    "cebolla",
+    "Cebolla",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    4,
+    10,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "cilantro",
+    "Cilantro (manojo)",
+    "pz",
+    "Verduras",
+    "Mercado",
+    8,
+    6,
+    15,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "limon",
+    "Limón",
+    "kg",
+    "Verduras",
+    "Mercado",
+    30,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "jitomate",
+    "Jitomate",
+    "kg",
+    "Verduras",
+    "Mercado",
+    25,
+    3,
+    8
+   ],
+   [
+    "lechuga",
+    "Lechuga",
+    "pz",
+    "Verduras",
+    "Mercado",
+    15,
+    3,
+    8
+   ],
+   [
+    "salsa",
+    "Salsas de la casa",
+    "L",
+    "Salsas",
+    "Mercado",
+    35,
+    3,
+    8,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "frijol",
+    "Frijol",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    35,
+    3,
+    8
+   ],
+   [
+    "salsa_bbq",
+    "Salsas para alitas",
+    "L",
+    "Salsas",
+    "Costco",
+    70,
+    1,
+    4
+   ],
+   [
+    "hielo",
+    "Hielo",
+    "kg",
+    "Bebidas",
+    "Mercado",
+    6,
+    10,
+    30
+   ],
+   [
+    "refresco",
+    "Refrescos",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    14,
+    24,
+    72
+   ],
+   [
+    "cerveza",
+    "Cerveza",
+    "pz",
+    "Bebidas",
+    "Distribuidora de refrescos",
+    22,
+    24,
+    96
+   ],
+   [
+    "vaso",
+    "Vasos y tapas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.5,
+    100,
+    300
+   ],
+   [
+    "plato",
+    "Platos y charolas desechables",
+    "pz",
+    "Desechables",
+    "Desechables",
+    0.6,
+    100,
+    400
+   ]
+  ],
+  "recetas": {
+   "Costillas de sal (media)": [
+    [
+     "costilla",
+     0.225
+    ],
+    [
+     "salsa_bbq",
+     0.05
+    ]
+   ],
+   "Costillas de sal (completa)": [
+    [
+     "costilla",
+     0.45
+    ],
+    [
+     "salsa_bbq",
+     0.05
+    ]
+   ],
+   "Costillas BBQ (media)": [
+    [
+     "costilla",
+     0.225
+    ],
+    [
+     "salsa_bbq",
+     0.05
+    ]
+   ],
+   "Taco sonora de asada": [
+    [
+     "harina",
+     1
+    ],
+    [
+     "asada",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Taco de costilla": [
+    [
+     "costilla",
+     0.45
+    ],
+    [
+     "salsa_bbq",
+     0.05
+    ]
+   ],
+   "Taco de camarón": [
+    [
+     "tortilla",
+     0.03
+    ],
+    [
+     "camaron",
+     0.045
+    ],
+    [
+     "cebolla",
+     0.008
+    ],
+    [
+     "cilantro",
+     0.03
+    ],
+    [
+     "salsa",
+     0.015
+    ],
+    [
+     "plato",
+     0.3
+    ]
+   ],
+   "Burro percherón": [
+    [
+     "harina",
+     1
+    ],
+    [
+     "asada",
+     0.15
+    ],
+    [
+     "frijol",
+     0.05
+    ],
+    [
+     "queso",
+     0.02
+    ],
+    [
+     "salsa",
+     0.02
+    ],
+    [
+     "plato",
+     1
+    ]
+   ],
+   "Bowl de asada y camarón": [
+    [
+     "lechuga",
+     0.2
+    ],
+    [
+     "jitomate",
+     0.05
+    ],
+    [
+     "asada",
+     0.1
+    ]
+   ],
+   "Docena de tortillas de harina": [
+    [
+     "tortilla",
+     0.05
+    ]
+   ],
+   "Agua de pepino": [
+    [
+     "limon",
+     0.06
+    ],
+    [
+     "hielo",
+     0.2
+    ],
+    [
+     "vaso",
+     1
+    ]
+   ],
+   "Refresco": [
+    [
+     "refresco",
+     1
+    ]
+   ],
+   "Cerveza": [
+    [
+     "cerveza",
+     1
+    ],
+    [
+     "limon",
+     0.02
+    ]
+   ]
+  },
+  "entregas": {
+   "Carnicería": [
+    1,
+    3,
+    5
+   ],
+   "Costco": [
+    2
+   ],
+   "Desechables": "q",
+   "Distribuidora de refrescos": [
+    4
+   ],
+   "Mercado": [
+    1,
+    4
+   ],
+   "Pescadería": [
+    2,
+    5
+   ],
+   "Tortillería": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  "faltan": {
+   "asada": 0.6,
+   "costilla": 0.6
+  },
+  "mermas": [
+   [
+    1,
+    "camaron",
+    1,
+    "Se echó a perder"
+   ],
+   [
+    2,
+    "cebolla",
+    1,
+    "Se echó a perder"
+   ]
+  ],
+  "quien": [
+   "Sofía",
+   "Karla",
+   "Toño"
+  ],
+  "credito": "Carnicería"
+ },
+ "horario": [
+  9,
+  22
+ ],
+ "volumen": 0.6,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    26400
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    1100
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    2640
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE",
+    4180,
+    {
+     "ant": 4620
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    990
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP de la cocina",
+    1720,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    660,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    14520,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio a la estufa y campana",
+    1980,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    4070,
+    "CFE"
+   ],
+   [
+    -1,
+    "Carnicería",
+    "Carne de la semana (a crédito)",
+    5280,
+    "Carnicería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Laura": 380,
+   "Miguel": 380,
+   "Toño": 420,
+   "Karla": 380
+  },
+  "factura": 260
+ }
 }
