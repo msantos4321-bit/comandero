@@ -1618,5 +1618,6 @@
   "factura": 260
  },
  "volumen": 0.65,
- "aviso": "Así se ve Comandero en una cocina económica de 4 mesas: menú con fotos, comandas del mesero a la cocina, cuenta y corte de caja. Entre como Gerente y vea «Almacén» (lo que sale de cada olla, lo que queda y el pedido al proveedor por WhatsApp) y «Dinero y contador». Los datos son de ejemplo y nada de lo que haga aquí se guarda."
+ "aviso": "Así se ve Comandero en una cocina económica de 4 mesas: menú con fotos, comandas del mesero a la cocina, cuenta y corte de caja. Entre como Gerente y vea «Almacén» (lo que sale de cada olla, lo que queda y el pedido al proveedor por WhatsApp) y «Dinero y contador». Los datos son de ejemplo y nada de lo que haga aquí se guarda.",
+ "publica": true
 }
