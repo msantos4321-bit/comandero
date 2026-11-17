@@ -114,7 +114,7 @@ const slug=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(
 // Liga personal: ?n=Nombre&t=familia|comisionista&c=<correo de Mauricio en base64>
 (function(){const q=new URLSearchParams(location.search);let ch=false;
   if(q.get('n')){LS.set('nombre',q.get('n').slice(0,40));ch=true}
-  if(q.get('t')){LS.set('trato',q.get('t')==='familia'?'familia':'comisionista');ch=true}
+  if(q.get('t')){LS.set('trato',q.get('t')==='familia'?'familia':q.get('t')==='dueno'?'dueno':'comisionista');ch=true}
   if(q.get('c')){try{LS.set('correo',atob(q.get('c')))}catch(e){}ch=true}
   /* No se borran de la liga: en iPhone, «Agregar a inicio» guarda la liga tal cual y la app instalada tiene su propia memoria. */})();
 let ui={tab:LS.get('tab','demos'),g:'Todas',q:''};
@@ -215,7 +215,7 @@ function vVender(){encab('Cómo vender','La ruta de cada venta');
   <div class="sec">Nunca</div>
   <div class="card"><ul style="margin:0;padding-left:20px;display:grid;gap:4px"><li>Prometer algo que la app no hace: si no sabes, «lo pregunto y le confirmo hoy».</li><li>Bajar el precio o inventar promociones.</li><li>Pedir o guardar contraseñas, PIN o datos de tarjetas del cliente.</li><li>Enseñar datos de otros clientes.</li></ul></div>
   <div class="acts" style="margin-top:14px"><a class="btn pri" href="${esc(BASE)}social/Guia-del-distribuidor-Mostrador.pdf" target="_blank" rel="noopener">Guía del distribuidor: todas las apps (PDF)</a><a class="btn" href="${esc(BASE)}social/Guia-de-ventas-Comandero.pdf" target="_blank" rel="noopener">Guía de ventas: las demos paso a paso (PDF)</a><a class="btn" href="${esc(BASE)}social/Manual-del-vendedor-Comandero.pdf" target="_blank" rel="noopener">Manual completo del vendedor (PDF)</a></div>`}
-function vDinero(){encab('Mis ganancias','Lo que te toca por cada cliente');const tr=LS.get('trato','comisionista'),n=+(ui.calc??3),fam=tr==='familia';
+function vDinero(){encab('Mis ganancias','Lo que te toca por cada cliente');const tr=LS.get('trato','comisionista'),n=+(ui.calc??3),fam=tr==='familia';if(tr==='dueno'){const nn=+(ui.calc??3);return `<div class="card"><b>Eres el dueño de Mostrador</b><p class="hint" style="margin-top:6px;font-size:15px;color:#3D3935">Los clientes que consigas tú son 100% tuyos: <b>$399 al mes</b> cada uno, sin comisión para nadie. Con ${nn} clientes son <b>$${(nn*399).toLocaleString('es-MX')} al mes</b>.</p></div>`}
   const mes=fam?n*399*0.5:n*40,alta=fam?0:n*399;
   return `<div class="card"><b>${fam?'Tu trato: mitad y mitad':'Tu trato: comisionista'}</b><p class="hint" style="margin-top:6px;font-size:15px;color:#3D3935">${fam?'Te toca el <b>50%</b> de lo que paguen los clientes que tú acomodes: unos <b>$200 al mes por cada local</b>. Tu pago empieza con la primera mensualidad del cliente.':'Por cada cliente que contrate: <b>$399</b> cuando paga su primera mensualidad, y <b>$40 al mes</b> durante su primer año.'}</p></div>
   <div class="sec">Calcula</div>
