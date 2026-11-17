@@ -38,6 +38,7 @@ main{padding:6px 16px calc(96px + var(--sab));max-width:720px;margin:0 auto}
 .chips::-webkit-scrollbar{display:none}
 .chip{border:0;background:var(--chip);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer}
 .chip.on{background:var(--ink);color:#fff}
+.vids{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.vid{flex:0 0 132px;scroll-snap-align:start;border:0;border-radius:16px;padding:0;overflow:hidden;background:var(--card);text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.06)}.vid img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}.vid b{display:block;font-size:13px;line-height:1.25;padding:8px 10px 2px}.vid span{display:block;font-size:11.5px;color:var(--muted);padding:0 10px 10px}.vbox video{display:block;width:100%;max-height:58vh;border-radius:14px;background:#000}
 .list{display:grid;gap:10px}
 .demo{display:flex;gap:12px;align-items:center;background:var(--card);border-radius:var(--r);padding:12px;border:0;width:100%;text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .av{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:18px;overflow:hidden;background:#ccc}
@@ -137,6 +138,32 @@ function tabs(){$('#tabs').innerHTML=TABS.map(([k,v])=>`<button class="${ui.tab=
 function encab(t,s){$('#top').innerHTML=`<small>${esc(s||'Mostrador Ventas')}</small><h1>${esc(t)}</h1>`}
 function av(d){return `<div class="av" style="background:${esc(d.c)}">${d.logo?`<img src="../${esc(d.logo)}" alt="">`:esc(d.n.replace(/^(La|El|Los|Las|Café|Cafe|Mariscos|Tacos)\s+/i,'').slice(0,2).toUpperCase())}</div>`}
 /* ---------- Pantallas ---------- */
+const VURL='https://msantos4321-bit.github.io/mostrador/video/';
+const RESTO=['Café','Comida y desayunos','Hamburguesas y alitas','Jugos','Mariscos','Tacos'];
+const VID=[{k:'todas',t:'Todas las apps',f:'Mostrador-todas-las-apps',d:'g-pruebalo',dur:'1:49',g:[]},
+ {k:'abarrotes',t:'Tienda de abarrotes',f:'Mostrador-tienda-abarrotes',d:'g-abarrotes',dur:'1:07',g:['Abarrotes']},
+ {k:'vet',t:'Veterinaria y estética',f:'Mostrador-veterinaria-app',d:'g-vet',dur:'1:10',g:['Veterinarias']},
+ {k:'resto',t:'Restaurante, taquería o café',f:'Mostrador-restaurante-app',d:'tu-cocina',dur:'1:08',g:RESTO},
+ {k:'cel',t:'Taller de celulares',f:'Mostrador-taller-celular',d:'g-cel',dur:'1:20',g:['Celulares']},
+ {k:'geek',t:'Tienda geek',f:'Mostrador-tienda-geek',d:'g-geek',dur:'1:27',g:['Tienda geek']}];
+const vidDe=g=>VID.filter(v=>g==='Todas'||!v.g.length||v.g.includes(g));
+const vidUrl=(v,c)=>VURL+v.f+(c&&v.k!=='todas'?'-wa':'')+'.mp4';
+async function compVideo(v,c){const u=vidUrl(v,c),d=DEMOS.find(x=>x.id===v.d),l=d?ligaDemo(d):VURL;
+ const txt=`Mira cómo funciona la app ${v.k==='todas'?'para negocios':'para '+v.t.toLowerCase()} 👆\n\nSi quieres, pruébala en tu celular sin registrarte: ${l}\n\n${yo()?yo()+' · ':''}Mostrador · $399 al mes, sin contrato`;
+ toast('Preparando el video…');
+ try{const b=await (await fetch(u)).blob();const f=new File([b],v.t+'.mp4',{type:'video/mp4'});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:txt});return}}
+ catch(e){if(e&&e.name==='AbortError')return}
+ wa(txt+'\n\nVideo: '+u)}
+function sheetVideo(v,c){c=c&&v.k!=='todas';
+ modal(`<h2>🎬 ${esc(v.t)}</h2><p class="sub">${c?'Versión corta para mandar (45 s)':'Versión completa ('+v.dur+') para enseñarla en persona'}</p>
+ <div class="vbox"><video src="${vidUrl(v,c)}" poster="${VURL}p-${v.f}.jpg" controls playsinline preload="metadata"></video></div>
+ <div class="acts" style="margin-top:14px">
+  <button class="btn wa" data-a="compVideo" data-k="${v.k}" data-c="${c?1:''}">Mandar este video por WhatsApp</button>
+  ${v.k!=='todas'?`<button class="btn" data-a="verVideo" data-k="${v.k}" data-c="${c?'':1}">${c?'Ver la versión completa':'Ver la versión corta (45 s)'}</button>`:''}
+  <button class="btn" data-a="demo" data-i="${v.d}">Abrir su demo</button>
+ </div>
+ <p class="hint" style="margin-top:12px">En persona: pon la completa mientras el dueño abre su demo. Para mandar por WhatsApp a quien no te conoce: la corta. El mensaje lleva tu liga, así que si contrata te cuenta a ti.</p>`)}
 function vDemos(){encab('Demos',yo()?'Hola, '+yo():'Mostrador Ventas');
   const gs=['Todas',...new Set(DEMOS.map(d=>d.g))];const q=ui.q.trim().toLowerCase();
   const L=DEMOS.filter(d=>(ui.g==='Todas'||d.g===ui.g)&&(!q||(d.n+' '+d.l).toLowerCase().includes(q)));
@@ -145,6 +172,7 @@ function vDemos(){encab('Demos',yo()?'Hola, '+yo():'Mostrador Ventas');
   <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C847C" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="text" placeholder="Buscar un negocio" value="${esc(ui.q)}" autocomplete="off"></div>
   <div class="chips">${gs.map(g=>`<button class="chip ${ui.g===g?'on':''}" data-a="giro" data-g="${esc(g)}">${esc(g)}</button>`).join('')}</div>`;
   const card=d=>`<button class="demo" data-a="demo" data-i="${d.id}">${av(d)}<div style="min-width:0"><b>${esc(d.n)}</b><span>${esc(d.l)}</span><div class="bd">${d.top?'<i class="tag g">Genérica · con guía dentro de la app</i>':d.vet?'<i class="tag y">Completa: expedientes, agenda y caja</i>':d.full?'<i class="tag y">Completa: almacén y dinero</i>':''}${d.guia?'<i class="tag b">Guía PDF</i>':''}${d.reales?'<i class="tag g">Precios reales</i>':''}</div></div><span class="chev">›</span></button>`;
+  const vs=q?[]:vidDe(ui.g);if(vs.length)h+=`<div class="sec">🎬 Videos para enseñar</div><div class="vids">${vs.map(v=>`<button class="vid" data-a="verVideo" data-k="${v.k}"><img src="${VURL}p-${v.f}.jpg" alt="" loading="lazy"><b>${esc(v.t)}</b><span>▶ ${v.dur} · y versión corta</span></button>`).join('')}</div>`;
   if(tops.length)h+=`<div class="sec">Para enseñar a cualquier negocio</div><div class="list">${tops.map(card).join('')}</div>`;
   if(vets.length)h+=`<div class="sec">Veterinarias</div><div class="list">${vets.map(card).join('')}</div>`;
   if(full.length)h+=`<div class="sec">Restaurantes completos, con guía</div><div class="list">${full.map(card).join('')}</div>`;
@@ -157,6 +185,7 @@ function sheetDemo(d){const g=ligaGuia(d);
    <a class="btn pri" href="${esc(ligaDemo(d))}" target="_blank" rel="noopener">Abrir la demo</a>
    <button class="btn wa" data-a="mandarDemo" data-i="${d.id}">Mandársela al dueño por WhatsApp</button>
    ${g?`<a class="btn" href="${esc(g)}" target="_blank" rel="noopener">Ver la guía PDF</a><button class="btn" data-a="mandarGuia" data-i="${d.id}">Mandar la guía por WhatsApp</button>`:''}
+   ${(()=>{const v=VID.find(v=>v.d===d.id)||(d.vet?VID[2]:VID.find(v=>v.g.includes(d.g)));return v?`<button class="btn" data-a="verVideo" data-k="${v.k}">🎬 Ver el video de este giro</button>`:''})()}
    <button class="btn" data-a="copiar" data-v="${esc(ligaDemo(d))}">Copiar la liga</button>
    <button class="btn dk" data-a="alta" data-i="${d.id}">Dijo que sí: pedir su alta</button>
   </div>
@@ -249,6 +278,8 @@ function render(){LS.set('tab',ui.tab);tabs();const V={demos:vDemos,visita:vVisi
   if(ui.tab==='visita')pintarFotos()}
 function pintarFotos(){const f=$('#fotos');if(f)f.innerHTML=FOTOS.map(x=>`<img src="${URL.createObjectURL(x)}" alt="">`).join('')}
 const A={
+ verVideo:d=>sheetVideo(VID.find(v=>v.k===d.k),!!d.c),
+ compVideo:d=>compVideo(VID.find(v=>v.k===d.k),!!d.c),
  tab:d=>{ui.tab=d.t;cerrar();render();scrollTo(0,0)},
  giro:d=>{ui.g=d.g;render()},
  demo:d=>sheetDemo(DEMOS.find(x=>x.id===d.i)),
