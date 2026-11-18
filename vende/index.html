@@ -168,7 +168,8 @@ function sheetVideo(v,c){c=c&&v.k!=='todas';
  <p class="hint" style="margin-top:12px">En persona: pon la completa mientras el dueño abre su demo. Para mandar por WhatsApp a quien no te conoce: la corta. El mensaje lleva tu liga, así que si contrata te cuenta a ti.</p>`)}
 const KITS=[{k:'abarrotes',t:'Tienda de abarrotes',s:'Caja con cámara, fiado, inventario · pedidos de sus clientes',c:'#D62828',own:'g-abarrotes',cli:'g-pedidos'},
  {k:'vet',t:'Veterinaria y estética canina',s:'Agenda, expedientes, vacunas · «Mi mascota» para los dueños',c:'#0F766E',own:'g-vet',cli:'g-mascota'},
- {k:'resto',t:'Restaurante, taquería o café',s:'Mesero → cocina → caja · «Pide en línea» para sus clientes',c:'#B91C1C',own:'tu-cocina',cli:'g-pedir',x:'tu-taqueria'},
+ {k:'resto',t:'Restaurante o taquería',s:'Mesero → cocina → caja · «Pide en línea» para sus clientes',c:'#B91C1C',own:'tu-cocina',cli:'g-pedir',x:'tu-taqueria'},
+ {k:'cafe',t:'Cafetería',s:'Diseño elegante: tamaños, leches y sabores · «Pide en línea» para sus clientes',c:'#B08D57',own:'tu-cafeteria',cli:'g-pedir-cafe'},
  {k:'cel',t:'Taller de celulares',s:'Reparaciones con folio y avisos · «Mi reparación» para sus clientes',c:'#2563EB',own:'g-cel',cli:'g-cel-cli'},
  {k:'geek',t:'Tienda geek',s:'Videojuegos, Funko, anime: apartados y preventas · catálogo para sus clientes',c:'#7C3AED',own:'g-geek',cli:'g-geek-cli'}];
 let DEFER=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();DEFER=e;if(ui.tab==='demos')render()});
@@ -180,8 +181,8 @@ function vDemos(){encab('Demos',yo()?'Hola, '+yo():'Mostrador Ventas');
   h+=`<div class="hero"><b>Empieza aquí con cualquier negocio</b><p>Enséñale el video de todas las apps y abre «Pruébalo»: escribe el nombre del negocio y el dueño ve las apps como suyas.</p><div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px"><button class="btn dk" data-a="verVideo" data-k="todas">▶ Video (1:49)</button>${pr?`<button class="btn" data-a="demo" data-i="g-pruebalo">Abrir «Pruébalo»</button>`:''}</div></div>`;
   h+='<div class="sec">Un kit por tipo de negocio</div><div class="list">';
   for(const k of KITS){const v=VID.find(x=>x.d===k.own),o=DEMOS.find(d=>d.id===k.own),c=DEMOS.find(d=>d.id===k.cli),g=o?ligaGuia(o):'';
-    h+=`<div class="kit"><button class="kh" data-a="verVideo" data-k="${v?v.k:''}">${v?`<img src="${VURL}p-${v.f}.jpg" alt="Video" loading="lazy">`:''}<div><b><i style="background:${k.c}"></i>${esc(k.t)}</b><span>${esc(k.s)}</span></div></button>
-    <div class="g2">${o?`<button class="btn" data-a="demo" data-i="${k.own}">App del negocio</button>`:''}${c?`<button class="btn" data-a="demo" data-i="${k.cli}">App de sus clientes</button>`:''}<button class="btn" data-a="verVideo" data-k="${v?v.k:''}">▶ Video</button>${g?`<a class="btn" href="${esc(g)}" target="_blank" rel="noopener">📘 Guía PDF</a>`:''}${k.x?`<button class="btn" data-a="demo" data-i="${k.x}" style="grid-column:1/-1">Versión taquería</button>`:''}</div></div>`}
+    h+=`<div class="kit"><button class="kh" ${v?`data-a="verVideo" data-k="${v.k}"`:`data-a="demo" data-i="${k.own}"`}>${v?`<img src="${VURL}p-${v.f}.jpg" alt="Video" loading="lazy">`:(o&&o.logo?`<img src="../${esc(o.logo)}" alt="" loading="lazy" style="object-fit:contain;background:#2B1E16">`:'')}<div><b><i style="background:${k.c}"></i>${esc(k.t)}</b><span>${esc(k.s)}</span></div></button>
+    <div class="g2">${o?`<button class="btn" data-a="demo" data-i="${k.own}">App del negocio</button>`:''}${c?`<button class="btn" data-a="demo" data-i="${k.cli}">App de sus clientes</button>`:''}${v?`<button class="btn" data-a="verVideo" data-k="${v.k}">▶ Video</button>`:''}${g?`<a class="btn" href="${esc(g)}" target="_blank" rel="noopener">📘 Guía PDF</a>`:''}${k.x?`<button class="btn" data-a="demo" data-i="${k.x}" style="grid-column:1/-1">Versión taquería</button>`:''}</div></div>`}
   h+=`</div><p class="hint" style="margin-top:14px">¿Ya dijo que sí? Abre la app del negocio y toca «Dijo que sí: pedir su alta». Su versión con sus productos y su logo la armamos nosotros.</p>`;
   return h}
 function sheetDemo(d){const g=ligaGuia(d);
