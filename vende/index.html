@@ -39,6 +39,7 @@ main{padding:6px 16px calc(96px + var(--sab));max-width:720px;margin:0 auto}
 .chip{border:0;background:var(--chip);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer}
 .chip.on{background:var(--ink);color:#fff}
 .vids{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.vid{flex:0 0 132px;scroll-snap-align:start;border:0;border-radius:16px;padding:0;overflow:hidden;background:var(--card);text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.06)}.vid img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}.vid b{display:block;font-size:13px;line-height:1.25;padding:8px 10px 2px}.vid span{display:block;font-size:11.5px;color:var(--muted);padding:0 10px 10px}.vbox video{display:block;width:100%;max-height:58vh;border-radius:14px;background:#000}
+.kit{background:var(--card);border-radius:var(--r);padding:12px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.kit .kh{display:flex;gap:12px;align-items:center;margin-bottom:10px;border:0;background:none;padding:0;width:100%;text-align:left;cursor:pointer}.kit .kh img{width:64px;height:86px;object-fit:cover;border-radius:10px;flex:none}.kit .kh b{display:block;font-size:16px}.kit .kh span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}.kit .kh i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.kit .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kit .g2 .btn{padding:10px 8px;font-size:13.5px;margin:0;width:auto}.inst{background:var(--ink);color:#fff;border-radius:var(--r);padding:14px;display:flex;gap:12px;align-items:center;margin:4px 0 6px}.inst p{margin:2px 0 0;font-size:12.5px;opacity:.8}.inst .btn{margin:0;width:auto;flex:none}
 .list{display:grid;gap:10px}
 .demo{display:flex;gap:12px;align-items:center;background:var(--card);border-radius:var(--r);padding:12px;border:0;width:100%;text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .av{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:18px;overflow:hidden;background:#ccc}
@@ -148,7 +149,7 @@ const VID=[{k:'todas',t:'Todas las apps',f:'Mostrador-todas-las-apps',d:'g-prueb
  {k:'geek',t:'Tienda geek',f:'Mostrador-tienda-geek',d:'g-geek',dur:'1:27',g:['Tienda geek']}];
 const vidDe=g=>VID.filter(v=>g==='Todas'||!v.g.length||v.g.includes(g));
 const vidUrl=(v,c)=>VURL+v.f+(c&&v.k!=='todas'?'-wa':'')+'.mp4';
-async function compVideo(v,c){const u=vidUrl(v,c),d=DEMOS.find(x=>x.id===v.d),l=d?ligaDemo(d):VURL;
+async function compVideo(v,c){const u=vidUrl(v,c),d=DEMOS.find(x=>x.id===v.d),l=d?ligaCon(d):VURL;
  const txt=`Mira cómo funciona la app ${v.k==='todas'?'para negocios':'para '+v.t.toLowerCase()} 👆\n\nSi quieres, pruébala en tu celular sin registrarte: ${l}\n\n${yo()?yo()+' · ':''}Mostrador · $399 al mes, sin contrato`;
  toast('Preparando el video…');
  try{const b=await (await fetch(u)).blob();const f=new File([b],v.t+'.mp4',{type:'video/mp4'});
@@ -164,29 +165,33 @@ function sheetVideo(v,c){c=c&&v.k!=='todas';
   <button class="btn" data-a="demo" data-i="${v.d}">Abrir su demo</button>
  </div>
  <p class="hint" style="margin-top:12px">En persona: pon la completa mientras el dueño abre su demo. Para mandar por WhatsApp a quien no te conoce: la corta. El mensaje lleva tu liga, así que si contrata te cuenta a ti.</p>`)}
+const KITS=[{k:'abarrotes',t:'Tienda de abarrotes',s:'Caja con cámara, fiado, inventario · pedidos de sus clientes',c:'#D62828',own:'g-abarrotes',cli:'g-pedidos'},
+ {k:'vet',t:'Veterinaria y estética canina',s:'Agenda, expedientes, vacunas · «Mi mascota» para los dueños',c:'#0F766E',own:'g-vet',cli:'g-mascota'},
+ {k:'resto',t:'Restaurante, taquería o café',s:'Mesero → cocina → caja · «Pide en línea» para sus clientes',c:'#B91C1C',own:'tu-cocina',cli:'g-pedir',x:'tu-taqueria'},
+ {k:'cel',t:'Taller de celulares',s:'Reparaciones con folio y avisos · «Mi reparación» para sus clientes',c:'#2563EB',own:'g-cel',cli:'g-cel-cli'},
+ {k:'geek',t:'Tienda geek',s:'Videojuegos, Funko, anime: apartados y preventas · catálogo para sus clientes',c:'#7C3AED',own:'g-geek',cli:'g-geek-cli'}];
+let DEFER=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();DEFER=e;if(ui.tab==='demos')render()});
+const instalada=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+const ligaCon=d=>{const l=ligaDemo(d),n=(ui.pn||'').trim();return n?l+(l.includes('?')?'&':'?')+'n='+encodeURIComponent(n):l};
 function vDemos(){encab('Demos',yo()?'Hola, '+yo():'Mostrador Ventas');
-  const gs=['Todas',...new Set(DEMOS.map(d=>d.g))];const q=ui.q.trim().toLowerCase();
-  const L=DEMOS.filter(d=>(ui.g==='Todas'||d.g===ui.g)&&(!q||(d.n+' '+d.l).toLowerCase().includes(q)));
-  const tops=L.filter(d=>d.top),vets=L.filter(d=>d.vet&&!d.top),full=L.filter(d=>d.full&&!d.vet&&!d.top),rest=L.filter(d=>!d.full&&!d.vet&&!d.top);
-  let h=`<div class="hero"><b>¿Vas a visitar un lugar nuevo?</b><p>Pide su demo con su menú, sus fotos y sus colores. Te la preparamos para que la enseñes en la visita.</p><button class="btn dk" data-a="tab" data-t="visita">Pedir una demo</button></div>
-  <div class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C847C" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="text" placeholder="Buscar un negocio" value="${esc(ui.q)}" autocomplete="off"></div>
-  <div class="chips">${gs.map(g=>`<button class="chip ${ui.g===g?'on':''}" data-a="giro" data-g="${esc(g)}">${esc(g)}</button>`).join('')}</div>`;
-  const card=d=>`<button class="demo" data-a="demo" data-i="${d.id}">${av(d)}<div style="min-width:0"><b>${esc(d.n)}</b><span>${esc(d.l)}</span><div class="bd">${d.top?'<i class="tag g">Genérica · con guía dentro de la app</i>':d.vet?'<i class="tag y">Completa: expedientes, agenda y caja</i>':d.full?'<i class="tag y">Completa: almacén y dinero</i>':''}${d.guia?'<i class="tag b">Guía PDF</i>':''}${d.reales?'<i class="tag g">Precios reales</i>':''}</div></div><span class="chev">›</span></button>`;
-  const vs=q?[]:vidDe(ui.g);if(vs.length)h+=`<div class="sec">🎬 Videos para enseñar</div><div class="vids">${vs.map(v=>`<button class="vid" data-a="verVideo" data-k="${v.k}"><img src="${VURL}p-${v.f}.jpg" alt="" loading="lazy"><b>${esc(v.t)}</b><span>▶ ${v.dur} · y versión corta</span></button>`).join('')}</div>`;
-  if(tops.length)h+=`<div class="sec">Para enseñar a cualquier negocio</div><div class="list">${tops.map(card).join('')}</div>`;
-  if(vets.length)h+=`<div class="sec">Veterinarias</div><div class="list">${vets.map(card).join('')}</div>`;
-  if(full.length)h+=`<div class="sec">Restaurantes completos, con guía</div><div class="list">${full.map(card).join('')}</div>`;
-  if(rest.length)h+=`<div class="sec">Otras demos listas</div><div class="list">${rest.map(card).join('')}</div>`;
-  if(!L.length)h+='<div class="empty">No encontré ese negocio. Pídele su demo en «Visita».</div>';
+  let h=instalada()?'':`<div class="inst"><div style="flex:1"><b>📲 Instálala en tu celular</b><p>Queda como app, con su ícono, y se actualiza sola.</p></div><button class="btn pri" data-a="instalar">Instalar</button></div>`;
+  const pr=DEMOS.find(d=>d.id==='g-pruebalo'),todas=VID[0];
+  h+=`<div class="hero"><b>Empieza aquí con cualquier negocio</b><p>Enséñale el video de todas las apps y abre «Pruébalo»: escribe el nombre del negocio y el dueño ve las apps como suyas.</p><div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px"><button class="btn dk" data-a="verVideo" data-k="todas">▶ Video (1:49)</button>${pr?`<button class="btn" data-a="demo" data-i="g-pruebalo">Abrir «Pruébalo»</button>`:''}</div></div>`;
+  h+='<div class="sec">Un kit por tipo de negocio</div><div class="list">';
+  for(const k of KITS){const v=VID.find(x=>x.d===k.own),o=DEMOS.find(d=>d.id===k.own),c=DEMOS.find(d=>d.id===k.cli),g=o?ligaGuia(o):'';
+    h+=`<div class="kit"><button class="kh" data-a="verVideo" data-k="${v?v.k:''}">${v?`<img src="${VURL}p-${v.f}.jpg" alt="Video" loading="lazy">`:''}<div><b><i style="background:${k.c}"></i>${esc(k.t)}</b><span>${esc(k.s)}</span></div></button>
+    <div class="g2">${o?`<button class="btn" data-a="demo" data-i="${k.own}">App del negocio</button>`:''}${c?`<button class="btn" data-a="demo" data-i="${k.cli}">App de sus clientes</button>`:''}<button class="btn" data-a="verVideo" data-k="${v?v.k:''}">▶ Video</button>${g?`<a class="btn" href="${esc(g)}" target="_blank" rel="noopener">📘 Guía PDF</a>`:''}${k.x?`<button class="btn" data-a="demo" data-i="${k.x}" style="grid-column:1/-1">Versión taquería</button>`:''}</div></div>`}
+  h+=`</div><p class="hint" style="margin-top:14px">¿Ya dijo que sí? Abre la app del negocio y toca «Dijo que sí: pedir su alta». Su versión con sus productos y su logo la armamos nosotros.</p>`;
   return h}
 function sheetDemo(d){const g=ligaGuia(d);
   modal(`<div style="display:flex;gap:12px;align-items:center">${av(d)}<div><h2>${esc(d.n)}</h2><p class="sub" style="margin:0">${esc(d.l)}</p></div></div>
   <div class="acts" style="margin-top:16px">
-   <a class="btn pri" href="${esc(ligaDemo(d))}" target="_blank" rel="noopener">Abrir la demo</a>
+   <label for="pn" style="margin:0 0 -4px">Nombre del negocio (para que la vea como suya)</label><input id="pn" type="text" placeholder="Ej. Abarrotes Lupita" value="${esc(ui.pn||'')}" autocomplete="off">
+   <a class="btn pri" id="pa" data-i="${d.id}" href="${esc(ligaCon(d))}" target="_blank" rel="noopener">Abrir la demo</a>
    <button class="btn wa" data-a="mandarDemo" data-i="${d.id}">Mandársela al dueño por WhatsApp</button>
    ${g?`<a class="btn" href="${esc(g)}" target="_blank" rel="noopener">Ver la guía PDF</a><button class="btn" data-a="mandarGuia" data-i="${d.id}">Mandar la guía por WhatsApp</button>`:''}
    ${(()=>{const v=VID.find(v=>v.d===d.id)||(d.vet?VID[2]:VID.find(v=>v.g.includes(d.g)));return v?`<button class="btn" data-a="verVideo" data-k="${v.k}">🎬 Ver el video de este giro</button>`:''})()}
-   <button class="btn" data-a="copiar" data-v="${esc(ligaDemo(d))}">Copiar la liga</button>
+   <button class="btn" data-a="copiarLiga" data-i="${d.id}">Copiar la liga</button>
    <button class="btn dk" data-a="alta" data-i="${d.id}">Dijo que sí: pedir su alta</button>
   </div>
   <p class="hint" style="margin-top:14px">${d.tip?esc(d.tip):d.vet?'Esta demo abre directo en la pantalla del doctor, sin PIN. Enséñale: la agenda de hoy, la ficha de un paciente, una consulta con receta y el recordatorio de vacunas por WhatsApp.':'En la demo, el PIN del dueño es <b>1234</b>.'} La liga lleva tu nombre: si el dueño escribe desde ahí, la venta queda a tu nombre.</p>`)}
@@ -199,8 +204,8 @@ function sheetAlta(d){modal(`<h2>¡Dijo que sí!</h2><p class="sub">Se lo mandam
   <div class="acts" style="margin-top:16px"><button class="btn wa" data-a="altaOk" data-i="${d?d.id:''}">Mandar a Mauricio por WhatsApp</button></div>`)}
 const INTERES=['Cobrar más rápido','Control del almacén','Saber cuánto gana','Meseros y cocina','Paquete para el contador','Nómina y asistencia','Pedidos para llevar','Varias sucursales'];
 function vVisita(){encab('Visita','Pide una demo o cuéntanos tu visita');const v=ui.v||(ui.v=LS.get('borrador',{tipo:'demo',int:[]}));
-  return `<div class="seg"><button class="${v.tipo==='demo'?'on':''}" data-a="vtipo" data-t="demo">Quiero una demo</button><button class="${v.tipo==='visita'?'on':''}" data-a="vtipo" data-t="visita">Ya lo visité</button></div>
-  <p class="hint" style="margin-top:10px">${v.tipo==='demo'?'Antes de ir: con estos datos te preparamos su demo con su menú, fotos y colores.':'Después de ir: cuéntanos qué pidió el dueño para ajustar su versión.'}</p>
+  return `<div class="seg"><button class="${v.tipo==='demo'?'on':''}" data-a="vtipo" data-t="demo">Pedir su versión</button><button class="${v.tipo==='visita'?'on':''}" data-a="vtipo" data-t="visita">Ya lo visité</button></div>
+  <p class="hint" style="margin-top:10px">${v.tipo==='demo'?'Solo cuando el dueño ya pidió su versión: con estos datos armamos su app con sus productos, fotos y colores.':'Después de ir: cuéntanos qué pidió el dueño para ajustar su versión.'}</p>
   <div class="card" style="margin-top:12px">
    <label for="v-lugar" style="margin-top:0">Nombre del lugar</label><input id="v-lugar" type="text" data-v="lugar" value="${esc(v.lugar||'')}" placeholder="Ej. Tacos Don Beto">
    <label for="v-zona">Zona o dirección</label><input id="v-zona" type="text" data-v="zona" value="${esc(v.zona||'')}" placeholder="Ej. Playas, junto al Calimax">
@@ -228,22 +233,32 @@ function vPros(){encab('Prospectos','Tus lugares y en qué van');const L=LS.get(
    <div class="est">${ESTADOS.map(([k,v])=>`<button class="${p.est===k?'on':''}" data-a="pest" data-id="${p.id}" data-e="${k}">${v}</button>`).join('')}</div>
    <div class="row">${d?`<a class="btn sm" href="${esc(ligaDemo(d))}" target="_blank" rel="noopener">Abrir su demo</a>`:`<button class="btn sm" data-a="ligarDemo" data-id="${p.id}">Ligar su demo</button>`}<button class="btn sm" data-a="pborrar" data-id="${p.id}" style="margin-left:auto;color:var(--bad)">Quitar</button></div></div>`}).join('')+'</div>':'<div class="empty">Todavía no tienes lugares. Empieza en «Visita».</div>';
   return h}
-function vVender(){encab('Cómo vender','La ruta de cada venta');
-  const pasos=[['Elige el lugar','Tiendas de abarrotes, veterinarias, estéticas caninas, restaurantes, taquerías y cafés donde el dueño está presente. Mejor si se ve que lleva todo en libreta.'],['Empieza con la genérica','En «Demos» → «Para enseñar a cualquier negocio». Con «Pruébalo» escribes el nombre del negocio y el dueño la ve como suya al instante.'],['Si le interesa, pide su demo','En «Visita» → «Quiero una demo»: nombre, ligas de Maps o Facebook y fotos del menú. Te la regresamos con su menú y sus colores.'],['Visita en hora tranquila','Entre 3 y 5 de la tarde, o temprano antes de abrir. Pregunta por el dueño. Nunca a la hora de la comida.'],['Enseña en 5 minutos','Su menú → tomar un pedido → cobrar → el resumen del dueño. Deja que él toque el celular.'],['Deja todo por WhatsApp','Desde «Demos»: la liga de su demo y la guía PDF. Así lo vuelve a ver con calma.'],['Cuéntanos la visita','En «Visita» → «Ya lo visité»: dicta lo que pidió. Ajustamos su versión a lo que necesita.'],['Da seguimiento','A los 2 días y a los 7 días. Un mensaje corto: «¿Pudo verla? ¿Se la dejo instalada esta semana?»'],['Dijo que sí','En su demo toca «Dijo que sí». Mauricio lo da de alta. Acompáñalo esa primera semana.']];
+function vVender(){encab('Cómo vender','El plan, paso a paso');
+  const pasos=[['Elige zona y giro','Abarrotes, veterinarias y estéticas, restaurantes y taquerías, talleres de celulares o tiendas geek. En Google Maps busca el giro en tu zona y quédate con negocios independientes (no cadenas), con 20 o más reseñas y con teléfono.'],
+   ['Primer contacto, sin ir todavía','Por WhatsApp, Instagram o Facebook: el mensaje de abajo + el video corto de su giro (Demos → su kit → Video → «Mandar») + su demo con su nombre (escríbelo arriba en la demo). Máximo 15 negocios nuevos al día.'],
+   ['Visita en hora tranquila','De 10 a 12 o de 3 a 5. Que abra su demo con su nombre y, mientras se carga, ponle el video completo de su giro.'],
+   ['Enseña 3 cosas y la app de sus clientes','La guía PDF de cada kit dice cuáles. Que él toque la pantalla: la demo trae el botón «🎯 Prueba esto» que lo va guiando.'],
+   ['Si dice que sí','En la app del negocio toca «Dijo que sí: pedir su alta». Nosotros armamos su versión con sus productos y su logo, y se la instalamos.'],
+   ['Seguimiento','Si no contesta o lo va a pensar: un mensaje a los 2 días, una sola vez. Anota cada lugar en «Prospectos».']];
+  const m1=`Hola, buen día 👋 Soy ${yo()||'[tu nombre]'}, de Mostrador, aquí en Tijuana. Hacemos una app para [tu giro] que se usa desde el celular. Te mando un video de 45 segundos y una demo con el nombre de tu negocio para que la pruebes sin registrarte. ¿Qué te parece?`;
+  const m2='Hola, ¿pudiste ver el video? Si te interesa paso 10 minutos a enseñártela con tus productos; si no, no te molesto más 🙂';
   return `<div class="card">${pasos.map(([t,p],i)=>`<div class="step"><div class="n">${i+1}</div><div><b>${t}</b><p>${p}</p></div></div>`).join('')}</div>
-  <div class="sec">Qué decir</div>
-  <div class="card"><b>Al llegar (20 segundos)</b><div class="say">«Hola, soy ${esc(yo()||'[tu nombre]')}. Le preparé cómo se vería su negocio en un sistema que se usa en el celular: con su menú y sus fotos. ¿Me regala 5 minutos para enseñárselo?»</div>
-  <b>Al enseñar</b><div class="say">«Mire, aquí toma el pedido, le llega a la cocina, cobra y el cambio sale solo. Y usted, desde su casa, ve cuánto vendió y qué se está acabando.»</div>
-  <b>Para cerrar</b><div class="say">«Se lo dejamos instalado esta semana, con todo su menú. No hay contrato. ¿Qué día le queda bien?»</div></div>
+  <div class="sec">Mensajes listos</div>
+  <div class="card"><b>Primer mensaje</b><div class="say">${esc(m1)}</div><button class="btn sm" data-a="copiar" data-v="${esc(m1)}">Copiar</button>
+  <b style="display:block;margin-top:12px">Seguimiento (a los 2 días)</b><div class="say">${esc(m2)}</div><button class="btn sm" data-a="copiar" data-v="${esc(m2)}">Copiar</button></div>
+  <div class="sec">Qué decir en la visita</div>
+  <div class="card"><b>Al llegar (20 segundos)</b><div class="say">«Hola, soy ${esc(yo()||'[tu nombre]')}, de Mostrador. Hacemos apps para negocios como el suyo que se usan desde el celular. ¿Me regala 5 minutos? Le enseño cómo se vería con el nombre de su negocio.»</div>
+  <b>Al enseñar</b><div class="say">«Mire, aquí cobra, aquí ve lo que le deben y lo que se está acabando. Y sus clientes tienen su propia app con su nombre para pedir, apartar o ver cómo va lo suyo.»</div>
+  <b>Para cerrar</b><div class="say">«Se la dejamos instalada esta semana, con sus productos y su logo. No hay contrato. ¿Qué día le queda bien?»</div></div>
   <div class="sec">Preguntas para el dueño</div>
-  <div class="card"><ol style="margin:0;padding-left:20px;display:grid;gap:6px"><li>¿Cómo lleva hoy sus pedidos y su caja?</li><li>¿Le ha faltado dinero o producto alguna vez?</li><li>¿Sabe cuánto le dejó el mes pasado, ya pagado todo?</li><li>¿Qué es lo que más se le echa a perder?</li><li>¿Quién le lleva la contabilidad?</li><li>¿Qué le gustaría que hiciera un sistema por usted?</li></ol></div>
+  <div class="card"><ol style="margin:0;padding-left:20px;display:grid;gap:6px"><li>¿Cómo lleva hoy sus ventas, citas o reparaciones?</li><li>¿Se le ha perdido dinero, un apartado o un pendiente?</li><li>¿Cómo les avisa a sus clientes que ya está lo suyo?</li><li>¿Sabe cuánto le dejó el mes pasado, ya pagado todo?</li><li>¿Qué le gustaría que un sistema hiciera por usted?</li></ol></div>
   <div class="sec">Precio</div>
-  <div class="card"><div class="big">$399 <span style="font-size:17px;color:var(--muted);font-weight:600">al mes por local</span></div><ul style="margin:6px 0 0;padding-left:20px;display:grid;gap:4px;color:#3D3935"><li>Celulares, tablets y usuarios ilimitados.</li><li>Instalación y su menú con fotos: <b>gratis</b>.</li><li><b>Sin contrato</b>: puede cancelar cuando quiera.</li><li>Cada local extra: $299 al mes. Pago anual: 10 meses por 12.</li></ul></div>
+  <div class="card"><div class="big">$399 <span style="font-size:17px;color:var(--muted);font-weight:600">al mes por local</span></div><ul style="margin:6px 0 0;padding-left:20px;display:grid;gap:4px;color:#3D3935"><li>Celulares, tablets y usuarios ilimitados.</li><li>La instalación, sus productos y su logo ya van incluidos.</li><li><b>Sin contrato</b>: puede cancelar cuando quiera.</li><li>No ofrezcas meses sin costo ni descuentos.</li></ul></div>
   <div class="sec">Si te dicen…</div>
-  ${[['«Está caro»','Son $13 al día, menos que un refresco. Y con lo que se deja de tirar o de perder en la caja, se paga solo.'],['«No sé de tecnología»','Por eso es así de sencillo: si sabe usar WhatsApp, sabe usar esto. Se lo dejamos instalado, le enseñamos y trae una guía con fotos.'],['«Ya tengo sistema»','¡Qué bien! ¿Le dice qué se está acabando y cuánto le deja cada platillo? Pruébelo con su propio menú y compare.'],['«Lo voy a pensar»','Claro. Le dejo la liga y la guía por WhatsApp para que lo vea con calma. ¿Le escribo el jueves?'],['«¿Y si no hay internet?»','Sigue funcionando en el celular y se pone al día cuando regresa el internet.'],['«Mis empleados no lo van a usar»','Cada quien tiene su pantalla y su PIN: el mesero solo ve pedidos, la cocina solo lo que preparar. Es más fácil que la libreta.']].map(([a,b])=>`<details><summary>${a}</summary><p>${b}</p></details>`).join('')}
+  ${[['«Está caro»','Son $13 al día. Con lo que deja de perder en fiados, apartados olvidados o la caja, se paga solo.'],['«No sé de tecnología»','Si sabe usar WhatsApp, sabe usar esto. Se la dejamos instalada, le enseñamos y trae una guía con fotos.'],['«Ya tengo sistema»','¡Qué bien! ¿Le avisa a sus clientes y ellos tienen su propia app? Pruébela con su nombre y compare.'],['«Lo voy a pensar»','Claro. Le mando el video y la demo por WhatsApp para que lo vea con calma. ¿Le escribo el jueves?'],['«¿Y si no hay internet?»','Sigue funcionando en el celular y se pone al día cuando regresa la señal.']].map(([q,a])=>`<div class="card" style="margin-bottom:8px"><b>${q}</b><p class="hint" style="margin-top:4px;font-size:14.5px;color:#3D3935">${a}</p></div>`).join('')}
   <div class="sec">Nunca</div>
-  <div class="card"><ul style="margin:0;padding-left:20px;display:grid;gap:4px"><li>Prometer algo que la app no hace: si no sabes, «lo pregunto y le confirmo hoy».</li><li>Bajar el precio o inventar promociones.</li><li>Pedir o guardar contraseñas, PIN o datos de tarjetas del cliente.</li><li>Enseñar datos de otros clientes.</li></ul></div>
-  <div class="acts" style="margin-top:14px"><a class="btn pri" href="${esc(BASE)}social/Guia-del-distribuidor-Mostrador.pdf" target="_blank" rel="noopener">Guía del distribuidor: todas las apps (PDF)</a><a class="btn" href="${esc(BASE)}social/Guia-de-ventas-Comandero.pdf" target="_blank" rel="noopener">Guía de ventas: las demos paso a paso (PDF)</a><a class="btn" href="${esc(BASE)}social/Manual-del-vendedor-Comandero.pdf" target="_blank" rel="noopener">Manual completo del vendedor (PDF)</a></div>`}
+  <div class="card"><ul style="margin:0;padding-left:20px;display:grid;gap:4px"><li>Prometer algo que la app no hace: «lo pregunto y le confirmo hoy».</li><li>Bajar el precio o inventar promociones.</li><li>Pedir contraseñas, PIN o datos de tarjetas del cliente.</li><li>Enseñar datos de otros clientes.</li></ul></div>
+  <div class="acts" style="margin-top:14px"><a class="btn pri" href="${esc(BASE)}social/Guia-del-distribuidor-Mostrador.pdf" target="_blank" rel="noopener">Guía del distribuidor (PDF)</a></div>`}
 function vDinero(){encab('Mis ganancias','Lo que te toca por cada cliente');const tr=LS.get('trato','comisionista'),n=+(ui.calc??3),fam=tr==='familia';if(tr==='dueno'){const nn=+(ui.calc??3);return `<div class="card"><b>Eres el dueño de Mostrador</b><p class="hint" style="margin-top:6px;font-size:15px;color:#3D3935">Los clientes que consigas tú son 100% tuyos: <b>$399 al mes</b> cada uno, sin comisión para nadie. Con ${nn} clientes son <b>$${(nn*399).toLocaleString('es-MX')} al mes</b>.</p></div>`}
   const mes=fam?n*399*0.5:n*40,alta=fam?0:n*399;
   return `<div class="card"><b>${fam?'Tu trato: mitad y mitad':'Tu trato: comisionista'}</b><p class="hint" style="margin-top:6px;font-size:15px;color:#3D3935">${fam?'Te toca el <b>50%</b> de lo que paguen los clientes que tú acomodes: unos <b>$200 al mes por cada local</b>. Tu pago empieza con la primera mensualidad del cliente.':'Por cada cliente que contrate: <b>$399</b> cuando paga su primera mensualidad, y <b>$40 al mes</b> durante su primer año.'}</p></div>
@@ -278,12 +293,14 @@ function render(){LS.set('tab',ui.tab);tabs();const V={demos:vDemos,visita:vVisi
   if(ui.tab==='visita')pintarFotos()}
 function pintarFotos(){const f=$('#fotos');if(f)f.innerHTML=FOTOS.map(x=>`<img src="${URL.createObjectURL(x)}" alt="">`).join('')}
 const A={
+ instalar:()=>{if(DEFER){DEFER.prompt();DEFER.userChoice.finally(()=>{DEFER=null;render()})}else modal(`<h2>📲 Instalar la app</h2><p class="sub">Así queda en tu pantalla como cualquier app.</p><div class="card"><b>Android (Chrome)</b><p class="hint">Toca ⋮ arriba a la derecha → «Instalar app» o «Agregar a la pantalla principal».</p><b style="display:block;margin-top:10px">iPhone (Safari)</b><p class="hint">Toca el botón Compartir (cuadro con flecha) → «Agregar a inicio».</p></div>`)},
+ copiarLiga:d=>copiar(ligaCon(DEMOS.find(x=>x.id===d.i))),
  verVideo:d=>sheetVideo(VID.find(v=>v.k===d.k),!!d.c),
  compVideo:d=>compVideo(VID.find(v=>v.k===d.k),!!d.c),
  tab:d=>{ui.tab=d.t;cerrar();render();scrollTo(0,0)},
  giro:d=>{ui.g=d.g;render()},
  demo:d=>sheetDemo(DEMOS.find(x=>x.id===d.i)),
- mandarDemo:d=>{const x=DEMOS.find(y=>y.id===d.i);if(x.msg){wa(`Hola, soy ${yo()||'de Mostrador'}. ${x.msg}: ${ligaDemo(x)}\n\nPruébela con confianza: trae datos de ejemplo y un botón «Prueba esto» que lo va guiando. Son $399 al mes, sin contrato. ¿Le parece si paso a enseñársela en 10 minutos?`);return}if(x.vet){wa(`Hola, soy ${yo()||'de Mostrador'}. Le preparé cómo se vería ${x.n} con un sistema hecho para veterinarias: agenda, expedientes con fotos y cartilla, recetas con la dosis calculada por peso, recordatorios de vacunas por WhatsApp y caja. Se usa en el celular o la tablet que ya tienen: ${ligaDemo(x)}\n\n¿Le parece si paso a enseñárselo en 10 minutos?`);return}wa(`Hola, soy ${yo()||'de Mostrador'}. Le preparé cómo se vería ${x.n} en Comandero, el sistema para su negocio que se usa en el celular, con su menú: ${ligaDemo(x)}\n\nÁbralo en su celular y para entrar como dueño use el PIN 1234. ¿Le parece si paso a enseñárselo en 10 minutos?`)},
+ mandarDemo:d=>{const x=DEMOS.find(y=>y.id===d.i);if(x.msg){wa(`Hola, soy ${yo()||'de Mostrador'}. ${x.msg}: ${ligaCon(x)}\n\nPruébela con confianza: trae datos de ejemplo y un botón «Prueba esto» que lo va guiando. Son $399 al mes, sin contrato. ¿Le parece si paso a enseñársela en 10 minutos?`);return}if(x.vet){wa(`Hola, soy ${yo()||'de Mostrador'}. Le preparé cómo se vería ${x.n} con un sistema hecho para veterinarias: agenda, expedientes con fotos y cartilla, recetas con la dosis calculada por peso, recordatorios de vacunas por WhatsApp y caja. Se usa en el celular o la tablet que ya tienen: ${ligaCon(x)}\n\n¿Le parece si paso a enseñárselo en 10 minutos?`);return}wa(`Hola, soy ${yo()||'de Mostrador'}. Le preparé cómo se vería ${x.n} en Comandero, el sistema para su negocio que se usa en el celular, con su menú: ${ligaCon(x)}\n\nÁbralo en su celular y para entrar como dueño use el PIN 1234. ¿Le parece si paso a enseñárselo en 10 minutos?`)},
  mandarGuia:d=>{const x=DEMOS.find(y=>y.id===d.i);wa(`Aquí está la guía con fotos de cómo se usaría en ${x.n}: ${ligaGuia(x)}`)},
  copiar:d=>copiar(d.v),
  alta:d=>sheetAlta(DEMOS.find(x=>x.id===d.i)),
@@ -301,6 +318,7 @@ const A={
  cerrar:(d,e)=>{if(e.target.classList.contains('ov'))cerrar()}
 };
 let conf={};function confirmar(k){if(conf[k]&&Date.now()-conf[k]<3000)return true;conf[k]=Date.now();toast('Toca otra vez para confirmar');return false}
+document.addEventListener('input',e=>{if(e.target.id==='pn'){ui.pn=e.target.value;const a=document.getElementById('pa');if(a)a.href=ligaCon(DEMOS.find(x=>x.id===a.dataset.i))}});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const f=A[b.dataset.a];if(f){if(b.dataset.a!=='cerrar')e.preventDefault&&b.tagName!=='A'&&e.preventDefault();f(b.dataset,e)}});
 document.addEventListener('input',e=>{const t=e.target;
   if(t.id==='q'){ui.q=t.value;const p=t.selectionStart;render();const q=$('#q');q.focus();q.setSelectionRange(p,p);return}
@@ -314,7 +332,7 @@ addEventListener('scroll',()=>$('#top').classList.toggle('sc',scrollY>4),{passiv
 fetch('demos.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{DEMOS=d;render()}).catch(()=>{$('#app').innerHTML='<div class="empty">No se pudieron cargar las demos. Revisa tu internet y vuelve a abrir.</div>'});
 render();
 if(!yo())setTimeout(()=>{modal(`<h2>¡Hola!</h2><p class="sub">Esta es tu app para vender los sistemas de Mostrador. ¿Cómo te llamas?</p><input id="nom1" type="text" placeholder="Tu nombre" autocomplete="given-name"><div class="acts" style="margin-top:14px"><button class="btn pri" id="nomOk">Empezar</button></div><p class="hint">Tu nombre va en las ligas que mandes, para que las ventas queden a tu nombre.</p>`);$('#nomOk').onclick=()=>{const v=$('#nom1').value.trim();if(!v){toast('Escribe tu nombre');return}LS.set('nombre',v.slice(0,40));cerrar();render()}},400);
-if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+if('serviceWorker' in navigator){let rl=false;const had=!!navigator.serviceWorker.controller;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(rl||!had)return;rl=true;location.reload()});navigator.serviceWorker.register('sw.js').then(r=>{r.update();document.addEventListener('visibilitychange',()=>{if(!document.hidden)r.update()})}).catch(()=>{})}
 </script>
 </body>
 </html>
