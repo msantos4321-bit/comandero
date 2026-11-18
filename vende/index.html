@@ -40,6 +40,7 @@ main{padding:6px 16px calc(96px + var(--sab));max-width:720px;margin:0 auto}
 .chip.on{background:var(--ink);color:#fff}
 .vids{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.vid{flex:0 0 132px;scroll-snap-align:start;border:0;border-radius:16px;padding:0;overflow:hidden;background:var(--card);text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.06)}.vid img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}.vid b{display:block;font-size:13px;line-height:1.25;padding:8px 10px 2px}.vid span{display:block;font-size:11.5px;color:var(--muted);padding:0 10px 10px}.vbox video{display:block;width:100%;max-height:58vh;border-radius:14px;background:#000}
 .kit{background:var(--card);border-radius:var(--r);padding:12px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.kit .kh{display:flex;gap:12px;align-items:center;margin-bottom:10px;border:0;background:none;padding:0;width:100%;text-align:left;cursor:pointer}.kit .kh img{width:64px;height:86px;object-fit:cover;border-radius:10px;flex:none}.kit .kh b{display:block;font-size:16px}.kit .kh span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}.kit .kh i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.kit .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kit .g2 .btn{padding:10px 8px;font-size:13.5px;margin:0;width:auto}.inst{background:var(--ink);color:#fff;border-radius:var(--r);padding:14px;display:flex;gap:12px;align-items:center;margin:4px 0 6px}.inst p{margin:2px 0 0;font-size:12.5px;opacity:.8}.inst .btn{margin:0;width:auto;flex:none}
+.mx{position:sticky;top:0;float:right;margin:-6px -4px 0 10px;z-index:3;width:38px;height:38px;border-radius:50%;border:0;background:#EFEBE6;color:#1F2937;font-size:16px;font-weight:800;cursor:pointer}
 .list{display:grid;gap:10px}
 .demo{display:flex;gap:12px;align-items:center;background:var(--card);border-radius:var(--r);padding:12px;border:0;width:100%;text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.04)}
 .av{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:18px;overflow:hidden;background:#ccc}
@@ -272,7 +273,7 @@ function vDinero(){encab('Mis ganancias','Lo que te toca por cada cliente');cons
    <label for="cor">Correo de Mauricio (para mandarle tus visitas)</label><input id="cor" type="email" value="${esc(LS.get('correo',''))}" placeholder="correo@gmail.com" autocomplete="off">
    <p class="hint">Mauricio paga las comisiones cada mes y te avisa por WhatsApp.</p></div>`}
 /* ---------- Modal ---------- */
-function modal(h){$('#modal').innerHTML=`<div class="ov" data-a="cerrar"><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div>${h}</div></div>`}
+function modal(h){$('#modal').innerHTML=`<div class="ov" data-a="cerrar"><div class="sheet" role="dialog" aria-modal="true"><div class="grab"></div><button class="mx" data-a="cerrarX" aria-label="Cerrar">✕</button>${h}</div></div>`}
 function cerrar(){$('#modal').innerHTML=''}
 /* ---------- Visitas ---------- */
 let FOTOS=[];
@@ -293,6 +294,7 @@ function render(){LS.set('tab',ui.tab);tabs();const V={demos:vDemos,visita:vVisi
   if(ui.tab==='visita')pintarFotos()}
 function pintarFotos(){const f=$('#fotos');if(f)f.innerHTML=FOTOS.map(x=>`<img src="${URL.createObjectURL(x)}" alt="">`).join('')}
 const A={
+ cerrarX:()=>cerrar(),
  instalar:()=>{if(DEFER){DEFER.prompt();DEFER.userChoice.finally(()=>{DEFER=null;render()})}else modal(`<h2>📲 Instalar la app</h2><p class="sub">Así queda en tu pantalla como cualquier app.</p><div class="card"><b>Android (Chrome)</b><p class="hint">Toca ⋮ arriba a la derecha → «Instalar app» o «Agregar a la pantalla principal».</p><b style="display:block;margin-top:10px">iPhone (Safari)</b><p class="hint">Toca el botón Compartir (cuadro con flecha) → «Agregar a inicio».</p></div>`)},
  copiarLiga:d=>copiar(ligaCon(DEMOS.find(x=>x.id===d.i))),
  verVideo:d=>sheetVideo(VID.find(v=>v.k===d.k),!!d.c),
@@ -332,6 +334,7 @@ addEventListener('scroll',()=>$('#top').classList.toggle('sc',scrollY>4),{passiv
 fetch('demos.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{DEMOS=d;render()}).catch(()=>{$('#app').innerHTML='<div class="empty">No se pudieron cargar las demos. Revisa tu internet y vuelve a abrir.</div>'});
 render();
 if(!yo())setTimeout(()=>{modal(`<h2>¡Hola!</h2><p class="sub">Esta es tu app para vender los sistemas de Mostrador. ¿Cómo te llamas?</p><input id="nom1" type="text" placeholder="Tu nombre" autocomplete="given-name"><div class="acts" style="margin-top:14px"><button class="btn pri" id="nomOk">Empezar</button></div><p class="hint">Tu nombre va en las ligas que mandes, para que las ventas queden a tu nombre.</p>`);$('#nomOk').onclick=()=>{const v=$('#nom1').value.trim();if(!v){toast('Escribe tu nombre');return}LS.set('nombre',v.slice(0,40));cerrar();render()}},400);
+try{history.replaceState({t:0},'');history.pushState({t:1},'');addEventListener('popstate',()=>{if($('#modal').innerHTML.trim()){cerrar();history.pushState({t:1},'');return}if(ui.tab!=='demos'){ui.tab='demos';render();history.pushState({t:1},'');return}})}catch(e){}
 if('serviceWorker' in navigator){let rl=false;const had=!!navigator.serviceWorker.controller;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(rl||!had)return;rl=true;location.reload()});navigator.serviceWorker.register('sw.js').then(r=>{r.update();document.addEventListener('visibilitychange',()=>{if(!document.hidden)r.update()})}).catch(()=>{})}
 </script>
 </body>
