@@ -146,9 +146,6 @@ const VID=[{k:'todas',t:'Todas las apps',f:'Mostrador-todas-las-apps',d:'g-prueb
  {k:'abarrotes',t:'Tienda de abarrotes',f:'Mostrador-tienda-abarrotes',d:'g-abarrotes',dur:'1:07',g:['Abarrotes']},
  {k:'vet',t:'Veterinaria y estética',f:'Mostrador-veterinaria-app',d:'g-vet',dur:'1:10',g:['Veterinarias']},
  {k:'resto',t:'Restaurante, taquería o café',f:'Mostrador-restaurante-app',d:'tu-cocina',dur:'1:08',g:RESTO},
- {k:'barberia',t:'Barbería',s:'Agenda por barbero, cobro y comisiones · sus clientes agendan solos',c:'#C8102E',own:'g-barberia',cli:'g-barberia-cli'},
- {k:'estetica',t:'Estética y uñas',s:'Agenda por estilista, uñas y cabello · sus clientas agendan solas',c:'#B76E79',own:'g-estetica',cli:'g-estetica-cli'},
- {k:'taller',t:'Taller mecánico',s:'Órdenes con VIN y cotización que el cliente autoriza · «Mi carro» para sus clientes',c:'#EA580C',own:'g-taller',cli:'g-taller-cli'},
  {k:'cel',t:'Taller de celulares',f:'Mostrador-taller-celular',d:'g-cel',dur:'1:20',g:['Celulares']},
  {k:'geek',t:'Tienda geek',f:'Mostrador-tienda-geek',d:'g-geek',dur:'1:27',g:['Tienda geek']}];
 const vidDe=g=>VID.filter(v=>g==='Todas'||!v.g.length||v.g.includes(g));
@@ -174,6 +171,9 @@ const KITS=[{k:'abarrotes',t:'Tienda de abarrotes',s:'Caja con cámara, fiado, i
  {k:'resto',t:'Restaurante o taquería',s:'Mesero → cocina → caja · «Pide en línea» para sus clientes',c:'#B91C1C',own:'tu-cocina',cli:'g-pedir',x:'tu-taqueria'},
  {k:'paleta',t:'Paletería y nevería',s:'Nieves, paletas y antojitos con toppings por toque · «Pide en línea» para sus clientes',c:'#E5197A',own:'tu-paleteria',cli:'g-pedir-paleta'},
  {k:'cafe',t:'Cafetería',s:'Diseño elegante: tamaños, leches y sabores · «Pide en línea» para sus clientes',c:'#B08D57',own:'tu-cafeteria',cli:'g-pedir-cafe'},
+ {k:'barberia',t:'Barbería',s:'Agenda por barbero, cobro y comisiones · sus clientes agendan solos',c:'#C8102E',own:'g-barberia',cli:'g-barberia-cli'},
+ {k:'estetica',t:'Estética y uñas',s:'Agenda por estilista, uñas y cabello · sus clientas agendan solas',c:'#B76E79',own:'g-estetica',cli:'g-estetica-cli'},
+ {k:'taller',t:'Taller mecánico',s:'Órdenes con VIN y cotización que el cliente autoriza · «Mi carro» para sus clientes',c:'#EA580C',own:'g-taller',cli:'g-taller-cli'},
  {k:'cel',t:'Taller de celulares',s:'Reparaciones con folio y avisos · «Mi reparación» para sus clientes',c:'#2563EB',own:'g-cel',cli:'g-cel-cli'},
  {k:'geek',t:'Tienda geek',s:'Videojuegos, Funko, anime: apartados y preventas · catálogo para sus clientes',c:'#7C3AED',own:'g-geek',cli:'g-geek-cli'}];
 let DEFER=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();DEFER=e;if(ui.tab==='demos')render()});
