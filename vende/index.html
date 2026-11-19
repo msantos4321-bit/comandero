@@ -169,7 +169,7 @@ function sheetVideo(v,c){c=c&&v.k!=='todas';
 const KITS=[{k:'abarrotes',t:'Tienda de abarrotes',s:'Caja con cámara, fiado, inventario · pedidos de sus clientes',c:'#D62828',own:'g-abarrotes',cli:'g-pedidos'},
  {k:'vet',t:'Veterinaria y estética canina',s:'Agenda, expedientes, vacunas · «Mi mascota» para los dueños',c:'#0F766E',own:'g-vet',cli:'g-mascota'},
  {k:'resto',t:'Restaurante o taquería',s:'Mesero → cocina → caja · «Pide en línea» para sus clientes',c:'#B91C1C',own:'tu-cocina',cli:'g-pedir',x:'tu-taqueria'},
- {k:'paleta',t:'Paletería y nevería',s:'Nieves, paletas y antojitos con toppings por toque · «Pide en línea» para sus clientes',c:'#E5197A',own:'tu-paleteria',cli:'g-pedir-paleta'},
+ {k:'paleta',t:'Paletería y nevería',s:'Mostrador rápido con sabores y toppings, turnos y congelador · app para que sus clientes pidan',c:'#E5197A',own:'g-paleteria',cli:'g-paleteria-cli'},
  {k:'cafe',t:'Cafetería',s:'Diseño elegante: tamaños, leches y sabores · «Pide en línea» para sus clientes',c:'#B08D57',own:'tu-cafeteria',cli:'g-pedir-cafe'},
  {k:'barberia',t:'Barbería',s:'Agenda por barbero, cobro y comisiones · sus clientes agendan solos',c:'#C8102E',own:'g-barberia',cli:'g-barberia-cli'},
  {k:'estetica',t:'Estética y uñas',s:'Agenda por estilista, uñas y cabello · sus clientas agendan solas',c:'#B76E79',own:'g-estetica',cli:'g-estetica-cli'},
@@ -342,5 +342,5 @@ if(!yo())setTimeout(()=>{modal(`<h2>¡Hola!</h2><p class="sub">Esta es tu app pa
 try{history.replaceState({t:0},'');history.pushState({t:1},'');addEventListener('popstate',()=>{if($('#modal').innerHTML.trim()){cerrar();history.pushState({t:1},'');return}if(ui.tab!=='demos'){ui.tab='demos';render();history.pushState({t:1},'');return}})}catch(e){}
 if('serviceWorker' in navigator){let rl=false;const had=!!navigator.serviceWorker.controller;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(rl||!had)return;rl=true;location.reload()});navigator.serviceWorker.register('sw.js').then(r=>{r.update();document.addEventListener('visibilitychange',()=>{if(!document.hidden)r.update()})}).catch(()=>{})}
 </script>
-</body>
+<script src="/mostrador/iconos.js"></script></body>
 </html>
