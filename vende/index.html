@@ -125,7 +125,7 @@ let DEMOS=[];
 const yo=()=>LS.get('nombre','');
 const ref=()=>slug(yo());
 const ligaDemo=d=>d.url?(/^https?:/.test(d.url)?d.url:BASE+d.url)+(ref()?(d.url.includes('?')?'&':'?')+'ref='+ref():''):BASE+'?p='+d.id+(ref()?'&ref='+ref():'');
-const ligaGuia=d=>d.guia?BASE+d.guia:'';
+const ligaGuia=d=>d.guia?new URL(d.guia,BASE).href:'';
 function toast(t,ms){const e=document.createElement('div');e.className='toast';e.textContent=t;document.body.appendChild(e);setTimeout(()=>e.remove(),ms||2600)}
 function wa(texto,tel){location.href='https://wa.me/'+(tel||'')+'?text='+encodeURIComponent(texto)}
 async function copiar(t){try{await navigator.clipboard.writeText(t);toast('Copiado')}catch(e){prompt('Copia esto:',t)}}
