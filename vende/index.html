@@ -39,7 +39,8 @@ main{padding:6px 16px calc(96px + var(--sab));max-width:720px;margin:0 auto}
 .chip{border:0;background:var(--chip);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600;white-space:nowrap;cursor:pointer}
 .chip.on{background:var(--ink);color:#fff}
 .vids{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.vid{flex:0 0 132px;scroll-snap-align:start;border:0;border-radius:16px;padding:0;overflow:hidden;background:var(--card);text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.06)}.vid img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}.vid b{display:block;font-size:13px;line-height:1.25;padding:8px 10px 2px}.vid span{display:block;font-size:11.5px;color:var(--muted);padding:0 10px 10px}.vbox video{display:block;width:100%;max-height:58vh;border-radius:14px;background:#000}
-.kit{background:var(--card);border-radius:var(--r);padding:12px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.kit .kh{display:flex;gap:12px;align-items:center;margin-bottom:10px;border:0;background:none;padding:0;width:100%;text-align:left;cursor:pointer}.kit .kh img{width:64px;height:86px;object-fit:cover;border-radius:10px;flex:none}.kit .kh b{display:block;font-size:16px}.kit .kh span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}.kit .kh i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.kit .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.kit .g2 .btn{padding:10px 8px;font-size:13.5px;margin:0;width:auto}.inst{background:var(--ink);color:#fff;border-radius:var(--r);padding:14px;display:flex;gap:12px;align-items:center;margin:4px 0 6px}.inst p{margin:2px 0 0;font-size:12.5px;opacity:.8}.inst .btn{margin:0;width:auto;flex:none}
+.kit{background:var(--card);border-radius:var(--r);padding:12px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.kit .kh{display:flex;gap:12px;align-items:center;margin-bottom:10px;border:0;background:none;padding:0;width:100%;text-align:left;cursor:pointer}.kit .kh img{width:64px;height:86px;object-fit:cover;border-radius:10px;flex:none}.kit .kh b{display:block;font-size:16px}.kit .kh span{display:block;font-size:12.5px;color:var(--muted);margin-top:3px}.kit .kh i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.kit .g2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.qrb{background:var(--ink)!important;color:#fff!important}.kit .g2 .btn{padding:10px 8px;font-size:13.5px;margin:0;width:auto}.inst{background:var(--ink);color:#fff;border-radius:var(--r);padding:14px;display:flex;gap:12px;align-items:center;margin:4px 0 6px}.inst p{margin:2px 0 0;font-size:12.5px;opacity:.8}.inst .btn{margin:0;width:auto;flex:none}
 .mx{position:sticky;top:0;float:right;margin:-6px -4px 0 10px;z-index:3;width:38px;height:38px;border-radius:50%;border:0;background:#EFEBE6;color:#1F2937;font-size:16px;font-weight:800;cursor:pointer}
 .list{display:grid;gap:10px}
 .demo{display:flex;gap:12px;align-items:center;background:var(--card);border-radius:var(--r);padding:12px;border:0;width:100%;text-align:left;cursor:pointer;box-shadow:0 1px 2px rgba(0,0,0,.04)}
@@ -185,13 +186,13 @@ let DEFER=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();DEF
 const instalada=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
 const ligaCon=d=>{const l=ligaDemo(d),n=(ui.pn||'').trim();return n?l+(l.includes('?')?'&':'?')+'n='+encodeURIComponent(n):l};
 function vDemos(){encab('Demos',yo()?'Hola, '+yo():'Mostrador Ventas');
-  let h=instalada()?'':`<div class="inst"><div style="flex:1"><b>📲 Instálala en tu celular</b><p>Queda como app, con su ícono, y se actualiza sola.</p></div><button class="btn pri" data-a="instalar">Instalar</button></div>`;
+  let h=instalada()?'':`<div class="inst"><div style="flex:1"><b>Instálala en tu celular</b><p>Queda como app, con su ícono, y se actualiza sola.</p></div><button class="btn pri" data-a="instalar">Instalar</button></div>`;
   const pr=DEMOS.find(d=>d.id==='g-pruebalo'),todas=VID[0];
-  h+=`<div class="hero"><b>Empieza aquí con cualquier negocio</b><p>Enséñale el video de todas las apps y abre «Pruébalo»: escribe el nombre del negocio y el dueño ve las apps como suyas.</p><div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px"><button class="btn dk" data-a="verVideo" data-k="todas">▶ Video (1:49)</button>${pr?`<button class="btn" data-a="demo" data-i="g-pruebalo">Abrir «Pruébalo»</button>`:''}</div></div>`;
+  h+=`<div class="hero"><b>Empieza aquí con cualquier negocio</b><p>Enséñale el video de todas las apps y abre «Pruébalo»: escribe el nombre del negocio y el dueño ve las apps como suyas.</p><div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px"><button class="btn dk" data-a="verVideo" data-k="todas">▶ Video (${todas.dur})</button>${pr?`<button class="btn" data-a="demo" data-i="g-pruebalo">Abrir «Pruébalo»</button><button class="btn qrb" data-a="qrDemo" data-i="g-pruebalo" style="grid-column:1/-1">▦ QR de todas las apps</button>`:''}</div></div>`;
   h+='<div class="sec">Un kit por tipo de negocio</div><div class="list">';
   for(const k of KITS){const v=VID.find(x=>x.d===k.own),o=DEMOS.find(d=>d.id===k.own),c=DEMOS.find(d=>d.id===k.cli),g=o?ligaGuia(o):'';
     h+=`<div class="kit"><button class="kh" ${v?`data-a="verVideo" data-k="${v.k}"`:`data-a="demo" data-i="${k.own}"`}>${v?`<img src="${VURL}p-${v.f}.jpg" alt="Video" loading="lazy">`:(o&&o.logo?`<img src="../${esc(o.logo)}" alt="" loading="lazy" style="object-fit:contain;background:#2B1E16">`:'')}<div><b><i style="background:${k.c}"></i>${esc(k.t)}</b><span>${esc(k.s)}</span></div></button>
-    <div class="g2">${o?`<button class="btn" data-a="demo" data-i="${k.own}">App del negocio</button>`:''}${c?`<button class="btn" data-a="demo" data-i="${k.cli}">App de sus clientes</button>`:''}${v?`<button class="btn" data-a="verVideo" data-k="${v.k}">▶ Video</button>`:''}${g?`<a class="btn" href="${esc(g)}" target="_blank" rel="noopener">📘 Guía PDF</a>`:''}${k.x?`<button class="btn" data-a="demo" data-i="${k.x}" style="grid-column:1/-1">Versión taquería</button>`:''}</div></div>`}
+    <div class="g2"><button class="btn qrb" data-a="qr" data-k="${k.k}" style="grid-column:1/-1">▦ Mostrar QR para instalar</button>${o?`<button class="btn" data-a="demo" data-i="${k.own}">App del negocio</button>`:''}${c?`<button class="btn" data-a="demo" data-i="${k.cli}">App de sus clientes</button>`:''}${v?`<button class="btn" data-a="verVideo" data-k="${v.k}">▶ Video</button>`:''}${g?`<a class="btn" href="${esc(g)}" target="_blank" rel="noopener">📘 Guía PDF</a>`:''}${k.x?`<button class="btn" data-a="demo" data-i="${k.x}" style="grid-column:1/-1">Versión taquería</button>`:''}</div></div>`}
   h+=`</div><p class="hint" style="margin-top:14px">¿Ya dijo que sí? Abre la app del negocio y toca «Dijo que sí: pedir su alta». Su versión con sus productos y su logo la armamos nosotros.</p>`;
   return h}
 function sheetDemo(d){const g=ligaGuia(d);
@@ -199,6 +200,7 @@ function sheetDemo(d){const g=ligaGuia(d);
   <div class="acts" style="margin-top:16px">
    <label for="pn" style="margin:0 0 -4px">Nombre del negocio (para que la vea como suya)</label><input id="pn" type="text" placeholder="Ej. Abarrotes Lupita" value="${esc(ui.pn||'')}" autocomplete="off">
    <a class="btn pri" id="pa" data-i="${d.id}" href="${esc(ligaCon(d))}" target="_blank" rel="noopener">Abrir la demo</a>
+   <button class="btn qrb" data-a="qrDemo" data-i="${d.id}">▦ Mostrar QR para que la instale</button>
    <button class="btn wa" data-a="mandarDemo" data-i="${d.id}">Mandársela al dueño por WhatsApp</button>
    ${g?`<a class="btn" href="${esc(g)}" target="_blank" rel="noopener">Ver la guía PDF</a><button class="btn" data-a="mandarGuia" data-i="${d.id}">Mandar la guía por WhatsApp</button>`:''}
    ${(()=>{const v=VID.find(v=>v.d===d.id)||(d.vet?VID[2]:VID.find(v=>v.g.includes(d.g)));return v?`<button class="btn" data-a="verVideo" data-k="${v.k}">🎬 Ver el video de este giro</button>`:''})()}
@@ -303,6 +305,23 @@ function leerForm(){document.querySelectorAll('[data-v]').forEach(e=>ui.v[e.data
 function render(){LS.set('tab',ui.tab);tabs();const V={demos:vDemos,visita:vVisita,pros:vPros,vender:vVender,dinero:vDinero}[ui.tab];$('#app').innerHTML=V();
   if(ui.tab==='visita')pintarFotos()}
 function pintarFotos(){const f=$('#fotos');if(f)f.innerHTML=FOTOS.map(x=>`<img src="${URL.createObjectURL(x)}" alt="">`).join('')}
+const ligaQR=d=>{const l=ligaCon(d);return l+(l.includes('?')?'&':'?')+'qr=1&de=qr'+(ref()?'-'+ref():'')};
+function qrSvg(txt){if(!window.qrcode)return '';const q=qrcode(0,'M');q.addData(txt);q.make();return q.createSvgTag({cellSize:8,margin:2,scalable:true})}
+function sheetQR(ids,i){i=i||0;const L=ids.map(x=>DEMOS.find(d=>d.id===x)).filter(Boolean);if(!L.length)return;ui.qr={ids,i};const d=L[Math.min(i,L.length-1)];
+  modal(`<h2 style="margin-bottom:2px">${esc(d.n)}</h2><p class="sub" style="margin:0 0 10px">${esc(d.l||'')}</p>
+  ${L.length>1?`<div class="seg" style="margin-bottom:12px">${L.map((x,j)=>`<button class="${j===i?'on':''}" data-a="qrTab" data-j="${j}">${/cli|pedidos|mascota|reparacion/.test(x.id)?'App de sus clientes':'App del negocio'}</button>`).join('')}</div>`:''}
+  <div id="qrBox" data-a="qrFull" style="background:#fff;border-radius:18px;padding:14px;display:grid;place-items:center;aspect-ratio:1;max-width:340px;margin:0 auto;box-shadow:0 2px 12px rgba(0,0,0,.08)">${qrSvg(ligaQR(d))||'<small class="muted">Preparando código…</small>'}</div>
+  <p style="text-align:center;font-weight:700;margin:12px 0 2px">Que abra la cámara de su celular y apunte aquí</p>
+  <p class="hint" style="text-align:center;margin:0 0 12px">Se abre la app y le sale el botón «Instalar». Queda en su celular con su ícono.</p>
+  <label for="qn" style="margin:0 0 4px">Nombre del negocio (opcional, para que la vea como suya)</label><input id="qn" type="text" placeholder="Ej. Barbería El Patrón" value="${esc(ui.pn||'')}" autocomplete="off">
+  <div class="acts" style="margin-top:12px"><button class="btn dk" data-a="qrFull">Pantalla completa</button><button class="btn wa" data-a="mandarDemo" data-i="${d.id}">Mejor mandársela por WhatsApp</button></div>
+  <p class="hint" style="margin-top:10px">Por WhatsApp te quedas con su número para darle seguimiento. Si lo escanea, pídele su número antes de irte.</p>`);
+  if(!window.qrcode){let n=0;const w=setInterval(()=>{if(window.qrcode||++n>40){clearInterval(w);const b=$('#qrBox');if(b)b.innerHTML=qrSvg(ligaQR(d))||'<small>No se pudo dibujar el código. Usa WhatsApp.</small>'}},150)}
+  const inp=$('#qn');if(inp)inp.addEventListener('input',()=>{ui.pn=inp.value;const b=$('#qrBox');if(b)b.innerHTML=qrSvg(ligaQR(d))})}
+function qrFull(){const s=ui.qr;if(!s)return;const d=DEMOS.find(x=>x.id===s.ids[s.i||0]);const ov=document.createElement('div');ov.id='qrfs';ov.style.cssText='position:fixed;inset:0;z-index:999;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;gap:14px';
+  ov.innerHTML=`<b style="font-size:20px;color:#111;text-align:center">${esc(d.n)}</b><div style="width:min(88vw,70vh)">${qrSvg(ligaQR(d))}</div><p style="color:#333;font-size:16px;text-align:center;margin:0">Abre la cámara y apunta aquí</p><button style="border:0;background:#111;color:#fff;border-radius:14px;padding:14px 28px;font-weight:700;font-size:16px">Cerrar</button>`;
+  ov.onclick=()=>ov.remove();document.body.appendChild(ov);try{navigator.wakeLock&&navigator.wakeLock.request('screen').then(l=>{ov.addEventListener('click',()=>l.release())}).catch(()=>{})}catch(e){}}
+
 const A={
  cerrarX:()=>cerrar(),
  instalar:()=>{if(DEFER){DEFER.prompt();DEFER.userChoice.finally(()=>{DEFER=null;render()})}else modal(`<h2>📲 Instalar la app</h2><p class="sub">Así queda en tu pantalla como cualquier app.</p><div class="card"><b>Android (Chrome)</b><p class="hint">Toca ⋮ arriba a la derecha → «Instalar app» o «Agregar a la pantalla principal».</p><b style="display:block;margin-top:10px">iPhone (Safari)</b><p class="hint">Toca el botón Compartir (cuadro con flecha) → «Agregar a inicio».</p></div>`)},
@@ -312,6 +331,10 @@ const A={
  tab:d=>{ui.tab=d.t;cerrar();render();scrollTo(0,0)},
  giro:d=>{ui.g=d.g;render()},
  demo:d=>sheetDemo(DEMOS.find(x=>x.id===d.i)),
+ qr:d=>{const k=KITS.find(x=>x.k===d.k);sheetQR([k.own,k.cli].filter(Boolean))},
+ qrDemo:d=>sheetQR([d.i]),
+ qrTab:d=>sheetQR(ui.qr.ids,+d.j),
+ qrFull:()=>qrFull(),
  mandarDemo:d=>{const x=DEMOS.find(y=>y.id===d.i);if(x.msg){wa(`Hola, soy ${yo()||'de Mostrador'}. ${x.msg}: ${ligaCon(x)}\n\nPruébela con confianza: trae datos de ejemplo y un botón «Prueba esto» que lo va guiando. Son $399 al mes, sin contrato. ¿Le parece si paso a enseñársela en 10 minutos?`);return}if(x.vet){wa(`Hola, soy ${yo()||'de Mostrador'}. Le preparé cómo se vería ${x.n} con un sistema hecho para veterinarias: agenda, expedientes con fotos y cartilla, recetas con la dosis calculada por peso, recordatorios de vacunas por WhatsApp y caja. Se usa en el celular o la tablet que ya tienen: ${ligaCon(x)}\n\n¿Le parece si paso a enseñárselo en 10 minutos?`);return}wa(`Hola, soy ${yo()||'de Mostrador'}. Le preparé cómo se vería ${x.n} en Comandero, el sistema para su negocio que se usa en el celular, con su menú: ${ligaCon(x)}\n\nÁbralo en su celular y para entrar como dueño use el PIN 1234. ¿Le parece si paso a enseñárselo en 10 minutos?`)},
  mandarGuia:d=>{const x=DEMOS.find(y=>y.id===d.i);wa(`Aquí está la guía con fotos de cómo se usaría en ${x.n}: ${ligaGuia(x)}`)},
  copiar:d=>copiar(d.v),
@@ -347,5 +370,5 @@ if(!yo())setTimeout(()=>{modal(`<h2>¡Hola!</h2><p class="sub">Esta es tu app pa
 try{history.replaceState({t:0},'');history.pushState({t:1},'');addEventListener('popstate',()=>{if($('#modal').innerHTML.trim()){cerrar();history.pushState({t:1},'');return}if(ui.tab!=='demos'){ui.tab='demos';render();history.pushState({t:1},'');return}})}catch(e){}
 if('serviceWorker' in navigator){let rl=false;const had=!!navigator.serviceWorker.controller;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(rl||!had)return;rl=true;location.reload()});navigator.serviceWorker.register('sw.js').then(r=>{r.update();document.addEventListener('visibilitychange',()=>{if(!document.hidden)r.update()})}).catch(()=>{})}
 </script>
-<script src="/mostrador/iconos.js"></script></body>
+<script src="qr.js" defer></script><script src="/mostrador/iconos.js"></script></body>
 </html>
