@@ -1,0 +1,1114 @@
+{
+ "ver": 1,
+ "nombre": "Tu Paletería",
+ "lema": "Paletas, nieves y antojitos · hechos aquí",
+ "color": "#E5197A",
+ "preciosReales": false,
+ "mesas": 4,
+ "iniciales": "TP",
+ "aviso": "Así se ve Comandero en una paletería y nevería: tamaños, sabores y toppings con un toque para que ningún extra se quede sin cobrar, la producción de paletas por sabor y sus clientes piden para recoger o a domicilio. Los precios son de ejemplo. Nada de lo que haga aquí se guarda: con su menú, sus fotos y su logo se la dejamos lista.",
+ "menu": [
+  [
+   "Paletas",
+   "Paleta de agua",
+   25,
+   "Hecha aquí con fruta natural",
+   "Sabor: Limón, Fresa, Mango con chile, Tamarindo, Pepino con chile, Sandía, Piña, Grosella",
+   "p/tu-paleteria/paleta-agua.svg"
+  ],
+  [
+   "Paletas",
+   "Paleta de leche",
+   30,
+   "Cremosita, de la casa",
+   "Sabor: Fresa, Nuez, Coco, Vainilla, Chocolate, Arroz con leche, Elote, Rompope",
+   "p/tu-paleteria/paleta-leche.svg"
+  ],
+  [
+   "Paletas",
+   "Paleta mangonada",
+   38,
+   "Mango con chamoy por dentro y tajín",
+   "",
+   "p/tu-paleteria/paleta-mangonada.svg"
+  ],
+  [
+   "Paletas",
+   "Paleta de Gansito",
+   42,
+   "Rellena y con cubierta de chocolate",
+   "",
+   "p/tu-paleteria/paleta-gansito.svg"
+  ],
+  [
+   "Paletas",
+   "Paleta de mazapán",
+   35,
+   "La favorita de los niños",
+   "",
+   "p/tu-paleteria/paleta-mazapan.svg"
+  ],
+  [
+   "Paletas",
+   "Paleta de fresas con crema",
+   40,
+   "Con trozos de fresa natural",
+   "",
+   "p/tu-paleteria/paleta-fresas-crema.svg"
+  ],
+  [
+   "Paletas",
+   "Paleta Ferrero",
+   45,
+   "Chocolate con avellana y cubierta crujiente",
+   "",
+   "p/tu-paleteria/paleta-ferrero.svg"
+  ],
+  [
+   "Nieves y helados",
+   "Nieve en vaso",
+   38,
+   "De garrafa, hecha aquí",
+   "Tamaño: Sencilla, Doble (+22), Triple (+40) | Sabores*: Vainilla, Chocolate, Fresa, Nuez, Mamey, Limón, Mango, Rompope, Chicle, Queso con zarzamora, Cookies and cream, Pistache (+8)",
+   "p/tu-paleteria/nieve-vaso.svg"
+  ],
+  [
+   "Nieves y helados",
+   "Nieve en cono",
+   42,
+   "Cono de galleta recién hecho",
+   "Tamaño: Sencilla, Doble (+22), Triple (+40) | Cono: Normal, Bañado en chocolate (+12), Con chispas (+15) | Sabores*: Vainilla, Chocolate, Fresa, Nuez, Mamey, Limón, Mango, Rompope, Chicle, Queso con zarzamora, Cookies and cream, Pistache (+8)",
+   "p/tu-paleteria/nieve-cono.svg"
+  ],
+  [
+   "Especialidades",
+   "Banana split",
+   95,
+   "Plátano, 3 bolas, crema batida y cerezas",
+   "Sabores*: Vainilla, Chocolate, Fresa, Nuez, Mamey, Limón, Mango, Rompope, Chicle, Queso con zarzamora, Cookies and cream, Pistache (+8) | Toppings*: Nuez (+8), Chispas de colores (+5), Granola (+8), Lechera (+8), Chocolate líquido (+6), Coco rallado (+6)",
+   "p/tu-paleteria/banana-split.svg"
+  ],
+  [
+   "Especialidades",
+   "Fresas con crema",
+   70,
+   "Fresa natural con crema de la casa",
+   "Tamaño: Chico, Grande (+35) | Extras*: Granola (+8), Nuez (+8), Bola de nieve (+22), Lechera (+8), Plátano (+10)",
+   "p/tu-paleteria/fresas-crema.svg"
+  ],
+  [
+   "Especialidades",
+   "Mangonada",
+   78,
+   "Nieve de mango, chamoy, tajín y banderilla",
+   "Tamaño: Mediana, Grande (+22) | Extras*: Pulparindo (+8), Gomitas enchiladas (+10), Más chamoy (+5)",
+   "p/tu-paleteria/mangonada.svg"
+  ],
+  [
+   "Especialidades",
+   "Chamoyada",
+   72,
+   "Raspado de chamoy con fruta y tajín",
+   "Sabor: Mango, Fresa, Tamarindo, Sandía | Tamaño: Mediana, Grande (+22)",
+   "p/tu-paleteria/chamoyada.svg"
+  ],
+  [
+   "Especialidades",
+   "Bionico",
+   78,
+   "Fruta picada, crema, granola, pasas y miel",
+   "Extras*: Bola de nieve (+22), Nuez (+8), Sin pasas",
+   "p/tu-paleteria/bionico.svg"
+  ],
+  [
+   "Especialidades",
+   "Choco-banana",
+   35,
+   "Plátano congelado bañado en chocolate",
+   "Cubierta: Chocolate, Chocolate blanco (+5) | Topping: Nuez, Chispas, Coco, Cacahuate",
+   "p/tu-paleteria/choco-banana.svg"
+  ],
+  [
+   "Especialidades",
+   "Waffle con nieve",
+   88,
+   "Waffle caliente, 2 bolas y chocolate",
+   "Sabores*: Vainilla, Chocolate, Fresa, Nuez, Mamey, Limón, Mango, Rompope, Chicle, Queso con zarzamora, Cookies and cream, Pistache (+8) | Toppings*: Nuez (+8), Chispas de colores (+5), Granola (+8), Lechera (+8), Chocolate líquido (+6), Coco rallado (+6)",
+   "p/tu-paleteria/waffle.svg"
+  ],
+  [
+   "Especialidades",
+   "Malteada",
+   75,
+   "Espesa, hecha con nieve de garrafa",
+   "Sabor: Fresa, Chocolate, Vainilla, Oreo (+10), Mamey | Tamaño: Mediana, Grande (+20)",
+   "p/tu-paleteria/malteada.svg"
+  ],
+  [
+   "Especialidades",
+   "Frappé",
+   72,
+   "Café, moka o cajeta con crema batida",
+   "Sabor: Café, Moka, Cajeta, Oreo (+10) | Tamaño: Mediano, Grande (+20)",
+   "p/tu-paleteria/frappe.svg"
+  ],
+  [
+   "Especialidades",
+   "Crazy shake",
+   115,
+   "Malteada gigante con dulces, galleta y donita",
+   "Sabor: Fresa, Chocolate, Oreo, Mazapán",
+   "p/tu-paleteria/crazy-shake.svg"
+  ],
+  [
+   "Antojitos",
+   "Nachos con queso",
+   58,
+   "Totopos, queso derretido y jalapeños",
+   "Extras*: Carne con chile (+22), Elote (+12), Sin jalapeño",
+   "p/tu-paleteria/nachos.svg"
+  ],
+  [
+   "Antojitos",
+   "Elote entero",
+   42,
+   "Mayonesa, queso, chile y limón",
+   "Estilo: Clásico, Con Hot Cheetos (+12), Con Takis (+12) | Chile: Con chile, Sin chile",
+   "p/tu-paleteria/elote.svg"
+  ],
+  [
+   "Antojitos",
+   "Esquite",
+   45,
+   "En vaso, con todo",
+   "Tamaño: Chico, Grande (+18) | Estilo: Clásico, Con Hot Cheetos (+12), Con Takis (+12)",
+   "p/tu-paleteria/esquite.svg"
+  ],
+  [
+   "Antojitos",
+   "Tostilocos",
+   72,
+   "Jícama, pepino, cueritos, cacahuate y chamoy",
+   "Bolsa: Tostitos verdes, Tostitos rojos, Doritos, Takis (+5)",
+   "p/tu-paleteria/tostilocos.svg"
+  ],
+  [
+   "Antojitos",
+   "Papas locas",
+   68,
+   "Papas con verdura, salsas y chamoy",
+   "Papas: Sabritas, Ruffles, Takis (+5)",
+   "p/tu-paleteria/papas-locas.svg"
+  ],
+  [
+   "Antojitos",
+   "Pepino loco",
+   72,
+   "Pepino relleno de dulces, cacahuate y chamoy",
+   "",
+   "p/tu-paleteria/pepino-loco.svg"
+  ],
+  [
+   "Antojitos",
+   "Maruchan con elote",
+   68,
+   "Sopa con elote, queso y chile",
+   "Estilo: Clásico, Con Hot Cheetos (+12)",
+   "p/tu-paleteria/maruchan.svg"
+  ],
+  [
+   "Aguas frescas",
+   "Agua de horchata",
+   30,
+   "Con canela, de la casa",
+   "Tamaño: Medio litro, Litro (+18)",
+   "p/tu-paleteria/agua-horchata.svg"
+  ],
+  [
+   "Aguas frescas",
+   "Agua de jamaica",
+   30,
+   "Natural, poquita azúcar",
+   "Tamaño: Medio litro, Litro (+18)",
+   "p/tu-paleteria/agua-jamaica.svg"
+  ],
+  [
+   "Aguas frescas",
+   "Agua de limón con chía",
+   30,
+   "Recién hecha",
+   "Tamaño: Medio litro, Litro (+18)",
+   "p/tu-paleteria/agua-limon.svg"
+  ],
+  [
+   "Aguas frescas",
+   "Agua de fresa de leche",
+   35,
+   "Fresa natural con leche",
+   "Tamaño: Medio litro, Litro (+18)",
+   "p/tu-paleteria/agua-fresa.svg"
+  ],
+  [
+   "Para llevar a casa",
+   "Litro de nieve",
+   150,
+   "Hasta 2 sabores",
+   "Sabores*: Vainilla, Chocolate, Fresa, Nuez, Mamey, Limón, Mango, Rompope, Chicle, Queso con zarzamora, Cookies and cream, Pistache (+8)",
+   "p/tu-paleteria/litro.svg"
+  ],
+  [
+   "Para llevar a casa",
+   "Medio litro de nieve",
+   85,
+   "Un sabor",
+   "Sabor: Vainilla, Chocolate, Fresa, Nuez, Mamey, Limón, Mango, Rompope, Chicle, Queso con zarzamora, Cookies and cream, Pistache (+5)",
+   "p/tu-paleteria/medio-litro.svg"
+  ],
+  [
+   "Para llevar a casa",
+   "Paquete de 10 paletas",
+   230,
+   "Surtidas de agua y leche, para el congelador",
+   "",
+   "p/tu-paleteria/paquete.svg"
+  ]
+ ],
+ "promos": [
+  [
+   "Martes de paletas",
+   "pct",
+   20,
+   "Paletas",
+   "",
+   [
+    2
+   ]
+  ],
+  [
+   "Combo familiar",
+   "precio",
+   349,
+   "",
+   "Litro de nieve + Paquete de 10 paletas",
+   [
+    5,
+    6,
+    0
+   ]
+  ],
+  [
+   "Fin de semana de especialidades",
+   "pct",
+   10,
+   "Especialidades",
+   "",
+   [
+    6,
+    0
+   ]
+  ]
+ ],
+ "inv": {
+  "escala": {},
+  "insumos": [
+   [
+    "pal-agua",
+    "Paletas de agua (hechas)",
+    "pz",
+    "Producción",
+    "Producción propia",
+    7,
+    60,
+    200
+   ],
+   [
+    "pal-leche",
+    "Paletas de leche (hechas)",
+    "pz",
+    "Producción",
+    "Producción propia",
+    9,
+    50,
+    160
+   ],
+   [
+    "pal-esp",
+    "Paletas especiales (hechas)",
+    "pz",
+    "Producción",
+    "Producción propia",
+    13,
+    30,
+    90
+   ],
+   [
+    "nieve",
+    "Nieve de garrafa (hecha)",
+    "L",
+    "Producción",
+    "Producción propia",
+    48,
+    8,
+    25
+   ],
+   [
+    "leche",
+    "Leche",
+    "L",
+    "Lácteos",
+    "Costco",
+    26,
+    10,
+    30
+   ],
+   [
+    "crema",
+    "Crema para batir y de la casa",
+    "L",
+    "Lácteos",
+    "Costco",
+    70,
+    3,
+    8
+   ],
+   [
+    "lechera",
+    "Leche condensada",
+    "pz",
+    "Lácteos",
+    "Costco",
+    28,
+    6,
+    18
+   ],
+   [
+    "fresa",
+    "Fresa",
+    "kg",
+    "Fruta",
+    "Mercado",
+    55,
+    4,
+    12,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "mango",
+    "Mango",
+    "kg",
+    "Fruta",
+    "Mercado",
+    38,
+    4,
+    12,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "platano",
+    "Plátano",
+    "kg",
+    "Fruta",
+    "Mercado",
+    22,
+    3,
+    8
+   ],
+   [
+    "fruta",
+    "Fruta surtida (bionico)",
+    "kg",
+    "Fruta",
+    "Mercado",
+    40,
+    3,
+    8
+   ],
+   [
+    "limon",
+    "Limón",
+    "kg",
+    "Fruta",
+    "Mercado",
+    30,
+    2,
+    6
+   ],
+   [
+    "chamoy",
+    "Chamoy",
+    "L",
+    "Dulces y salsas",
+    "Dulcería",
+    45,
+    3,
+    8
+   ],
+   [
+    "tajin",
+    "Chile en polvo",
+    "kg",
+    "Dulces y salsas",
+    "Dulcería",
+    120,
+    1,
+    3
+   ],
+   [
+    "dulces",
+    "Dulces y banderillas",
+    "pz",
+    "Dulces y salsas",
+    "Dulcería",
+    3,
+    60,
+    150
+   ],
+   [
+    "chocolate",
+    "Chocolate para bañar",
+    "kg",
+    "Dulces y salsas",
+    "Costco",
+    160,
+    1,
+    3
+   ],
+   [
+    "totopo",
+    "Totopos",
+    "kg",
+    "Antojitos",
+    "Costco",
+    60,
+    3,
+    8
+   ],
+   [
+    "queso",
+    "Queso para nachos",
+    "kg",
+    "Antojitos",
+    "Costco",
+    110,
+    2,
+    6
+   ],
+   [
+    "elote",
+    "Elote",
+    "pz",
+    "Antojitos",
+    "Mercado",
+    8,
+    30,
+    80,
+    {
+     "puesto": true
+    }
+   ],
+   [
+    "frituras",
+    "Bolsas de frituras",
+    "pz",
+    "Antojitos",
+    "Distribuidora",
+    14,
+    40,
+    100
+   ],
+   [
+    "conos",
+    "Conos de galleta",
+    "pz",
+    "Desechables",
+    "Desechables",
+    2.2,
+    100,
+    300
+   ],
+   [
+    "vasos",
+    "Vasos y cucharas",
+    "pz",
+    "Desechables",
+    "Desechables",
+    1.6,
+    200,
+    600
+   ],
+   [
+    "litros",
+    "Botes de litro y medio",
+    "pz",
+    "Desechables",
+    "Desechables",
+    6,
+    30,
+    80
+   ],
+   [
+    "azucar",
+    "Azúcar",
+    "kg",
+    "Abarrotes",
+    "Costco",
+    28,
+    10,
+    25
+   ]
+  ],
+  "recetas": {
+   "Paleta de agua": [
+    [
+     "pal-agua",
+     1
+    ]
+   ],
+   "Paleta de leche": [
+    [
+     "pal-leche",
+     1
+    ]
+   ],
+   "Paleta mangonada": [
+    [
+     "pal-esp",
+     1
+    ]
+   ],
+   "Paleta de Gansito": [
+    [
+     "pal-esp",
+     1
+    ]
+   ],
+   "Paleta de mazapán": [
+    [
+     "pal-esp",
+     1
+    ]
+   ],
+   "Paleta de fresas con crema": [
+    [
+     "pal-esp",
+     1
+    ]
+   ],
+   "Paleta Ferrero": [
+    [
+     "pal-esp",
+     1
+    ]
+   ],
+   "Nieve en vaso": [
+    [
+     "nieve",
+     0.12
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Nieve en cono": [
+    [
+     "nieve",
+     0.12
+    ],
+    [
+     "conos",
+     1
+    ]
+   ],
+   "Banana split": [
+    [
+     "nieve",
+     0.3
+    ],
+    [
+     "platano",
+     0.15
+    ],
+    [
+     "crema",
+     0.05
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Fresas con crema": [
+    [
+     "fresa",
+     0.2
+    ],
+    [
+     "crema",
+     0.12
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Mangonada": [
+    [
+     "nieve",
+     0.25
+    ],
+    [
+     "mango",
+     0.1
+    ],
+    [
+     "chamoy",
+     0.04
+    ],
+    [
+     "dulces",
+     1
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Chamoyada": [
+    [
+     "chamoy",
+     0.06
+    ],
+    [
+     "fruta",
+     0.08
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Bionico": [
+    [
+     "fruta",
+     0.25
+    ],
+    [
+     "crema",
+     0.08
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Choco-banana": [
+    [
+     "platano",
+     0.18
+    ],
+    [
+     "chocolate",
+     0.04
+    ]
+   ],
+   "Waffle con nieve": [
+    [
+     "nieve",
+     0.2
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Malteada": [
+    [
+     "nieve",
+     0.25
+    ],
+    [
+     "leche",
+     0.25
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Frappé": [
+    [
+     "leche",
+     0.25
+    ],
+    [
+     "crema",
+     0.04
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Crazy shake": [
+    [
+     "nieve",
+     0.3
+    ],
+    [
+     "leche",
+     0.25
+    ],
+    [
+     "dulces",
+     3
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Nachos con queso": [
+    [
+     "totopo",
+     0.15
+    ],
+    [
+     "queso",
+     0.08
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Elote entero": [
+    [
+     "elote",
+     1
+    ]
+   ],
+   "Esquite": [
+    [
+     "elote",
+     1
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Tostilocos": [
+    [
+     "frituras",
+     1
+    ],
+    [
+     "chamoy",
+     0.03
+    ],
+    [
+     "dulces",
+     2
+    ]
+   ],
+   "Papas locas": [
+    [
+     "frituras",
+     1
+    ],
+    [
+     "chamoy",
+     0.03
+    ]
+   ],
+   "Pepino loco": [
+    [
+     "dulces",
+     4
+    ],
+    [
+     "chamoy",
+     0.04
+    ]
+   ],
+   "Maruchan con elote": [
+    [
+     "elote",
+     1
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Agua de horchata": [
+    [
+     "azucar",
+     0.05
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Agua de jamaica": [
+    [
+     "azucar",
+     0.05
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Agua de limón con chía": [
+    [
+     "limon",
+     0.1
+    ],
+    [
+     "azucar",
+     0.05
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Agua de fresa de leche": [
+    [
+     "fresa",
+     0.08
+    ],
+    [
+     "leche",
+     0.2
+    ],
+    [
+     "vasos",
+     1
+    ]
+   ],
+   "Litro de nieve": [
+    [
+     "nieve",
+     1
+    ],
+    [
+     "litros",
+     1
+    ]
+   ],
+   "Medio litro de nieve": [
+    [
+     "nieve",
+     0.5
+    ],
+    [
+     "litros",
+     1
+    ]
+   ],
+   "Paquete de 10 paletas": [
+    [
+     "pal-agua",
+     5
+    ],
+    [
+     "pal-leche",
+     5
+    ]
+   ]
+  },
+  "entregas": {
+   "Producción propia": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "Costco": [
+    2
+   ],
+   "Mercado": [
+    1,
+    4
+   ],
+   "Dulcería": [
+    3
+   ],
+   "Distribuidora": [
+    4
+   ],
+   "Desechables": "q"
+  },
+  "faltan": {
+   "fresa": 1.5,
+   "pal-esp": 12
+  },
+  "mermas": [
+   [
+    1,
+    "platano",
+    0.8,
+    "Se maduró de más"
+   ]
+  ],
+  "quien": [
+   "Lupita",
+   "Brayan",
+   "Doña Mary"
+  ],
+  "credito": "Dulcería"
+ },
+ "horario": [
+  11,
+  22
+ ],
+ "volumen": 0.75,
+ "gastos": {
+  "mes": [
+   [
+    1,
+    "Renta",
+    "Renta del local",
+    9500
+   ],
+   [
+    1,
+    "Software",
+    "Comandero",
+    399
+   ],
+   [
+    3,
+    "Internet y teléfono",
+    "Internet",
+    450
+   ],
+   [
+    5,
+    "Contador",
+    "Honorarios del contador",
+    1000
+   ],
+   [
+    8,
+    "Luz",
+    "Recibo CFE (congeladores)",
+    3400,
+    {
+     "ant": 2900
+    }
+   ],
+   [
+    10,
+    "Agua",
+    "CESPT",
+    400
+   ]
+  ],
+  "semana": [
+   [
+    [
+     2,
+     9,
+     16,
+     23
+    ],
+    "Gas",
+    "Gas LP",
+    350,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     3,
+     10,
+     17,
+     24
+    ],
+    "Limpieza",
+    "Artículos de limpieza",
+    250,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ],
+   [
+    [
+     6,
+     13,
+     20,
+     27
+    ],
+    "Sueldos",
+    "Nómina de la semana",
+    5400,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "unaVez": [
+   [
+    -1,
+    19,
+    "Mantenimiento",
+    "Servicio al congelador de paletas",
+    1200,
+    {
+     "met": "Efectivo",
+     "factura": false
+    }
+   ]
+  ],
+  "porPagar": [
+   [
+    6,
+    "Luz",
+    "Recibo CFE",
+    3400,
+    "CFE"
+   ],
+   [
+    -1,
+    "Dulcería",
+    "Chamoy y dulces de la semana (a crédito)",
+    1600,
+    "Dulcería",
+    {
+     "factura": false
+    }
+   ]
+  ],
+  "pagoDia": {
+   "Lupita": 350,
+   "Brayan": 330,
+   "Doña Mary": 380
+  },
+  "factura": 260
+ },
+ "logo": "p/tu-paleteria/logo.svg",
+ "frase": "Hecho aquí, con fruta de verdad",
+ "tema": {
+  "fuente": "Fredoka",
+  "barra": "#E5197A",
+  "fondo": "#FFF8EF",
+  "estilo": "paleta"
+ },
+ "publica": true
+}
