@@ -100,6 +100,7 @@ details p{margin:8px 0 0;color:#3D3935;font-size:15px}
 .est{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
 .est button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:6px 11px;font-size:13px;font-weight:600;white-space:nowrap;cursor:pointer}
 .est button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.si{background:var(--card);border-radius:var(--r);padding:14px 16px;margin:0 0 14px;box-shadow:0 1px 2px rgba(0,0,0,.04),0 6px 18px rgba(0,0,0,.04)}.si b{display:block;font-size:16px}.si p{margin:6px 0 12px;color:var(--muted);font-size:14px;line-height:1.4}.si.ok{background:var(--ok-soft)}.si.ok b{color:var(--ok)}.si.ok p{color:#2F5E44}.sib{height:8px;border-radius:99px;background:var(--chip);overflow:hidden;margin:10px 0 8px}.sib i{display:block;height:100%;background:var(--ok);border-radius:99px;transition:width .3s}.sik{display:inline-block;font-style:normal;font-size:11.5px;font-weight:700;color:var(--ok);background:var(--ok-soft);border-radius:99px;padding:2px 8px;margin-top:5px}
 </style>
 </head>
 <body>
@@ -141,7 +142,7 @@ function tabs(){$('#tabs').innerHTML=TABS.map(([k,v])=>`<button class="${ui.tab=
 function encab(t,s){$('#top').innerHTML=`<small>${esc(s||'Mostrador Ventas')}</small><h1>${esc(t)}</h1>`}
 function av(d){return `<div class="av" style="background:${esc(d.c)}">${d.logo?`<img src="../${esc(d.logo)}" alt="">`:esc(d.n.replace(/^(La|El|Los|Las|Café|Cafe|Mariscos|Tacos)\s+/i,'').slice(0,2).toUpperCase())}</div>`}
 /* ---------- Pantallas ---------- */
-const VURL='https://msantos4321-bit.github.io/mostrador/video/';
+const VURL=new URL('../mostrador/video/',BASE).href;
 const RESTO=['Café','Comida y desayunos','Hamburguesas y alitas','Jugos','Mariscos','Tacos'];
 const VID=[{k:'todas',t:'Todas las apps',f:'Mostrador-todas-las-apps',d:'g-pruebalo',dur:'1:46',g:[]},
  {k:'abarrotes',t:'Tienda de abarrotes',f:'Mostrador-tienda-abarrotes',d:'g-abarrotes',dur:'1:07',g:['Abarrotes']},
@@ -162,12 +163,12 @@ async function compVideo(v,c){const u=vidUrl(v,c),d=DEMOS.find(x=>x.id===v.d),l=
   if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],text:txt});return}}
  catch(e){if(e&&e.name==='AbortError')return}
  wa(txt+'\n\nVideo: '+u)}
-function sheetVideo(v,c){c=c&&v.k!=='todas';
+function sheetVideo(v,c){const off=!navigator.onLine;if(off)c=true;c=c&&v.k!=='todas';
  modal(`<h2>🎬 ${esc(v.t)}</h2><p class="sub">${c?'Versión corta para WhatsApp, Reels y estados (45 s)':'Versión completa ('+v.dur+') para enseñarla en persona'}</p>
  <div class="vbox"><video src="${vidUrl(v,c)}" poster="${VURL}p-${v.f}.jpg" controls playsinline preload="metadata"></video></div>
  <div class="acts" style="margin-top:14px">
   <button class="btn wa" data-a="compVideo" data-k="${v.k}" data-c="${c?1:''}">Mandar este video por WhatsApp</button>
-  ${v.k!=='todas'?`<button class="btn" data-a="verVideo" data-k="${v.k}" data-c="${c?'':1}">${c?'Ver la versión completa':'Ver la versión corta (45 s)'}</button>`:''}
+  ${v.k!=='todas'&&!off?`<button class="btn" data-a="verVideo" data-k="${v.k}" data-c="${c?'':1}">${c?'Ver la versión completa':'Ver la versión corta (45 s)'}</button>`:''}
   <button class="btn" data-a="demo" data-i="${v.d}">Abrir su demo</button>
   ${(()=>{const d=DEMOS.find(x=>x.id===v.d);return d&&d.guia?`<button class="btn" data-a="mandarGuia" data-i="${d.id}">Mandar la guía en PDF</button>`:''})()}
  </div>
@@ -189,9 +190,10 @@ function vDemos(){encab('Demos',yo()?'Hola, '+yo():'Mostrador Ventas');
   let h=instalada()?'':`<div class="inst"><div style="flex:1"><b>Instálala en tu celular</b><p>Queda como app, con su ícono, y se actualiza sola.</p></div><button class="btn pri" data-a="instalar">Instalar</button></div>`;
   const pr=DEMOS.find(d=>d.id==='g-pruebalo'),todas=VID[0];
   h+=`<div class="hero"><b>Empieza aquí con cualquier negocio</b><p>Enséñale el video de todas las apps y abre «Pruébalo»: escribe el nombre del negocio y el dueño ve las apps como suyas.</p><div class="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px"><button class="btn dk" data-a="verVideo" data-k="todas">▶ Video (${todas.dur})</button>${pr?`<button class="btn" data-a="demo" data-i="g-pruebalo">Abrir «Pruébalo»</button><button class="btn qrb" data-a="qrDemo" data-i="g-pruebalo" style="grid-column:1/-1">▦ QR de todas las apps</button>`:''}</div></div>`;
+  h+=cardSI();
   h+='<div class="sec">Un kit por tipo de negocio</div><div class="list">';
   for(const k of KITS){const v=VID.find(x=>x.d===k.own),o=DEMOS.find(d=>d.id===k.own),c=DEMOS.find(d=>d.id===k.cli),g=o?ligaGuia(o):'';
-    h+=`<div class="kit"><button class="kh" ${v?`data-a="verVideo" data-k="${v.k}"`:`data-a="demo" data-i="${k.own}"`}>${v?`<img src="${VURL}p-${v.f}.jpg" alt="Video" loading="lazy">`:(o&&o.logo?`<img src="../${esc(o.logo)}" alt="" loading="lazy" style="object-fit:contain;background:#2B1E16">`:'')}<div><b><i style="background:${k.c}"></i>${esc(k.t)}</b><span>${esc(k.s)}</span></div></button>
+    h+=`<div class="kit"><button class="kh" ${v?`data-a="verVideo" data-k="${v.k}"`:`data-a="demo" data-i="${k.own}"`}>${v?`<img src="${VURL}p-${v.f}.jpg" alt="Video" loading="lazy">`:(o&&o.logo?`<img src="../${esc(o.logo)}" alt="" loading="lazy" style="object-fit:contain;background:#2B1E16">`:'')}<div><b><i style="background:${k.c}"></i>${esc(k.t)}</b><span>${esc(k.s)}</span>${siKits()[k.k]?'<em class="sik">✓ Lista sin internet</em>':''}</div></button>
     <div class="g2"><button class="btn qrb" data-a="qr" data-k="${k.k}" style="grid-column:1/-1">▦ Mostrar QR para instalar</button>${o?`<button class="btn" data-a="demo" data-i="${k.own}">App del negocio</button>`:''}${c?`<button class="btn" data-a="demo" data-i="${k.cli}">App de sus clientes</button>`:''}${v?`<button class="btn" data-a="verVideo" data-k="${v.k}">▶ Video</button>`:''}${g?`<a class="btn" href="${esc(g)}" target="_blank" rel="noopener">📘 Guía PDF</a>`:''}${k.x?`<button class="btn" data-a="demo" data-i="${k.x}" style="grid-column:1/-1">Versión taquería</button>`:''}</div></div>`}
   h+=`</div><p class="hint" style="margin-top:14px">¿Ya dijo que sí? Abre la app del negocio y toca «Dijo que sí: pedir su alta». Su versión con sus productos y su logo la armamos nosotros.</p>`;
   return h}
@@ -323,8 +325,63 @@ function qrFull(){const s=ui.qr;if(!s)return;const d=DEMOS.find(x=>x.id===s.ids[
   ov.innerHTML=`<b style="font-size:20px;color:#111;text-align:center">${esc(d.n)}</b><div style="width:min(88vw,70vh)">${qrSvg(ligaQR(d))}</div><p style="color:#333;font-size:16px;text-align:center;margin:0">Abre la cámara y apunta aquí</p><button style="border:0;background:#111;color:#fff;border-radius:14px;padding:14px 28px;font-weight:700;font-size:16px">Cerrar</button>`;
   ov.onclick=()=>ov.remove();document.body.appendChild(ov);try{navigator.wakeLock&&navigator.wakeLock.request('screen').then(l=>{ov.addEventListener('click',()=>l.release())}).catch(()=>{})}catch(e){}}
 
+/* ---------- Demos sin internet (20 nov 2026) ----------
+   Baja a la caja «mostrador-sin-internet» todo lo de sin-internet.json (demos de los 10 giros, guías,
+   videos cortos y letras) y registra los service workers de las demos: así abren en modo avión.
+   Solo vuelve a bajar lo que cambió. */
+const PACK='mostrador-sin-internet',RAIZM=new URL('../mostrador/',BASE).href;
+const SI={st:LS.get('si',null),corre:false,pct:0,err:'',mb:LS.get('si-mb',26)};
+const siKits=()=>(SI.st&&SI.st.ok)||{};
+const siListas=()=>KITS.every(k=>siKits()[k.k]);
+function cuando(t){const m=Math.round((Date.now()-t)/6e4);return m<2?'hace un momento':m<60?'hace '+m+' min':m<1440?'hace '+Math.round(m/60)+' h':'hace '+Math.round(m/1440)+' días'}
+function cardSI(){
+  if(SI.corre)return `<div class="si" id="si"><b>Descargando demos para usar sin internet… <span id="sip">${SI.pct}%</span></b><div class="sib"><i id="sii" style="width:${SI.pct}%"></i></div><p style="margin:0">Puedes seguir usando la app mientras termina.</p></div>`;
+  if(siListas()&&!SI.err)return `<div class="si ok" id="si"><b>✓ Demos listas sin internet</b><p>Las ${KITS.length} demos, sus guías y sus videos cortos abren en modo avión. Se actualizan solas cuando tienes internet${SI.st&&SI.st.t?' · revisadas '+cuando(SI.st.t):''}.</p><button class="btn sm" data-a="siBajar">Revisar si hay cambios</button></div>`;
+  return `<div class="si" id="si"><b>Usa las demos sin internet</b><p>${SI.err?esc(SI.err):`Descárgalas una vez con Wi-Fi (unos ${SI.mb} MB): las ${KITS.length} demos, sus guías y sus videos cortos. Después abren en modo avión, aunque el negocio no tenga señal.`}</p><button class="btn pri" data-a="siBajar">${SI.err?'Reintentar':'Descargar demos para usar sin internet'}</button></div>`}
+function pintaSI(soloPct){if(soloPct){const a=$('#sip'),b=$('#sii');if(a)a.textContent=SI.pct+'%';if(b)b.style.width=SI.pct+'%';if(a)return}
+  if(ui.tab==='demos'&&!$('#modal').innerHTML.trim()){const y=scrollY;render();scrollTo(0,y)}}
+function regSW(){if(!('serviceWorker' in navigator))return;
+  navigator.serviceWorker.register(RAIZM+'sw-demo.js',{scope:RAIZM}).catch(()=>{});
+  navigator.serviceWorker.register(BASE+'sw.js',{scope:BASE}).catch(()=>{})}
+async function siDescargar(manual){
+  if(SI.corre)return;
+  if(!('caches' in window)){if(manual)toast('Este navegador no deja guardar las demos');return}
+  if(!navigator.onLine){if(manual)toast('Conéctate a internet para descargarlas');return}
+  SI.corre=true;SI.pct=0;SI.err='';pintaSI();
+  try{
+    const L=await (await fetch('sin-internet.json',{cache:'no-cache'})).json();
+    SI.mb=Math.max(1,Math.round(L.bytes/1e6));LS.set('si-mb',SI.mb);
+    const st=Object.assign({h:{},ok:{}},SI.st||{});
+    regSW();
+    try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
+    const cache=await caches.open(PACK),grupos=[L.comun,...Object.values(L.kits)];
+    const todos=new Map();for(const g of grupos)for(const[u,n,h]of g.a)todos.set(u,[n,h]);
+    const faltan=[];for(const[u,[n,h]]of todos)if(st.h[u]!==h||!(await cache.match(u)))faltan.push([u,n,h]);
+    const tot=faltan.reduce((s,x)=>s+x[1],0)||1,malos=new Set();let hecho=0,i=0;
+    async function trabaja(){while(i<faltan.length){const[u,n,h]=faltan[i++];
+      try{const r=await fetch(u,{cache:'no-cache'});if(!r.ok)throw 0;await cache.put(u,r);st.h[u]=h}catch(e){malos.add(u)}
+      hecho+=n;SI.pct=Math.min(99,Math.round(hecho*100/tot));pintaSI(true)}}
+    await Promise.all([1,2,3,4].map(trabaja));
+    // Letras de cada diseño (Google las da según el celular, por eso se bajan desde aquí)
+    const fu=new Set();for(const g of grupos)(g.f||[]).forEach(x=>fu.add(x));
+    for(const f of fu){try{if(await cache.match(f))continue;const r=await fetch(f,{mode:'cors'});if(!r.ok)continue;const css=await r.clone().text();
+      await Promise.all([...css.matchAll(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)/g)].map(async m=>{if(!(await cache.match(m[1]))){const w=await fetch(m[1],{mode:'cors'});if(w.ok)await cache.put(m[1],w)}}));
+      await cache.put(f,r)}catch(e){}}
+    const comunOk=!L.comun.a.some(x=>malos.has(x[0]));st.ok={};
+    for(const[k,g]of Object.entries(L.kits))if(comunOk&&!g.a.some(x=>malos.has(x[0])))st.ok[k]=1;
+    st.v=malos.size?'':L.v;st.t=Date.now();SI.st=st;LS.set('si',st);
+    if(malos.size)SI.err=`Faltaron ${malos.size} archivos por la señal. Toca «Reintentar» con Wi-Fi.`;
+    else if(manual||faltan.length)toast(siListas()?'Listo: las demos ya funcionan sin internet':'Listo');
+  }catch(e){SI.err='No se pudo descargar. Revisa tu internet y vuelve a intentar.'}
+  SI.corre=false;pintaSI()}
+// Sola: si ya las descargó alguna vez (para tenerlas al día) o si está en Wi-Fi
+function siAuto(){const c=navigator.connection||{};if(!navigator.onLine||c.saveData)return;
+  if((SI.st&&SI.st.t)||c.type==='wifi'||c.type==='ethernet')setTimeout(()=>siDescargar(false),2500)}
+addEventListener('online',siAuto);
+
 const A={
  cerrarX:()=>cerrar(),
+ siBajar:()=>siDescargar(true),
  instalar:()=>{if(DEFER){DEFER.prompt();DEFER.userChoice.finally(()=>{DEFER=null;render()})}else modal(`<h2>📲 Instalar la app</h2><p class="sub">Así queda en tu pantalla como cualquier app.</p><div class="card"><b>Android (Chrome)</b><p class="hint">Toca ⋮ arriba a la derecha → «Instalar app» o «Agregar a la pantalla principal».</p><b style="display:block;margin-top:10px">iPhone (Safari)</b><p class="hint">Toca el botón Compartir (cuadro con flecha) → «Agregar a inicio».</p></div>`)},
  copiarLiga:d=>copiar(ligaCon(DEMOS.find(x=>x.id===d.i))),
  verVideo:d=>sheetVideo(VID.find(v=>v.k===d.k),!!d.c),
@@ -366,7 +423,7 @@ document.addEventListener('change',e=>{const t=e.target;
   if(t.id==='nom'){LS.set('nombre',t.value.trim().slice(0,40));toast('Guardado');render();return}
   if(t.id==='cor'){LS.set('correo',t.value.trim());toast('Guardado');return}});
 addEventListener('scroll',()=>$('#top').classList.toggle('sc',scrollY>4),{passive:true});
-fetch('demos.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{DEMOS=d;render()}).catch(()=>{$('#app').innerHTML='<div class="empty">No se pudieron cargar las demos. Revisa tu internet y vuelve a abrir.</div>'});
+fetch('demos.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{DEMOS=d;render();siAuto()}).catch(()=>{$('#app').innerHTML='<div class="empty">No se pudieron cargar las demos. Revisa tu internet y vuelve a abrir.</div>'});
 render();
 if(!yo())setTimeout(()=>{modal(`<h2>¡Hola!</h2><p class="sub">Esta es tu app para vender los sistemas de Mostrador. ¿Cómo te llamas?</p><input id="nom1" type="text" placeholder="Tu nombre" autocomplete="given-name"><div class="acts" style="margin-top:14px"><button class="btn pri" id="nomOk">Empezar</button></div><p class="hint">Tu nombre va en las ligas que mandes, para que las ventas queden a tu nombre.</p>`);$('#nomOk').onclick=()=>{const v=$('#nom1').value.trim();if(!v){toast('Escribe tu nombre');return}LS.set('nombre',v.slice(0,40));cerrar();render()}},400);
 try{history.replaceState({t:0},'');history.pushState({t:1},'');addEventListener('popstate',()=>{if($('#modal').innerHTML.trim()){cerrar();history.pushState({t:1},'');return}if(ui.tab!=='demos'){ui.tab='demos';render();history.pushState({t:1},'');return}})}catch(e){}
