@@ -1,6 +1,6 @@
 // Mostrador Ventas. v23 (20 nov 2026): ya no borra las cajas de otras apps y, sin internet,
 // también sirve los videos, portadas y guías que se descargaron con «Descargar demos para usar sin internet».
-const C='ventas-v23';
+const C='ventas-v25';
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(['./','demos.json','manifest.json','qr.js','sin-internet.json'].map(u=>new Request(u,{cache:'reload'})))).catch(()=>{}))});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('ventas-')&&k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 // Partes de un video (el reproductor las pide por pedazos)
